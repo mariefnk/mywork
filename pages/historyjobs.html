@@ -1,0 +1,146 @@
+
+<script src=".Javascript/jobsScript.js"></script>
+
+<style>
+
+
+
+
+#exTab2 li.active a{ 
+		background-color: #428bca;
+	  color : white;
+	 
+
+}
+#exTab2 li a{
+	background-color:white;
+ color:#428bca;
+}
+
+button.moreinfo{
+border: none;
+ background-color:white;
+}
+thead{
+	border-left: 1px solid #ddd;
+color:white;
+	background-color:#428bca;
+	text-align: center;
+}
+.table thead tr th, .table tbody tr td {
+    padding-top: 2%;
+	 padding-bottom: 2%;
+	  padding-left: 2%;
+	   padding-right: 2%;
+	  text-align: center;
+}
+
+
+/* remove border radius for the tab */
+
+	</style>	
+
+
+   
+   <div class="col-md-2">
+                        <div data-toggle="collapse" data-target="#filter-myworks" class="my-works-filter-title"><i class="fa fa-filter" aria-hidden="true"></i> Filters</div>  
+                             <div id="filter-myworks" class="collapse">
+                             <ul id="filter">
+							<li data-toggle="collapse" data-target="#filter-myworks-months" class="filter-years"><div class ="filter-year" btn btn-default>Category</div>
+								    <div id="filter-myworks-months"  class="collapse">
+                                     <ul class="list-filter-month">
+                                     <li class ="filter-month">April</li>
+                                     <li class ="filter-month">March</li>
+                                     <li class ="filter-month">February</li>
+                                     <li class ="filter-month">January</li>
+                                     </ul>
+                                     
+                                 </div>
+								  </li>
+                                  <li data-toggle="collapse" data-target="#filter-myworks-location" class="filter-location"><div class ="filter-year"  btn btn-default>Location</div></li>
+								  <li data-toggle="collapse" data-target="#filter-myworks-months" class="filter-years"><div class ="filter-year" btn btn-default>2017</div>
+								    <div id="filter-myworks-months"  class="collapse">
+                                     <ul class="list-filter-month">
+                                     <li class ="filter-month">April</li>
+                                     <li class ="filter-month">March</li>
+                                     <li class ="filter-month">February</li>
+                                     <li class ="filter-month">January</li>
+                                     </ul>
+                                    
+                                 </div>
+								  </li>
+							 </ul>
+							 
+                                 
+                             </div>
+                        </div>
+     	<div class="col-md-8">
+<div id="exTab2">	
+<ul class="nav nav-tabs">
+			<li>
+        <a href="#/currentjobs" data-toggle="tab">Current</a>
+			</li>
+			<li><a href="#/pendingjobs" data-toggle="tab">Pending</a>
+			</li>
+			<li class="active"><a href="#historyjobs" data-toggle="tab">History</a>
+			</li>
+		</ul>
+
+  </div>
+                               <table id="my-works-table" class="table">
+                             <thead>
+                                 <tr>
+                                     <th>Contract</th>
+                                     <th>First Name</th>
+                                     <th>Last Name</th>
+                                     <th>Start Date</th>
+                                     <th>End Date</th>
+                                     <th>Location</th>
+                                     <th>Total Paid</th>
+                                 </tr>
+                             </thead>
+							<tbody>
+							<tr ng-repeat-start="a in appointments">
+						<td>
+							<button class="moreinfo" ng-if="a.expanded" ng-click="a.expanded = false"><span><i class="fa fa-caret-right expand-arrow" ng-if="a.expanded" ng-click="a.expanded = false" aria-hidden="true"></i></span></button>
+              			<button class="moreinfo" ng-if="!a.expanded" ng-click="a.expanded = true"> <span><i class="fa fa-caret-right" ng-if="!a.expanded" ng-click="a.expanded = true" aria-hidden="true"></i></span></button>
+						  {{a.contract_id}}
+						</td>
+		            	<td>{{a.first_name}}</td>
+						<td>{{a.last_name}}</td>
+			            <td>{{a.start_date}}</td>
+                        <td>{{a.end_date}}</td>
+						<td>{{a.location}}</td>
+                        <td>{{a.paid}}</td>
+						
+						<!--<td style="display:none;">{{a.month}}</td>-->
+						</tr>
+
+						 <tr ng-if="a.expanded" ng-repeat-end="">
+            			<td colspan="5"><button id="myBtn{{a.contract_id}}" ng-click="modalDisp(a.first_name)" data-toggle="modal" data-target="#myModal">Open Modal</button></td>
+         				 </tr>
+							</tbody>
+                                
+                     </table>
+     	</div>
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
