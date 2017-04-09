@@ -2,67 +2,54 @@
 
 
 var myApp=angular.module('myApp',[
-    'ngAnimate',
-    'ngCookies',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch'
+  'ngRoute',
+  'ngAnimate',
+  'ngCookies',
+  'ngResource',
+  'ngSanitize',
+  'ngTouch'
   ]);
 
 myApp.config(function ($routeProvider){
+
   $routeProvider
-  //from yeoman
-  .when('/', {
-    templateUrl: 'views/main.html',
-    controller: 'MainCtrl',
-    controllerAs: 'main'
-  })
-  .when('/about', {
-    templateUrl: 'views/about.html',
-    controller: 'AboutCtrl',
-    controllerAs: 'about'
-  })
-  //ours
   .when('/currentjobs',{
-      templateUrl:'pages/currentjobs.html',
+      templateUrl:'views/currentjobs.html',
       controller:'currentjobsController'
 
   })
-
   .when('/pendingjobs',{
-      templateUrl:'pages/pendingjobs.html',
+      templateUrl:'views/pendingjobs.html',
       controller:'pendingController'
   })
 
   .when('/historyjobs',{
-      templateUrl:'pages/historyjobs.html',
+      templateUrl:'views/historyjobs.html',
       controller:'historyJobsController'
   })
 
   .when ('/payment',{
-    templateUrl:'pages/payment.html',
+    templateUrl:'views/payment.html',
     controller:'paymentController'
   })
 
   .when ('/paymentHistory',{
-    templateUrl:'pages/paymentHistory.html',
+    templateUrl:'views/paymentHistory.html',
     controller:'paymentHistoryController'
   })
 
   .when('/settings',{
-    templateUrl:'pages/settings.html',
+    templateUrl:'views/settings.html',
     controller:'settings'
   })
 
   .when ('/myreviews',{
-    templateUrl:'pages/myreviews.html',
+    templateUrl:'views/myreviews.html',
     controller:'myreviewsController'
   })
 
   .otherwise({
     redirectTo:'/currentjobs'
-    
   });
 
 });
@@ -99,7 +86,9 @@ $scope.appointments = [];
   $scope.selectedMonth = "";
   
    $scope.selectedMonthFilter = function(element) {
-    if(!$scope.selectedMonth) return true;
+    if(!$scope.selectedMonth) {
+      return true;
+    }
     return element.created.getMonth() == $scope.selectedMonth;
   }
   

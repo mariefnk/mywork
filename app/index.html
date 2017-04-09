@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html ng-app="myApp">
   <head>
     <meta charset="utf-8">
     <title>My Works</title>
@@ -20,7 +20,7 @@
      <link rel="stylesheet" href="styles/tablesFormat.css"/>
     <!-- endbuild -->
   </head>
-  <body ng-app="myApp">
+  <body>
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -35,7 +35,7 @@
                 <li onclick="$('.jobsSubItems').toggle();"><a href="#/currentjobs"><span class="nav-item-text">Jobs</span></a></li>
                 <li><a href="#"><span class="nav-item-text">Messages</span></a></li>
                 <li><a href="#"><span class="nav-item-text">Calendar</span></a></li>
-                <li><a href="#"><span class="nav-item-text">Payment</span></a></li>
+                <li><a href="#/paymentHistory"><span class="nav-item-text">Payment</span></a></li>
             </ul>
         </div>
 
@@ -153,6 +153,7 @@
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-loader/angular-loader.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-aria/angular-aria.js"></script>
@@ -169,8 +170,6 @@
   <!-- build:js({.tmp,app}) scripts/scripts.js -->
   <script src="scripts/app.js"></script>
   <script src="scripts/marie-script.js"></script>
-  <script src="scripts/controllers/main.js"></script>
-  <script src="scripts/controllers/about.js"></script>
   <!-- endbuild -->
 </body>
 </html>
