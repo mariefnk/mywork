@@ -1,4 +1,6 @@
-
+// Code here will be linted with JSHint.
+/* jshint ignore:start */
+'use strict';
 
 function openJobOfferList() {
     document.getElementById("job-offer-list").style.height = "100%";
@@ -58,8 +60,10 @@ function updateSectionCheck(target) {
         } else {
                 if (emptyElements.length == 0) {
                     checkmarkEl.show();
+                   
                 } else {
                     checkmarkEl.hide();
+                     
                 }
             }
 }
@@ -184,6 +188,7 @@ function saveWorker() {
     if (hasErrors) {
         $('#account').collapse('show');
         alert('Please fill in required Account details');
+     
         return false;
     }
 
@@ -375,37 +380,41 @@ function isValid(type, value) {
 }
 
 function addWorker(worker) {
-    var content = '<div class="col-md-4">'
-        + '<div class=" worker-search-info workers-search">'
+    var content = '<div class="col-md-12">'
+    +'<a onclick="setSelectedWorker(' + worker.id + ')" href="#/selectedWorker">'
+       + '<div class="col-md-2">'
         + '<div class="profile-picture-worker-search">'
         + '<li class="worker-search-info">'
-        + '<img src=' + worker.profilePic + ' class="img-responsive" alt="Worker Profile Picture">'
-//        + '<a class="message-worker" href="#" onclick="openChat">'
-//        + '<i class="fa fa-envelope open-message-icon"'
-//        + 'aria-hidden="true"></i>Message</a>'
+        + '<img src=' + worker.profilePic + ' class="img-responsive" alt="Worker Profile Picture" style="margin-left:30px;">'
         + '</li>'
         + '</div>'
+        + '</div>'
+        + '<div class="worker-search-info workers-search">'
+        + '<div class="row">'
+     
+        + '<div class="col-md-10" style="padding-left:0px;">'
         + '<li class="worker-search-info worker-name">'
         + worker.firstName + ' ' + worker.lastName
         + '</li>'
+        + '<li class="worker-search-info"> Looking for a position as a '
+        + worker.category
+        + ' </li>'
         + '<li class="worker-search-info"><i class="fa fa-star" aria-hidden="true"></i>'
         + '<i class="fa fa-star" aria-hidden="true"></i>'
         + '<i class="fa fa-star" aria-hidden="true"></i>'
         + '<i class="fa fa-star" aria-hidden="true"></i>'
         + '<i class="fa fa-star-o" aria-hidden="true"></i></li>'
-        /*+ '<li class="worker-search-info availability-status">Available for requested dates</li>'*/
-        + '<li class="worker-search-info">'
-        + worker.category
+        + '<li class="worker-search-info"> Available: '
+        + Object.keys(worker.schedule).reduce(function(acc, val) {return acc + ' ' + val.substr(val.indexOf('-')+1)}, '')
         + '</li>'
-        + '<li class="worker-search-info">'
-        + Object.keys(worker.schedule).reduce(function(acc, val) {return acc + ' ' + val.substr(val.indexOf('-')+1, 3)}, '')
-        + '</li>'
-        + '<button type="button" class ="btn btn-default"><li class="worker-search-info"><a onclick="setSelectedWorker(' + worker.id + ')" href="worker-search-selected-profile.html">See more details</a></li></button>'
-        + '<li class="worker-search-info">'
-//        + '<button type="button" class="btn btn-default">Send request</button>'
-        + '</li>'
+//        + '<button type="button" class ="btn btn-default"><li class="worker-search-info"><a onclick="setSelectedWorker(' + worker.id + ')" href="worker-search-selected-profile.html">See more details</a></li></button>'
+//        + '<li class="worker-search-info">'
+////        + '<button type="button" class="btn btn-default">Send request</button>'
+//        + '</li>'
         + '</div>'
         + '</div>'
+        + '</div>'
+        + '</a>'
         + '</div>';
 
     $('.workers-list > div.row').append($(content));
@@ -416,16 +425,33 @@ function setSelectedWorker(id) {
 }
 
 function signupPageSetup() {
-    $('.expiration-date-input').datepicker({
-        minDate: '+0d',
-        yearRange: new Date().getFullYear() + ':2050',
+    
+       $(".expiration-date-input").datepicker({
+        dateFormat: 'MM yy',
         changeMonth: true,
-        changeYear: true
+        changeYear: true,
+        showButtonPanel: true,
+        yearRange: new Date().getFullYear()+':' + '2027',
+
+        onClose: function(dateText, inst) {
+            var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+            var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+            $(this).val($.datepicker.formatDate('mm/yy', new Date(year, month, 1)));
+        }
     });
 
+    $(".expiration-date-input").focus(function () {
+        $(".ui-datepicker-calendar").hide();
+        $("#ui-datepicker-div").position({
+            my: "center top",
+            at: "center bottom",
+            of: $(this)
+        });
+    });
+    
     $('.dob-input').datepicker({
         maxDate: '+0d',
-        yearRange: '1920:' + new Date().getFullYear(),
+        yearRange: '1950:' + new Date().getFullYear(),
         changeMonth: true,
         changeYear: true
     });
@@ -481,6 +507,10 @@ function signupPageSetup() {
             var errmsg = $('#errmsg');
             $(target).parent().append(errmsg);
             errmsg.show();
+            $(target).css('border-bottom','2px solid crimson');
+         
+        }else{
+            $(target).css('border-bottom','1px solid #6E6E6E');
         }
     });
 
@@ -770,16 +800,28 @@ $(function() {
     return $(".starrr").starrr();
 });
 
+
+
+function getFiltersCount(){
+    var form = document.forms[0]; // your form element (whatever)
+var checkedElms = form.querySelectorAll(':checked').length;
+//    var checked = $("input[@type=checkbox]:checked"); //find all checked checkboxes + radio buttons
+//var nbChecked = checked.size();
+     $('#clear-all').css('display', 'inline-block');
+      $('#count-filters').html(checkedElms);
+}
+
+
 $( document ).ready(function() {
+    
       
   $('#stars').on('starrr:change', function(e, value){
 
     $('#count').html(value);
+  
   });
   
 });
 
-
-
-
-
+// Code here will be ignored by JSHint.
+/* jshint ignore:end */
