@@ -59,8 +59,8 @@ myApp.config(function ($routeProvider){
     templateUrl:'views/reviews-page.html',
     controller:'ReviewsControllers'
   })
-   .when('/reviewsPage', {
-    templateUrl:'views/reviews-page.html',
+   .when('/messagesPage', {
+    templateUrl:'views/messages.html',
     controller:'MessagesControllers'
   })
   .otherwise({
@@ -74,6 +74,10 @@ myApp.controller('settings',['$scope','$log', function($scope,$log){
 }]);
 
 myApp.controller('SearchWorkerSelected', [
+  
+]);
+
+myApp.controller('MessagesControllers', [
   
 ]);
 

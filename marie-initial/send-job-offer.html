@@ -1,4 +1,8 @@
 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css"
+          integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:500" rel="stylesheet">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.min.css"/>
 
 <div id="mask"></div>
 <div id="job-offer-popup" class="container">
@@ -43,25 +47,25 @@
     <script>
        $('#job-offer-popup .title').html(worker.firstName + ' ' + worker.lastName);
         $('#job-offer-popup .rate').html("$" + worker.expectedSalary + "/hour");
-//        var scheduler = $('#scheduler').datepicker({
-//            onSelect: function(dateText) {
-//                var holder = $('.dates-selection');
-//                var content = '<div class="job-timing">';
-//                content += '<div class="job-date">' + dateText + '</div>';
-//                content += 'From ';
-//                content += appendTimePicker('from');
-//                content += 'To ';
-//                content += appendTimePicker('to');
-//                content += '&nbsp;<i class="fa fa-remove" style="color: red;" onclick="removeJobTiming(this);"></i>';
-//                content += '</div>';
-//
-//                holder.append(content);
-//                $('#scheduleBtn .fields-validation-check').show();
-//                updateScheduleNowButton();
-//            }
-//        });
-//        scheduler.show();
-//    });
+       var scheduler = $('#scheduler').datepicker({
+           onSelect: function(dateText) {
+               var holder = $('.dates-selection');
+               var content = '<div class="job-timing">';
+               content += '<div class="job-date">' + dateText + '</div>';
+               content += 'From ';
+               content += appendTimePicker('from');
+               content += 'To ';
+               content += appendTimePicker('to');
+               content += '&nbsp;<i class="fa fa-remove" style="color: red;" onclick="removeJobTiming(this);"></i>';
+               content += '</div>';
+
+               holder.append(content);
+               $('#scheduleBtn .fields-validation-check').show();
+               updateScheduleNowButton();
+           }
+       });
+       scheduler.show();
+   
 
     function removeJobTiming(el) {
         $(el).closest('.job-timing').remove();
@@ -84,11 +88,11 @@
         content += '</select>';
         return content;
     }
-//
-//    function openOfferPopup() {
-//        $('#mask').show();
-//        $('#job-offer-popup').show();
-//    }
+
+   function openOfferPopup() {
+       $('#mask').show();
+       $('#job-offer-popup').show();
+   }
 
     $('input, textarea').on('change', function(e) {
         e = e || window.event;
