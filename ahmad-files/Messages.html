@@ -17,6 +17,9 @@
 		var selectedContactIndex = 0;
 		var aBook = account.contacts;
 		
+		var selectedContact2 = filteredContacts[0];
+		var selectedContactIndex2 = 0;
+		
 	</script>
 	<style>
 
@@ -52,7 +55,15 @@
 <footer>
 	<div id="messagesPanel">
 		<div id="messagesToggle"><h4>Messages</h4></div>
-		<div id="contactsPanel" class="collapse">Hello</div>
+		<div id="contactsPanel" class="collapse"></div>
+	</div>
+	<div id="dialogPanel" class="collapse">
+		<div id="miniDialog">	
+		</div>
+		<div id="send-panel-mini">
+			<input type="text" class="form-control" id="sendMessageTF" style="margin-top:10px; width:%100"><br>
+			<button id="sendBtn" class="btn btn-primary" type="button" style=" margin-top:10px">Send</button>
+		</div>
 	</div>
 </footer>
 </html>

@@ -82,9 +82,11 @@ function contactSelected(selectedContact){
 //	showDialog(aBook.contacts[selectedContact]);
 }
 
+function contactSelectedInPanel(selectedContact){	
+	showDialogPanel(selectedContact);
+}
+
 function showContactsList(contactsList){
-	//var contactsList = account.contacts.contacts;
-	//alert(contactsList.length);
 	$('#contact-list').empty();
 	for(var i in contactsList){
 		var mediaDiv = document.createElement('div');
@@ -125,15 +127,13 @@ function showContactsList(contactsList){
 }
 
 function showContactsPanel(contactsList){
-	//var contactsList = account.contacts.contacts;
-	//alert(contactsList.length);
 	$('#contactsPanel').empty();
 	for(var i in contactsList){
 		var mediaDiv = document.createElement('div');
 		mediaDiv.className = 'media';
 		mediaDiv.id = i + 'contact';
 		//var action = "divSelected(" + i + "contact)";
-		var action = "divSelected('" + i + "contact')";
+		var action = "divSelectedInPanel('" + i + "contact')";
 		mediaDiv.setAttribute("onClick", action);
 		
 		var mediaHeading = document.createElement('h4');
@@ -167,7 +167,6 @@ function showContactsPanel(contactsList){
 }
 
 function showContactDetails(selectedContactt){
-	//var selectedContact = account.contacts.contacts[selectedContact];
 	$('#top-panel').empty();
 	var mediaDiv = document.createElement('div');
 		mediaDiv.className = 'media';
@@ -242,10 +241,53 @@ function showDialog(selectedContact){
 	}
 }
 
+function showDialogPanel(selectedContact){
+	$('#miniDialog').empty();
+	var messages = selectedContact.mailBox.messages;
+	for(var i in selectedContact.mailBox.messages){
+		var mediaDiv = document.createElement('div');
+		mediaDiv.className = 'media';
+		var mediaBodyDiv = document.createElement('div');
+		mediaBodyDiv.className = 'media-body';
+		var node = document.createTextNode(messages[i].message);
+		mediaBodyDiv.appendChild(node);
+		
+		
+		var mediaIMGDiv = document.createElement('div');
+
+		var mediaIMG = document.createElement('img');
+		
+		mediaIMG.src = messages[i].from.picture;
+		mediaIMG.className = 'media-object img-circle';
+		mediaIMGDiv.appendChild(mediaIMG);
+		
+		
+		if(messages[i].from == account){
+			mediaIMGDiv.className = 'media-left media-middle';
+			mediaBodyDiv.className += ' leftMessage';
+			mediaDiv.appendChild(mediaIMGDiv);
+			mediaDiv.appendChild(mediaBodyDiv);
+		}
+		else {
+			mediaIMGDiv.className = 'media-right media-middle';
+			mediaBodyDiv.className += ' rightMessage';
+			mediaDiv.className += ' rightAlignment';
+			var wraper = document.createElement('div');
+			wraper.appendChild(mediaBodyDiv);
+			wraper.appendChild(mediaIMGDiv);
+			mediaDiv.appendChild(wraper);
+		}
+		$('#miniDialog').append(mediaDiv);
+		var dateP = document.createElement('p');
+		var dateNode = document.createTextNode(messages[i].date.toDateString());
+		dateP.appendChild(dateNode);
+		$('#miniDialog').append(dateP);
+	}
+}
+
 function searchContacts(contact){
 	var key = $('#searchTF').val();
 	var regExp = new RegExp(key,'i');
-	//alert(key);
 	return regExp.test(contact.fullName());
 }
 
@@ -262,6 +304,13 @@ function divSelected(contactIndex){
 	selectedContactIndex = parseInt(contactIndex);
 	selectedContact = filteredContacts[selectedContactIndex];
 	contactSelected(selectedContact);
+}
+
+function divSelectedInPanel(contactIndex){
+	selectedContactIndex2 = parseInt(contactIndex);
+	selectedContact2 = filteredContacts[selectedContactIndex2];
+	showDialogPanel(selectedContact2);
+	$('#dialogPanel').slideDown();
 }
 
 $(document).ready(function() {
@@ -288,13 +337,23 @@ $(document).ready(function() {
 	$("#messagesToggle").click(function (){
 		showContactsPanel(filteredContacts);
 		$("#contactsPanel").slideToggle();
+		$('#dialogPanel').slideUp();
 	});
+	
 //	$("#contact-list .media").click(function(){
 //		//alert(this.id);
 //		selectedContactIndex = parseInt(this.id);
 //		selectedContact = filteredContacts[selectedContactIndex];
 //		contactSelected(selectedContact);
 //	});
+
+//	$("#contactsPanel .media").click(function(){
+//		//alert(this.id);
+//		selectedContactIndex = parseInt(this.id);
+//		selectedContact = filteredContacts[selectedContactIndex];
+//		contactSelected(selectedContact);
+//	});
+	
 	
 	$("#search-contacts").keyup(function(){
 		//alert(account.contacts.contacts.filter(searchContacts));
