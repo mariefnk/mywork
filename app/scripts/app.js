@@ -47,9 +47,16 @@ myApp.config(function ($routeProvider){
     templateUrl:'views/myreviews.html',
     controller:'myreviewsController'
   })
-
+  .when ('/home-page-employer',{
+    templateUrl:'views/home-page-employer.html',
+    controller:'HomePageController'
+  })
+  .when('/', {
+    templateUrl:'views/home-page-employer.html',
+    controller:'HomePageController'
+  })
   .otherwise({
-    redirectTo:'/currentjobs'
+    redirectTo:'/home-page-employer'
   });
 
 });
@@ -57,6 +64,12 @@ myApp.config(function ($routeProvider){
 myApp.controller('settings',['$scope','$log', function($scope,$log){
 
 }]);
+
+myApp.controller('HomePageController', [
+  function () {
+    employerPageSetup();
+  }
+]);
 
 
 myApp.controller('myreviewsController',['$scope', '$log', function($scope,$log){

@@ -31,7 +31,7 @@
         <div class="employer-navbar navbar navbar-inverse navbar-fixed-left nav-collapsed">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <ul class="nav navbar-nav">
-                <li class="icon-navbar-nav-text"><a href="home.html"><span class="nav-item-text">Home</span></a></li>
+                <li class="icon-navbar-nav-text"><a href="#/home-page-employer"><span class="nav-item-text">Home</span></a></li>
                 <li onclick="$('.jobsSubItems').toggle();"><a href="#/currentjobs"><span class="nav-item-text">Jobs</span></a></li>
                 <li><a href="#"><span class="nav-item-text">Messages</span></a></li>
                 <li><a href="#"><span class="nav-item-text">Calendar</span></a></li>
@@ -130,20 +130,19 @@
             </div>
         </div>
     </nav>
-<div class="wrapper">
-    <div class="container main-content-wrapper">
-        <div class="row">
-            <div class="col-md-12">
 
-                <div class="main-content ">
-                <div  ng-view class="container" id ="wrapperContainer">
-                         
-                            
+    <div class="wrapper">
+        <div class="container main-content-wrapper">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-content ">
+                        <div  ng-view class="container" id ="wrapperContainer">
+
                         </div>
-    </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        </div>
-    </div>
     </div>
 
     <!-- build:js(.) scripts/vendor.js -->
