@@ -69,9 +69,10 @@ myApp.controller('settings',['$scope','$log', function($scope,$log){
 
 }]);
 
-myApp.controller('SearchWorkerSelected', [
-  
-]);
+myApp.controller('SearchWorkerSelected', [function(){
+  searchController();
+
+}]);
 
 myApp.controller('HomePageController', [
   function () {
@@ -116,8 +117,9 @@ $scope.appointments = [];
   $scope.selectedLocationFilter = function(element) {
     if(!$scope.selectedLocation) return true;
     return element.created.getLocation() == $scope.selectedLocation;
-  }
-    function randomDate(start, end) {
+  };
+  
+  function randomDate(start, end) {
       return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()))
   } 
 
