@@ -123,11 +123,13 @@ $scope.appointments = [];
       return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()))
   } 
 
-
-	$http.get("pages/currentjobs.php").then(function(response){
+  $scope.appointments = [{"contract_id":"1","first_name":"Larry","last_name":"Ullman","start_date":"2017-04-02 19:10:13","end_date":"2017-04-02 19:10:13","location":"Boston"},{"contract_id":"2","first_name":"John","last_name":"Lennon","start_date":"0000-00-00 00:00:00","end_date":"0000-00-00 00:00:00","location":"Boston"},{"contract_id":"3","first_name":"John","last_name":"Brown","start_date":"0000-00-00 00:00:00","end_date":"0000-00-00 00:00:00","location":"Boston"},{"contract_id":"4","first_name":"Tom","last_name":"Smith","start_date":"0000-00-00 00:00:00","end_date":"0000-00-00 00:00:00","location":"London"},{"contract_id":"5","first_name":"Sebastian","last_name":"Pier","start_date":"0000-00-00 00:00:00","end_date":"0000-00-00 00:00:00","location":"Paris"}];
+	
+  /*
+  $http.get("pages/currentjobs.php").then(function(response){
 		$scope.appointments = response.data;
 	});
-
+  */
   
   
 
