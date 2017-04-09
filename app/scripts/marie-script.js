@@ -1,4 +1,6 @@
-
+// Code here will be linted with JSHint.
+/* jshint ignore:start */
+'use strict';
 
 function openJobOfferList() {
     document.getElementById("job-offer-list").style.height = "100%";
@@ -821,7 +823,5 @@ $( document ).ready(function() {
   
 });
 
-
-
-
-
+// Code here will be ignored by JSHint.
+/* jshint ignore:end */

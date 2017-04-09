@@ -24,7 +24,7 @@
     "angular-mocks": "^1.4.0"
   },
   "appPath": "app",
-  "moduleName": "App",
+  "moduleName": "myApp",
   "overrides": {
     "bootstrap": {
       "main": [
