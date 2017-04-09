@@ -381,7 +381,7 @@ function isValid(type, value) {
 
 function addWorker(worker) {
     var content = '<div class="col-md-12">'
-    +'<a onclick="setSelectedWorker(' + worker.id + ')" href="worker-search-selected-profile.html">'
+    +'<a onclick="setSelectedWorker(' + worker.id + ')" href="#/selectedWorker">'
        + '<div class="col-md-2">'
         + '<div class="profile-picture-worker-search">'
         + '<li class="worker-search-info">'

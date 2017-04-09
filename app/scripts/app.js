@@ -55,6 +55,10 @@ myApp.config(function ($routeProvider){
     templateUrl:'views/home-page-employer.html',
     controller:'HomePageController'
   })
+   .when('/selectedWorker', {
+    templateUrl:'views/worker-search-selected-profile.html',
+    controller:'SearchWorkerSelected'
+  })
   .otherwise({
     redirectTo:'/home-page-employer'
   });
@@ -64,6 +68,10 @@ myApp.config(function ($routeProvider){
 myApp.controller('settings',['$scope','$log', function($scope,$log){
 
 }]);
+
+myApp.controller('SearchWorkerSelected', [
+  
+]);
 
 myApp.controller('HomePageController', [
   function () {
