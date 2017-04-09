@@ -51,13 +51,17 @@ myApp.config(function ($routeProvider){
     templateUrl:'views/home-page-employer.html',
     controller:'HomePageController'
   })
-  .when('/', {
-    templateUrl:'views/home-page-employer.html',
-    controller:'HomePageController'
-  })
    .when('/selectedWorker', {
     templateUrl:'views/worker-search-selected-profile.html',
     controller:'SearchWorkerSelected'
+  })
+   .when('/reviewsPage', {
+    templateUrl:'views/reviews-page.html',
+    controller:'ReviewsControllers'
+  })
+   .when('/reviewsPage', {
+    templateUrl:'views/reviews-page.html',
+    controller:'MessagesControllers'
   })
   .otherwise({
     redirectTo:'/home-page-employer'

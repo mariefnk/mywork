@@ -235,6 +235,11 @@ body #aboutus {
 
 }
 
+.nav .fa-star-o {
+    color:white;
+    padding-bottom: 20px;
+}
+
 #reviews {
     padding: 30px 0;
 }
@@ -827,7 +832,7 @@ li.navbar-subitems {
     font-size: 13px;
 }
 
-.fa-search {
+.fa-search{
     color: #dfdfdf;
 }
 
