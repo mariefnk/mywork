@@ -1,25 +1,8 @@
-<!DOCTYPE html>
 
-<!-- Also read chapter 9 from slides - Regular Expressions -->
-
-<html>
-<head>
-    <title>My Works</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css"
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css"
           integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:500" rel="stylesheet">
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.min.css"/>
-
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.css"/>
-    <link rel="stylesheet" type="text/css" href="style.css"/>
-
-</head>
-<body>
 
 <div id="mask"></div>
 <div id="job-offer-popup" class="container">
@@ -60,43 +43,29 @@
     <button id="scheduleNowBtn" disabled class="btn btn-primary" style="margin-bottom: 5px;">SCHEDULE NOW</button>
 </div>
 
-    
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"
-        integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY"
-        crossorigin="anonymous"></script>
-<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<!-- jQuery first, then Bootstrap JS. -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js"
-        integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB"
-        crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js"
-        integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK"
-        crossorigin="anonymous"></script>
 
     <script>
        $('#job-offer-popup .title').html(worker.firstName + ' ' + worker.lastName);
         $('#job-offer-popup .rate').html("$" + worker.expectedSalary + "/hour");
-//        var scheduler = $('#scheduler').datepicker({
-//            onSelect: function(dateText) {
-//                var holder = $('.dates-selection');
-//                var content = '<div class="job-timing">';
-//                content += '<div class="job-date">' + dateText + '</div>';
-//                content += 'From ';
-//                content += appendTimePicker('from');
-//                content += 'To ';
-//                content += appendTimePicker('to');
-//                content += '&nbsp;<i class="fa fa-remove" style="color: red;" onclick="removeJobTiming(this);"></i>';
-//                content += '</div>';
-//
-//                holder.append(content);
-//                $('#scheduleBtn .fields-validation-check').show();
-//                updateScheduleNowButton();
-//            }
-//        });
-//        scheduler.show();
-//    });
+       var scheduler = $('#scheduler').datepicker({
+           onSelect: function(dateText) {
+               var holder = $('.dates-selection');
+               var content = '<div class="job-timing">';
+               content += '<div class="job-date">' + dateText + '</div>';
+               content += 'From ';
+               content += appendTimePicker('from');
+               content += 'To ';
+               content += appendTimePicker('to');
+               content += '&nbsp;<i class="fa fa-remove" style="color: red;" onclick="removeJobTiming(this);"></i>';
+               content += '</div>';
+
+               holder.append(content);
+               $('#scheduleBtn .fields-validation-check').show();
+               updateScheduleNowButton();
+           }
+       });
+       scheduler.show();
+   
 
     function removeJobTiming(el) {
         $(el).closest('.job-timing').remove();
@@ -119,11 +88,11 @@
         content += '</select>';
         return content;
     }
-//
-//    function openOfferPopup() {
-//        $('#mask').show();
-//        $('#job-offer-popup').show();
-//    }
+
+   function openOfferPopup() {
+       $('#mask').show();
+       $('#job-offer-popup').show();
+   }
 
     $('input, textarea').on('change', function(e) {
         e = e || window.event;
@@ -160,6 +129,3 @@
         }
     }
 </script>
-    
-</body>
-</html>

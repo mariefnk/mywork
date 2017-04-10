@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" />
      <link rel="stylesheet" href="styles/tablesFormat.css"/>
+     <link  rel="stylesheet" href="styles/MessagesStyles.css">
     <!-- endbuild -->
   </head>
   <body>
@@ -32,9 +33,9 @@
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <ul class="nav navbar-nav">
                 <li class="icon-navbar-nav-text"><a href="#/home-page-employer"><span class="nav-item-text">Home</span></a></li>
-                <li onclick="$('.jobsSubItems').toggle();"><a href="#/currentjobs"><span class="nav-item-text">Jobs</span></a></li>
-                <li><a href="#"><span class="nav-item-text">Messages</span></a></li>
-                <li><a href="#"><span class="nav-item-text">Calendar</span></a></li>
+                <li><a href="#/currentjobs"><span class="nav-item-text">Jobs</span></a></li>
+                <li><a href="#/messagesPage"><span class="nav-item-text">Messages</span></a></li>
+                <li><a href="#/reviewsPage"><span class="nav-item-text">Reviews</span></a></li>
                 <li><a href="#/paymentHistory"><span class="nav-item-text">Payment</span></a></li>
             </ul>
         </div>
@@ -43,20 +44,18 @@
             <span id="hamburger" class="icon-bar" style="font-size:30px; cursor: pointer;"
                   onclick="toggleNav()">&#9776;</span>
             <ul class="nav navbar-nav">
-                <li class=" icon icon-navbar-nav"><a href="home.html"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a></li>
-                <li class ="icon" onclick="$('#jobsSubItems').toggle();"><a href="#"><i class="fa fa-suitcase fa-2x" aria-hidden="true"
+                <li class=" icon icon-navbar-nav"><a href="#/home-page-employer"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a></li>
+                <li class ="icon"><a href="#/currentjobs"><i class="fa fa-suitcase fa-2x" aria-hidden="true"
                                                                           onclick="toggleNav()"></i></a></li>
-                <li class="navbar-subitems jobsSubItems">&nbsp;</li>
-                <li class="navbar-subitems jobsSubItems">&nbsp;</li>
-                <li class="navbar-subitems jobsSubItems">&nbsp;</li>
-                <li class ="icon"><a href="#"><i class="fa fa-comments-o fa-2x" aria-hidden="true" onclick="toggleNav()"></i></a></li>
-                <li class="navbar-subitems workersSubItems">&nbsp;</li>
-                <li class="navbar-subitems workersSubItems">&nbsp;</li>
-                <li class ="icon"><a href="#"><i class="fa fa-calendar-o fa-2x" aria-hidden="true" onclick="toggleNav()"></i></a></li>
-                <li class ="icon"><a href="#"><i class="fa fa-credit-card fa-2x" aria-hidden="true" onclick="toggleNav()"></i></a></li>
+       
+                <li class ="icon"><a href="#/messagesPage"><i class="fa fa-comments-o fa-2x" aria-hidden="true" onclick="toggleNav()"></i></a></li>
+               
+                <li class ="icon"><a href="#/reviewsPage"><i class="fa fa-star-o fa-2x" aria-hidden="true" onclick="toggleNav()"></i></a></li>
+                <li class ="icon"><a href="#/paymentHistory"><i class="fa fa-credit-card fa-2x" aria-hidden="true" onclick="toggleNav()"></i></a></li>
 
             </ul>
         </div>
+   
         <div class="wrapper">
             <div class="search-bar">
                 <div class="container" id="search-bar-container">
@@ -81,7 +80,7 @@
                                 <li id="favorites" class="dropdown">
                                     <ul class="dropdown-menu" role="menu">
                                         <li><a href="#"><span class="fa fa-user submenu-profile"></span>My Profile</a></li>
-                                        <li><a href="#"><span class="fa fa-cogs submenu-profile"></span>Settings</a></li>
+                                        <li><a href="#/settings"><span class="fa fa-cogs submenu-profile"></span>Settings</a></li>
                                         <div class="dropdown-divider"></div>
                                         <li><a href="#"><span class="fa fa-power-off submenu-profile"></span>Log Out</a>
                                         </li>
@@ -109,7 +108,7 @@
                                 <li class="dropdown">
                                     <ul class="dropdown-menu" role="menu">
                                         <li><a href="#"><span class="fa fa-user submenu-profile"></span>My Profile</a></li>
-                                        <li><a href="#"><span class="fa fa-cogs submenu-profile"></span>Settings</a></li>
+                                        <li><a href="#/settings"><span class="fa fa-cogs submenu-profile"></span>Settings</a></li>
                                         <div class="dropdown-divider"></div>
                                         <li><a href="#"><span class="fa fa-power-off submenu-profile"></span>Log Out</a>
                                         </li>
@@ -130,21 +129,35 @@
             </div>
         </div>
     </nav>
-
-    <div class="wrapper">
+    
+   
         <div class="container main-content-wrapper">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="main-content ">
-                        <div  ng-view class="container" id ="wrapperContainer">
+            
+                
+                    <div  class="container main-content ">
+                        <div  ng-view>
 
                         </div>
-                    </div>
-                </div>
-            </div>
+                   
+             
+         
         </div>
-    </div>
-
+<div>
+	<div id="messagesPanel">
+		<div id="messagesToggle"><h4>Messages</h4></div>
+		<div id="contactsPanel" class="collapse"></div>
+	</div>
+	<div id="dialogPanel" class="collapse">
+		<div id="miniDialog">	
+		</div>
+		<div id="send-panel-mini">
+			<input type="text" class="form-control" id="sendMessageTF" style="margin-top:10px; width:50%"><br>
+			<button id="sendBtn" class="btn btn-primary" type="button" style=" margin-top:10px">Send</button>
+		</div>
+	</div>
+</div>
+     </div>
+     
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -169,6 +182,18 @@
   <!-- build:js({.tmp,app}) scripts/scripts.js -->
   <script src="scripts/app.js"></script>
   <script src="scripts/marie-script.js"></script>
+  <script src="scripts/JavaScript.js"></script>
+  	<script type="application/javascript">
+		var account = demoAccount();
+		var filteredContacts = account.contacts.contacts;
+		var selectedContact = filteredContacts[0];
+		var selectedContactIndex = 0;
+		var aBook = account.contacts;
+		
+		var selectedContact2 = filteredContacts[0];
+		var selectedContactIndex2 = 0;
+		
+	</script>
   <!-- endbuild -->
 </body>
 </html>

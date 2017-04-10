@@ -1,10 +1,7 @@
 @charset "UTF-8";
 /* CSS Document */
 
-html {
-	height: 100%;
-	padding-bottom: 20px;
-}
+
 ul {
 	padding-left: 0;
 }
@@ -31,9 +28,6 @@ hr {
 
 #left-panel {
 	background-color:rgba(0,0,0,0.05);
-	float: left;
-	width: 300px;
-	
 	margin-right: 20px;
 	border-radius: 10px;
 	padding: 10px;
@@ -80,6 +74,10 @@ hr {
 
 #contact-list .media-heading {
 	color:darkcyan;
+}
+
+#contact-list .media-left img{
+width:50%;
 }
 
 
