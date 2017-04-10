@@ -7,65 +7,135 @@ var myApp=angular.module('myApp',[
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngTouch'
+  'ngTouch',
+  'ui.router'
   ]);
 
-myApp.config(function ($routeProvider){
+myApp.run(function(){
+  
+  //  var link = '<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">'
+  //  $('head').append(link)
+})
 
-  $routeProvider
-  .when('/currentjobs',{
-      templateUrl:'views/currentjobs.html',
-      controller:'currentjobsController'
+myApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider){
 
-  })
-  .when('/pendingjobs',{
-      templateUrl:'views/pendingjobs.html',
-      controller:'pendingController'
-  })
+  // $locationProvider.html5Mode({enabled: true, requireBase: false})
+  $urlRouterProvider.otherwise("/");
 
-  .when('/historyjobs',{
-      templateUrl:'views/historyjobs.html',
-      controller:'historyJobsController'
-  })
-
-  .when ('/payment',{
-    templateUrl:'views/payment.html',
-    controller:'paymentController'
+  $stateProvider.state('landing',{
+    url: '/',
+    abstract: false,
+    views: {
+      main: {templateUrl: "views/landing.html", controller: 'LandingPageController'}
+    }
   })
 
-  .when ('/paymentHistory',{
-    templateUrl:'views/paymentHistory.html',
-    controller:'paymentHistoryController'
+  // $stateProvider.state('login',{
+  //   url: '/login',
+  //   abstract: false,
+  //   views: {
+  //     main: {templateUrl: "views/lloginanding.html", controller: 'LandingPageController'}
+  //   }
+  // })
+
+  $stateProvider.state('app',{
+    url: '/app',
+    abstract: false,
+    views: {
+      main: {templateUrl: "views/app.html", controller: 'AppPageController'}
+    }
   })
 
-  .when('/settings',{
-    templateUrl:'views/settings.html',
-    controller:'settings'
+  $stateProvider.state('app.currentjobs',{
+    url: '/currentjobs',
+    abstract: false,
+    views: {
+      app: {templateUrl: "views/currentjobs.html", controller: 'currentjobsController'}
+    }
   })
 
-  .when ('/myreviews',{
-    templateUrl:'views/myreviews.html',
-    controller:'myreviewsController'
+   $stateProvider.state('app.currentjobs',{
+    url: '/currentjobs',
+    abstract: false,
+    views: {
+      app: {templateUrl: "views/currentjobs.html", controller: 'currentjobsController'}
+    }
   })
-  .when ('/home-page-employer',{
-    templateUrl:'views/home-page-employer.html',
-    controller:'HomePageController'
-  })
-   .when('/selectedWorker', {
-    templateUrl:'views/worker-search-selected-profile.html',
-    controller:'SearchWorkerSelected'
-  })
-   .when('/reviewsPage', {
-    templateUrl:'views/reviews-page.html',
-    controller:'ReviewsControllers'
-  })
-   .when('/messagesPage', {
-    templateUrl:'views/messages.html',
-    controller:'MessagesControllers'
-  })
-  .otherwise({
-    redirectTo:'/home-page-employer'
-  });
+
+
+
+
+//  $routeProvider
+//     .when('/landing',{
+//       templateUrl:'views/landing.html',
+//       controller:'LandingPageController'
+//   })
+
+//   $routeProvider
+
+//     .when('app/homePage',{
+//       templateUrl:'views/home.html',
+//       controller:'HomePage'
+
+//   })
+
+//   .when('/currentjobs',{
+//       templateUrl:'views/currentjobs.html',
+//       controller:'currentjobsController'
+
+//   }) .when('/login',{
+//       templateUrl:'views/login.html',
+//       controller:'loginController'
+
+//   })
+//   .when('/pendingjobs',{
+//       templateUrl:'views/pendingjobs.html',
+//       controller:'pendingController'
+//   })
+
+//   .when('/historyjobs',{
+//       templateUrl:'views/historyjobs.html',
+//       controller:'historyJobsController'
+//   })
+
+//   .when ('/payment',{
+//     templateUrl:'views/payment.html',
+//     controller:'paymentController'
+//   })
+
+//   .when ('/paymentHistory',{
+//     templateUrl:'views/paymentHistory.html',
+//     controller:'paymentHistoryController'
+//   })
+
+//   .when('/settings',{
+//     templateUrl:'views/settings.html',
+//     controller:'settings'
+//   })
+
+//   .when ('/myreviews',{
+//     templateUrl:'views/myreviews.html',
+//     controller:'myreviewsController'
+//   })
+//   .when ('/home-page-employer',{
+//     templateUrl:'views/home-page-employer.html',
+//     controller:'HomePageController'
+//   })
+//    .when('/selectedWorker', {
+//     templateUrl:'views/worker-search-selected-profile.html',
+//     controller:'SearchWorkerSelected'
+//   })
+//    .when('/reviewsPage', {
+//     templateUrl:'views/reviews-page.html',
+//     controller:'ReviewsControllers'
+//   })
+//    .when('/messagesPage', {
+//     templateUrl:'views/messages.html',
+//     controller:'MessagesControllers'
+//   })
+//   .otherwise({
+//     redirectTo:'/home-page-employer'
+//   });
 
 });
 
@@ -86,6 +156,17 @@ myApp.controller('HomePageController', [
     employerPageSetup();
   }
 ]);
+
+myApp.controller('LandingPageController', [function () {
+    console.log('hello')
+  }
+]);
+
+myApp.controller('AppPageController', [function () {
+    console.log('evening')
+  }
+]);
+
 
 
 myApp.controller('myreviewsController',['$scope', '$log', function($scope,$log){
