@@ -12,7 +12,7 @@
 
 
 .app-container{
-    
+
 }
 
 
@@ -32,8 +32,12 @@
 
 .navbar {
     background-color: transparent;
-    border-bottom: 1px solid #DEDEDE;
+    border-bottom: 1px solid rgba(222, 222, 222, 0.2);
     font-family: 'Alegreya Sans SC', sans-serif;
+    transition: all 0.15s linear;
+}
+.navbar-scroll{
+  background-color: rgba(0,0,63,0.75);
 }
 
 
@@ -47,56 +51,74 @@
 
 .navbar-brand {
     color:#00578a;
+    padding-top: 10px;
 }
 
 .nav-item{
     padding-right:20px;
 }
+.action-buttons{
+  margin-top: 5px;
+  padding-right: 30px;
+}
 
+.action-buttons>li:hover{
+  background-color: white;
+}
+.action-buttons>li:hover > a{
+  background-color: transparent;
+}
 
 .nav-loginin-button{
     border: 1px solid white;
-     border-radius: 200px;
-    text-align: center;
+    padding-right: 0px;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: all 0.15s linear;
+    padding: 0px 20px;
+
+}
+.nav-loginin-button:hover a{
+  color: #00003f!important;
 }
 .nav-sign-up-button{
     border: 1px solid white;
     background-color: white;
-    border-radius: 200px;
+    border-radius: 50px;
     text-align: center;
-  
+    padding-right: 0px;
+    transition: all 0.15s linear;
+    padding: 0px 20px;
+
 }
 
 .nav-sign-up-button .nav-link, .nav-loginin-button .nav-link{
-    padding-left: 15px;
-    
+    /*padding-left: 15px;*/
+
 }
 
 .nav-sign-up-button a{
       color: #00003f;
 }
 
-.nav-loginin-buttonn a{
-      color: white;
+.nav-loginin-button a{
+      /*color: white;*/
 }
 
 
 .nav-sign-up-button .nav-link:hover{
     color:white;
     cursor: pointer;
-   
-}
-.nav-sign-up-button:hover{
-     background-color: #00003f;
+
 }
 
 .navbar-toggler {
     color: #00578a;
-    
+
 }
 
 .loginnow-btn{
-    background-color: 00003f; 
+    background-color: 00003f;
     border-radius: 25px;
     line-height: 1.5;
     padding-left: 80px;
@@ -112,11 +134,11 @@
     color: white;
 }
 
-.loginnow-btn:hover{
+/*.loginnow-btn:hover{
     text-decoration: none;
     background: white;
     color:#00003f
-}
+}*/
 
 
 
@@ -125,11 +147,11 @@
 
 }
 
-.navbar .nav .nav-loginin-button .nav-link:hover {
+/*.navbar .nav .nav-loginin-button .nav-link:hover {
     color: #00578a;
     cursor: pointer;
 
-}
+}*/
 
 
 /*HEADER*/
@@ -215,19 +237,19 @@
  #video-wrapper {
      position: relative;
      padding-bottom: 43%;
-     margin:auto;  
+     margin:auto;
      padding-right:0;
      padding-left:0;
 }
-#video-wrapper video {position: absolute; 
+#video-wrapper video {position: absolute;
 
 /*left: 0;*/
- max-width: 100%; 
+ max-width: 100%;
  height: 75%;
- 
+
  transform: scale(1.3);
 
-} 
+}
 
 .section-header-title{
     color:white;
@@ -246,7 +268,7 @@
 }
 
 .row {
-    margin-right: 0px; 
+    margin-right: 0px;
     margin-left: 0px;
 }
 
@@ -777,7 +799,7 @@ form .form-input-label button {
     width:50%;
     margin-left:auto;
     margin-right:auto;
-    
+
 }
 
 .login-already-member{
@@ -992,7 +1014,7 @@ li.navbar-subitems {
 .search .search-job {
     margin-top: 10px;
     border-radius: 30px 30px 30px 30px;
-   
+
     height: 30px;
 }
 
@@ -1384,7 +1406,7 @@ hr{
 
     .filter {
         margin-bottom: 15px;
-        
+
     }
 
     .sub-content {
@@ -1624,7 +1646,7 @@ label.avg-salary-info{
     background-color: white;
     border-radius: 4px;
     box-shadow: 2px 2px 2px #888888;
-   
+
 }
 
 .profile-block-value{
@@ -1884,7 +1906,7 @@ textarea::-webkit-input-placeholder{
 .filter-category, .filter-profile, .filter-experience, .filter-month{
     color: #6E6E6E;
     font-weight: 800;
-   
+
 }
 
 .filter-years{
@@ -1966,5 +1988,3 @@ textarea::-webkit-input-placeholder{
 */
 
 /** END WORKER PAGE **/
-
-

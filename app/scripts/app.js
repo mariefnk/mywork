@@ -154,10 +154,18 @@ myApp.controller('HomePageController', [
   }
 ]);
 
-myApp.controller('LandingPageController', [function () {
-    console.log('hello')
-  }
-]);
+myApp.controller('LandingPageController', ['$scope', function ($scope) {
+  $(window).scroll(function (event) {
+    var scroll = $(window).scrollTop();
+    if (scroll>400){
+      $('.navbar-fixed-top').addClass('navbar-scroll')
+    } else{
+      $('.navbar-fixed-top').removeClass('navbar-scroll')
+    }
+
+  });
+
+}]);
 
 myApp.controller('AppPageController', [function () {
     console.log('evening')
