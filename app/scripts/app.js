@@ -180,7 +180,19 @@ myApp.controller('AppPageController', [function () {
   }
 ]);
 
-myApp.controller('registerController', [function () {
+myApp.controller('registerController', ['$scope','$state', function($scope,$state) {
+
+  $scope.type = 'worker'
+  $scope.select_type = function(el){
+    $scope.type = el
+  }
+  $scope.submit = function(){
+    console.log($scope.type)
+    console.log($scope.first_name)
+    $state.go('app.homepageemployer')
+
+  }
+
   $(document).ready(function () {
 var navListItems = $('div.setup-panel div a'),
         allWells = $('.setup-content'),
@@ -243,7 +255,11 @@ myApp.controller('myreviewsController',['$scope', '$log', function($scope,$log){
 
 }]);
 
-myApp.controller('loginController',['$scope', '$log', function($scope,$log){
+myApp.controller('loginController',['$scope', '$log', '$state',  function($scope,$log, $state){
+
+      $scope.login = function(){
+        $state.go('app.homepageemployer')
+      }
 
       $('.nav-tabs > li > a').click(function() {
           if($(this).hasClass('disabled')) {

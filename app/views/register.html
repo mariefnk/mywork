@@ -31,7 +31,7 @@
       </div>
     </div>
 
-    <form role="form" action="" method="post">
+    <form role="form"  novalidate>
       <div class="row setup-content" id="step-1">
         <div class="col-xs-10 col-md-offset-1">
           <div class="col-md-12 text-center">
@@ -39,20 +39,21 @@
             <br />
 
             <div class="btn-group" data-toggle="buttons">
-              <label class="btn btn-primary active">
-                <input type="radio" name="options" id="option1" autocomplete="off" checked> Worker
+              <label class="btn btn-primary active" ng-click="select_type('worker')">
+                <input type="radio" name="options"   id="option1"  checked> Worker
               </label>
-              <label class="btn btn-primary">
-                <input type="radio" name="options" id="option2" autocomplete="off"> Employer
+              <label class="btn btn-primary" ng-click="select_type('employer')">
+                <input type="radio" name="options"   id="option2" > Employer
               </label>
 
             </div>
+
 
             <div class="text-left">
 
             <div class="form-group">
               <label class="control-label">First Name</label>
-              <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter First Name">
+              <input maxlength="100" type="text" ng-model="first_name" required="required" class="form-control" placeholder="Enter First Name">
             </div>
             <div class="form-group">
               <label class="control-label">Last Name</label>
@@ -91,7 +92,7 @@
           <div class="col-md-12">
             <h3 style="text-align: center;"> Step 3</h3>
             <button class="btn btn-primary prevBtn btn-lg pull-left" type="button">Previous</button>
-            <button class="btn btn-success btn-lg pull-right" type="submit">Submit</button>
+            <button class="btn btn-success btn-lg pull-right" type="submit" ng-click="submit()">Submit</button>
           </div>
         </div>
       </div>
