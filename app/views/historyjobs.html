@@ -1,39 +1,87 @@
 
+ <div class="row">
+ <div class="col-md-3">
 
+                             <div class="filter">
+<!--                                    <div class="block-title">-->
 
-   <div class="col-md-2">
-                        <div data-toggle="collapse" data-target="#filter-myworks" class="my-works-filter-title"><i class="fa fa-filter" aria-hidden="true"></i> Filters</div>  
-                             <div id="filter-myworks" class="collapse">
-                             <ul id="filter">
-							<li data-toggle="collapse" data-target="#filter-myworks-months" class="filter-years"><div class ="filter-year" btn btn-default>Category</div>
-								    <div id="filter-myworks-months"  class="collapse">
+<!--                                         <div class="col-md-2">-->
+                        <div data-toggle="collapse" data-target="#filter-myworks" class="my-works-filter-title"><i class="fa fa-filter" aria-hidden="true"></i> Filter workers by <div id="clear-all">Clear all (<span id="count-filters">0</span>)</div>  </div> 
+                                
+                             <div id="filter-myworks" class="collapse in">
+                             <div data-toggle="collapse" data-target="#filter-myworks-years" class="subtitle filter-categories">Date </div>
+                                 <div id="filter-myworks-years" data-toggle="collapse" data-target="#filter-myworks-months" class="collapse filter-years"><div class ="filter-year" btn btn-default>2017</div>
+                            </div>
+                                 <div id="filter-myworks-months"  class="collapse">
                                      <ul class="list-filter-month">
-                                     <li class ="filter-month">April</li>
-                                     <li class ="filter-month">March</li>
-                                     <li class ="filter-month">February</li>
-                                     <li class ="filter-month">January</li>
+                                     <li class ="filter-month"> <label>
+                                                <input type="checkbox" onclick="getFiltersCount()">
+                                                April
+                                            </label></li>
+                                     <li class ="filter-month"> <label>
+                                                <input type="checkbox">
+                                                March
+                                            </label></li>
+                                     <li class ="filter-month"> <label>
+                                                <input type="checkbox">
+                                                February
+                                            </label></li>
+                                     <li class ="filter-month"> <label>
+                                                <input type="checkbox">
+                                                January
+                                            </label></li>
                                      </ul>
-                                     
+<!--                                     <div class="apply-months-filter">Filter</div>-->
                                  </div>
-								  </li>
-                                  <li data-toggle="collapse" data-target="#filter-myworks-location" class="filter-location"><div class ="filter-year"  btn btn-default>Location</div></li>
-								  <li data-toggle="collapse" data-target="#filter-myworks-months" class="filter-years"><div class ="filter-year" btn btn-default>2017</div>
-								    <div id="filter-myworks-months"  class="collapse">
-                                     <ul class="list-filter-month">
-                                     <li class ="filter-month">April</li>
-                                     <li class ="filter-month">March</li>
-                                     <li class ="filter-month">February</li>
-                                     <li class ="filter-month">January</li>
-                                     </ul>
-                                    
-                                 </div>
-								  </li>
-							 </ul>
-							 
-                                 
-                             </div>
-                        </div>
-     	<div class="col-md-8">
+                                                   <div data-toggle="collapse" data-target="#filter-category" class="subtitle filter-categories" href="#filter-category">Category </div>
+                                        <div class="collapse filter-category" id="filter-category">
+                                            <ul class="list-filter-category">
+                                            <li class ="filter-cat"> <label>
+                                                <input type="checkbox" name="filterCat-bartender">
+                                                Bartender
+                                                </label></li>
+                                           <li class ="filter-cat"> <label>
+                                                <input type="checkbox" name="filterCat-waitress" class="filter-category">
+                                                Waitress
+                                               </label></li>
+                                            <li class ="filter-cat"><label>
+                                                <input type="checkbox" name="filterCat-DJ" class="filter-category">
+                                                DJ
+                                                </label></li>
+                                            <li class ="filter-cat"><label>
+                                                <input type="checkbox" name="filterCat-security" class="filter-category">
+                                                Security Agent
+                                                </label></li>
+                                            </ul>
+                                           
+                                        </div>
+                                            <div data-toggle="collapse" data-target="#filter-location" class="subtitle filter-categories" href="#filter-location">Location</div>
+                                        <div class="collapse filter-location" id="filter-location">
+                                            <ul class="list-filter-category">
+                                            <li class ="filter-cat"> <label>
+                                                <input type="checkbox" name="filterCat-bartender">
+                                                New York
+                                                </label></li>
+                                           <li class ="filter-cat"> <label>
+                                                <input type="checkbox" name="filterCat-waitress" class="filter-category">
+                                                Paris
+                                               </label></li>
+                                            <li class ="filter-cat"><label>
+                                                <input type="checkbox" name="filterCat-DJ" class="filter-category">
+                                                London
+                                                </label></li>
+                                            <li class ="filter-cat"><label>
+                                                <input type="checkbox" name="filterCat-security" class="filter-category">
+                                               Boston
+                                                </label></li>
+                                            </ul>
+                                           
+                                        </div>
+
+                                </div>
+								</div>
+                                </div>
+     	<div class="col-xs-9">
 <div id="exTab2">	
 <ul class="nav nav-tabs">
 			<li>
@@ -82,7 +130,7 @@
                                 
                      </table>
      	</div>
-                
+             </div>   
 
 
 
