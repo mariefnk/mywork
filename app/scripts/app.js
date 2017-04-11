@@ -36,7 +36,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider){
       main: {templateUrl: "views/login.html", controller: 'loginController'}
     }
   })
-  
+
 
 
   $stateProvider.state('app',{
@@ -173,6 +173,40 @@ myApp.controller('myreviewsController',['$scope', '$log', function($scope,$log){
 
 myApp.controller('loginController',['$scope', '$log', function($scope,$log){
 
+      $('.nav-tabs > li > a').click(function() {
+          if($(this).hasClass('disabled')) {
+              return false;
+          } else {
+              var linkIndex = $(this).parent().index() - 1;
+              $('.nav-tabs > li').each(function(index, item) {
+                  $(this).attr('rel-index', index - linkIndex);
+              });
+          }
+      });
+      $('#step-1-next').click(function() {
+          // Check values here
+          var isValid = true;
+          console.log('sexy')
+          if(isValid) {
+              $('.nav-tabs > li:nth-of-type(2) > a').removeClass('disabled').click();
+          }
+      });
+      $('#step-2-next').click(function() {
+          // Check values here
+          var isValid = true;
+
+          if(isValid) {
+              $('.nav-tabs > li:nth-of-type(3) > a').removeClass('disabled').click();
+          }
+      });
+      $('#step-3-next').click(function() {
+          // Check values here
+          var isValid = true;
+
+          if(isValid) {
+              $('.nav-tabs > li:nth-of-type(4) > a').removeClass('disabled').click();
+          }
+      });
 
 }]);
 
