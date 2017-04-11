@@ -239,12 +239,6 @@
   max-width: 100%;
   opacity: 0.8;
 }
-.video-container{
-  height: 60vh;
-  overflow: hidden;
-  position: absolute;
-  width: 100%;
-}
 @media (max-width:499px){
   .section1{
     background-color: rgba(0,0,63,0.75);
@@ -257,8 +251,7 @@
   }
 }
 .section1{
-  height: 70vh;
-  overflow: hidden;
+  height: 100vh;
 }
  #video-wrapper {
      position: relative;
@@ -281,8 +274,9 @@ width: 100%;
 .section-header-title{
     color:white;
     padding-top:120px;
-    margin-top: 5%;
+    margin-top: 12%;
 }
+
 
 
 .icon {
