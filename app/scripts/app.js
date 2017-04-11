@@ -7,140 +7,65 @@ var myApp=angular.module('myApp',[
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngTouch',
-  'ui.router'
+  'ngTouch'
   ]);
 
-myApp.run(function(){
+myApp.config(function ($routeProvider){
 
-  //  var link = '<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">'
-  //  $('head').append(link)
-})
+  $routeProvider
+  .when('/currentjobs',{
+      templateUrl:'views/currentjobs.html',
+      controller:'currentjobsController'
 
-myApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider){
-
-  // $locationProvider.html5Mode({enabled: true, requireBase: false})
-  $urlRouterProvider.otherwise("/");
-
-  $stateProvider.state('landing',{
-    url: '/',
-    abstract: false,
-    views: {
-      main: {templateUrl: "views/landing.html", controller: 'LandingPageController'}
-    }
   })
-  $stateProvider.state('login',{
-    url: '/login',
-    abstract: false,
-    views: {
-      main: {templateUrl: "views/login.html", controller: 'loginController'}
-    }
+  .when('/pendingjobs',{
+      templateUrl:'views/pendingjobs.html',
+      controller:'pendingController'
   })
 
-  $stateProvider.state('register',{
-    url: '/register',
-    abstract: false,
-    views: {
-      main: {templateUrl: "views/register.html", controller: 'registerController'}
-    }
+  .when('/historyjobs',{
+      templateUrl:'views/historyjobs.html',
+      controller:'historyJobsController'
   })
 
-
-
-  $stateProvider.state('app',{
-    url: '/app',
-    abstract: false,
-    views: {
-      main: {templateUrl: "views/app.html", controller: 'AppPageController'}
-    }
+  .when ('/payment',{
+    templateUrl:'views/payment.html',
+    controller:'paymentController'
   })
 
-  $stateProvider.state('app.currentjobs',{
-    url: '/currentjobs',
-    abstract: false,
-    views: {
-      app: {templateUrl: "views/currentjobs.html", controller: 'currentjobsController'}
-    }
+  .when ('/paymentHistory',{
+    templateUrl:'views/paymentHistory.html',
+    controller:'paymentHistoryController'
   })
 
-  $stateProvider.state('app.pendingjobs',{
-    url: '/pendingjobs',
-    abstract: false,
-    views: {
-      app: {templateUrl: "views/pendingjobs.html", controller: 'pendingController'}
-    }
-  })
-  $stateProvider.state('app.historyjobs',{
-    url: '/historyjobs',
-    abstract: false,
-    views: {
-      app: {templateUrl: "views/historyjobs.html", controller: 'historyJobsController'}
-    }
+  .when('/settings',{
+    templateUrl:'views/settings.html',
+    controller:'settings'
   })
 
-  $stateProvider.state('app.payment',{
-    url: '/payment',
-    abstract: false,
-    views: {
-      app: {templateUrl: "views/payment.html", controller: 'paymentController'}
-    }
+  .when ('/myreviews',{
+    templateUrl:'views/myreviews.html',
+    controller:'myreviewsController'
   })
-
-
-
-  $stateProvider.state('app.paymentHistory',{
-    url: '/paymentHistory',
-    abstract: false,
-    views: {
-      app: {templateUrl: "views/paymentHistory.html", controller: 'paymentHistoryController'}
-    }
+  .when ('/home-page-employer',{
+    templateUrl:'views/home-page-employer.html',
+    controller:'HomePageController'
   })
-
-  $stateProvider.state('app.settings',{
-    url: '/settings',
-    abstract: false,
-    views: {
-      app: {templateUrl: "views/settings.html", controller: 'settings'}
-    }
+   .when('/selectedWorker', {
+    templateUrl:'views/worker-search-selected-profile.html',
+    controller:'SearchWorkerSelected'
   })
-
-  $stateProvider.state('app.myreviews',{
-    url: '/myreviews',
-    abstract: false,
-    views: {
-      app: {templateUrl: "views/myreviews.html", controller: 'myreviewsController'}
-    }
+   .when('/reviewsPage', {
+    templateUrl:'views/reviews-page.html',
+    controller:'ReviewsControllers'
   })
-  $stateProvider.state('app.homepageemployer',{
-    url: '/home-page-employer',
-    abstract: false,
-    views: {
-      app: {templateUrl: "views/home-page-employer.html", controller: 'HomePageController'}
-    }
+   .when('/messagesPage', {
+    templateUrl:'views/messages.html',
+    controller:'MessagesControllers'
   })
-  $stateProvider.state('app.selectedWorker',{
-    url: '/selectedWorker',
-    abstract: false,
-    views: {
-      app: {templateUrl: "views/worker-search-selected-profile.html", controller: 'SearchWorkerSelected'}
-    }
-  })
-  $stateProvider.state('app.reviewsPage',{
-    url: '/reviewsPage',
-    abstract: false,
-    views: {
-      app: {templateUrl: "views/reviews-page.html", controller: 'ReviewsControllers'}
-    }
-  })
-  $stateProvider.state('app.messagesPage',{
-    url: '/messagesPage',
-    abstract: false,
-    views: {
-      app: {templateUrl: "views/messages.html", controller: 'MessagesControllers'}
-    }
-  })
-
-
+  .otherwise({
+    redirectTo:'/home-page-employer'
+  });
 
 });
 
@@ -148,12 +73,13 @@ myApp.controller('settings',['$scope','$log', function($scope,$log){
 
 }]);
 
-myApp.controller('SearchWorkerSelected', [
+myApp.controller('SearchWorkerSelected', [function(){
+  searchController();
 
-]);
+}]);
 
 myApp.controller('MessagesControllers', [
-
+  
 ]);
 
 myApp.controller('HomePageController', [
@@ -162,139 +88,9 @@ myApp.controller('HomePageController', [
   }
 ]);
 
-myApp.controller('LandingPageController', ['$scope', function ($scope) {
-  $(window).scroll(function (event) {
-    var scroll = $(window).scrollTop();
-    if (scroll>400){
-      $('.navbar-fixed-top').addClass('navbar-scroll')
-    } else{
-      $('.navbar-fixed-top').removeClass('navbar-scroll')
-    }
-
-  });
-
-}]);
-
-myApp.controller('AppPageController', [function () {
-    console.log('evening')
-  }
-]);
-
-myApp.controller('registerController', ['$scope','$state', function($scope,$state) {
-
-  $scope.type = 'worker'
-  $scope.select_type = function(el){
-    $scope.type = el
-  }
-  $scope.submit = function(){
-    console.log($scope.type)
-    console.log($scope.first_name)
-    $state.go('app.homepageemployer')
-
-  }
-
-  $(document).ready(function () {
-var navListItems = $('div.setup-panel div a'),
-        allWells = $('.setup-content'),
-        allNextBtn = $('.nextBtn'),
-      allPrevBtn = $('.prevBtn');
-
-allWells.hide();
-
-navListItems.click(function (e) {
-    e.preventDefault();
-    var $target = $($(this).attr('href')),
-            $item = $(this);
-
-    if (!$item.hasClass('disabled')) {
-        navListItems.removeClass('btn-primary').addClass('btn-default');
-        $item.addClass('btn-primary');
-        allWells.hide();
-        $target.show();
-        $target.find('input:eq(0)').focus();
-    }
-});
-
-allPrevBtn.click(function(){
-    var curStep = $(this).closest(".setup-content"),
-        curStepBtn = curStep.attr("id"),
-        prevStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().prev().children("a");
-
-        prevStepWizard.removeAttr('disabled').trigger('click');
-});
-
-allNextBtn.click(function(){
-    var curStep = $(this).closest(".setup-content"),
-        curStepBtn = curStep.attr("id"),
-        nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
-        curInputs = curStep.find("input[type='text'],input[type='url']"),
-        isValid = true;
-
-    $(".form-group").removeClass("has-error");
-    for(var i=0; i<curInputs.length; i++){
-        if (!curInputs[i].validity.valid){
-            isValid = false;
-            $(curInputs[i]).closest(".form-group").addClass("has-error");
-        }
-    }
-
-    if (isValid)
-        nextStepWizard.removeAttr('disabled').trigger('click');
-});
-
-$('div.setup-panel div a.btn-primary').trigger('click');
-});
-  }
-]);
-
-
-
 
 myApp.controller('myreviewsController',['$scope', '$log', function($scope,$log){
 
-
-}]);
-
-myApp.controller('loginController',['$scope', '$log', '$state',  function($scope,$log, $state){
-
-      $scope.login = function(){
-        $state.go('app.homepageemployer')
-      }
-
-      $('.nav-tabs > li > a').click(function() {
-          if($(this).hasClass('disabled')) {
-              return false;
-          } else {
-              var linkIndex = $(this).parent().index() - 1;
-              $('.nav-tabs > li').each(function(index, item) {
-                  $(this).attr('rel-index', index - linkIndex);
-              });
-          }
-      });
-      $('#step-1-next').click(function() {
-          // Check values here
-          var isValid = true;
-          console.log('sexy')
-          if(isValid) {
-              $('.nav-tabs > li:nth-of-type(2) > a').removeClass('disabled').click();
-          }
-      });
-      $('#step-2-next').click(function() {
-          // Check values here
-          var isValid = true;
-
-          if(isValid) {
-              $('.nav-tabs > li:nth-of-type(3) > a').removeClass('disabled').click();
-          }
-      });
-      $('#step-3-next').click(function() {
-          // Check values here
-          var isValid = true;
-
-          if(isValid) {
-              $('.nav-tabs > li:nth-of-type(4) > a').removeClass('disabled').click();
-          }
-      });
 
 }]);
 
@@ -315,32 +111,35 @@ myApp.controller('currentjobsController', function($http,$scope,$timeout,$log){
 //var j = $.noConflict();
 
 $scope.appointments = [];
-
+  
   $scope.selectedLocation = "";
   $scope.selectedMonth = "";
-
+  
    $scope.selectedMonthFilter = function(element) {
     if(!$scope.selectedMonth) {
       return true;
     }
     return element.created.getMonth() == $scope.selectedMonth;
   }
-
+  
   $scope.selectedLocationFilter = function(element) {
     if(!$scope.selectedLocation) return true;
     return element.created.getLocation() == $scope.selectedLocation;
-  }
-    function randomDate(start, end) {
+  };
+  
+  function randomDate(start, end) {
       return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()))
-  }
+  } 
 
-
-	$http.get("pages/currentjobs.php").then(function(response){
+  $scope.appointments = [{"contract_id":"1","first_name":"Larry","last_name":"Ullman","start_date":"2017-04-02 19:10:13","end_date":"2017-04-02 19:10:13","location":"Boston"},{"contract_id":"2","first_name":"John","last_name":"Lennon","start_date":"0000-00-00 00:00:00","end_date":"0000-00-00 00:00:00","location":"Boston"},{"contract_id":"3","first_name":"John","last_name":"Brown","start_date":"0000-00-00 00:00:00","end_date":"0000-00-00 00:00:00","location":"Boston"},{"contract_id":"4","first_name":"Tom","last_name":"Smith","start_date":"0000-00-00 00:00:00","end_date":"0000-00-00 00:00:00","location":"London"},{"contract_id":"5","first_name":"Sebastian","last_name":"Pier","start_date":"0000-00-00 00:00:00","end_date":"0000-00-00 00:00:00","location":"Paris"}];
+	
+  /*
+  $http.get("pages/currentjobs.php").then(function(response){
 		$scope.appointments = response.data;
 	});
-
-
-
+  */
+  
+  
 
 ///////////////////////////////////////////////////////////////////Modal
 
@@ -358,26 +157,26 @@ $scope.modalDisp = function(clickedInst){
 });
 
 
-
+  
 //////// FOR PENDING TABLE
 myApp.controller('pendingController',['$scope','$log', function($scope,$log){
    $scope.appointments = [];
-
+  
   $scope.selectedLocation = "";
   $scope.selectedMonth = "";
-
+  
    $scope.selectedMonthFilter = function(element) {
     if(!$scope.selectedMonth) return true;
     return element.created.getMonth() == $scope.selectedMonth;
   }
-
+  
   $scope.selectedLocationFilter = function(element) {
     if(!$scope.selectedLocation) return true;
     return element.created.getLocation() == $scope.selectedLocation;
   }
     function randomDate(start, end) {
       return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()))
-  }
+  } 
 
 
 
@@ -387,23 +186,24 @@ myApp.controller('pendingController',['$scope','$log', function($scope,$log){
 //// FOR HISTORY TABLE
 myApp.controller('historyJobsController',['$scope','$log', function($scope,$log){
  $scope.appointments = [];
-
+  
   $scope.selectedLocation = "";
   $scope.selectedMonth = "";
-
+  
    $scope.selectedMonthFilter = function(element) {
     if(!$scope.selectedMonth) return true;
     return element.created.getMonth() == $scope.selectedMonth;
   }
-
+  
   $scope.selectedLocationFilter = function(element) {
     if(!$scope.selectedLocation) return true;
     return element.created.getLocation() == $scope.selectedLocation;
   }
     function randomDate(start, end) {
       return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()))
-  }
+  } 
 
 
 
 }]);
+
