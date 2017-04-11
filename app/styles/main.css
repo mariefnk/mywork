@@ -233,7 +233,26 @@
 .embed-container {
   margin:0;
 }
-
+#videoblock{
+  position: absolute;
+  width: 100%;
+  max-width: 100%;
+  opacity: 0.8;
+}
+@media (max-width:499px){
+  .section1{
+    background-color: rgba(0,0,63,0.75);
+    overflow: hidden;
+  }
+  #videoblock{
+    height: 100vh;
+    width: auto;
+    max-width: 2000px;
+  }
+}
+.section1{
+  height: 100vh;
+}
  #video-wrapper {
      position: relative;
      padding-bottom: 43%;
@@ -241,19 +260,21 @@
      padding-right:0;
      padding-left:0;
 }
-#video-wrapper video {position: absolute;
-
+#video-wrapper video {
+  position: absolute;
 /*left: 0;*/
+width: 100%;
  max-width: 100%;
  height: 75%;
 
- transform: scale(1.3);
+ /*transform: scale(1);*/
 
 }
 
 .section-header-title{
     color:white;
     padding-top:120px;
+    margin-top: 12%;
 }
 
 
@@ -700,7 +721,7 @@ body #aboutus {
     width: 100%;
 }
 
-form input:not([type=radio]):not([type=checkbox]):not([type=file]),
+/*form input:not([type=radio]):not([type=checkbox]):not([type=file]),
 #job-offer-popup input {
     border: none;
     background: transparent;
@@ -710,7 +731,7 @@ form input:not([type=radio]):not([type=checkbox]):not([type=file]),
     outline: none;
     margin-bottom: 10px;
     text-indent: 25px;
-}
+}*/
 
 label {
     display: block;
