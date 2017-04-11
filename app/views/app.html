@@ -1,0 +1,130 @@
+ <!--Latest compiled and minified CSS -->
+<!--<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">-->
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">-->
+    <style>
+        /*@import 'bower_components/bootstrap/dist/css/bootstrap.css';*/
+        </style>
+<div class="app-container">
+
+   <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!--NAV BAR-->
+    <nav>
+
+        <div class="employer-navbar navbar navbar-inverse navbar-fixed-left nav-collapsed">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <ul class="nav navbar-nav">
+                <li class="icon-navbar-nav-text"><a ui-sref="app.homepageemployer"><span class="nav-item-text">Home</span></a></li>
+                <li><a ui-sref="app.currentjobs"><span class="nav-item-text">Jobs</span></a></li>
+                <li><a ui-sref="app.messagesPage"><span class="nav-item-text">Messages</span></a></li>
+                <li><a ui-sref="app.myreviews"><span class="nav-item-text">Reviews</span></a></li>
+                <li><a ui-sref="app.paymentHistory"><span class="nav-item-text">Payment</span></a></li>
+            </ul>
+        </div>
+
+        <div class="employer-navbar-icons navbar navbar-inverse navbar-fixed-left">
+            <span id="hamburger" class="icon-bar" style="font-size:30px; cursor: pointer;"
+                  onclick="toggleNav()">&#9776;</span>
+            <ul class="nav navbar-nav">
+                <li class=" icon icon-navbar-nav"><a ui-sref="app.homepageemployer"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a></li>
+                <li class ="icon"><a ui-sref="app.currentjobs"><i class="fa fa-suitcase fa-2x" aria-hidden="true"
+                                                                          onclick="toggleNav()"></i></a></li>
+
+                <li class ="icon"><a ui-sref="app.messagesPage"><i class="fa fa-comments-o fa-2x" aria-hidden="true" onclick="toggleNav()"></i></a></li>
+
+                <li class ="icon"><a ui-sref="app.reviewsPage"><i class="fa fa-star-o fa-2x" aria-hidden="true" onclick="toggleNav()"></i></a></li>
+                <li class ="icon"><a ui-sref="app.paymentHistory"><i class="fa fa-credit-card fa-2x" aria-hidden="true" onclick="toggleNav()"></i></a></li>
+
+            </ul>
+        </div>
+        <div class="wrapper">
+            <div class="search-bar">
+                <div class="container" id="search-bar-container">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-12 col-xs-12">
+                            <form id="search-form" role="form" method="#" action="#">
+                                <div class="search">
+                                    <span class="fa fa-search"></span>
+                                    <input type="text" class="form-control search-job" placeholder="Search"
+                                          onclick="openJobOfferList()">
+                                </div>
+                            </form>
+
+
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+
+                            <ul class="nav navbar-nav navbar-right">
+
+
+                                <li id="favorites" class="dropdown">
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#"><span class="fa fa-user submenu-profile"></span>My Profile</a></li>
+                                        <li><a href="#"><span class="fa fa-cogs submenu-profile"></span>Settings</a></li>
+                                        <div class="dropdown-divider"></div>
+                                        <li><a href="#"><span class="fa fa-power-off submenu-profile"></span>Log Out</a>
+                                        </li>
+                                    </ul>
+                                    <i class="fa fa-users fa-1x dropdown-toggle" aria-hidden="true" data-toggle="dropdown" aria-expanded="false"><div class="navbar-left-icons">Favorites</div>
+                                    </i>
+                                </li>
+
+
+                                <li id="notifications"  class="dropdown">
+                                    <ul class="dropdown-menu" style="width:250px;" role="menu">
+                                        <div class="row">
+                                    <div class="col-md-8 notification-description" style="padding-right:0px; padding-left:0px;">
+                                    <h6>Casino royal sent you a job offer!</h6>
+                                            <div>Start: April 7, 2017 10:00 AM</div>
+                                            <div>End: April 8, 2017 06:00 AM</div>
+                                    </div>
+                                    <div class="col-md-4 notification-date"style="padding-right:0px; padding-left:0px; font-size:12px;">Apr 3</div>
+
+                                    </div>
+                                    </ul>
+                                    <i class="fa fa-bell fa-1x dropdown-toggle" aria-hidden="true"  data-toggle="dropdown" aria-expanded="false"> <div class="navbar-left-icons">Notifications</div></i>
+
+                                </li>
+                                <li class="dropdown">
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#"><span class="fa fa-user submenu-profile"></span>My Profile</a></li>
+                                        <li><a href="#"><span class="fa fa-cogs submenu-profile"></span>Settings</a></li>
+                                        <div class="dropdown-divider"></div>
+                                        <li><a href="#"><span class="fa fa-power-off submenu-profile"></span>Log Out</a>
+                                        </li>
+                                    </ul>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                        <div class="profile-userpic">
+                                            <img src="images/12080057_10206075733424857_1178354056710554146_o.jpg"
+                                                class="img-responsive" alt="Employer Profile Picture">
+                                        </div>
+                                        <div class="profile-usertitle-name">Hotel Platza</div>
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="wrapper">
+        <div class="container main-content-wrapper">
+            <div class="row">
+                <div class="col-md-12 style='padding-right:0px; padding-left:0px;'>
+                    <div class="main-content ">
+                        <div ui-view="app" class="container" id ="wrapperContainer" style='margin-top:35px;'>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>

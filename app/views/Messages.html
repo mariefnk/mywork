@@ -1,0 +1,60 @@
+
+
+<link  rel="stylesheet" href="CSSStyles/MessagesStyles.css">
+<script src="JavaScript.js"></script>
+	<script type="application/javascript">
+		var account = demoAccount();
+		var filteredContacts = account.contacts.contacts;
+		var selectedContact = filteredContacts[0];
+		var selectedContactIndex = 0;
+		var aBook = account.contacts;
+		
+		var selectedContact2 = filteredContacts[0];
+		var selectedContactIndex2 = 0;
+		
+	</script>
+	<style>
+
+</style>
+	
+
+<body class="container-fluid">
+	<div id="left-panel" class="container">
+		<h3>Messagesss</h3>
+		<div class="input-group" id="search-contacts">
+			<input type="text" class="form-control" id="searchTF">
+			<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+		</div>
+		<div id="contacts">
+			<hr>
+			<div id="contact-list">
+			</div>
+			<span onClick="deleteContact()" class="glyphicon glyphicon-trash" style="float: right; padding: 10px 30px 10px 0; color: dimgrey; font-size: 120%" />
+		</div>
+	</div>
+	<div id="rightPanel">
+		<div id="top-panel">
+	  </div>
+		<div id="bottom-panel">
+		</div>
+		<div id="send-panel">
+			<input type="text" class="form-control" id="sendMessageTF" style="margin-top:10px; width:%100">
+			<button id="sendBtn" class="btn btn-primary" type="button" style=" margin-top:10px">Send</button>
+		</div>
+	</div>
+</body>
+<footer>
+	<div id="messagesPanel">
+		<div id="messagesToggle"><h4>Messages</h4></div>
+		<div id="contactsPanel" class="collapse"></div>
+	</div>
+	<div id="dialogPanel" class="collapse">
+		<div id="miniDialog">	
+		</div>
+		<div id="send-panel-mini">
+			<input type="text" class="form-control" id="sendMessageTF" style="margin-top:10px; width:%100"><br>
+			<button id="sendBtn" class="btn btn-primary" type="button" style=" margin-top:10px">Send</button>
+		</div>
+	</div>
+</footer>
+

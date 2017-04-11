@@ -1,0 +1,131 @@
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css"
+          integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:500" rel="stylesheet">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.min.css"/>
+
+<div id="mask"></div>
+<div id="job-offer-popup" class="container">
+    <div class="popup-close" onclick="$('#job-offer-popup').hide();"><i class="fa fa-close"></i></div>
+    <div class="title"></div>
+    <div class="rate"></div>
+    <div class="container">
+        <button id="jdBtn" href="#jd" class="btn btn-signup-form" data-toggle="collapse">
+            Job Description
+            <span class="fields-validation-check"><i class="fa fa-check-circle-o" aria-hidden="true"></i></span>
+        </button>
+        <div id="jd" class="my-section collapse in">
+            <div class="signup-form">
+                <label class="form-input-label"><i class="fa fa-fw fa-at" aria-hidden="true"></i><input
+                        type="text" name="jobTitle" required placeholder="Job Title*"/></label>
+                <label class="form-input-label">
+                    <textarea required type="textarea" cols="60" rows="6"
+                              name="jdDescription"
+                              placeholder="Tell the worker what the position is about*"></textarea>
+                </label>
+            </div>
+        </div>
+        <button id="scheduleBtn" href="#schedule" class="btn btn-signup-form" data-toggle="collapse">
+            Schedule
+            <span class="fields-validation-check"><i class="fa fa-check-circle-o" aria-hidden="true"></i></span>
+        </button>
+        <div id="schedule" class="my-section collapse">
+            <div>SELECT THE DATES AND TIMES FOR THIS MISSION</div>
+            <br>
+            <div class="signup-form" style="display: table; width: 100%;">
+                <div class="calendar">
+                    <div id="scheduler"></div>
+                </div>
+                <div class="dates-selection">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+    <button id="scheduleNowBtn" disabled class="btn btn-primary" style="margin-bottom: 5px;">SCHEDULE NOW</button>
+</div>
+
+
+    <script>
+       $('#job-offer-popup .title').html(worker.firstName + ' ' + worker.lastName);
+        $('#job-offer-popup .rate').html("$" + worker.expectedSalary + "/hour");
+       var scheduler = $('#scheduler').datepicker({
+           onSelect: function(dateText) {
+               var holder = $('.dates-selection');
+               var content = '<div class="job-timing">';
+               content += '<div class="job-date">' + dateText + '</div>';
+               content += 'From ';
+               content += appendTimePicker('from');
+               content += 'To ';
+               content += appendTimePicker('to');
+               content += '&nbsp;<i class="fa fa-remove" style="color: red;" onclick="removeJobTiming(this);"></i>';
+               content += '</div>';
+
+               holder.append(content);
+               $('#scheduleBtn .fields-validation-check').show();
+               updateScheduleNowButton();
+           }
+       });
+       scheduler.show();
+   
+
+    function removeJobTiming(el) {
+        $(el).closest('.job-timing').remove();
+        if ($('.dates-selection .job-timing').length == 0) {
+            $('#scheduleBtn .fields-validation-check').hide();
+            updateScheduleNowButton();
+        }
+    }
+
+    function appendTimePicker(className) {
+        var content = '<select class="' + className + '">';
+        for(var i =0; i < 24; i++){
+            var hour = ((i + 11) % 12 + 1);
+            var a = i > 11 ? "pm" : "am";
+            content += '<option value="'+ hour + ':00 '+a+'" >'+ hour + ':00 '+a+'</option>';
+            content += '<option value="'+ hour + ':15 '+a+'" >'+ hour + ':15 '+a+'</option>';
+            content += '<option value="'+ hour + ':30 '+a+'" >'+ hour + ':30 '+a+'</option>';
+            content += '<option value="'+ hour + ':45 '+a+'" >'+ hour + ':45 '+a+'</option>';
+        }
+        content += '</select>';
+        return content;
+    }
+
+   function openOfferPopup() {
+       $('#mask').show();
+       $('#job-offer-popup').show();
+   }
+
+    $('input, textarea').on('change', function(e) {
+        e = e || window.event;
+        var target = e.target || e.srcElement;
+
+        var holder = $(target).closest('.my-section');
+        var emptyElements = holder.find('input[required], select[required], textarea').filter(function(idx,val) {
+            /*if (val.type == 'radio' || val.type == 'checkbox') {
+             return !val.checked;
+             } else {*/
+            // TODO: handle radiogroups and checkboxes
+            return $(val).val() == "";
+            // }
+        });
+        var checkmarkEl = $('#' + holder[0].id + 'Btn .fields-validation-check');
+        if (emptyElements.length == 0) {
+            checkmarkEl.show();
+        } else {
+            checkmarkEl.hide();
+        }
+        updateScheduleNowButton();
+    });
+
+    function updateScheduleNowButton() {
+        var allChecks = $('#job-offer-popup .fields-validation-check');
+        var allUnchecks = allChecks.filter(function(idx,val) {
+            return $(val).is(":hidden");
+        });
+        if (allUnchecks && allUnchecks.length == 0) {
+            // activate create an account button
+            $('#scheduleNowBtn').prop('disabled', '');
+        } else {
+            $('#scheduleNowBtn').prop('disabled', 'disabled');
+        }
+    }
+</script>

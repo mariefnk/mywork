@@ -1,0 +1,326 @@
+
+
+<!-- END NAV BAR-->
+
+<!--SUB NAV BAR-->
+
+<!--
+<div class="wrapper">
+    <div class="sub-nav-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="sub-nav">
+                        <div class="header-center">
+                            <div class="tab-nav-div">
+                                <ul class="tab-nav-bar tab-nav-bar-center">
+                                    <li class="tab-nav">
+                                        <a class="tab-nav-button is-selected" href="#">My jobs</a>
+                                    </li>
+                                    <li class="tab-nav">
+                                        <a class="tab-nav-button" href="#">Calendar</a>
+                                    </li>
+                                    <li class="tab-nav">
+                                        <a class="tab-nav-button" href="#">Current jobs</a>
+                                    </li>
+                                    <li class="tab-nav">
+                                        <a class="tab-nav-button" href="#">Bills</a>
+                                    </li>
+                                    <li class="tab-nav">
+                                        <a class="tab-nav-button" href="#">My Reviews</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+-->
+
+<!--END SUB NAV BAR-->
+
+
+<!--MAIN CONTENT-->
+<div class="wrapper">
+    <div class="container main-content-wrapper">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="main-content">
+
+<!--                        <div class="row">-->
+                         <div class="col-md-2">
+                        <div data-toggle="collapse" data-target="#filter-myworks" class="my-works-filter-title"><i class="fa fa-filter" aria-hidden="true"></i> Filters</div>  
+                             <div id="filter-myworks" class="collapse">
+                             <div data-toggle="collapse" data-target="#filter-myworks-months" class="filter-years"><div class ="filter-year" btn btn-default>2017</div>
+                            </div>
+                                 <div id="filter-myworks-months"  class="collapse">
+                                     <ul class="list-filter-month">
+                                     <li class ="filter-month">April</li>
+                                     <li class ="filter-month">March</li>
+                                     <li class ="filter-month">February</li>
+                                     <li class ="filter-month">January</li>
+                                     </ul>
+                                     <div class="apply-months-filter">Filter</div>
+                                 </div>
+                                 
+                             </div>
+                        </div>
+                         <div class="col-md-10">
+                             <div class="my-works-history-title">My Works</div>
+<!--
+                             <div class="my-works-status-bar">
+                                 <div class="row">
+                                 <div class="col-md-6"><div class="my-works-status">History</div></div>
+                                 <div class="col-md-6"><div class="my-works-status">Active</div></div>
+                                 </div>
+                             
+                             
+                             </div>
+-->
+                             <table id="my-works-table" class="table">
+                             <thead>
+                                 <tr>
+                                     <th class="text-center"></th>
+                                     <th>Employer</th>
+                                     <th>Start Date</th>
+                                     <th>End Date</th>
+                                     <th>Salary</th>
+                                     <th>Location</th>
+                                     <th>Pay Slip</th>
+                                 </tr>
+                             </thead>
+                             <tbody class="align-top">
+                    
+<!--
+
+                             <tr>
+                                    <div class="my-works-status-bar">
+                                 <div class="my-works-status">Current</div>
+                                  </div>
+                                    
+                              </tr>
+-->
+
+                                 <tr class="header">
+            <th colspan="7" scope="col" style="padding:0px;"> <div class="my-works-status-bar">
+                                 <div class="my-works-status">Current</div>
+                                  </div></th>
+        </tr>
+                                 <tr data-toggle="collapse" data-target="#1" class=" header mission-expand" onclick="rotateArrow()">
+                                 <td class="text-center">
+                                     <span><i class="fa fa-caret-right expand-arrow" aria-hidden="true"></i></span>
+                                 </td>
+                            
+                                     <td>Hotel Platza</td>
+                                     <td>03/15/2017</td>
+                                     <td>03/17/2017</td>
+                                     <td>$250</td>
+                                     <td>Boston</td>
+                                     <td>Download</td>
+                                 </tr>
+                                 <tr class="my-work-information">
+                                     
+                                 <td colspan="7">
+                                     <div id= "1" class="collapse in">
+<!--                                     <div class="container">-->
+                                     <div class="row">
+                                         <div class ="col-md-6">
+                                         <div class="work-information-section review-employer">
+                                     <h6>How was it to work with Hotel Platza?</h6>
+                                              <div id="stars" class="starrr"></div>
+                                             <div class="review-comment">
+                                             <textarea rows="4" cols="40" placeholder="Leave a comment here"></textarea>
+                                                 <div class ="review-comment-form-control">
+                                                  <button type="submit" class="btn btn--dark" onclick="saveReview()">Save review</button>
+                                                 <button type="cancel" class="btn btn--link">Cancel</button>
+                                                 </div>
+                                             </div>
+                                     </div>
+                                         </div>
+                                     
+                                         <div class="work-information-section work-information-sum-up">
+                                     <div class="total-number-hours-worked">Total Hours worked: 15</div>
+<!--                                             <div class="days-worked">-->
+                                             <div class="days-worked">
+                                                 <div class="days=worked-from-date">Tuesday, March 15, 2017</div>
+                                                  <div class="days=worked-from-time">10:00 AM</div>
+                                             </div>
+                                                 <i class="fa fa-long-arrow-right fa-2x" aria-hidden="true"></i>
+                                              <div class="days-worked">
+                                                   <div class="days=worked-to-date">Tuesday, March 17, 2017</div>
+                                                   <div class="days=worked-to-time">02:00 PM</div>
+                                              </div>
+                                             <hr>
+                                             <div class="payment-status">Payment Status: Reiceved</div>
+                                             <div class="payment-method"><i class="fa fa-cc-visa" aria-hidden="true"></i> $250</div>
+<!--                                             </div>-->
+                                     </div>
+                                                <div id="review-employer">You rated this company <span id="count">0</span> star(s)</div>  
+                                         </div>
+                                       
+                                      </div>
+<!--                                     </div>-->
+                                    
+                                      
+                                     </td>
+                                   
+                                 </tr>
+                                 <tr data-toggle="collapse" data-target="#2" class="header mission-expand">
+                                 <td class="text-center">
+                                     <span><i class="fa fa-caret-right" aria-hidden="true"></i></span>
+                                 </td>
+                                     <td>Hotel Platza</td>
+                                     <td>03/15/2017</td>
+                                     <td>03/17/2017</td>
+                                     <td>$250</td>
+                                     <td>Boston</td>
+                                     <td>Download</td></tr>
+                                  <tr class="my-work-information">
+                                      
+                                 <td colspan="7">
+                                     <div id ="2" class="collapse">
+<!--                                     <div class="container">-->
+                                     <div class="row">
+                                         <div class ="col-md-6">
+                                         <div class="work-information-section review-employer">
+                                     <h6>How was it to work with Hotel Platza?</h6>
+                                             <div id="stars" class="starrr">
+<!--
+                                             <i class="fa fa-star-o" aria-hidden="true"></i>
+                                             <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                 <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                 <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                 <i class="fa fa-star-o" aria-hidden="true"></i>
+-->
+                                             </div>
+                                             <div class="review-comment">
+                                             <textarea rows="4" cols="40" placeholder="Leave a comment here"></textarea>
+                                                 <div class ="review-comment-form-control">
+                                                  <button type="submit" class="btn btn--dark">Save review</button>
+                                                 <button type="cancel" class="btn btn--link">Cancel</button>
+                                                 </div>
+                                             </div>
+                                     </div>
+                                         </div>
+                                         <div class="col-md-6">
+                                         <div class="work-information-section work-information-sum-up">
+                                     <div class="total-number-hours-worked">Total Hours worked: 15</div>
+<!--                                             <div class="days-worked">-->
+                                             <div class="days-worked">
+                                                 <div class="days=worked-from-date">Tuesday, March 15, 2017</div>
+                                                  <div class="days=worked-from-time">10:00 AM</div>
+                                             </div>
+                                                 <i class="fa fa-long-arrow-right fa-2x" aria-hidden="true"></i>
+                                              <div class="days-worked">
+                                                   <div class="days=worked-to-date">Tuesday, March 17, 2017</div>
+                                                   <div class="days=worked-to-time">02:00 PM</div>
+                                              </div>
+                                             <hr>
+                                             <div class="payment-status">Payment Status: Reiceved</div>
+                                             <div class="payment-method"><i class="fa fa-cc-visa" aria-hidden="true"></i> $250</div>
+<!--                                             </div>-->
+                                     </div>
+                                         </div>
+                                  
+                                      </div>
+<!--                                     </div>-->
+                                    
+                                       </div>
+                                     </td>
+                                    
+                                 </tr>
+                                 <tr data-toggle="collapse" data-target="#" class=" header mission-expand">
+                                 <td class="text-center">
+                                     <span><i class="fa fa-caret-right" aria-hidden="true"></i></span>
+                                 </td>
+                                     <td>Hotel Platza</td>
+                                     <td>03/15/2017</td>
+                                     <td>03/17/2017</td>
+                                     <td>$250</td>
+                                     <td>Boston</td>
+                                     <td>Download</td></tr>
+                                 <tr data-toggle="collapse" data-target="#" class=" header mission-expand">
+                                 <td class="text-center">
+                                     <span><i class="fa fa-caret-right" aria-hidden="true"></i></span>
+                                 </td>
+                                     <td>Hotel Platza</td>
+                                     <td>03/15/2017</td>
+                                     <td>03/17/2017</td>
+                                     <td>$250</td>
+                                     <td>Boston</td>
+                                     <td>Download</td></tr>
+                                 <tr data-toggle="collapse" data-target="#" class=" header mission-expand">
+                                 <td class="text-center">
+                                     <span><i class="fa fa-caret-right" aria-hidden="true"></i></span>
+                                 </td>
+                                     <td>Hotel Platza</td>
+                                     <td>03/15/2017</td>
+                                     <td>03/17/2017</td>
+                                     <td>$250</td>
+                                     <td>Boston</td>
+                                     <td>Download</td></tr>
+                                 <tr data-toggle="collapse" data-target="#" class="header mission-expand">
+                                 <td class="text-center">
+                                     <span><i class="fa fa-caret-right" aria-hidden="true"></i></span>
+                                 </td>
+                                     <td>Hotel Platza</td>
+                                     <td>03/15/2017</td>
+                                     <td>03/17/2017</td>
+                                     <td>$250</td>
+                                     <td>Boston</td>
+                                     <td>Download</td></tr>
+                                 <tr data-toggle="collapse" data-target="#" class="header mission-expand">
+                                 <td class="text-center">
+                                     <span><i class="fa fa-caret-right" aria-hidden="true"></i></span>
+                                 </td>
+                                     <td>Hotel Platza</td>
+                                     <td>03/15/2017</td>
+                                     <td>03/17/2017</td>
+                                     <td>$250</td>
+                                     <td>Boston</td>
+                                     <td>Download</td></tr>
+                                 <tr data-toggle="collapse" data-target="#" class="header mission-expand">
+                                 <td class="text-center">
+                                     <span><i class="fa fa-caret-right" aria-hidden="true"></i></span>
+                                 </td>
+                                     <td>Hotel Platza</td>
+                                     <td>03/15/2017</td>
+                                     <td>03/17/2017</td>
+                                     <td>$250</td>
+                                     <td>Boston</td>
+                                     <td>Download</td></tr>
+                             </tbody>
+                                 </table>
+                         </div>
+
+<!--                </div>-->
+            </div>
+<!--        </div>-->
+    </div>
+</div>
+    </div>
+    </div>
+<!--END MAIN CONTENT-->
+
+<!-- jQuery first, then Bootstrap JS. -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"
+        integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY"
+        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js"
+        integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB"
+        crossorigin="anonymous"></script>
+<!--
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js"
+        integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK"
+        crossorigin="anonymous"></script>
+-->
+<script src="script.js"></script>
+
+
+</body>
+</html>
