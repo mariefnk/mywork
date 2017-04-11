@@ -22,8 +22,8 @@ function closeJobMajorsList(){
 function toggleNav() {
     $('.employer-navbar').toggleClass('nav-collapsed');
     $('#hamburger').css('visibility','hidden');
-    $('.wrapper').css('margin-left','160px');
-      $('.main-content').css('margin-left','0px');
+    $('.wrapper').css('margin-left','100px');
+      //$('.main-content').css('margin-left','30px');
       $('.wrapper').css('transition','all 0.5s');
 }
 

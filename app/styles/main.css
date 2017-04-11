@@ -1043,7 +1043,7 @@ hr{
 .main-content {
 /*    overflow-y: scroll;*/
     margin-top: 20px;
-    margin-left: 25px;
+    margin-left: 65px;
 /*    margin-right: auto;*/
     /*    max-width: 1024px;*/
     height: 530px;
@@ -1214,25 +1214,6 @@ hr{
         /*        width:120%;*/
     }
 
-    .main-content {
-        margin-left: 0px;
-        margin-right: 0px;
-        padding: 0px;
-    }
-
-    /*
-        .main-content-wrapper{
-            margin-right:0px;
-             margin-left:0px;
-        }
-    */
-    /*
-        .workers-search{
-       overflow: hidden;
-        z-index: -99;
-    }
-    */
-
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -1344,13 +1325,6 @@ hr{
     font-size: smaller;
 }
 
-.profile-category {
-
-}
-
-.profile-availability {
-
-}
 
 label.yoe-input,
 label.degree-input,

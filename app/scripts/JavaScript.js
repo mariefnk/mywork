@@ -1,4 +1,4 @@
-// JavaScript Document
+/*// JavaScript Document
 
 
 function Account(username, password, firstName, lastName, email, picture, contacts) {
@@ -362,5 +362,5 @@ $(document).ready(function() {
     });
 
 });
-
+*/
 

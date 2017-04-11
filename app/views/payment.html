@@ -56,13 +56,17 @@
           </fieldset>
           <hr>
           <div class="creditCard">
+
+
           <fieldset class="row">
             <div class="col-sm-3">
               <label>Card Number</label>
             </div>
               <div class="col-sm-5 paymentCol">
               <div class="form-item">
-              <input type="text" name="credit_card_number" style="width: 300px"/>
+                 <label class="form-input-label"><i class="fa fa-fw fa-credit-card"
+                                                                   aria-hidden="true" style="color:crimson;"></i>
+              <input type="text" name="credit_card_number" style="width: 300px"/>  </label >
 
 </div>            </div>
           </fieldset>
@@ -134,16 +138,18 @@
           <hr>
       <fieldset class="row" style="display: block;"> 
                 <div class="col-sm-3">
-              <label>Billing Postal Code</label>
+              <label>Billing Postal Code</label>  
             </div>
                 <div class="col-sm-5 paymentCol">
               <div class="form-item">
-              <input class="form-text-input input-text numerical input-text placeholder-processed" type="text" name="credit_card[postal_code]" id="credit_card_postal_code">
+              <label class="form-input-label">
+             <i class="fa fa-home" aria-hidden="true" style="color:crimson;" ></i> 
+              <input class="form-text-input input-text numerical input-text placeholder-processed" type="text" name="credit_card[postal_code]" id="credit_card_postal_code"></label>
             </div>   
               </div>
           </fieldset>
              <div class="form-footer">
-            <button type="button" class="btn btn-success" type="submit">Save changes</button>
+            <button type="button" class="btn" style="background-color:crimson;" type="submit">Save changes</button>
           </div>
           </div>
           

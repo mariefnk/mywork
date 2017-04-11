@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
-$username = "root";
-$password = "root";
-$db='jobs';
+$username = "id1275633_root";
+$password = "password";
+$db='id1275633_jobs';
 // Create connection
 $conn = new mysqli($servername, $username, $password,$db);
 
@@ -11,7 +11,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$sql = "SELECT contract_id, first_name, last_name, start_date, end_date, location FROM currentjobs";
+$sql = "SELECT * FROM currentjobs";
 $result = mysqli_query($conn, $sql);
 $rows = array();
 while($temp = mysqli_fetch_assoc($result)) {

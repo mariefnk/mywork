@@ -1,6 +1,16 @@
-
-
-
+<style>
+ @import url('//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css');
+ .content {
+    overflow: hidden;
+}
+td{
+    padding:0;
+}
+.content img {
+   
+    float: left;
+}
+</style>
      <div class="row">
  <div class="col-md-3">
 
@@ -97,26 +107,28 @@
 		</ul>
 
   </div>
-                               <table id="my-works-table" class="table">
+ 
+                               <table id="my-works-table" class="table table-hover">
                              <thead>
                                  <tr>
                                      <th>Contract</th>
-                                     <th>First Name</th>
-                                     <th>Last Name</th>
+                                     <th>Name</th>
+                                     
                                      <th>Start Date</th>
                                      <th>End Date</th>
                                      <th>Location</th>
                                  </tr>
                              </thead>
 							<tbody>
-							<tr ng-repeat-start="a in appointments">
+							<tr ng-repeat-start="a in appointments ">
 						<td>
-							<button class="moreinfo" ng-if="a.expanded" ng-click="a.expanded = false"><span><i class="fa fa-caret-right expand-arrow"  aria-hidden="true"></i></span></button>
-              			<button class="moreinfo" ng-if="!a.expanded" ng-click="a.expanded = true"> <span><i class="fa fa-caret-right"  aria-hidden="true"></i></span></button>
+                            <i class=" glyphicon glyphicon-chevron-up " ng-if="a.expanded" ng-click="a.expanded = false"></i>
+							<i class=" glyphicon glyphicon-chevron-down"  ng-if="!a.expanded" ng-click="a.expanded = true"></i>
+              			
 						  {{a.contract_id}}
 						</td>
-		            	<td>{{a.first_name}}</td>
-						<td>{{a.last_name}}</td>
+		            	<td>{{a.first_name}} {{a.last_name}}</td>
+					
 			            <td>{{a.start_date}}</td>
                         <td>{{a.end_date}}</td>
 						<td>{{a.location}}</td>
@@ -125,8 +137,23 @@
 						</tr>
 
 						 <tr ng-if="a.expanded" ng-repeat-end="">
-            			<td colspan="5"><button id="myBtn{{a.contract_id}}" ng-click="modalDisp(a.first_name)" data-toggle="modal" data-target="#myModal">Open Modal</button></td>
-         				 </tr>
+                        <td colspan="2"> 
+                            <div class="content">
+                        <img src="images/Marie.jpg" style="height:40%; width:35%;" / alt="" >
+                         <h4>{{a.first_name}} {{a.last_name}}</h4>
+                         <p>{{a.Phone}}</p>
+                          <p>{{a.Email}}</p>
+                         <p> <i class="glyphicon glyphicon-envelope">Message</i></p>
+                        </div>​
+                        </td>
+                        <td></td>
+                         <td colspan="3"> {{a.Title}} <br>{{a.Wage}}
+                             <br>{{a.Hours}} hours <br>
+            			<button id="myBtn{{a.contract_id}}" ng-click="modalDisp(a.first_name)" data-toggle="modal" data-target="#myModal">Open Modal</button></td>
+         				
+                          
+                           
+                          </tr>
 							</tbody>
                                 
                      </table>

@@ -10,7 +10,11 @@ var myApp=angular.module('myApp',[
   'ngTouch'
   ]);
 
-myApp.config(function ($routeProvider){
+myApp.config(function ($routeProvider, $httpProvider){
+
+
+  $httpProvider.defaults.useXDomain = true;
+  delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
   $routeProvider
   .when('/currentjobs',{
@@ -110,7 +114,7 @@ myApp.controller('currentjobsController', function($http,$scope,$timeout,$log){
 
 //var j = $.noConflict();
 
-$scope.appointments = [];
+/*$scope.appointments = [];
   
   $scope.selectedLocation = "";
   $scope.selectedMonth = "";
@@ -129,15 +133,16 @@ $scope.appointments = [];
   
   function randomDate(start, end) {
       return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()))
-  } 
+  } */
 
   $scope.appointments = [{"contract_id":"1","first_name":"Larry","last_name":"Ullman","start_date":"2017-04-02 19:10:13","end_date":"2017-04-02 19:10:13","location":"Boston"},{"contract_id":"2","first_name":"John","last_name":"Lennon","start_date":"0000-00-00 00:00:00","end_date":"0000-00-00 00:00:00","location":"Boston"},{"contract_id":"3","first_name":"John","last_name":"Brown","start_date":"0000-00-00 00:00:00","end_date":"0000-00-00 00:00:00","location":"Boston"},{"contract_id":"4","first_name":"Tom","last_name":"Smith","start_date":"0000-00-00 00:00:00","end_date":"0000-00-00 00:00:00","location":"London"},{"contract_id":"5","first_name":"Sebastian","last_name":"Pier","start_date":"0000-00-00 00:00:00","end_date":"0000-00-00 00:00:00","location":"Paris"}];
 	
-  /*
-  $http.get("pages/currentjobs.php").then(function(response){
+  
+  /*$http.get("https://kochetygovam.000webhostapp.com/currentjobs.php").then(function(response){
+    
 		$scope.appointments = response.data;
-	});
-  */
+	});*/
+  
   
   
 
@@ -160,24 +165,8 @@ $scope.modalDisp = function(clickedInst){
   
 //////// FOR PENDING TABLE
 myApp.controller('pendingController',['$scope','$log', function($scope,$log){
-   $scope.appointments = [];
-  
-  $scope.selectedLocation = "";
-  $scope.selectedMonth = "";
-  
-   $scope.selectedMonthFilter = function(element) {
-    if(!$scope.selectedMonth) return true;
-    return element.created.getMonth() == $scope.selectedMonth;
-  }
-  
-  $scope.selectedLocationFilter = function(element) {
-    if(!$scope.selectedLocation) return true;
-    return element.created.getLocation() == $scope.selectedLocation;
-  }
-    function randomDate(start, end) {
-      return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()))
-  } 
 
+$scope.appointments = [{"contract_id":"1","first_name":"Larry","last_name":"Ullman","start_date":"2017-04-02 19:10:13","end_date":"2017-04-02 19:10:13","location":"Boston"},{"contract_id":"2","first_name":"John","last_name":"Lennon","start_date":"0000-00-00 00:00:00","end_date":"0000-00-00 00:00:00","location":"Boston"},{"contract_id":"3","first_name":"John","last_name":"Brown","start_date":"0000-00-00 00:00:00","end_date":"0000-00-00 00:00:00","location":"Boston"},{"contract_id":"4","first_name":"Tom","last_name":"Smith","start_date":"0000-00-00 00:00:00","end_date":"0000-00-00 00:00:00","location":"London"},{"contract_id":"5","first_name":"Sebastian","last_name":"Pier","start_date":"0000-00-00 00:00:00","end_date":"0000-00-00 00:00:00","location":"Paris"}];
 
 
 
