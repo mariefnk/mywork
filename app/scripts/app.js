@@ -28,7 +28,6 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider){
     views: {
       main: {templateUrl: "views/landing.html", controller: 'LandingPageController'}
     }
-
   })
   $stateProvider.state('login',{
     url: '/login',
@@ -133,112 +132,6 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider){
       app: {templateUrl: "views/reviews-page.html", controller: 'ReviewsControllers'}
     }
   })
-
-  })
-  $stateProvider.state('login',{
-    url: '/login',
-    abstract: false,
-    views: {
-      main: {templateUrl: "views/login.html", controller: 'loginController'}
-    }
-  })
-
-  $stateProvider.state('register',{
-    url: '/register',
-    abstract: false,
-    views: {
-      main: {templateUrl: "views/register.html", controller: 'registerController'}
-    }
-  })
-
-
-
-  $stateProvider.state('app',{
-    url: '/app',
-    abstract: false,
-    views: {
-      main: {templateUrl: "views/app.html", controller: 'AppPageController'}
-    }
-  })
-
-  $stateProvider.state('app.currentjobs',{
-    url: '/currentjobs',
-    abstract: false,
-    views: {
-      app: {templateUrl: "views/currentjobs.html", controller: 'currentjobsController'}
-    }
-  })
-
-  $stateProvider.state('app.pendingjobs',{
-    url: '/pendingjobs',
-    abstract: false,
-    views: {
-      app: {templateUrl: "views/pendingjobs.html", controller: 'pendingController'}
-    }
-  })
-  $stateProvider.state('app.historyjobs',{
-    url: '/historyjobs',
-    abstract: false,
-    views: {
-      app: {templateUrl: "views/historyjobs.html", controller: 'historyJobsController'}
-    }
-  })
-
-  $stateProvider.state('app.payment',{
-    url: '/payment',
-    abstract: false,
-    views: {
-      app: {templateUrl: "views/payment.html", controller: 'paymentController'}
-    }
-  })
-
-
-
-  $stateProvider.state('app.paymentHistory',{
-    url: '/paymentHistory',
-    abstract: false,
-    views: {
-      app: {templateUrl: "views/paymentHistory.html", controller: 'paymentHistoryController'}
-    }
-  })
-
-  $stateProvider.state('app.settings',{
-    url: '/settings',
-    abstract: false,
-    views: {
-      app: {templateUrl: "views/settings.html", controller: 'settings'}
-    }
-  })
-
-  $stateProvider.state('app.myreviews',{
-    url: '/myreviews',
-    abstract: false,
-    views: {
-      app: {templateUrl: "views/myreviews.html", controller: 'myreviewsController'}
-    }
-  })
-  $stateProvider.state('app.homepageemployer',{
-    url: '/home-page-employer',
-    abstract: false,
-    views: {
-      app: {templateUrl: "views/home-page-employer.html", controller: 'HomePageController'}
-    }
-  })
-  $stateProvider.state('app.selectedWorker',{
-    url: '/selectedWorker',
-    abstract: false,
-    views: {
-      app: {templateUrl: "views/worker-search-selected-profile.html", controller: 'SearchWorkerSelected'}
-    }
-  })
-  $stateProvider.state('app.reviewsPage',{
-    url: '/reviewsPage',
-    abstract: false,
-    views: {
-      app: {templateUrl: "views/reviews-page.html", controller: 'ReviewsControllers'}
-    }
-  })
-
   $stateProvider.state('app.messagesPage',{
     url: '/messagesPage',
     abstract: false,
@@ -249,7 +142,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider){
 
 
 
-
+});
 
 myApp.controller('settings',['$scope','$log', function($scope,$log){
 
@@ -305,10 +198,10 @@ myApp.controller('registerController', ['$scope','$state', function($scope,$stat
     console.log($scope.type)
     console.log($scope.first_name)
 
+    //
     $state.go('app.homepageemployer')
 
   }
-
 
   $scope.step1 = function(event, form){
     var curStep = $(event.target).closest(".setup-content"),
@@ -337,7 +230,6 @@ myApp.controller('registerController', ['$scope','$state', function($scope,$stat
         
       
   }
-
 
   $(document).ready(function () {
 var navListItems = $('div.setup-panel div a'),
@@ -369,7 +261,6 @@ allPrevBtn.click(function(){
         prevStepWizard.removeAttr('disabled').trigger('click');
 });
 
-
 // allNextBtn.click(function(){
 //     var curStep = $(this).closest(".setup-content"),
 //         curStepBtn = curStep.attr("id"),
@@ -388,26 +279,6 @@ allPrevBtn.click(function(){
 //     if (isValid)
 //         nextStepWizard.removeAttr('disabled').trigger('click');
 // });
-
-allNextBtn.click(function(){
-    var curStep = $(this).closest(".setup-content"),
-        curStepBtn = curStep.attr("id"),
-        nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
-        curInputs = curStep.find("input[type='text'],input[type='url']"),
-        isValid = true;
-
-    $(".form-group").removeClass("has-error");
-    for(var i=0; i<curInputs.length; i++){
-        if (!curInputs[i].validity.valid){
-            isValid = false;
-            $(curInputs[i]).closest(".form-group").addClass("has-error");
-        }
-    }
-
-    if (isValid)
-        nextStepWizard.removeAttr('disabled').trigger('click');
-});
-
 
 $('div.setup-panel div a.btn-primary').trigger('click');
 });
@@ -573,5 +444,4 @@ myApp.controller('historyJobsController',['$scope','$log', function($scope,$log)
 
 
 
-
-
+}]);
