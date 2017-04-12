@@ -20,10 +20,18 @@ function closeJobMajorsList(){
 }
 
 function toggleNav() {
-    $('.employer-navbar').toggleClass('nav-collapsed');
-    $('#hamburger').css('visibility','hidden');
-    $('.wrapper').css('margin-left','160px');
-      $('.main-content').css('margin-left','0px');
+    var state =$('#hamburger').css('visibility')
+    if (state == 'visible'){
+        $('.employer-navbar').toggleClass('nav-collapsed');
+        $('#hamburger').css('visibility','hidden');
+      $('.wrapper').css('margin-left','160px');
+    } else {
+        $('#hamburger').css('visibility','visible');
+        $('.employer-navbar').toggleClass('nav-collapsed');
+        $('.wrapper').css('margin-left','0px');
+     $('.main-content').css('margin-left','65px');
+    }
+    
       $('.wrapper').css('transition','all 0.5s');
 }
 
@@ -493,7 +501,7 @@ function searchController () {
 
 function addWorker(worker) {
     var content = '<div class="col-md-12">'
-    +'<a onclick="setSelectedWorker(' + worker.id + ')" href="#/selectedWorker">'
+    +'<a onclick="setSelectedWorker(' + worker.id + ')" >'
        + '<div class="col-md-2">'
         + '<div class="profile-picture-worker-search">'
         + '<li class="worker-search-info">'

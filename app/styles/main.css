@@ -239,6 +239,12 @@
   max-width: 100%;
   opacity: 0.8;
 }
+.video-container{
+  height: 60vh;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+}
 @media (max-width:499px){
   .section1{
     background-color: rgba(0,0,63,0.75);
@@ -251,7 +257,8 @@
   }
 }
 .section1{
-  height: 100vh;
+  height: 70vh;
+  overflow: hidden;
 }
  #video-wrapper {
      position: relative;
@@ -274,9 +281,8 @@ width: 100%;
 .section-header-title{
     color:white;
     padding-top:120px;
-    margin-top: 12%;
+    margin-top: 5%;
 }
-
 
 
 .icon {
@@ -570,7 +576,7 @@ body #aboutus {
 }
 
 .employer-navbar {
-    width: 115px;
+    width: 135px;
     overflow: hidden;
     margin-left: 52px;
     transition: all 0.5s;
@@ -2078,4 +2084,203 @@ body {
   padding-bottom: 20px;
   display: inline-block;
   text-align: left;
+}
+
+
+
+
+
+/* CSS Document */
+
+
+.messages-container  ul {
+	padding-left: 0;
+}
+.messages-container .contact-second {
+	color: dimgrey;
+}
+.messages-container .media a {
+	text-decoration: none;
+}
+.messages-container .media {
+	padding: 0 10px;
+}
+
+.messages-container hr {
+	margin: 5px;
+}
+
+.messages-container #rightPanel {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	height: 100%;
+}
+
+.messages-container #left-panel {
+	background-color:rgba(0,0,0,0.05);
+	margin-right: 20px;
+	border-radius: 10px;
+	padding: 10px;
+	margin-bottom: 20px;
+}
+
+.messages-container #top-panel {
+	flex: 0 1 auto;
+	margin-bottom: 10px;
+	border-radius: 10px;
+	background-color:rgba(0,0,0,0.05);
+	height: 100px;
+	padding: 20px;
+}
+
+.messages-container #bottom-panel {
+	flex: 1 1 auto;
+	border-radius: 10px;
+	background-color:rgba(0,0,0,0.05);
+	padding: 20px;
+	overflow: auto;
+}
+
+.messages-container #search-contacts {
+	margin: 10px 0;
+}
+
+.messages-container #send-panel{
+	display: flex;
+	flex-direction:row;
+}
+
+.messages-container #sendMessageTF {
+	flex: 1 1 auto;
+	border-radius: 20px;
+}
+
+.messages-container #sendBtn {
+	flex: 0 1 auto;
+	width: 80px;
+	margin-left: 10px;
+	border-radius: 20px;
+}
+
+.messages-container #contact-list .media-heading {
+	color:darkcyan;
+}
+
+.messages-container #contact-list .media-left img{
+width:50%;
+}
+
+
+.messages-container .media-body {
+	color: dimgrey;
+	width: auto;
+}
+
+.messages-container .media-object {
+	border: 2px solid rgba(141,0,149,0.60);
+	width:50px;
+}
+
+.messages-container #top-panel {
+	padding: 12px 10px 0px 20px;
+}
+
+.messages-container #top-panel .media-object {
+	border: 4px solid rgba(141,0,149,0.30);
+	width:70px;
+}
+
+.messages-container #top-panel .media-heading {
+	color: dimgray;
+}
+
+.messages-container #top-panel .media-body {
+	padding-top: 17px;
+	padding-left: 15px;
+	color: grey;
+}
+
+.messages-container #bottom-panel p {
+	text-align: center;
+	font-size: small;
+	color : dimgray;
+}
+
+.messages-container #messagesPanel {
+	width: 300px;
+	position: absolute;
+	bottom: 0px;
+	right: 100px;
+	background-color: rgba(0,0,0,0.3);
+	border-radius: 15px 15px 0 0;
+}
+
+.messages-container #contactsPanel {
+	height: 300px;
+	background-color: rgba(255,255,255,0.8);
+	padding: 5px;
+	padding-top: 20px;
+	overflow: auto;
+}
+
+.messages-container #messagesToggle {
+	border-radius: 15px 15px 0 0;
+	background-color: rgba(50,50,50,0.85);
+	color: aliceblue;
+	height: 40px;
+	text-align: center;
+	padding-top: 2px;
+}
+
+.messages-container .rightAlignment {
+	float: right;
+}
+
+.messages-container .rightMessage{
+	text-align:right;
+	background-color:rgba(0,255,0,.1);
+	border-color:darkgreen;
+	border-radius: 14px 15px 0 15px;
+	color:rgba(36,35,35,1.00);
+	padding: 14px 20px 10px 20px;
+	border:solid thin;
+}
+
+.messages-container .leftMessage {
+	background-color: rgba(189,189,189,1.00);
+	color:rgba(36,35,35,1.00);
+	padding: 14px 20px 10px 20px;
+	border-radius: 15px 15px 15px 0;
+	border:solid thin;
+	border-color:rgba(85,85,85,1.00)
+}
+
+.messages-container #dialogPanel {
+	height: 340px;
+	width: 300px;
+	position: absolute;
+	bottom: 0px;
+	right: 400px;
+	background-color: rgba(217,217,217,0.70);
+	border-radius: 15px 15px 0 0;
+	padding: 5px;
+	padding-top: 20px;
+}
+
+.submit-messages{
+    width: 100%;
+    background-color: rgba(255,245,245,1);
+    border-right: 1px solid #a94442;
+    border-left: 1px solid #a94442;
+    border-bottom: 1px solid #a94442;
+    box-sizing: border-box;
+    padding: 5px 10px;
+}
+.has-error .form-control{
+    border-right: 1px solid #a94442;
+    border-left: 1px solid #a94442;
+    border-top: 1px solid #a94442;
+    border-bottom: 1px solid transparent;
+    border-radius: 0.25rem 0.25rem 0 0; 
 }

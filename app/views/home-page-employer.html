@@ -125,7 +125,50 @@
                                         <div class="row">
                                             <p class="showing-number-result">Showing 1 result</p>
                                         </div>
+                                        <div ng-repeat="worker in workers">
+
+
+
+    <a ui-sref="app.selectedWorker">
+        <div class="col-md-2">
+        <div class="profile-picture-worker-search">
+        <li class="worker-search-info">
+        <img ng-src={{worker.profilePicture}} class="img-responsive" alt="Worker Profile Picture" style="margin-left:30px;"/>
+        </li>
+        </div>
+        </div>
+        <div class="worker-search-info workers-search">
+      <div class="row">
+     
+        <div class="col-md-10" style="padding-left:0px;">
+        <li class="worker-search-info worker-name">
+         {{worker.firstName}}  {{worker.lastName}}
+        </li>
+        <li class="worker-search-info"> Looking for a position as a {{worker.category}}
+        </li>
+        <li class="worker-search-info"><i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star-o" aria-hidden="true"></i></li>
+        <!--<li class="worker-search-info"> Available: '
+        + Object.keys(worker.schedule).reduce(function(acc, val) {return acc + ' ' + val.substr(val.indexOf('-')+1)}, '')
+        + '</li>'-->
+        <!--<button type="button" class ="btn btn-default"><li class="worker-search-info"><a onclick="setSelectedWorker(' + worker.id + ')" href="worker-search-selected-profile.html">See more details</a></li></button>-->
+        <!--<li class="worker-search-info">
+       <button type="button" class="btn btn-default">Send request</button>
+        </li>-->
+        </div>
+        </div>
+        </div>
+        </a>
+        </div>
+                                        </div>
+
+
+
+
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                
