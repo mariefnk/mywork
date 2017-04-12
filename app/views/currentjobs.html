@@ -94,7 +94,8 @@ td{
                                 </div>
 								</div>
                                 </div>
-				 <div class="col-md-9">
+				 <div class="col-md-8">
+
 <div id="exTab2">	
 <ul class="nav nav-tabs">
 			<li class="active">
@@ -102,13 +103,14 @@ td{
 			</li>
 			<li><a href="#/pendingjobs" data-toggle="tab">Pending</a>
 			</li>
-			<li><a href="#historyjobs" data-toggle="tab">History</a>
+			<li><a href="#/historyjobs" data-toggle="tab">History</a>
 			</li>
+			
 		</ul>
 
   </div>
- 
-                               <table id="my-works-table" class="table table-hover">
+
+      <table id="my-works-table" class="table table-hover" >
                              <thead>
                                  <tr>
                                      <th>Contract</th>
@@ -120,8 +122,10 @@ td{
                                  </tr>
                              </thead>
 							<tbody>
-							<tr ng-repeat-start="a in appointments ">
-						<td>
+							<tr ng-repeat-start="a in appointments |  filter:{status:'1'}">
+                                
+						
+                        <td>
                             <i class=" glyphicon glyphicon-chevron-up " ng-if="a.expanded" ng-click="a.expanded = false"></i>
 							<i class=" glyphicon glyphicon-chevron-down"  ng-if="!a.expanded" ng-click="a.expanded = true"></i>
               			
@@ -149,8 +153,8 @@ td{
                         <td></td>
                          <td colspan="3"> {{a.Title}} <br>{{a.Wage}}
                              <br>{{a.Hours}} hours <br>
-            			<button id="myBtn{{a.contract_id}}" ng-click="modalDisp(a.first_name)" data-toggle="modal" data-target="#myModal">Open Modal</button></td>
-         				
+            			<!--<button id="myBtn(a.status)" ng-click="modalDisp(a.first_name)" data-toggle="modal" data-target="#myModal">Open Modal</button></td>-->
+         				 <button id="myBtn{{a.contract_id}}" ng-click="testClick(a.contract_id)"></button>
                           
                            
                           </tr>
