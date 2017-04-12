@@ -31,7 +31,7 @@
       </div>
     </div>
 
-    <form  name="myForm"  >
+    <form role="form"  novalidate>
       <div class="row setup-content" id="step-1">
         <div class="col-xs-10 col-md-offset-1">
           <div class="col-md-12 text-center">
@@ -51,31 +51,19 @@
 
             <div class="text-left">
 
-            <div class="form-group" ng-Class="{'has-error':((myForm.myName.$error.minlength || myForm.myName.$error.required)  && myForm.$submitted) }">
+            <div class="form-group">
               <label class="control-label">First Name</label>
-              <input maxlength="100" name="myName" ng-minlength="5" type="text" ng-model="first_name" required="required" class="form-control" placeholder="Enter First Name">
-               <div class="submit-messages" ng-if="((myForm.myName.$error.minlength || myForm.myName.$error.required)  && myForm.$submitted)" ng-messages="myForm.myName.$error" style="color:maroon" role="alert">
-                <div ng-if="myForm.myName.$error.minlength">Too short</div>
-                <div ng-if="myForm.myName.$error.required">Fill the form</div>
-              </div>
+              <input maxlength="100" type="text" ng-model="first_name" required="required" class="form-control" placeholder="Enter First Name">
             </div>
-<!--myForm.userEmail.$error.minlength || myForm.userEmail.$error.email || myForm.userEmail.$error.required-->
-            <div class="form-group" ng-Class="{'has-error':(myForm.userEmail.$error.minlength || myForm.userEmail.$error.required || myForm.userEmail.$error.email )  && myForm.$submitted }">
-              <label class="control-label">First Name</label>
-              <input maxlength="100" name="userEmail" ng-minlength="5" type="email" ng-model="email_name" required="required" class="form-control" placeholder="Enter First Name">
-               <div class="submit-messages" ng-if="myForm.$submitted && (myForm.userEmail.$error.minlength || myForm.userEmail.$error.required || myForm.userEmail.$error.email)" ng-messages="myForm.userEmail.$error" style="color:maroon" role="alert">
-                          
-                <div ng-if="myForm.userEmail.$error.required">Please enter a value for this field.</div>
-                <div ng-if="myForm.userEmail.$error.email">This field must be a valid email address.</div>
-                <div ng-if="myForm.userEmail.$error.maxlength">This field can be at most 15 characters long.</div>
-              </div>
+            <div class="form-group">
+              <label class="control-label">Last Name</label>
+              <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter Last Name">
             </div>
-           
             <div class="form-group">
               <label class="control-label">Address</label>
               <textarea required="required" class="form-control" placeholder="Enter your address"></textarea>
             </div>
-            <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" ng-click="step1($event, myForm)">Next</button>
+            <button class="btn btn-primary nextBtn btn-lg pull-right" type="button">Next</button>
 
           </div>
 
@@ -112,5 +100,3 @@
 
   </div>
 </div>
-
-

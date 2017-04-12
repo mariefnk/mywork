@@ -2,17 +2,17 @@
  <link rel="stylesheet" href="Style/tablesFormat.css">
 
 
-   <div class="col-md-3"></div>
+   <div class="col-md-2"></div>
 
-						<div class="col-md-9">
-<div id="exTab2">	
+						<div class="col-md-8">
+<div id="exTab2">
 <ul class="nav nav-tabs">
 			<li>
-        <a href="#/paymentHistory" data-toggle="tab">Payment History</a>
+        <a ui-sref="app.paymentHistory" data-toggle="tab">Payment History</a>
 			</li>
-			<li class="active"><a href="#/payment" data-toggle="tab">Payment Method</a>
+			<li class="active"><a ui-sref="app.payment" data-toggle="tab">Payment Method</a>
 			</li>
-			
+
 		</ul>
 
   </div>
@@ -20,7 +20,7 @@
 
 
 <div class="col-sm-9">
-  
+
 <form>
 <h3>
     Payment Method
@@ -30,7 +30,7 @@
 <br>
 
 <fieldset class="row">
-    
+
             <div class="col-sm-3">
               <label id="paymentType" >Payment Type</label>
             </div>
@@ -47,8 +47,48 @@
                     <input type="radio" name="payment_method" id="payment_method_paypal" value="paypal" class="input-radio input-radio placeholder-processed">
                     PayPal
 </label>                </li>
-              
-              
+
+
+              </ul>
+            </div>
+
+
+          </fieldset>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<fieldset class="row">
+
+            <div class="col-sm-3">
+              <label id="paymentType" >Payment Type</label>
+            </div>
+
+             <div class="col-sm-5 paymentCol">
+              <ul class="paymentOption">
+                <li>
+                  <label for="payment_method_credit_card">
+                    <input type="radio" name="payment_method" id="payment_method_credit_card" value="credit_card" class="input-radio input-radio placeholder-processed" checked="checked">
+                    Debit or Credit Card
+</label>                </li>
+<li>
+                  <label for="payment_method_paypal">
+                    <input type="radio" name="payment_method" id="payment_method_paypal" value="paypal" class="input-radio input-radio placeholder-processed">
+                    PayPal
+</label>                </li>
+
+
               </ul>
             </div>
 
@@ -69,12 +109,12 @@
           <hr>
         <fieldset class="row" style="display: block;">
            <div class="col-sm-3">
-              
+
               <label>Security Code (CVV)</label>
             </div>
            <div class="col-sm-5 paymentCol">
             <div class="form-item form-item-short">
-          
+
             <input type="text" name="credit_card_cvv"  style="width: 100px" >
 </div>            </div>
           </fieldset>
@@ -127,34 +167,34 @@
                 </select>
                 </div>
 
-            </div>  
+            </div>
                <input type="hidden" name="credit_card[payment_method_nonce]" >
             </div>
           </fieldset>
           <hr>
-      <fieldset class="row" style="display: block;"> 
+      <fieldset class="row" style="display: block;">
                 <div class="col-sm-3">
               <label>Billing Postal Code</label>
             </div>
                 <div class="col-sm-5 paymentCol">
               <div class="form-item">
               <input class="form-text-input input-text numerical input-text placeholder-processed" type="text" name="credit_card[postal_code]" id="credit_card_postal_code">
-            </div>   
+            </div>
               </div>
           </fieldset>
              <div class="form-footer">
             <button type="button" class="btn btn-success" type="submit">Save changes</button>
           </div>
           </div>
-          
 
-         
+
+
           <div class="PayPal" style="display:none">
     <div class="form-footer">
            <a href="https://www.paypal.com/signin?returnUri=http%3A%2F%2Furi.paypal.com%2FWeb%2FWeb%2Fcgi-bin%2Fwebscr%3Fvia%3Dul&state=%3fcmd%3d_account" target="_blank"> <button type="button" class="btn btn-success" type="submit">Continue with PayPal</button></a>
           </div>
             </div>
-     
+
     </form>
  </div>
      </div>
