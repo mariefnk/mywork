@@ -62,10 +62,10 @@
 
                                 <li id="favorites" class="dropdown">
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#"><span class="fa fa-user submenu-profile"></span>My Profile</a></li>
-                                        <li><a href="#"><span class="fa fa-cogs submenu-profile"></span>Settings</a></li>
+                                        <li><ui-sref="app.settings"><span class="fa fa-user submenu-profile"></span>My Profile</a></li>
+                                        <li><ui-sref="app.settings"><span class="fa fa-cogs submenu-profile"></span>Settings</a></li>
                                         <div class="dropdown-divider"></div>
-                                        <li><a href="#"><span class="fa fa-power-off submenu-profile"></span>Log Out</a>
+                                        <li><ui-sref="app.settings"><span class="fa fa-power-off submenu-profile"></span>Log Out</a>
                                         </li>
                                     </ul>
                                     <i class="fa fa-users fa-1x dropdown-toggle" aria-hidden="true" data-toggle="dropdown" aria-expanded="false"><div class="navbar-left-icons">Favorites</div>
@@ -90,13 +90,13 @@
                                 </li>
                                 <li class="dropdown">
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#"><span class="fa fa-user submenu-profile"></span>My Profile</a></li>
-                                        <li><a href="#"><span class="fa fa-cogs submenu-profile"></span>Settings</a></li>
+                                        <li><a ui-sref="app.settings"><span class="fa fa-user submenu-profile"></span>My Profile</a></li>
+                                        <li><a ui-sref="app.settings"><span class="fa fa-cogs submenu-profile"></span>Settings</a></li>
                                         <div class="dropdown-divider"></div>
-                                        <li><a href="#"><span class="fa fa-power-off submenu-profile"></span>Log Out</a>
+                                        <li><a ui-sref="app.settings"><span class="fa fa-power-off submenu-profile"></span>Log Out</a>
                                         </li>
                                     </ul>
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <a ui-sref="app.settings" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                         <div class="profile-userpic">
                                             <img src="images/12080057_10206075733424857_1178354056710554146_o.jpg"
                                                 class="img-responsive" alt="Employer Profile Picture">
