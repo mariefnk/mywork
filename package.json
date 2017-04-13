@@ -40,13 +40,12 @@
   },
   "scripts": {
     "test": "karma start test/karma.conf.js"
-<<<<<<< HEAD
-  },
-  "dependencies": {
-    "jit-grunt": "^0.9.1",
-    "jshint-stylish": "^1.0.2",
-    "time-grunt": "^1.4.0"
-=======
->>>>>>> 179b74801db3716a7bcd3d9d4c11aa9a37514121
+
   }
+  // "dependencies": {
+  //   "jit-grunt": "^0.9.1",
+  //   "jshint-stylish": "^1.0.2",
+  //   "time-grunt": "^1.4.0"
+
+  // }
 }
