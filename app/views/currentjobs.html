@@ -1,96 +1,169 @@
+<style>
+ @import url('//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css');
+ .content {
+    overflow: hidden;
+}
+td{
+    padding:0;
+}
+.content img {
+   
+    float: left;
+}
+</style>
+     <div class="row">
+ <div class="col-md-3">
 
 
+	                          <div class="filter">
+<!--                                    <div class="block-title">-->
 
-   <div class="col-md-2">
-                        <div data-toggle="collapse" data-target="#filter-myworks" class="my-works-filter-title"><i class="fa fa-filter" aria-hidden="true"></i> Filters</div>
-                             <div id="filter-myworks" class="collapse">
-                             <ul id="filter">
-							<li data-toggle="collapse" data-target="#filter-myworks-category" class="filter-category"><div class ="filter-year" btn btn-default>Category</div>
-								    <div id="filter-myworks-category"  class="collapse">
+<!--                                         <div class="col-md-2">-->
+                        <div data-toggle="collapse" data-target="#filter-myworks" class="my-works-filter-title"><i class="fa fa-filter" aria-hidden="true"></i> Filter workers by <div id="clear-all">Clear all (<span id="count-filters">0</span>)</div>  </div> 
+                                
+                             <div id="filter-myworks" class="collapse in">
+                             <div data-toggle="collapse" data-target="#filter-myworks-years" class="subtitle filter-categories">Date </div>
+                                 <div id="filter-myworks-years" data-toggle="collapse" data-target="#filter-myworks-months" class="collapse filter-years"><div class ="filter-year" btn btn-default>2017</div>
+                            </div>
+                                 <div id="filter-myworks-months"  class="collapse">
                                      <ul class="list-filter-month">
-                                     <li class ="filter-month">Waiter</li>
-                                     <li class ="filter-month">Personal Assistant</li>
-                                     <li class ="filter-month">Receptionist</li>
-                                     <li class ="filter-month">Bartender</li>
+                                     <li class ="filter-month"> <label>
+                                                <input type="checkbox" onclick="getFiltersCount()">
+                                                April
+                                            </label></li>
+                                     <li class ="filter-month"> <label>
+                                                <input type="checkbox">
+                                                March
+                                            </label></li>
+                                     <li class ="filter-month"> <label>
+                                                <input type="checkbox">
+                                                February
+                                            </label></li>
+                                     <li class ="filter-month"> <label>
+                                                <input type="checkbox">
+                                                January
+                                            </label></li>
                                      </ul>
-
+<!--                                     <div class="apply-months-filter">Filter</div>-->
                                  </div>
-								  </li>
-                                  <li data-toggle="collapse" data-target="#filter-myworks-location" class="filter-location"><div class ="filter-year"  btn btn-default>Location</div></li>
-								  <div id="filter-myworks-location"  class="collapse">
-                                     <ul class="list-filter-month">
-                                     <li class ="filter-month">Paris</li>
-                                     <li class ="filter-month">Boston</li>
-                                     <li class ="filter-month">London</li>
-                                     <li class ="filter-month">Berline</li>
-                                     </ul>
+                                                   <div data-toggle="collapse" data-target="#filter-category" class="subtitle filter-categories" href="#filter-category">Category </div>
+                                        <div class="collapse filter-category" id="filter-category">
+                                            <ul class="list-filter-category">
+                                            <li class ="filter-cat"> <label>
+                                                <input type="checkbox" name="filterCat-bartender">
+                                                Bartender
+                                                </label></li>
+                                           <li class ="filter-cat"> <label>
+                                                <input type="checkbox" name="filterCat-waitress" class="filter-category">
+                                                Waitress
+                                               </label></li>
+                                            <li class ="filter-cat"><label>
+                                                <input type="checkbox" name="filterCat-DJ" class="filter-category">
+                                                DJ
+                                                </label></li>
+                                            <li class ="filter-cat"><label>
+                                                <input type="checkbox" name="filterCat-security" class="filter-category">
+                                                Security Agent
+                                                </label></li>
+                                            </ul>
+                                           
+                                        </div>
+                                            <div data-toggle="collapse" data-target="#filter-location" class="subtitle filter-categories" href="#filter-location">Location</div>
+                                        <div class="collapse filter-location" id="filter-location">
+                                            <ul class="list-filter-category">
+                                            <li class ="filter-cat"> <label>
+                                                <input type="checkbox" name="filterCat-bartender">
+                                                New York
+                                                </label></li>
+                                           <li class ="filter-cat"> <label>
+                                                <input type="checkbox" name="filterCat-waitress" class="filter-category">
+                                                Paris
+                                               </label></li>
+                                            <li class ="filter-cat"><label>
+                                                <input type="checkbox" name="filterCat-DJ" class="filter-category">
+                                                London
+                                                </label></li>
+                                            <li class ="filter-cat"><label>
+                                                <input type="checkbox" name="filterCat-security" class="filter-category">
+                                               Boston
+                                                </label></li>
+                                            </ul>
+                                           
+                                        </div>
 
-                                 </div>
-								  <li data-toggle="collapse" data-target="#filter-myworks-months" class="filter-years"><div class ="filter-year" btn btn-default>2017</div>
-								    <div id="filter-myworks-months"  class="collapse">
-                                     <ul class="list-filter-month">
-                                     <li class ="filter-month">April</li>
-                                     <li class ="filter-month">March</li>
-                                     <li class ="filter-month">February</li>
-                                     <li class ="filter-month">January</li>
-                                     </ul>
+                                </div>
+								</div>
+                                </div>
+				 <div class="col-md-8">
 
-                                 </div>
-								  </li>
-							 </ul>
-
-
-                             </div>
-                        </div>
-						<div class="col-md-8">
-<div id="exTab2">
+<div id="exTab2">	
 <ul class="nav nav-tabs">
 			<li class="active">
-        <a ui-sref="app.currentjobs" data-toggle="tab">Current</a>
+        <a ui-sref="/app.currentjobs" data-toggle="tab">Current</a>
 			</li>
-			<li><a ui-sref="app.pendingjobs" data-toggle="tab">Pending</a>
+			<li><a ui-sref="/pendingjobs" data-toggle="tab">Pending</a>
 			</li>
-			<li><a ui-sref="app.historyjobs" data-toggle="tab">History</a>
+			<li><a hui-sref="/historyjobs" data-toggle="tab">History</a>
 			</li>
+			
 		</ul>
 
   </div>
-                               <table id="my-works-table" class="table">
+
+      <table id="my-works-table" class="table table-hover" >
                              <thead>
                                  <tr>
                                      <th>Contract</th>
-                                     <th>First Name</th>
-                                     <th>Last Name</th>
+                                     <th>Name</th>
+                                     
                                      <th>Start Date</th>
                                      <th>End Date</th>
                                      <th>Location</th>
                                  </tr>
                              </thead>
 							<tbody>
-							<tr ng-repeat-start="a in appointments">
-						<td>
-							<button class="moreinfo" ng-if="a.expanded" ng-click="a.expanded = false"><span><i class="fa fa-caret-right expand-arrow"  aria-hidden="true"></i></span></button>
-              			<button class="moreinfo" ng-if="!a.expanded" ng-click="a.expanded = true"> <span><i class="fa fa-caret-right"  aria-hidden="true"></i></span></button>
+							<tr ng-repeat-start="a in appointments |  filter:{status:'1'}">
+                                
+						
+                        <td>
+                            <i class=" glyphicon glyphicon-chevron-up " ng-if="a.expanded" ng-click="a.expanded = false"></i>
+							<i class=" glyphicon glyphicon-chevron-down"  ng-if="!a.expanded" ng-click="a.expanded = true"></i>
+              			
 						  {{a.contract_id}}
 						</td>
-		            	<td>{{a.first_name}}</td>
-						<td>{{a.last_name}}</td>
+		            	<td>{{a.first_name}} {{a.last_name}}</td>
+					
 			            <td>{{a.start_date}}</td>
                         <td>{{a.end_date}}</td>
 						<td>{{a.location}}</td>
-
+						
 						<!--<td style="display:none;">{{a.month}}</td>-->
 						</tr>
 
 						 <tr ng-if="a.expanded" ng-repeat-end="">
-            			<td colspan="5"><button id="myBtn{{a.contract_id}}" ng-click="modalDisp(a.first_name)" data-toggle="modal" data-target="#myModal">Open Modal</button></td>
-         				 </tr>
+                        <td colspan="2"> 
+                            <div class="content">
+                        <img src="images/Marie.jpg" style="height:40%; width:35%;" / alt="" >
+                         <h4>{{a.first_name}} {{a.last_name}}</h4>
+                         <p>{{a.Phone}}</p>
+                          <p>{{a.Email}}</p>
+                         <p> <i class="glyphicon glyphicon-envelope">Message</i></p>
+                        </div>â€‹
+                        </td>
+                        <td></td>
+                         <td colspan="3"> {{a.Title}} <br>{{a.Wage}}
+                             <br>{{a.Hours}} hours <br>
+            			<!--<button id="myBtn(a.status)" ng-click="modalDisp(a.first_name)" data-toggle="modal" data-target="#myModal">Open Modal</button></td>-->
+         				 <button id="myBtn{{a.contract_id}}" ng-click="testClick(a.contract_id)"></button>
+                          
+                           
+                          </tr>
 							</tbody>
-
+                                
                      </table>
 <!--Modal-->
-
-
+	</div>
+			</div>
   <div class="modal fade" id="myModal" >
     <div class="modal-dialog">
  		<div class="modal-content">
@@ -101,7 +174,7 @@
 			 <div class="modal-body">
       		{{currentSelected}}
 			  <button id="showrating">Finish</button>
-
+		   
 		 		<button id="showContract">Create a new contract</button>
 				  <div id="newContract" style="display: none;">
 					  	 <hr>
@@ -112,7 +185,7 @@
 							<span class="input-group-addon">
 							<span class="glyphicon glyphicon-calendar"></span>
 					       </span>
-						</div>
+						</div>							
 					</div>
 					<div class="form-group">
 						<label for="time">Time: </label>
@@ -121,14 +194,14 @@
 						<span class="input-group-addon">
 						<span class="glyphicon glyphicon-calendar"></span>
 						</span>
-					</div>
+					</div>							
 					</div>
 
 		        </div>
 			 </div>
 			 <div id="Divrating" style="display: none;">
 				<h3>Please Rate Your Exaprience</h3>
-
+		 		
 
 			</div>
   		</div>
@@ -139,7 +212,7 @@
 
 
 </div>
-
+	 
 <script>
 // Get the modal
 var modal = document.getElementById('myModal');
@@ -150,7 +223,7 @@ var btn = document.getElementById("myBtn1");
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks the button, open the modal
+// When the user clicks the button, open the modal 
 /*btn.onclick = function() {
     modal.style.display = "block";
 }*/
@@ -178,3 +251,7 @@ window.onclick = function(event) {
 }
 </script>
 </div>
+
+
+
+

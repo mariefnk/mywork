@@ -1,0 +1,115 @@
+#messagesToggle, #miniDialogTitle {
+	border-radius: 5px 5px 0 0;
+	background-color: rgba(50,50,50,0.85);
+	color: aliceblue;
+	height: 40px;
+	text-align: center;
+	padding-top: 2px;
+	padding-right: 20px;
+}
+
+#messagesPanel {
+	width: 300px;
+	position: fixed;
+	bottom: 0px;
+	right: 100px;
+	background-color: rgba(0,0,0,0.3);
+	border-radius: 5px 5px 0 0;
+}
+
+#contactsPanel {
+	height: 300px;
+	background-color: rgba(255,255,255,0.8);
+	padding: 20px;
+	overflow: auto;
+}
+#massenger {
+  font-size: 85%;
+}
+
+#massenger .media-object {
+	border: 1px solid rgba(110,110,110,1.00);
+	width:35px;
+}
+
+#massenger .media-sellectedObject {
+	border: 1px solid #0083ff;
+	width:35px;
+}
+
+#send-panel-mini {
+	display: inline-flex;
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	padding: 10px;
+  background-color: rgba(0, 0, 0, .1);
+	border-top: solid crimson;
+}
+
+#sendMessageTF-Mini {
+	width: 80%;
+	border-radius: 5px 0 0 5px;
+
+}
+
+#sendBtn-Mini {
+	width: 20%;
+	border-radius: 0 5px 5px 0;
+
+}
+
+#dialogPanel {
+	height: 340px;
+	width: 300px;
+	position: fixed;
+	bottom: 0px;
+	right: 405px;
+	background-color: rgba(217,217,217,0.70);
+	border-radius: 15px 15px 0 0;
+}
+
+#miniDialog{
+	height: 260px;
+	padding: 20px;
+	overflow-y:  auto;
+}
+
+#massenger .rightAlignment {
+	float: right;
+}
+
+#massenger .rightMessage{
+	text-align:right;
+	background-color:rgba(0,131,255,1);
+	color: white;
+	border-radius: 5px 5px 0 5px;
+	padding: 5px 10px 00px 10px;
+}
+
+#massenger .leftMessage {
+	background-color: rgba(189,189,189,1.00);
+	color:rgba(36,35,35,1.00);
+	padding: 5px 10px 0px 10px;
+	border-radius: 5px 5px 5px 0;
+	border:solid thin;
+	border-color:rgba(85,85,85,1.00)
+}
+
+#massenger .media-body {
+	width: auto;
+}
+
+#miniDialog p {
+	text-align: center;
+	font-size: 80%;
+	color : dimgray;
+}
+
+.glyphicon-circle-arrow-up, .glyphicon-circle-arrow-down {
+	float: right;
+}
+
+a {
+	text-decoration: none;
+}

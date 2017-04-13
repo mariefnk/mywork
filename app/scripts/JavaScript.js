@@ -1,7 +1,9 @@
 
 
 
+
 // JavaScript Document
+
 
 
 function Account(username, password, firstName, lastName, email, picture, contacts) {
@@ -365,5 +367,26 @@ $(document).ready(function() {
     });
 
 });
+*/
 
 
+function getCreditcard(){
+var pattern= new RegExp("[0-9]{13,16}");
+var letters=document.getElementById('textbox_id').value
+
+if(pattern.test(letters)){
+
+var lastFour = letters.substr(letters.length - 4);
+document.getElementById('lastFour').innerHTML=lastFour;
+
+ClearFields();
+}
+
+
+}
+function ClearFields() {
+
+     document.getElementById("textbox_id").value = "";
+     document.getElementById("credit_card_postal_code").value = "";
+     document.getElementById("cvv").value = "";
+}

@@ -21,6 +21,7 @@
     "grunt-jscs": "^1.8.0",
     "grunt-newer": "^1.1.0",
     "grunt-ng-annotate": "^0.9.2",
+    "grunt-php": "^1.5.1",
     "grunt-postcss": "^0.5.5",
     "grunt-svgmin": "^2.0.0",
     "grunt-usemin": "^3.0.0",
@@ -39,13 +40,12 @@
   },
   "scripts": {
     "test": "karma start test/karma.conf.js"
-<<<<<<< HEAD
-  },
-  "dependencies": {
-    "jit-grunt": "^0.9.1",
-    "jshint-stylish": "^1.0.2",
-    "time-grunt": "^1.4.0"
-=======
->>>>>>> 179b74801db3716a7bcd3d9d4c11aa9a37514121
+
   }
+  // "dependencies": {
+  //   "jit-grunt": "^0.9.1",
+  //   "jshint-stylish": "^1.0.2",
+  //   "time-grunt": "^1.4.0"
+
+  // }
 }
