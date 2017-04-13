@@ -1,5 +1,10 @@
 <style>
-
+#exTab2{
+   border-bottom: 50px solid #428bca;
+}
+.form-input-label i{
+    color:crimson
+}
 
 .col-xs-2{
     padding:0;
@@ -19,18 +24,27 @@
 $(document).ready(function () {
    
     $("#Securitymenu").click(function(){
-        
+        event.preventDefault();
         $("#Account").hide();
+         $("#Notification").hide();
         $("#Security").show();
           
     });
 
     $("#Accountmenu").click(function(){
+        event.preventDefault();
          $("#Security").hide();
+         $("#Notification").hide();
         $("#Account").show();
     
           
     });
+    $("#Notificationmenu").click(function(){
+        event.preventDefault();
+         $("#Security").hide();
+        $("#Account").hide(); 
+         $("#Notification").show();
+    })
 
     $("#turnOnOff").click(function(event){
     event.preventDefault();
@@ -45,71 +59,82 @@ $(document).ready(function () {
 
     </script>
 
-<div class="col-md-2"></div>
 
-						<div class="col-md-8">
+
+						<div class="col-md-8 col-xs-offset-2">
 <div id="exTab2">	
 <ul class="nav nav-tabs">
 			<li class="active">
-        <a href="#"  data-toggle="tab">Account</a>
+        <a href="" id="Accountmenu" data-toggle="tab">Account</a>
 			</li>
-			<li><a href="#" data-toggle="tab">Notifications</a>
+			<li><a href="" id="Notificationmenu" data-toggle="tab">Notifications</a>
 			</li>
-			<li><a href="#" data-toggle="tab">Security</a>
+			<li><a href="" id="Securitymenu" data-toggle="tab">Security</a>
 			</li>
 		</ul>
 
   </div>
 
  
-       <div>
+  
            <div id="Account">
            <h3>
                Account
            </h3>
            <small class="form-text text-muted"> Change your basic account and language settings.</small>
            <hr>
+            <br>
 
-           <form>
+            <form>
+
+           
             <div class="form-group col-xs-10 pull-left">
             <div class="col-xs-2">
 			    <label class="control-label">Email</label>
             </div>
-            <div class="col-xs-7">
-			    <input type="email"  class=" form-control input-md pull-left">
-                </div>
+             <div class="col-xs-7">
+			   <label class="form-input-label"><i class="fa fa-fw fa-at" aria-hidden="true" style="color:crimson;"></i>
+               <input type="text" data-errmsg="Enter a valid email address" name="email" /></label>
+            </div>
               <div class="col-xs-1">  
                    <a href="#" name="edit">Edit </a> 
-                   </div>
-		    </div>
+            </div>
 
-            <div class="form-group col-xs-10 pull-left">
+            </div>
+
+            
+             <div class="form-group col-xs-10 pull-left">
             <div class="col-xs-2">
 			    <label class="control-label">Phone Number</label>
             </div>
             <div class="col-xs-7">
-			    <input type="number"  class=" form-control input-md pull-left">
+			   <label class="form-input-label"><i class="fa fa-fw fa-mobile"
+                aria-hidden="true" style="color:crimson;"></i>
+                <input type="text" required data-errmsg="Enter 10 digit phone number" name="phone"/></label>
                 </div>
               <div class="col-xs-1">  
                    <a href="#" name="edit">Edit </a> 
                    </div>
 		    </div>
 
-            <div class="form-group col-xs-10 pull-left">
+
+             <div class="form-group col-xs-10 pull-left">
             <div class="col-xs-2">
 			    <label class="control-label">Password</label>
             </div>
             <div class="col-xs-7">
-			    <input type="password"  class=" form-control input-md pull-left">
+			   <label class="form-input-label">
+                   <i class="fa fa-fw fa-key" aria-hidden="true" style="color:crimson;"></i>
+                   <input type="password" data-errmsg="At least 8 characters with a digit and letter" name="password" /></label>
                 </div>
               <div class="col-xs-1">  
                    <a href="#" name="edit">Edit </a> 
                    </div>
 		    </div>
 
-            <div class="form-group col-xs-9 pull-left" style="display: none">
+             <div class="form-group col-xs-10 pull-left" style="display: none">
             <div class="col-xs-2">
-			    <label class="control-label">New Password</label>
+			    <label class="control-label" style="color:crimson;">New Password</label>
             </div>
             <div class="col-xs-7">
 			    <input type="password"  class=" form-control input-md pull-left">
@@ -117,38 +142,62 @@ $(document).ready(function () {
               
 		    </div>
 
+
+
+
+
             	<div class="form-group col-xs-10">
             <div class="col-xs-2">
                 <label class=" control-label">Street</label>
             </div>
             <div class="col-xs-4">            
-                <input type="text" class="form-control input-md input-small pull-left" id="inputKey">
+                <label class="form-input-label"><i class="fa fa-home" aria-hidden="true" style="color:crimson;"></i>
+                                    <input type="text" required data-errmsg="Please enter address line" name="address" /></label>
             </div>
             <div class="col-xs-1"> 
 				<label class="col-xs-3 pull-left control-label" for="firma_nip">No</label>
             </div>
             <div class="col-xs-3"> 
-			    <input type="text" class="form-control input-md pull-left" placeholder="Value" id="inputValue">
+			    <label class="form-input-label"><i class="fa fa-home" aria-hidden="true" style="color:crimson;"></i>
+                                    <input type="text" required data-errmsg="Please enter address line" name="address" /></label>
 			</div>
 		    </div>
 
-            	<div class="form-group col-xs-9">
+
+                  	<div class="form-group col-xs-10">
             <div class="col-xs-2">
 			    <label class="col-xs control-label ">City</label>
             </div>
             <div class="col-xs-7">
-			    <input type="text" id"firma_nip" class="col-xs-9 form-control input-md pull-left">
+			   <label class="form-input-label"><i class="fa fa-home" aria-hidden="true" style="color:crimson;"></i>
+                                    <input type="text" required data-errmsg="Please enter address line" name="address" /></label>
                 </div>
 		    </div>
 
-            
-            <div class="form-group col-xs-9 pull-left">
+                       <div class="form-group col-xs-10">
+            <div class="col-xs-2">
+                <label class=" control-label">State</label>
+            </div>
+            <div class="col-xs-4">            
+                <label class="form-input-label"><i class="fa fa-home" aria-hidden="true" style="color:crimson;"></i>
+                                    <input type="text" required data-errmsg="Please enter address line" name="address" /></label>
+            </div>
+            <div class="col-xs-2"> 
+				<label class="col-xs-3 pull-left control-label" for="firma_nip">ZipCode</label>
+            </div>
+            <div class="col-xs-2"> 
+			    <label class="form-input-label"><i class="fa fa-home" aria-hidden="true" style="color:crimson;"></i>
+                                    <input type="text" required data-errmsg="Please enter address line" name="address" /></label>
+			</div>
+		    </div>  
+
+                        <div class="form-group col-xs-10 pull-left">
             <div class="col-xs-2">
 			    <label class="control-label">Country</label>
             </div>
-            <div class="col-xs-7">
+            <div class="col-xs-4">
 			      <select class="form-control input-md" id="exampleSelect2">
-          <option>France</option>
+            <option>France</option>
             <option>USA</option>
              <option>England</option>
             <option>Germany</option>
@@ -157,12 +206,11 @@ $(document).ready(function () {
                 </div>
 		    </div>
 
-
-                	<div class="form-group col-xs-10 pull-left">
+            	<div class="form-group col-xs-10 pull-left">
             <div class="col-xs-2">
 			    <label class="control-label">Language</label>
             </div>
-            <div class="col-xs-7">
+            <div class="col-xs-4">
 			     <select class="form-control input-md" id="exampleSelect2">
           <option>English</option>
             <option>German</option>
@@ -171,27 +219,19 @@ $(document).ready(function () {
              <option>Spainish</option>
             </select>
                 </div>
-              <div class="col-xs-1">  
-                   <a href="#" name="edit">Edit </a> 
-                   </div>
+              
 		    </div>
 
- 
-       
-
-
-           <!--Address-->
-           
-
-<!-- End of Address-->
-</br>
-           		<div class="form-group col-xs-10">
-                        <div class="col-xs-2">
-                  <input type="button" value="Save">  
-                        </div>
-                    </div>
            </form>
+
+
+
        </div>
+
+</div>
+
+
+<div class="col-md-8 col-xs-offset-2">
 
         <div id="Security" style="display: none">
            <h3>
@@ -201,6 +241,10 @@ $(document).ready(function () {
                Change your security preferences
            </p>
            <hr>
+           <br>
+
+            <form>
+
            <div class="form-group col-xs-10">
                 <div class="col-xs-9">
           <h3 id="securityheader">Two-step verification</h3> 
@@ -226,6 +270,67 @@ $(document).ready(function () {
            </div>
        </div>
         </div>
+        </form>
+        </div>
 
+
+
+
+
+        <div class="col-md-8 col-xs-offset-2">
+
+        <div id="Notification" style="display: none">
+           <h3>
+               Notifications
+           </h3>
+           <p>
+               Change your notification preferences
+           </p>
+           <hr>
+           <br>
+
+            <form>
+
+           <div class="form-group col-xs-10">
+                <div class="col-xs-9">
+          <h3 id="securityheader">Two-step verification</h3> 
+          </div>
+           <div class="col-xs-1">
+          <a href="#" id="turnOnOff">Change</a>
+          </div>
+          </div>
+           <div class="form-group col-xs-10">
+                <div class="col-xs-9">
+          <h4>Activate this feature for enchanced account security</h4>
+          </div>
+           <div class="col-xs-1">
+          <p >Off</p>
+          </div>
+           <div id="phoneVerify" style="display: none" class="form-group col-xs-10">
+          <p>You'll to add a phone number to activate two-step verification</p>
+          <p id="addPhone">Add a phone number</p>
+          <div style="display: none;" id="enterPhone">
+          <input  type="number" name "phone" class="form-control input-md pull-left">
+          <button> Send code</button>
+           </div>
+           </div>
        </div>
- </div>
+        </div>
+        </form>
+        </div>
+           <!--Address-->
+
+<!-- End of Address-->
+
+           	<div class="col-md-8 col-xs-offset-2">
+                                   </br>  
+<hr>
+                        <div class="col-xs-2">
+                 <button  class=" btn payment"  type="submit" style="background-color:crimson;margin-top:10%;">Save changes</button> 
+                        </div>
+                    </div>
+    </div>   
+
+
+
+

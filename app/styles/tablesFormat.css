@@ -1,21 +1,86 @@
+/*
 #exTab2 li.active a{ 
 		background-color: #428bca;
 	  color : white;
-	 
+	
 
 }
-#exTab2 li a{
-	background-color:white;
- color:#428bca;
+.payment{
+	margin-bottom: 10%;
 }
+#exTab2 ul {
+	border-bottom: 0px;
+}
+#exTab2 li a{
+ background-color:white;
+ color:#428bca;
+ padding-top: 10%;
+ padding-bottom: 4%;
+ 
+}
+*/
+
+.nav-tabs{
+	border-bottom : 0px;
+}
+
+.payment{
+	margin-bottom: 10%;
+}
+
+#exTab2 li.active a{ 
+	background-color: #428bca;
+	color : white;
+	border: 1px solid #428bca;
+}
+
+.tab-content{
+    background-color:#428bca;
+    color:#fff;
+    padding:5px
+}
+.nav-tabs > li.active > a{
+  border: 1px solid #428bca;
+}
+.nav-tabs > li > a:hover{
+  background-color: #428bca !important;
+  color:#fff;
+  border: 1px solid #428bca;
+}
+
+.nav-tabs > li > a:hover{
+	border-color: #428bca;
+}
+
+.nav-tabs > li > a
+{
+    /* adjust padding for height*/
+    padding-top: 10px; 
+    padding-bottom: 4px;
+}
+
+.nav-tabs > li.active > a:focus, 
+.nav-tabs > li.active > a
+{
+    margin-top: 1px;
+}
+.nav-tabs > li {
+    margin-bottom: 0px; 
+}
+.nav-tabs > li.active {
+    margin-bottom: -1px;    
+}
+
 
 button.moreinfo{
 border: none;
  background-color:white;
 }
+
 thead{
-	border-left: 1px solid #ddd;
-color:white;
+	/*border-left: 1px solid #ddd;
+	border-top: 1px solid #428bca; */
+    color:white;
 	background-color:#428bca;
 	text-align: center;
 }

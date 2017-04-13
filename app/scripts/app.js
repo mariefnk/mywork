@@ -336,12 +336,12 @@ myApp.controller('loginController',['$scope', '$log', '$state',  function($scope
 
 }]);
 
-myApp.controller('paymentHistoryController',['$scope', '$log', function($scope,$log){
+myApp.controller('paymentHistoryController',['$scope', '$log', '$state',  function($scope,$log, $state){
 
 
 }]);
 
-myApp.controller('paymentController',['$scope', '$log', function($scope,$log){
+myApp.controller('paymentController',['$scope', '$log', '$state',  function($scope,$log, $state){
 
 
 }]);
@@ -423,25 +423,20 @@ myApp.controller('pendingController',['$scope','$log', function($scope,$log){
 
 }]);
 //// FOR HISTORY TABLE
+
 myApp.controller('historyJobsController',['$scope','$log', function($scope,$log){
- $scope.appointments = [];
-
-  $scope.selectedLocation = "";
-  $scope.selectedMonth = "";
-
-   $scope.selectedMonthFilter = function(element) {
-    if(!$scope.selectedMonth) return true;
-    return element.created.getMonth() == $scope.selectedMonth;
-  }
-
-  $scope.selectedLocationFilter = function(element) {
-    if(!$scope.selectedLocation) return true;
-    return element.created.getLocation() == $scope.selectedLocation;
-  }
-    function randomDate(start, end) {
-      return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()))
-  }
+ 
 
 
+ $scope.testClick =function(cId){
+for(var i = 0; i<$rootScope.appointments.length; i++)
+{
+   if($rootScope.appointments[i].contract_id == cId){
+     $rootScope.appointments[i].status = 3;
+   }
+}
+       
+       
+      }
 
 }]);

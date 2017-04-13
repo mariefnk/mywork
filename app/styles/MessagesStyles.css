@@ -1,23 +1,23 @@
-
-
 @charset "UTF-8";
 /* CSS Document */
+body, html {height: 95%}
 
-
-ul {
-	padding-left: 0;
-}
 .contact-second {
 	color: dimgrey;
 }
-.media a {
+
+#contact-list {
+	overflow-y: auto;
+	min-height: 200px;
+}
+#messagesPage .media a {
 	text-decoration: none;
 }
-.media {
+#messagesPage .media {
 	padding: 0 10px;
 }
 
-hr {
+#messagesPage hr {
 	margin: 5px;
 }
 
@@ -26,10 +26,18 @@ hr {
 	flex-direction: column;
 	justify-content: space-around;
 	height: 100%;
+	
 }
 
 #left-panel {
+	display: flex;
+	flex-direction: column;
 	background-color:rgba(0,0,0,0.05);
+	float: left;
+	width: 300px;
+	height: 95%;
+	min-height: 500px;
+
 	margin-right: 20px;
 	border-radius: 10px;
 	padding: 10px;
@@ -42,7 +50,7 @@ hr {
 	border-radius: 10px;
 	background-color:rgba(0,0,0,0.05);
 	height: 100px;
-	padding: 20px;
+	padding: 12px 10px 0px 20px;
 }
 
 #bottom-panel {
@@ -50,6 +58,7 @@ hr {
 	border-radius: 10px;
 	background-color:rgba(0,0,0,0.05);
 	padding: 20px;
+	padding: 12px 10px 0px 20px;
 	overflow: auto;
 }
 
@@ -58,19 +67,25 @@ hr {
 }
 
 #send-panel{
+	flex: 0 1 auto;
+	height: 35px;
 	display: flex;
 	flex-direction:row;
 }
 
 #sendMessageTF {
 	flex: 1 1 auto;
+	height: 100%;
 	border-radius: 20px;
+	margin-top:10px;
 }
 
 #sendBtn {
 	flex: 0 1 auto;
 	width: 80px;
+	height: 100%;
 	margin-left: 10px;
+	margin-top:10px;
 	border-radius: 20px;
 }
 
@@ -78,27 +93,24 @@ hr {
 	color:darkcyan;
 }
 
-#contact-list .media-left img{
-width:50%;
-}
-
-
-.media-body {
+#messagesPage .media-body {
 	color: dimgrey;
 	width: auto;
 }
 
-.media-object {
-	border: 2px solid rgba(141,0,149,0.60);
+#messagesPage .media-object {
+	border: 2px solid rgba(110,110,110,1.00);
 	width:50px;
 }
 
-#top-panel {
-	padding: 12px 10px 0px 20px;
+#messagesPage .media-sellectedObject {
+	border: 2px solid #0083ff;
+	width:50px;
+/*	box-shadow: 2px 0px 3px 0 rgba(0, 0, 0, 0.2), 2px 0 4px 0 rgba(0, 0, 0, 0.19);*/
 }
 
 #top-panel .media-object {
-	border: 4px solid rgba(141,0,149,0.30);
+	border: 4px solid #0083ff;
 	width:70px;
 }
 
@@ -114,51 +126,25 @@ width:50%;
 
 #bottom-panel p {
 	text-align: center;
-	font-size: small;
+	font-size: 80%;
 	color : dimgray;
 }
 
-#messagesPanel {
-	width: 300px;
-	position: absolute;
-	bottom: 0px;
-	right: 100px;
-	background-color: rgba(0,0,0,0.3);
-	border-radius: 15px 15px 0 0;
-}
-
-#contactsPanel {
-	height: 300px;
-	background-color: rgba(255,255,255,0.8);
-	padding: 5px;
-	padding-top: 20px;
-	overflow: auto;
-}
-
-#messagesToggle {
-	border-radius: 15px 15px 0 0;
-	background-color: rgba(50,50,50,0.85);
-	color: aliceblue;
-	height: 40px;
-	text-align: center;
-	padding-top: 2px;
-}
-
-.rightAlignment {
+#messagesPage .rightAlignment {
 	float: right;
 }
 
-.rightMessage{
+#messagesPage .rightMessage{
 	text-align:right;
-	background-color:rgba(0,255,0,.1);
+	background-color:rgba(0,131,255,1.00);
 	border-color:darkgreen;
 	border-radius: 14px 15px 0 15px;
-	color:rgba(36,35,35,1.00);
+	color:white;
 	padding: 14px 20px 10px 20px;
 	border:solid thin;
 }
 
-.leftMessage {
+#messagesPage .leftMessage {
 	background-color: rgba(189,189,189,1.00);
 	color:rgba(36,35,35,1.00);
 	padding: 14px 20px 10px 20px;
@@ -167,14 +153,9 @@ width:50%;
 	border-color:rgba(85,85,85,1.00)
 }
 
-#dialogPanel {
-	height: 340px;
-	width: 300px;
-	position: absolute;
-	bottom: 0px;
-	right: 400px;
-	background-color: rgba(217,217,217,0.70);
-	border-radius: 15px 15px 0 0;
-	padding: 5px;
-	padding-top: 20px;
+.glyphicon-trash {
+/*	float: right;*/
+	padding: 10px 30px 10px 20px;
+	color: crimson;
+	font-size: 120%;
 }
