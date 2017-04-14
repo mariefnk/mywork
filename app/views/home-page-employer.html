@@ -1,174 +1,191 @@
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="filter">
-<!--                                    <div class="block-title">-->
+       <div class="row">
+            <div class="col-md-12 style='padding-right:0px; padding-left:0px;'">
+              <div class="main-content ">
+                <div ui-view="app" class="container" id="wrapperContainer" >
 
-<!--                                         <div class="col-md-2">-->
-                        <div data-toggle="collapse" data-target="#filter-myworks" class="my-works-filter-title"><i class="fa fa-filter" aria-hidden="true"></i> Filter workers by <div id="clear-all">Clear all (<span id="count-filters">0</span>)</div>  </div> 
-                                
-                             <div id="filter-myworks" class="collapse in">
-                             <div data-toggle="collapse" data-target="#filter-myworks-years" class="subtitle filter-categories">Date </div>
-                                 <div id="filter-myworks-years" data-toggle="collapse" data-target="#filter-myworks-months" class="collapse filter-years"><div class ="filter-year" btn btn-default>2017</div>
+                  <div class="row page-locator">
+                    <div class="col-md-3">
+                      <div class="filter">
+                        <div id="filter-myworks" class="collapse in">
+                          <div class="filter-title" data-toggle="collapse" data-target="#filterBody">Filter<span class="pull-right"><i class="fa fa-filter"></i></span></div>
+                          <div class="filter-body" id="filterBody">
+                            <div data-toggle="collapse" data-target="#filter-myworks-years" class="subtitle filter-categories">Date </div>
+                            <div id="filter-myworks-years" data-toggle="collapse" data-target="#filter-myworks-months" class="collapse filter-years">
+                              <div class="filter-year" btn btn-default>2017</div>
                             </div>
-                                 <div id="filter-myworks-months"  class="collapse">
-                                     <ul class="list-filter-month">
-                                     <li class ="filter-month"> <label>
-                                                <input type="checkbox" onclick="getFiltersCount()">
-                                                April
-                                            </label></li>
-                                     <li class ="filter-month"> <label>
-                                                <input type="checkbox">
-                                                March
-                                            </label></li>
-                                     <li class ="filter-month"> <label>
-                                                <input type="checkbox">
-                                                February
-                                            </label></li>
-                                     <li class ="filter-month"> <label>
-                                                <input type="checkbox">
-                                                January
-                                            </label></li>
-                                     </ul>
-<!--                                     <div class="apply-months-filter">Filter</div>-->
-                                 </div>
-                                                   <div data-toggle="collapse" data-target="#filter-category" class="subtitle filter-categories" href="#filter-category">Category </div>
-                                        <div class="collapse filter-category" id="filter-category">
-                                            <ul class="list-filter-category">
-                                            <li class ="filter-cat"> <label>
-                                                <input type="checkbox" name="filterCat-bartender">
-                                                Bartender
-                                                </label></li>
-                                           <li class ="filter-cat"> <label>
-                                                <input type="checkbox" name="filterCat-waitress" class="filter-category">
-                                                Waitress
-                                               </label></li>
-                                            <li class ="filter-cat"><label>
-                                                <input type="checkbox" name="filterCat-DJ" class="filter-category">
-                                                DJ
-                                                </label></li>
-                                            <li class ="filter-cat"><label>
-                                                <input type="checkbox" name="filterCat-security" class="filter-category">
-                                                Security Agent
-                                                </label></li>
-                                            </ul>
-                                           
-                                        </div>
-                                        <div class="subtitle filter-categories" data-target="#filter-profile" href="#filter-profile" data-toggle="collapse">Profile</div>
-                                        <div class="collapse filter-profile" id="filter-profile">
-                                             <ul class="list-filter-profile">
-                                            <div>
-                                                <span style="color:#404040;">Gender</span>
-                                                 <li class ="filter-gen"><label>
-                                                    <input type="radio" name="optradio" class="filter-gender">
-                                                    M
-                                                     </label></li>
-                                                <li class ="filter-gen"><label>
-                                                    <input type="radio" name="optradio" class="filter-gender">
-                                                    F
-                                                    </label></li>
-                                            </div>
-                                            <div>
-                                                <span style="color:#404040;">Age</span>
-                                               <li class ="filter-age"> <label>
-                                                    <input type="checkbox" name="filterAge-18-22" class="filter-age">
-                                                    18-22
-                                                   </label></li>
-                                               <li class ="filter-age"> <label>
-                                                    <input type="checkbox" name="filterAge-23-27" class="filter-age">
-                                                    23-27
-                                                   </label></li>
-                                               <li class ="filter-age"> <label>
-                                                    <input type="checkbox" name="filterAge-28-35" class="filter-age">
-                                                    28-35
-                                                   </label></li>
-                                                <li class ="filter-age"><label>
-                                                    <input type="checkbox" name="filterAge-35-" class="filter-age">
-                                                    35+
-                                                    </label></li>
-                                            </div>
-                                            </ul>
-                                        </div>
-                                        <div class="subtitle filter-categories" href="#filter-experience" data-toggle="collapse">Experience</div>
-                                        <div class="collapse filter-experience" id="filter-experience">
-                                             <ul class="list-filter-experience">
-                                            <li class ="filter-exp"><label>
-                                                <input type="radio" name="filterExp" value="0" class="experience-radio">
-                                                <span>No experience</span>
-                                                </label></li>
-                                            <li class ="filter-exp"><label>
-                                                <input type="radio" name="filterExp" value="1" class="experience-radio">
-                                                <span>Less than 2 years</span>
-                                                </label></li>
-                                           <li class ="filter-exp"> <label><input type="radio" name="filterExp" value="2" class="experience-radio">
-                                                <span>More than 2 years</span>
-                                               </label></li>
-                                            </ul>
-                                        </div>
-                                 
-                                 
-                             </div>
-<!--                        </div>-->
-                                        
-<!--                                    </div>-->
-<!--                                    <div class="block-content">-->
-                      
-<!--                                    </div>-->
+                            <div id="filter-myworks-months" class="collapse">
+                              <ul class="list-filter-month">
+                                <li class="filter-month">
+                                  <input type="checkbox" onclick="getFiltersCount()"> April
+                                </li>
+                                <li class="filter-month"><input type="checkbox"> March</li>
+                                <li class="filter-month">
+                                  <input type="checkbox"> February
+                                </li>
+                                <li class="filter-month">
+                                  <input type="checkbox"> January
+                                </li>
+                              </ul>
+                            </div>
+                            <div data-toggle="collapse" data-target="#filter-category" class="subtitle filter-categories" href="#filter-category">Category</div>
+                            <div class="collapse filter-category" id="filter-category">
+                              <ul class="list-filter-category">
+                                <li class="filter-cat">
+                                  <input type="checkbox" name="filterCat-bartender">&nbsp;&nbsp;Bartender
+                                </li>
+                                <li class="filter-cat">
+                                  <input type="checkbox" name="filterCat-waitress" class="filter-category">&nbsp;&nbsp;Waitress
+                                </li>
+                                <li class="filter-cat">
+                                  <input type="checkbox" name="filterCat-DJ" class="filter-category">&nbsp;&nbsp;DJ
+                                </li>
+                                <li class="filter-cat">
+                                  <input type="checkbox" name="filterCat-security" class="filter-category">&nbsp;&nbsp;Security
+                                  Agent
+                                </li>
+                              </ul>
+                            </div>
+                            <div class="subtitle filter-categories" data-target="#filter-profile" href="#filter-profile" data-toggle="collapse">Profile</div>
+                            <div class="collapse filter-profile" id="filter-profile">
+                              <ul class="list-filter-profile">
+                                <div style="margin-top: 10px;">
+                                  <span style="color:#404040;">Gender</span>
+                                  <li class="filter-gen">
+                                    <input type="radio" name="optradio" class="filter-gender"> Male
+                                  </li>
+                                  <li class="filter-gen">
+                                    <input type="radio" name="optradio" class="filter-gender"> Female
+                                  </li>
                                 </div>
-                            </div>
-                            <div class="col-md-9">
-                                <div class="filter">
-                                    <div class="block-title">
-                                        Workers
-                                    </div>
-
-                                    <div class=" well search-scroll workers-list">
-                                        <div class="row">
-                                            <p class="showing-number-result">Showing 1 result</p>
-                                        </div>
-                                        <div ng-repeat="worker in workers">
-
-
-
-    <a ui-sref="app.selectedWorker">
-        <div class="col-md-2">
-        <div class="profile-picture-worker-search">
-        <li class="worker-search-info">
-        <img ng-src={{worker.profilePicture}} class="img-responsive" alt="Worker Profile Picture" style="margin-left:30px;"/>
-        </li>
-        </div>
-        </div>
-        <div class="worker-search-info workers-search">
-      <div class="row">
-     
-        <div class="col-md-10" style="padding-left:0px;">
-        <li class="worker-search-info worker-name">
-         {{worker.firstName}}  {{worker.lastName}}
-        </li>
-        <li class="worker-search-info"> Looking for a position as a {{worker.category}}
-        </li>
-        <li class="worker-search-info"><i class="fa fa-star" aria-hidden="true"></i>
-        <i class="fa fa-star" aria-hidden="true"></i>
-        <i class="fa fa-star" aria-hidden="true"></i>
-        <i class="fa fa-star" aria-hidden="true"></i>
-        <i class="fa fa-star-o" aria-hidden="true"></i></li>
-        <!--<li class="worker-search-info"> Available: '
-        + Object.keys(worker.schedule).reduce(function(acc, val) {return acc + ' ' + val.substr(val.indexOf('-')+1)}, '')
-        + '</li>'-->
-        <!--<button type="button" class ="btn btn-default"><li class="worker-search-info"><a onclick="setSelectedWorker(' + worker.id + ')" href="worker-search-selected-profile.html">See more details</a></li></button>-->
-        <!--<li class="worker-search-info">
-       <button type="button" class="btn btn-default">Send request</button>
-        </li>-->
-        </div>
-        </div>
-        </div>
-        </a>
-        </div>
-                                        </div>
-
-
-
-
-                                    </div>
+                                <div style="margin-top: 10px;">
+                                  <span style="color:#404040;">Age</span>
+                                  <li class="filter-age">
+                                    <input type="checkbox" name="filterAge-18-22" class="filter-age"> 18-22
+                                  </li>
+                                  <li class="filter-age">
+                                    <input type="checkbox" name="filterAge-23-27" class="filter-age"> 23-27
+                                  </li>
+                                  <li class="filter-age">
+                                    <input type="checkbox" name="filterAge-28-35" class="filter-age"> 28-35
+                                  </li>
+                                  <li class="filter-age">
+                                    <input type="checkbox" name="filterAge-35-" class="filter-age"> 35+
+                                  </li>
                                 </div>
+                              </ul>
                             </div>
-                
+                            <div class="subtitle filter-categories" href="#filter-experience" data-toggle="collapse">Experience</div>
+                            <div class="collapse filter-experience" id="filter-experience">
+                              <ul class="list-filter-experience">
+                                <li class="filter-exp">
+                                  <input type="radio" name="filterExp" value="0" class="experience-radio">
+                                  <span>No experience</span>
+                                </li>
+                                <li class="filter-exp">
+                                  <input type="radio" name="filterExp" value="1" class="experience-radio">
+                                  <span>Less than 2 years</span>
+                                </li>
+                                <li class="filter-exp"><input type="radio" name="filterExp" value="2" class="experience-radio">
+                                  <span>More than 2 years</span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-9">
+                      <div class="filter">
+                        <div class="block-title">Workers<h6>Showing 21 results</h6></div>
+                        <div class="search-scroll workers-list">
+                          <div ng-repeat="worker in workers">
+                            <a a ui-sref="app.selectedWorker">
+                              <div class="worker-profile">
+                                <div class="worker-image"></div>
+                                <div class="worker-detail">
+                                  <h4>Jane Doe</h4>
+                                  <p>Looking for a position as a sales representative</p>
+                                  <span class="worker-rating">Rating</span>
+                                  <span class="worker-stars">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                  </span>
+                                  
+                                </div>
+                              </div>
+                            </a>
+                            <a>
+                              <div class="worker-profile">
+                                <div class="worker-image"></div>
+                                <div class="worker-detail">
+                                  <h4>Jane Doe</h4>
+                                  <p>Looking for a position as a sales representative</p>
+                                  <span class="worker-rating">Rating</span>
+                                  <span class="worker-stars">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                  </span>
+                                  
+                                </div>
+                              </div>
+                            </a>
+                            <!--<a ui-sref="app.selectedWorker">
+                              <div class="col-md-2">
+                                <div class="profile-picture-worker-search">
+                                  <li class="worker-search-info">
+                                    <img ng-src={{worker.profilePicture}} class="img-responsive" alt="Worker Profile Picture" style="margin-left:30px;" />
+                                  </li>
+                                </div>
+                              </div>
+                              <div class="worker-search-info workers-search">
+                                <div class="row">
+                                  <div class="col-md-10" style="padding-left:0px;">
+                                    <li class="worker-search-info worker-name">
+                                      {{worker.firstName}} {{worker.lastName}}
+                                    </li>
+                                    <li class="worker-search-info"> Looking for a position as a {{worker.category}}
+                                    </li>
+                                    <li class="worker-search-info"><i class="fa fa-star" aria-hidden="true"></i>
+                                      <i class="fa fa-star" aria-hidden="true"></i>
+                                      <i class="fa fa-star" aria-hidden="true"></i>
+                                      <i class="fa fa-star" aria-hidden="true"></i>
+                                      <i class="fa fa-star-o" aria-hidden="true"></i>
+                                    </li>
+                                  </div>
+                                </div>
+                              </div>
+                            </a>-->
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row paginator">
+                        <nav>
+                          <ul class="pagination">
+                            <li class="page-item">
+                              <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">Previous</span>
+                              </a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                              <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                                <span class="sr-only">Next</span>
+                              </a>
+                            </li>
+                          </ul>
+                        </nav>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
