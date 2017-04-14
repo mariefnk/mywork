@@ -79,13 +79,12 @@
     padding: 0px 20px;
 
 }
-.nav-loginin-button:hover a, .nav-sign-up-button:hover a{
+.nav-loginin-button:hover a{
   color: #00003f!important;
-  cursor: pointer;
 }
 .nav-sign-up-button{
     border: 1px solid white;
-    background-color: transparent;
+    background-color: white;
     border-radius: 50px;
     text-align: center;
     padding-right: 0px;
@@ -100,7 +99,7 @@
 }
 
 .nav-sign-up-button a{
-      color: white;
+      color: #00003f;
 }
 
 .nav-loginin-button a{
@@ -118,7 +117,6 @@
     color: #00578a;
 
 }
-
 
 .loginnow-btn{
     background-color: 00003f;
@@ -1048,12 +1046,20 @@ li.navbar-subitems {
     height: 30px;
 }
 
-.search{
+/*.search {
      width: 100%;
-}
+     margin-top: 10px;
+     border-radius: 15px;
+     border: 1px solid #eaeaea;
+}*/
 
 .search input {
-    text-indent: 25px;
+    text-indent: 35px;
+    height: 30px;
+    width: 100%;
+    border-radius: 15px;
+    outline: none;
+    border: none;
 }
 
 .search .fa-search {
@@ -1216,11 +1222,11 @@ img:hover {
     box-shadow: 0 4px 6px -3px #222;
 }
 
-.search-bar {
+/*.search-bar {
     background-color: #FFFFFF;
     padding-bottom: 6px;
     border-bottom: 1px solid #ededed;
-}
+}*/
 
 /*
 hr{
@@ -1273,12 +1279,11 @@ hr{
 
 .main-content {
 /*    overflow-y: scroll;*/
-    margin-top: 20px;
-    margin-left: 65px;
+    margin-left: 25px;
 /*    margin-right: auto;*/
     /*    max-width: 1024px;*/
     height: 530px;
-    padding: 20px 20px 0px 20px;
+    padding: 0px 20px 0px 20px;
 /*    background-color: #292929;*/
     /*    vertical-align: middle;*/
 }
@@ -1293,19 +1298,15 @@ hr{
 }
 
 .filter {
-    /*    border: 1px solid #000000;*/
     background-color: #FFFFFF;
     padding-bottom: 10px;
 
 }
 
 .block-title {
-    background-color: #00003f;
-    padding: 5px 0 5px 10px;
-    text-transform: uppercase;
-    text-align: center;
     border-radius: 4px;
-    color:white;
+    font-size: 2em;
+    font-weight: normal;
 }
 
 .radio {
@@ -1338,8 +1339,6 @@ hr{
 
 }
 
-
-
 .worker-search-info {
     list-style-type: none;
     color: #6E6E6E;
@@ -1370,9 +1369,76 @@ hr{
 }
 */
 
+.workers-list {
+    margin-top: 30px;
+    border-radius: 5px;
+    border: 1px solid #e3e3e3;
+}
+
+.worker-profile {
+    width: 100%;
+    padding: 20px 20px;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.worker-profile:hover {
+    background: #f7f7f7;
+    cursor: pointer;
+}
+
+.worker-profile > div {
+    display: inline-block;
+}
+
+.worker-image {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    border: 2px solid #f0f0f0;
+    background: url('./ladyNew.png');
+    background-size: contain;
+}
+
+.worker-detail {
+    height: 100px;
+    padding: 0 15px;
+}
+
+.worker-detail .worker-rating {
+    width: 100px;
+    border-radius: 3px;
+    background: #B80000;
+    padding: 5px;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 0.7em;
+    position: relative;
+    top: -10px;
+    font-weight: bold;
+}
+
+.worker-detail .fa {
+    padding-right: 0;
+}
+
+.worker-detail .worker-stars {
+    padding-right: 5;
+    color: #0FAF63;
+    position: relative;
+    top: -10px;
+} 
+
+.worker-detail .worker-stars i {
+    color: #0064B8;
+}
+
+.paginator nav {
+    float: right;
+}
+
 .search-scroll {
 /*    height: 380px;*/
-    margin-top : 10px;
+    /*margin-top : 10px;*/
 /*    overflow-y: scroll;*/
 }
 
@@ -1445,6 +1511,25 @@ hr{
         /*        width:120%;*/
     }
 
+    .main-content {
+        margin-left: 0px;
+        margin-right: 0px;
+        padding: 0px;
+    }
+
+    /*
+        .main-content-wrapper{
+            margin-right:0px;
+             margin-left:0px;
+        }
+    */
+    /*
+        .workers-search{
+       overflow: hidden;
+        z-index: -99;
+    }
+    */
+
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -1491,7 +1576,7 @@ hr{
 }
 
 .subtitle {
-    border-bottom: 1px solid darkgray;
+    /*border-bottom: 1px solid darkgray;*/
 }
 
 .filter .block-content {
@@ -1531,16 +1616,27 @@ hr{
     border-radius: 5px;
     height: 500px;
     background: #ccc;
-    margin: 0 auto;
+    margin: 0 auto 0 auto;
 }
 
 .profile-top-background {
     height: 95px;
+    line-height: 95px;
     width: 100%;
     background-color: #454545;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
+
+.age {
+    float: right;
+    margin-right: 50px;
+    font-weight: bold;
+    color: #fff;
+    font-size: 1.2em;
+}
+
+.age i { padding-right: 10px; }
 
 .profile-container {
     height: 453px;
@@ -1565,7 +1661,11 @@ hr{
     border-radius: 50%;
     width: 130px;
     height: 130px;
-    border: 5px solid #ffa;
+    border: 5px solid #00C4FF;
+    background: url('./ladyNew.png') no-repeat;
+    background-position:center;
+    background-size: contain;
+    margin: 0 auto;
 }
 
 .profile-data {
@@ -1587,6 +1687,15 @@ hr{
     font-size: smaller;
 }
 
+.profile-age i { color: #fff; }
+
+.profile-category {
+
+}
+
+.profile-availability {
+
+}
 
 label.yoe-input,
 label.degree-input,
@@ -1704,8 +1813,8 @@ label.avg-salary-info{
     border-radius: 50%;
     width: 120px;
     margin: 0 5px;
-    border: 1px solid #fff;
-    color: #ccc;
+    border: 1px solid #00C4FF;
+    color: #00C4FF;
     padding-top: 20px;
 }
 
@@ -1714,6 +1823,7 @@ label.avg-salary-info{
     color: #454545;
     cursor: pointer;
     font-weight: bold;
+    border: 1px solid #fff;
 }
 
 .profile-feedback div {
@@ -1748,35 +1858,229 @@ label.avg-salary-info{
     font-size: 20px;
 }
 
-.work-experience-section, .schedule-section {
+.work-and-schedule {
     background: #eeeeee;
     border-radius: 5px;
-    height: 230px;
     width: 665px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    position: relative;
+    padding-bottom: 20px;
 }
 
-.work-experience-section {
+.work-and-schedule div.title {
+    height: 85px;
+    width: 100%;
+}
+
+.work {
     margin-top: 75px;
+    z-index: 999;
 }
 
-.schedule-section {
-    margin-top: 25px;
+.work .title {
+    line-height: 85px;
+}
+
+.schedule {
+    margin-top: 45px;
+}
+
+.schedule .title {
+    padding-top: 20px;
+}
+
+.schedule table {
+    text-align: left;
+}
+
+.schedule table {
+    border-color: green;
+}
+
+.schedule table tbody tr td {
+    padding-left: 20px;
 }
 
 .detail {
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 5px;
-    height: 200px;
+    min-height: 170px;
     background: #fff;
-    width: 80%;
-    position: absolute;
-    bottom: -20px;
-    box-shadow: 0 2px 10px 3px rgba(0, 0, 0, 0.15);
+    width: 92%;
+    position: relative;
+    box-shadow: 0px 3px 7px 2px rgba(0, 0, 0, 0.08);
 }
+
+.detail-table {
+    width: 100%;
+    line-height: 60px;
+}
+
+.detail-table tr {
+    height: 60px;
+}
+
+
+.detail-table thead tr > th, .detail-table thead tr > td {
+    text-align: center;    
+}
+
+.schedule-btn {
+    height: 56px;
+    width: 213px;
+    background-color: #B80000;
+    border: 0;
+    border-radius: 5px;
+    display: block;
+    margin: 25px auto;
+    color: #fff;
+}
+
+.schedule-btn:hover {
+    background-color: #c30000;
+    box-shadow: 0 2px 10px 2px rgba(0, 0, 0, .3);
+}
+
+.schedule-btn-blue {
+    height: 56px;
+    width: 213px;
+    background-color: #0064B8;
+    border: 0;
+    border-radius: 5px;
+    display: block;
+    margin: 25px auto;
+    color: #fff;
+    position: relative;
+    bottom: -20px;
+}
+
+.schedule-btn-blue:hover {
+    box-shadow: 0 2px 10px 2px rgba(0, 0, 0, .3);
+}
+
+/** Schedule Modal **/
+.schedule-modal .modal-body {
+    padding: 20px 50px;
+    min-height: 500px;
+}
+
+.schedule-modal .modal-header {
+    text-align: center;
+    text-transform: uppercase;
+    height: 70px;
+}
+
+.schedule-modal .modal-title {
+    font-size: .8em;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.schedule-modal .hire-text {
+    height: 50px;
+}
+
+.schedule-modal label {
+    font-weight: normal;
+}
+
+.schedule-modal input[type="text"], .dropdown button {
+    height: 55px;
+}
+
+.schedule-modal input[type="text"]:focus {
+    border: 1px solid #0064B8;
+}
+
+.schedule-modal textarea {
+    width: 100%;
+    height: 120px;
+    resize: none;
+    border-radius: 5px;
+    border: 1px solid rgba(0,0,0,.15);
+    text-align: left;
+    outline: none;
+    padding: 10px;
+}
+
+.schedule-modal textarea:focus {
+    border: 1px solid #0064B8;
+    box-shadow: 0 0px 6px 1px rgba(0,100,184,0.3);
+}
+
+.select-box {
+  height: 55px;
+  background: orange;
+  width: 500px;
+  border-radius: 5px;
+  border: 1px solid #dbdbdb;
+  padding: 0 10px;
+  background: #fff;
+}
+
+select {
+  height: 50px;
+  width: 100%;
+  border: 0;
+  background: rgba(0,0,0,0);
+  outline: none;
+  font-size: 1em;
+}
+
+.select-box:hover {
+  border: 1px solid #0064B8;
+  box-shadow: 0 0px 6px 1px rgba(0,100,184,0.3);
+}
+
+.date-time {
+    width: 100%;
+}
+
+.date-time > div {
+    float:left;
+}
+
+.add-btn {
+    height: 55px;
+    width: 55px;
+    border: 0;
+    margin-left: 10px;
+    border-radius: 5px;
+    background: #0064b8;
+    color: #fff;
+}
+
+.add-btn:hover {
+    box-shadow: 0 2px 10px 2px rgba(0, 0, 0, .3);
+}
+
+.schedule-detail span {
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    width: 70%;
+    background: #dadada;
+    border-radius: 5px;
+    padding: 0 10px;
+}
+
+.schedule-detail:hover small {
+    display: inline;
+}
+
+.schedule-detail small {
+    color: red;
+    display: none;
+}
+
+.schedule-detail small:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
 
 .profile-reviews-comments, .profile-reviews, .profile-missions, .profile-salary-expected{
      padding-top:25px;
@@ -1930,7 +2234,7 @@ label.avg-salary-info{
 }
 
 .table thead tr th, .table tbody tr td {
-    padding: 0px;
+    padding: 15px;
 
 }
 
@@ -1993,9 +2297,19 @@ textarea::-webkit-input-placeholder{
 }
 
 #filter-myworks{
-    background-color: rgba(0, 153, 204, 0.1);
-    padding: 10px;
-    border-radius: 4px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    border: 1px solid #e3e3e3;
+}
+
+.filter-title {
+    height: 60px;
+    line-height: 60px;
+    width: 100%;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    /*border-bottom: 1px solid #e3e3e3;*/
+    padding: 0 20px;
 }
 
 .filter-year{
@@ -2014,27 +2328,24 @@ textarea::-webkit-input-placeholder{
 }
 
 .filter-categories{
-    border-bottom: 1px solid #d3d3d3;
-/*    background-color: white;*/
+    border-top: 1px solid #e3e3e3;
+    height: 50px;
+    line-height: 50px;
+    background: #f5f5f5;
     width:100%;
-    margin-right:auto;
-    margin-left:auto;
-/*    text-align: center;*/
     cursor: pointer;
-    margin-bottom: 15px;
-    padding-bottom: 5px;
-    font-weight: 500;
-     font-size: 15px;
+    padding: 0 15px;
 }
 
 .filter-category, .filter-profile, .filter-experience, .filter-month{
     color: #6E6E6E;
-    font-weight: 800;
-
+    padding: 0 15px;
 }
 
-.filter-years{
+.filter-year{
     cursor: pointer;
+    background: #e3e3e3;
+    margin: 10px auto;
 }
 
 #filter-myworks-months .filter-month{
@@ -2047,7 +2358,6 @@ textarea::-webkit-input-placeholder{
 }
 
 #filter-myworks-months .list-filter-month, .list-filter-category, .list-filter-experience, .list-filter-profile{
-/*    text-align: center;*/
     padding-left:0px;
 }
 
@@ -2122,11 +2432,6 @@ textarea::-webkit-input-placeholder{
 body {
     margin-top:0px;
 }
-
-.stepwizard-step {
-    padding-right: 30px;
-}
-
 .stepwizard-step p {
     margin-top: 10px;
 }
@@ -2150,13 +2455,17 @@ body {
     width: 100%;
     height: 1px;
     background-color: #ccc;
+    padding-left:5px;
+    padding-right:5px;
     z-order: 0;
 }
 .stepwizard-step {
     display: table-cell;
     text-align: center;
     position: relative;
+    padding-left:30px;
 }
+
 .btn-circle {
     width: 30px;
     height: 30px;
@@ -2185,6 +2494,7 @@ body {
 .role-option{
     width:200px;
 }
+
 
 .login-signup-form-field:focus{
     border-color: #39688e;
@@ -2428,15 +2738,13 @@ width:50%;
 }
 
 .submit-messages{
-    width: 97.5%;
-    /*background-color: rgba(255,245,245,1);*/
-    background-color: rgba(255,105,125,.29);
+    width: 100%;
+    background-color: rgba(255,245,245,1);
     border-right: 1px solid #a94442;
     border-left: 1px solid #a94442;
     border-bottom: 1px solid #a94442;
     box-sizing: border-box;
-    padding: 5px 30px;
-    color:black;
+    padding: 5px 10px;
 }
 .has-error .form-control{
     border-right: 1px solid #a94442;
