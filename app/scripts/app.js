@@ -11,11 +11,31 @@ var myApp=angular.module('myApp',[
   'ui.router'
   ]);
 
-myApp.run(function(){
+myApp.run(function($rootScope) {
+    $rootScope.appointments = [{"contract_id":"4551","first_name":"Larry","last_name":"Ullman","start_date":"2017-04-02","end_date":"2017-04-02","location":"Boston", "status":"1"},
+    {"contract_id":"2232","first_name":"John","last_name":"Lennon","start_date":"2017-04-02","end_date":"2017-04-02","location":"Boston","status":"2"},
+    {"contract_id":"3323","first_name":"John","last_name":"Brown","start_date":"2017-04-02","end_date":"2017-04-02","location":"Boston","status":"1"},
+    {"contract_id":"4323","first_name":"Tom","last_name":"Smith","start_date":"2017-04-02","end_date":"2017-04-02","location":"London","status":"3"},
 
-  //  var link = '<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">'
-  //  $('head').append(link)
-})
+     {"contract_id":"3232","first_name":"Peter","last_name":"Lennon","start_date":"2017-04-02","end_date":"2017-04-02","location":"London","status":"2"},
+    {"contract_id":"5453","first_name":"Ava","last_name":"Brown","start_date":"2017-04-02","end_date":"2017-04-02","location":"Boston","status":"1"},
+
+         {"contract_id":"552","first_name":"Dean","last_name":"Lennon","start_date":"2017-04-02","end_date":"2017-04-02","location":"London","status":"2"},
+    {"contract_id":"3545","first_name":"Anna","last_name":"Brown","start_date":"2017-04-02","end_date":"2017-04-02","location":"Boston","status":"1"},
+
+         {"contract_id":"21234","first_name":"Sam","last_name":"Lennon","start_date":"2017-04-02","end_date":"2017-04-02","location":"London","status":"3"},
+    {"contract_id":"43543","first_name":"Asayl","last_name":"Brown","start_date":"2017-04-02","end_date":"2017-04-02","location":"Boston","status":"3"},
+
+    {"contract_id":"5455","first_name":"Sebastian","last_name":"Pier","start_date":"2017-04-02","end_date":"2017-04-02","location":"Paris","status":"2"}];
+
+    
+});
+
+
+
+
+
+
 
 myApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider){
 
@@ -347,38 +367,19 @@ myApp.controller('paymentController',['$scope', '$log', '$state',  function($sco
 }]);
 
 ////FOR CURRENT TABLE
-myApp.controller('currentjobsController', function($http,$scope,$timeout,$log){
+myApp.controller('currentjobsController', function($http,$scope,$timeout,$log,$rootScope){
 
-
-//var j = $.noConflict();
-
-$scope.appointments = [];
-
-  $scope.selectedLocation = "";
-  $scope.selectedMonth = "";
-
-   $scope.selectedMonthFilter = function(element) {
-    if(!$scope.selectedMonth) {
-      return true;
-    }
-    return element.created.getMonth() == $scope.selectedMonth;
-  }
-
-  $scope.selectedLocationFilter = function(element) {
-    if(!$scope.selectedLocation) return true;
-    return element.created.getLocation() == $scope.selectedLocation;
-  }
-    function randomDate(start, end) {
-      return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()))
-  }
-
-
-	$http.get("pages/currentjobs.php").then(function(response){
-		$scope.appointments = response.data;
-	});
-
-
-
+  $scope.testClick =function(cId){
+for(var i = 0; i<$rootScope.appointments.length; i++)
+{
+   if($rootScope.appointments[i].contract_id == cId){
+     $rootScope.appointments[i].status = 3;
+   }
+}
+       
+}
+  
+  
 
 ///////////////////////////////////////////////////////////////////Modal
 
@@ -395,29 +396,18 @@ $scope.modalDisp = function(clickedInst){
 
 });
 
-
-
 //////// FOR PENDING TABLE
 myApp.controller('pendingController',['$scope','$log', function($scope,$log){
-   $scope.appointments = [];
-
-  $scope.selectedLocation = "";
-  $scope.selectedMonth = "";
-
-   $scope.selectedMonthFilter = function(element) {
-    if(!$scope.selectedMonth) return true;
-    return element.created.getMonth() == $scope.selectedMonth;
-  }
-
-  $scope.selectedLocationFilter = function(element) {
-    if(!$scope.selectedLocation) return true;
-    return element.created.getLocation() == $scope.selectedLocation;
-  }
-    function randomDate(start, end) {
-      return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()))
-  }
-
-
+    $scope.testClick =function(cId){
+for(var i = 0; i<$rootScope.appointments.length; i++)
+{
+   if($rootScope.appointments[i].contract_id == cId){
+     $rootScope.appointments[i].status = 0;
+   }
+}
+       
+       
+      }
 
 
 
