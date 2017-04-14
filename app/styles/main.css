@@ -79,12 +79,13 @@
     padding: 0px 20px;
 
 }
-.nav-loginin-button:hover a{
+.nav-loginin-button:hover a, .nav-sign-up-button:hover a{
   color: #00003f!important;
+  cursor: pointer;
 }
 .nav-sign-up-button{
     border: 1px solid white;
-    background-color: white;
+    background-color: transparent;
     border-radius: 50px;
     text-align: center;
     padding-right: 0px;
@@ -99,7 +100,7 @@
 }
 
 .nav-sign-up-button a{
-      color: #00003f;
+      color: white;
 }
 
 .nav-loginin-button a{
@@ -117,6 +118,7 @@
     color: #00578a;
 
 }
+
 
 .loginnow-btn{
     background-color: 00003f;
@@ -2168,16 +2170,73 @@ body {
 .main-register-content{
   width: 100%;
   height: 100vh;
-  background: radial-gradient(rgba(0,143,212,1),rgba(0,51,138,1));
+  background: #102331;
+  /*background: radial-gradient(rgba(0,143,212,1),rgba(0,51,138,1));*/
   padding-top: 100px;
   text-align: center;
   overflow: auto;
+   z-index:-99;
+}
+
+.worker-employer-option{
+    margin-bottom: 25px;
+}
+
+.role-option{
+    width:200px;
+}
+
+.login-signup-form-field:focus{
+    border-color: #39688e;
+    background: radial-gradient(rgba(0,145,255,.08),rgba(0,145,255,0));
+}
+
+.login-signup-form-field{
+    width:400px;
+    height:55px;
+    display: block;
+    height: 3.1em;
+    padding: 0 18px;
+    font-size: 18px;
+    letter-spacing: .25pt;
+    line-height: normal;
+    color: rgba(225,232,237,.84);
+    outline: 0;
+    border: 1px solid hsla(0,0%,100%,.2);
+    background: transparent;
+    border-radius: 3px;
+    box-shadow: 0 2px 0 rgba(0,0,0,.08);
+}
+
+.login-btn{
+    width: 400px;
+    margin: 20px 0;
+    display: inline-block;
+    line-height: 1.2;
+    font-size: 24px;
+    text-align: center;
+    letter-spacing: -.25pt;
+    background: #224c70;
+    border: 0;
+    color: #fff;
+    outline: 0;
+    cursor: pointer;
+
+}
+
+.forgot-password a{
+    color:#55acee;
+    text-decoration: none;
+}
+
+.login-signup-separator{
+    border: 1px solid white;
 }
 
 .container2{
   width: 600px;
   max-width: 100%;
-  background-color: white;
+  /*background-color: white;*/
   box-shadow: 0 1px 10px rgba(0,0,0,0.35);
   border-radius: 10px;
   padding-top: 30px;
@@ -2369,13 +2428,15 @@ width:50%;
 }
 
 .submit-messages{
-    width: 100%;
-    background-color: rgba(255,245,245,1);
+    width: 97.5%;
+    /*background-color: rgba(255,245,245,1);*/
+    background-color: rgba(255,105,125,.29);
     border-right: 1px solid #a94442;
     border-left: 1px solid #a94442;
     border-bottom: 1px solid #a94442;
     box-sizing: border-box;
-    padding: 5px 10px;
+    padding: 5px 30px;
+    color:black;
 }
 .has-error .form-control{
     border-right: 1px solid #a94442;
