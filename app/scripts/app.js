@@ -417,9 +417,7 @@ for(var i = 0; i<$rootScope.appointments.length; i++)
       '      Close Dialog' +
       '    </button>' +
       '  </md-dialog-actions>' +
-      '</md-dialog>',
-      controller: () => this,
-        controllerAs: 'ctrl'
+      '</md-dialog>'
     }
     );
   };
