@@ -4,6 +4,7 @@
   "dependencies": {
     "angular": "1.5.5",
     "bootstrap": "3.3.7",
+    "material-design-icons":"",
     "angular-animate": "1.5.5",
     "angular-cookies": "1.5.5",
     "angular-loader": "1.5.5",
@@ -20,6 +21,7 @@
     "moment": "2.17.0",
     "font-awesome": "4.7.0",
     "bootstrap3-datetimepicker": "4.17.43",
+    "angular-bootstrap":"",
     "angular-ui-router": "^0.4.2"
   },
   "devDependencies": {

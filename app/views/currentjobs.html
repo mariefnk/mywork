@@ -3,6 +3,26 @@
  .content {
     overflow: hidden;
 }
+@media screen and (max-width: 600px) { 
+
+.sc_image { display: none; }  
+h4{
+    font-size: 12px;
+}
+
+}
+
+
+.sc_image{
+    margin-top:1%;}
+
+.nohover:hover{
+   
+
+      background-color: white !important;
+
+
+}
 td{
     padding:0;
 }
@@ -10,9 +30,41 @@ td{
    
     float: left;
 }
+.table thead tr th, .table tbody tr td {
+    font-size: 12px;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+
+      .left-nav,.right-nav{
+         float:left; 
+      }
+      .right-nav{
+        margin-left:20px;
+      }
+      a{
+        cursor:pointer; 
+      }
+   
+
 </style>
+<script>
+$('#my-works-table').DataTable( {
+    responsive: true
+} );
+
+    </script>
+  <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.6.0.js"></script>
+
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
      <div class="row">
- <div class="col-md-3">
+ <div class="col-md-2">
 
 
 	                          <div class="filter">
@@ -94,23 +146,23 @@ td{
                                 </div>
 								</div>
                                 </div>
-				 <div class="col-md-8">
+				 <div class="col-md-10">
 
 <div id="exTab2">	
 <ul class="nav nav-tabs">
 			<li class="active">
-        <a href="#/currentjobs" data-toggle="tab">Current</a>
+        <a ui-sref="app.currentjobs" data-toggle="tab">Current</a>
 			</li>
-			<li><a href="app.pendingjobs" data-toggle="tab">Pending</a>
+			<li><a ui-sref="app.pendingjobs" data-toggle="tab">Pending</a>
 			</li>
-			<li><a href="app.historyjobs" data-toggle="tab">History</a>
+			<li><a ui-sref="app.historyjobs" data-toggle="tab">History</a>
 			</li>
 			
 		</ul>
 
   </div>
 
-      <table id="my-works-table" class="table table-hover" >
+      <table id="my-works-table" class="table table-hover"   >
                              <thead>
                                  <tr>
                                      <th>Contract</th>
@@ -119,6 +171,8 @@ td{
                                      <th>Start Date</th>
                                      <th>End Date</th>
                                      <th>Location</th>
+                                     <tr>
+        
                                  </tr>
                              </thead>
 							<tbody>
@@ -140,21 +194,33 @@ td{
 						<!--<td style="display:none;">{{a.month}}</td>-->
 						</tr>
 
-						 <tr ng-if="a.expanded" ng-repeat-end="">
-                        <td colspan="2"> 
+						 <tr  class="nohover" ng-if="a.expanded" ng-repeat-end="">
+                         
+                        <td colspan="4"> 
                             <div class="content">
-                        <img src="images/Marie.jpg" style="height:40%; width:35%;" / alt="" >
-                         <h4>{{a.first_name}} {{a.last_name}}</h4>
-                         <p>{{a.Phone}}</p>
-                          <p>{{a.Email}}</p>
-                         <p> <i class="glyphicon glyphicon-envelope">Message</i></p>
+                        <img class="sc_image" src="images/Marie.jpg" style="height:40%; width:35%;" / alt="" >
+                         <h4>{{a.first_name}} {{a.last_name}} </h4>
+                          <p> <strong>Title:</strong>{{a.title}}</p>
+                          <p><strong>Phone:</strong>{{a.phone}}</p>
+                           <p><strong>Email:</strong>{{a.Email}}</p>
+                          <p><strong>Hourly rate:</strong> {{a.wage}}</p>
+                          <p><strong>Working Hours:</strong></p>
+                        
+                        <!-- <p><i class="glyphicon glyphicon-envelope"></i> <button id="myBtn{{a.contract_id}}" ng-click="testClick(a.contract_id)"> <i class="  glyphicon glyphicon-pencil"></i></button></p>-->
+                       
                         </div>​
+                        
                         </td>
-                        <td></td>
-                         <td colspan="3"> {{a.Title}} <br>{{a.Wage}}
-                             <br>{{a.Hours}} hours <br>
+                        <td style="vertical-align: middle;"><md-button class="md-primary md-raised" ng-click="showAlert($event)">
+      Alert Dialog
+    </md-button>
+<br><br>
+                      <a ui-sref="app.messagesPage" ><button class="btn btn-info btn-sm btn-block"><i class="glyphicon glyphicon-envelope"></i> Send</button></a>
+                        </td>
+                        
+                           
             			<!--<button id="myBtn(a.status)" ng-click="modalDisp(a.first_name)" data-toggle="modal" data-target="#myModal">Open Modal</button></td>-->
-         				 <button id="myBtn{{a.contract_id}}" ng-click="testClick(a.contract_id)"></button>
+         				 
                           
                            
                           </tr>
@@ -164,6 +230,14 @@ td{
 <!--Modal-->
 	</div>
 			</div>
+
+
+
+
+   
+
+
+
   <div class="modal fade" id="myModal" >
     <div class="modal-dialog">
  		<div class="modal-content">
@@ -173,7 +247,7 @@ td{
 			</div>
 			 <div class="modal-body">
       		{{currentSelected}}
-			  <button id="showrating">Finish</button>
+			 <button id="myBtn{{a.contract_id}}" ng-click="testClick(a.contract_id)"> Finish</button>
 		   
 		 		<button id="showContract">Create a new contract</button>
 				  <div id="newContract" style="display: none;">
@@ -214,6 +288,9 @@ td{
 </div>
 	 
 <script>
+   document.getElementById("showrating").onclick(){
+
+   }
 // Get the modal
 var modal = document.getElementById('myModal');
 
