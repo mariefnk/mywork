@@ -1,7 +1,11 @@
 <script src="scripts/JavaScript.js"></script>
 
 <style>
+  .table thead tr th, .table tbody tr td {
+    font-size: 12px;
+}
 #exTab2{
+
    border-bottom: 50px solid #428bca;
 }
    input[type="text"]:valid {
@@ -48,9 +52,9 @@ $("input").on("change", function(){
 <div id="exTab2">	
 <ul class="nav nav-tabs">
 			<li >
-        <a href="#/paymentHistory" data-toggle="tab">Payment History</a>
+         <a ui-sref="app.paymentHistory" data-toggle="tab">Payment History</a>
 			</li>
-			<li class="active"><a href="#/payment" data-toggle="tab">Payment Method</a>
+			<li class="active"><a ui-sref="app.payment" data-toggle="tab">Payment Method</a>
 			</li>
 			
 		</ul>

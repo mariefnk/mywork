@@ -396,7 +396,7 @@ for(var i = 0; i<$rootScope.appointments.length; i++)
       }
 
 
-$scope.showAlert = function(ev) {
+ $scope.showAlert = function(ev) {
  
     // Appending dialog to document.body to cover sidenav in docs app
     // Modal dialogs should fully cover application
