@@ -13,7 +13,7 @@ function showContactsPanel(contactsList){
 		var action = "divSelectedInPanel('" + i + "contact')";
 		mediaDiv.setAttribute("onClick", action);
 
-		var mediaHeading = document.createElement('h4');
+		var mediaHeading = document.createElement('h5');
 		mediaHeading.className = 'media-heading';
 		var node = document.createTextNode(contactsList[i].fullName());
 		mediaHeading.appendChild(node);
@@ -116,7 +116,7 @@ function buildMessenger(){
 	var messagesToggleDiv = document.createElement('div');
 	messagesToggleDiv.id = 'messagesToggle';
 	
-	var messagesHeader = document.createElement('h4');
+	var messagesHeader = document.createElement('h5');
 	var node = document.createTextNode('Messages');
 	var iconSpan = document.createElement('span');
 	iconSpan.id = 'toggleIcon';
@@ -132,7 +132,7 @@ function buildMessenger(){
 	var miniDialogTitleDiv = document.createElement('div');
 	miniDialogTitleDiv.id = 'miniDialogTitle';
 	
-	var dialogHeader = document.createElement('h4');
+	var dialogHeader = document.createElement('h5');
 	var node2 = document.createTextNode('Dialog');
 	var iconSpan2 = document.createElement('span');
 	iconSpan2.id = 'toggleIcon2';
@@ -158,7 +158,7 @@ function buildMessenger(){
 	
 	var messengerCSS = document.createElement('link');
 	messengerCSS.setAttribute("rel", "stylesheet");
-	messengerCSS.setAttribute("href", "CSSStyles/MassengerStyles.css");
+	messengerCSS.setAttribute("href", "/styles/MassengerStyles.css");
 	
 	massengerDiv.appendChild(messagesPanelDiv);
 	massengerDiv.appendChild(dialogPanelDiv);

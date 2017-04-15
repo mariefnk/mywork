@@ -4,8 +4,9 @@
 	color: aliceblue;
 	height: 40px;
 	text-align: center;
-	padding-top: 2px;
+	padding-top: 6px;
 	padding-right: 20px;
+	padding-left: 20px; 
 }
 
 #messagesPanel {
@@ -41,14 +42,16 @@
 	display: inline-flex;
 	position: absolute;
 	width: 100%;
+	height: 55px;
 	bottom: 0;
 	padding: 10px;
-  background-color: rgba(0, 0, 0, .1);
+  	background-color: rgba(0, 0, 0, .1);
 	border-top: solid crimson;
 }
 
 #sendMessageTF-Mini {
 	width: 80%;
+	height: 100%;
 	border-radius: 5px 0 0 5px;
 
 }
@@ -56,6 +59,8 @@
 #sendBtn-Mini {
 	width: 20%;
 	border-radius: 0 5px 5px 0;
+	height: 100%;
+	padding: 5px;
 
 }
 
@@ -65,7 +70,7 @@
 	position: fixed;
 	bottom: 0px;
 	right: 405px;
-	background-color: rgba(217,217,217,0.70);
+	background-color: rgba(217,217,217,0.95);
 	border-radius: 15px 15px 0 0;
 }
 

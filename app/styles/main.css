@@ -30,6 +30,9 @@
 /* END BODY*/
 
 /* HOME PAGE */
+a:hover{
+    text-decoration:none;
+}
 
 .navbar {
     background-color: transparent;
@@ -38,7 +41,7 @@
     transition: all 0.15s linear;
 }
 .navbar-scroll{
-  background-color: rgba(0,0,63,0.75);
+  background-color: rgba(16,35,49,0.75);
 }
 
 
@@ -93,24 +96,14 @@
 
 }
 
-.nav-sign-up-button .nav-link, .nav-loginin-button .nav-link{
-    /*padding-left: 15px;*/
-
-}
-
 .nav-sign-up-button a{
-      color: #00003f;
+    color: #00003f;
 }
 
-.nav-loginin-button a{
-      /*color: white;*/
-}
-
-
-.nav-sign-up-button .nav-link:hover{
+.nav-sign-up-button .nav-link:hover{  
     color:white;
     cursor: pointer;
-
+    background-color: #0275d8;
 }
 
 .navbar-toggler {
@@ -119,20 +112,51 @@
 }
 
 .loginnow-btn{
-    background-color: 00003f;
     border-radius: 25px;
     line-height: 1.5;
     padding-left: 80px;
     padding-right: 80px;
-    padding-top:15px;
-        padding-bottom:15px;
-    background: #00003f;
+    padding-top:10px;
+        padding-bottom:10px;
         font-size: 16px;
 }
 
-.loginnow{
-    border : 1px solid #00003f;
-    color: white;
+
+.signup-option-box{
+    border: 1px solid hsla(0,0%,100%,.2);
+    text-align:center;
+    padding: 0px 25px 5px 25px;
+    margin-bottom: 25px;
+    height: 200px;
+    /*width: 250px;*/
+}
+
+.signup-option-box:focus{
+     border: 2px solid #0275d8;
+     background-color:black;
+     color:color;
+}
+
+.signup-option-box:hover{
+    cursor: pointer;
+}
+
+.signup-option-center {
+    text-align:center;
+}
+
+.role-signup-title{
+    color:white;
+    font-weight: bold;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.complete-signup-title{
+    color:#eaeaea;
+    font-weight: 400;
+    font-size: 14px;
+    font-family: 'proxima-nova', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 /*.loginnow-btn:hover{
@@ -285,6 +309,10 @@ width: 100%;
     margin-top: 5%;
 }
 
+.subheadline{
+    font-family: "pp-sans-big-medium", Helvetica Neue, Arial, sans-serif;
+}
+
 
 .icon {
     margin-bottom: 2px;
@@ -309,7 +337,7 @@ width: 100%;
         margin: 0 auto;
     }
 
-    #social {
+    #how-to-use-my-works{
         text-align: center;
     }
 
@@ -324,10 +352,11 @@ width: 100%;
     #aboutus img {
         margin-top: 15%;
     }
-
+/*
     #footer {
         text-align: center;
-    }
+        background: #102331;
+    }*/
 }
 
 
@@ -415,34 +444,61 @@ width: 100%;
 
 /*SOCIAL*/
 
-body #social {
-    padding: 0px;
 
+.number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid #e1e1e1;
+    padding-top: 2px;
 }
 
-#social .fa {
-    font-size: 2em;
-    color: crimson;
-    width: 60px;
-    height: 60px;
-    margin-top: 20px;
-    border: 2px solid crimson;
-    border-radius: 30%;
-    text-align: center;
-    padding: 20% 0;
-    transition: all 0.5s ease-in-out;
-
+.process-step .stepnumber .number{
+    margin-left:auto; 
+    margin-right:auto;
 }
 
-#social .fa:hover {
-    color: #FFFFFF;
-    background-color: crimson;
-
+.step-explation{
+    display: inline-block;
 }
 
-#social .list-align {
-    text-align: center;
+.how-it-works-title {
+    text-transform: uppercase;
+    color: #787878;
+    letter-spacing: 0.1em;
+    margin-top: -30px;
+    margin-bottom:15px;
+    font-weight: 500;
+    font-size: 15px;
+    font-family: 'proxima-nova', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-align:center;
 }
+
+.process-step{
+    text-align:center;
+}
+
+.process-step .stepnumber{
+    margin-bottom:15px;
+    color: #0275d8;
+}
+
+.stepLabel{
+    text-transform: uppercase;
+    color: #787878;
+}
+
+.screenshot-how-to-get-started-step img {
+    max-height: 350px;
+    max-width: 414px;
+    height: 100%;
+    width: 100%;
+}
+
+
 
 /*ABOUT US*/
 
@@ -534,8 +590,8 @@ body #aboutus {
 }
 
 #footer {
-    padding: 30px 0;
-    background-color: #484848;
+    padding: 15px 0;
+    background: #102331;
     color: white;
 }
 
@@ -544,8 +600,25 @@ body #aboutus {
 }
 
 #footer .fa {
-    padding: 0 10px;
+    padding: 5px;
 }
+
+#footer .fa-facebook {
+    padding: 5px 10px 5px 10px;
+}
+
+.footer-link{
+    display: inline-block;
+    font-size:14px;
+    padding-left:15px;
+}
+
+.list-align .fa-facebook, .list-align .fa-twitter, .list-align .fa-instagram{
+    font-size:26px;
+    border: 1px solid white;
+    border-radius: 100%;
+}
+
 
 #contact button {
     text-align: center;
@@ -1101,6 +1174,10 @@ li.navbar-subitems {
 .navbar-nav #favorites{
     margin-right: 20px;
 }
+
+.navbar-nav{
+margin-left:0px;
+} 
 
 .navbar-nav .navbar-left-icons{
     font-size: 12px;
@@ -2442,6 +2519,9 @@ body {
     display: table;
     width: 50%;
     position: relative;
+     color:white;
+     font-family: 'proxima-nova', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+     margin-bottom: 20px;
 }
 .stepwizard-step button[disabled] {
     opacity: 1 !important;
@@ -2482,6 +2562,7 @@ body {
   background: #102331;
   /*background: radial-gradient(rgba(0,143,212,1),rgba(0,51,138,1));*/
   padding-top: 100px;
+  padding-bottom: 50px;
   text-align: center;
   overflow: auto;
    z-index:-99;
@@ -2554,6 +2635,17 @@ body {
   display: inline-block;
   text-align: left;
 }
+
+.nextBtn, .prevBtn, .submitBtn{
+    border-radius:25px;
+}
+
+.submitBtn{
+    background-color: crimson;
+    color: white;
+}
+
+
 
 
 
@@ -2738,7 +2830,8 @@ width:50%;
 }
 
 .submit-messages{
-    width: 100%;
+    /*width: 100%;*/
+    width:74%;
     background-color: rgba(255,245,245,1);
     border-right: 1px solid #a94442;
     border-left: 1px solid #a94442;
@@ -2746,6 +2839,8 @@ width:50%;
     box-sizing: border-box;
     padding: 5px 10px;
 }
+
+
 .has-error .form-control{
     border-right: 1px solid #a94442;
     border-left: 1px solid #a94442;
@@ -2753,3 +2848,8 @@ width:50%;
     border-bottom: 1px solid transparent;
     border-radius: 0.25rem 0.25rem 0 0; 
 }
+
+.btn-primary:focus, .btn-primary:active:focus, .btn-primary.active:focus { 
+    outline: none; 
+    outline-style: none; 
+    }

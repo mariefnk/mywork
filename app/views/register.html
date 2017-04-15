@@ -2,7 +2,7 @@
     <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#navigation">
     &#9776;
     </button>
-    <a class="navbar-brand float-xs-right float-sm-left" href="#" style="font-size: 23px;font-weight:500;color: white;">My Work</a>
+    <a class="navbar-brand float-xs-right float-sm-left" href="#" style="font-size: 23px;font-weight:500;color: white;">My Works</a>
     <div class="collapse navbar-toggleable-xs" id="navigation">
     <ul class="nav navbar-nav  action-buttons float-sm-right">
         <li class="nav-item nav-loginin-button">
@@ -38,133 +38,153 @@
         </div>
       </div>
     </div>
+   
 
-    <form  name="myForm"  >
-      <div class="row setup-content" id="step-1">
-            <div class="col-xs-10 col-md-offset-1">
+    <form  name="myForm" ng-submit="submitForm(userForm.$valid)" novalidate>
+      <div class="row setup-content" id="step-1" style="margin-bottom:20px;">
+         
           <div class="col-md-12 text-center">
 <div style="color:white; padding-bottom:25px;">Please start by choosing your account type:</div>
-            <div class="btn-group worker-employer-option" data-toggle="buttons">
-              <label class="btn btn-primary active role-option" ng-click="select_type('worker')">
-                <input type="radio" name="options"   id="option1" class ="role-option-input" checked> Worker
-              </label>
-              <label class="btn btn-primary role-option" ng-click="select_type('employer')">
-                <input type="radio" name="options"   id="option2" class ="role-option-input"> Employer
-              </label>
+ <div class="container text-xs-center"  style="padding-left:0px; padding-right:0px;">
+          <!--<div class="row">-->
+          <!--<div class="col-md-12">-->
+             <!--<div class="row signup-option-center">-->
 
-            </div>
-<!--myForm.userEmail.$error.minlength || myForm.userEmail.$error.email || myForm.userEmail.$error.required-->
-             <div class="col-md-12 text-left">
-            <div class="form-group" ng-Class="{'has-error':(myForm.userEmail.$error.minlength || myForm.userEmail.$error.required || myForm.userEmail.$error.email )  && myForm.$submitted }">
-              <input maxlength="100" name="userEmail" ng-minlength="5" type="email" ng-model="email_name" required="required" class="form-control login-signup-form-field" placeholder="Enter First Name">
+          <div class="col-md-6 "><a>
+              <div class="signup-option-box">
+                <div style="text-align:center;"> <i class="fa fa-user-circle-o fa-2x" aria-hidden="true" style="margin-top:25px;  padding-right:0px; padding-bottom:0px;"></i></div>
+              <h6 class="role-signup-title">Worker</h6>
+               <p class="complete-signup-title">Complete your profile and register as an auto-entrepreneur and find jobs</p>
+                  </a> </div>
+               
+          </div>
+          
+          <div class="col-md-6 ">
+                <div class="signup-option-box">
+                 <div style="text-align:center;"> <i class="fa fa-building-o fa-2x" aria-hidden="true" style="margin-top:25px;  padding-right:0px; padding-bottom:0px;"></i></div>
+                 <div> <h6 class="role-signup-title">Employer</h6></div>
+               <p class="complete-signup-title">Complete your profile and get connected with many job seekers</p>
+                 </div>
+              </div>
+          <!--</div>-->
+          <!--</div>-->
+          <!--</div>-->
+          </div>
+
+
+                <div class="col-xs-12" style="margin-left:65px;">
+            <div class="form-group"  ng-Class="{'has-error':(myForm.userEmail.$error.minlength || myForm.userEmail.$error.required || myForm.userEmail.$error.email )  && myForm.$submitted }">
+              <input maxlength="100" name="userEmail" ng-minlength="5" type="email" ng-model="userEmail" required="required" class="form-control login-signup-form-field" placeholder="Email">
                <div class="submit-messages" ng-if="myForm.$submitted && (myForm.userEmail.$error.minlength || myForm.userEmail.$error.required || myForm.userEmail.$error.email)" ng-messages="myForm.userEmail.$error"  role="alert">
-                          
-                <div ng-if="myForm.userEmail.$error.required">Please enter a value for this field.</div>
-                <div ng-if="myForm.userEmail.$error.email">This field must be a valid email address.</div>
-                <div ng-if="myForm.userEmail.$error.maxlength">This field can be at most 15 characters long.</div>
+            
+                <div ng-if="myForm.userEmail.$error.required">Enter your email</div>
+                <div ng-if="myForm.userEmail.$error.email">Make sure your email address is correct</div>
               </div>
             </div>
              <div class="form-group" ng-Class="{'has-error':((myForm.password.$error.minlength || myForm.password.$error.required)  && myForm.$submitted) }">
-              <input maxlength="100" name="password" ng-minlength="5" type="text" ng-model=password required="required" class="form-control login-signup-form-field" placeholder="Passord">
+              <input maxlength="100" name="password" ng-minlength="5" type="password" ng-model=password required="required" class="form-control login-signup-form-field" placeholder="Passord">
                <div class="submit-messages" ng-if="((myForm.password.$error.minlength || myForm.password.$error.required)  && myForm.$submitted)" ng-messages="myForm.password.$error"  role="alert">
                 <div ng-if="myForm.password.$error.minlength">Too short</div>
-                <div ng-if="myForm.password.$error.required">Fill the form</div>
+                <div ng-if="myForm.password.$error.required">Enter a password</div>
               </div>
             </div>
            
             <div class="form-group" ng-Class="{'has-error':((myForm.confirmpassword.$error.minlength || myForm.confirmpassword.$error.required)  && myForm.$submitted)" >
-              <input maxlength="100" name="confirmpassword" ng-minlength="5" type="text" ng-model="confirmpassword" required="required" class="form-control login-signup-form-field" placeholder="Confirm password">
+              <input maxlength="100" name="confirmpassword" ng-minlength="5" type="password" ng-model="confirmpassword" required="required" class="form-control login-signup-form-field" placeholder="Confirm password">
                <div class="submit-messages" ng-if="((myForm.confirmpassword.$error.minlength || myForm.confirmpassword.$error.required)  && myForm.$submitted)" ng-messages="myForm.confirmpassword.$error" role="alert">
                 <div ng-if="myForm.confirmpassword.$error.minlength">Too short</div>
-                <div ng-if="myForm.confirmpassword.$error.required">Fill the form</div>
+                <div ng-if="myForm.confirmpassword.$error.required">Confirm your password</div>
               </div>
             </div>
-          
           </div>
-
-
-
-            <button class="btn btn-primary nextBtn btn-lg pull-center" type="button" ng-click="step1($event, myForm)" style="border-radius:25px;">Next</button>
+            <button class="btn btn-primary nextBtn btn-lg pull-center" type="button" ng-click="step1($event, myForm)">Next</button>
           </div>
-          </div>
-      </div>
+   
 
 
 
       <div class="row setup-content" id="step-2">
 
- <div class="col-xs-10 col-md-offset-1">
+ <!--<div class="col-xs-10 col-md-offset-1">-->
           <div class="col-md-12 text-center">
-            <!-- <h3 style="text-align: center;">Choose account type</h3> -->
             <br />
+            <!--<div class="col-md-12  text-left">-->
 
-           
-
-
-            <div class="col-md-12  text-left">
-
-            <div class="form-group" ng-Class="{'has-error':((myForm.myName.$error.minlength || myForm.myName.$error.required)  && myForm.$submitted) }">
-              <label class="control-label">First Name</label>
-              <input maxlength="100" name="myName" ng-minlength="5" type="text" ng-model="first_name" required="required" class="form-control login-signup-form-field" placeholder="Enter First Name">
-               <div class="submit-messages" ng-if="((myForm.myName.$error.minlength || myForm.myName.$error.required)  && myForm.$submitted)" ng-messages="myForm.myName.$error" style="color:maroon" role="alert">
-                <div ng-if="myForm.myName.$error.minlength">Too short</div>
-                <div ng-if="myForm.myName.$error.required">Fill the form</div>
+            <div class="form-group" ng-Class="{'has-error':((myForm.firstName.$error.minlength || myForm.firstName.$error.required)  && myForm.$submitted) }">
+              <input maxlength="100" name="firstName" ng-minlength="5" type="text" ng-model="firstName" required="required" class="form-control login-signup-form-field" placeholder="First Name">
+               <div class="submit-messages" ng-if="((myForm.firstName.$error.minlength || myForm.firstName.$error.required)  && myForm.$submitted)" ng-messages="myForm.firstName.$error" role="alert">
+                <div ng-if="myForm.firstName.$error.minlength">Too short</div>
+                <div ng-if="myForm.firstName.$error.required">Enter your first name</div>
               </div>
             </div>
 <!--myForm.userEmail.$error.minlength || myForm.userEmail.$error.email || myForm.userEmail.$error.required-->
-            <div class="form-group" ng-Class="{'has-error':(myForm.userEmail.$error.minlength || myForm.userEmail.$error.required || myForm.userEmail.$error.email )  && myForm.$submitted }">
-              <label class="control-label">Last Name</label>
-              <input maxlength="100" name="userEmail" ng-minlength="5" type="email" ng-model="email_name" required="required" class="form-control login-signup-form-field" placeholder="Enter First Name">
-               <div class="submit-messages" ng-if="myForm.$submitted && (myForm.userEmail.$error.minlength || myForm.userEmail.$error.required || myForm.userEmail.$error.email)" ng-messages="myForm.userEmail.$error" style="color:maroon" role="alert">
-                          
-                <div ng-if="myForm.userEmail.$error.required">Please enter a value for this field.</div>
-                <div ng-if="myForm.userEmail.$error.email">This field must be a valid email address.</div>
-                <div ng-if="myForm.userEmail.$error.maxlength">This field can be at most 15 characters long.</div>
+            <div class="form-group" ng-Class="{'has-error':(myForm.lastName.$error.minlength || myForm.lastName.$error.required || myForm.lastName.$error.email )  && myForm.$submitted }">
+              <input maxlength="100" name="lastName" ng-minlength="5" type="text" ng-model="lastName" required="required" class="form-control login-signup-form-field" placeholder="Last Name">
+               <div class="submit-messages" ng-if="myForm.$submitted && (myForm.lastName.$error.minlength || myForm.lastName.$error.required)" ng-messages="myForm.lastName.$error" role="alert">       
+                <div ng-if="myForm.lastName.$error.required">Enter your last name</div>
               </div>
             </div>
            
-            <div class="form-group">
-              <label class="control-label">Address</label>
-              <textarea required="required" class="form-control" placeholder="Enter your address"></textarea>
+           <div class="form-group" ng-Class="{'has-error':(myForm.address.$error.minlength || myForm.address.$error.required)  && myForm.$submitted }">
+              <input maxlength="100" name="address" ng-minlength="5" type="text" ng-model="address" required="required" class="form-control login-signup-form-field" placeholder="Address">
+               <div class="submit-messages" ng-if="myForm.$submitted && (myForm.address.$error.minlength || myForm.address.$error.required)" ng-messages="myForm.address.$error"  role="alert">       
+                <div ng-if="myForm.address.$error.required">Enter your address</div>
+              </div>
             </div>
+            <div class="form-group" ng-Class="{'has-error':(myForm.city.$error.minlength || myForm.city.$error.required)  && myForm.$submitted }">
+              <input maxlength="100" name="city" ng-minlength="5" type="text" ng-model="city" required="required" class="form-control login-signup-form-field" placeholder="City">
+               <div class="submit-messages" ng-if="myForm.$submitted && (myForm.city.$error.minlength || myForm.city.$error.required)" ng-messages="myForm.city.$error" role="alert">       
+                <div ng-if="myForm.city.$error.required">Enter your city</div>
+              </div>
+            </div>
+            
+            <!--<div class="container">-->
+
+               <div class="col-md-6">
+ <div class="form-group" ng-Class="{'has-error':(myForm.state.$error.minlength || myForm.state.$error.required)  && myForm.$submitted }">
+              <input maxlength="100" name="state" ng-minlength="5" type="text" ng-model="state" required="required" class="form-control" placeholder="State">
+               <div class="submit-messages" ng-if="myForm.$submitted && (myForm.state.$error.minlength || myForm.state.$error.required)" ng-messages="myForm.state.$error"  role="alert">       
+                <div ng-if="myForm.state.$error.required">Enter your city</div>
+              </div>
+            </div>
+               </div>
+
+                 <div class="col-md-6">
+ <div class="form-group" ng-Class="{'has-error':(myForm.zipcode.$error.minlength || myForm.zipcode.$error.required)  && myForm.$submitted }">
+              <input maxlength="100" name="zipcode" ng-minlength="5" type="text" ng-model="zipcode" required="required" class="form-control" placeholder="Zip code">
+               <div class="submit-messages" ng-if="myForm.$submitted && (myForm.zipcode.$error.minlength || myForm.zipcode.$error.required)" ng-messages="myForm.zipcode.$error"  role="alert">       
+                <div ng-if="myForm.zipcode.$error.required">Enter your city</div>
+              </div>
+            </div>
+               </div>
+
+            <!--</div>-->
+            <!--</div>-->
+
+             <button class="btn btn-primary prevBtn btn-lg pull-left" type="button">Previous</button>
             <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" ng-click="step1($event, myForm)">Next</button>
 
           </div>
 
-          </div>
+          <!--</div>-->
         </div>
-
-        <!--<div class="col-xs-10 col-md-offset-1">-->
-          <div class="col-md-12">
-            <!--<h3 style="text-align: center;"> Step 2</h3>-->
-            <div class="form-group">
-              <label class="control-label">Company Name</label>
-              <input maxlength="200" type="text" required="required" class="form-control login-signup-form-field" placeholder="Enter Company Name">
-            </div>
-            <div class="form-group">
-              <label class="control-label">Company Address</label>
-              <input maxlength="200" type="text" required="required" class="form-control login-signup-form-field" placeholder="Enter Company Address">
-            </div>
-            <button class="btn btn-primary prevBtn btn-lg pull-left" type="button">Previous</button>
-            <button class="btn btn-primary nextBtn btn-lg pull-right" type="button">Next</button>
-          </div>
-        </div>
-      </div>
+       
+   
 
 
 
-      <div class="row setup-content" id="step-3">
+      <div class="row setup-content" id="step-5">
         <div class="col-xs-10 col-md-offset-1">
           <div class="col-md-12">
-            <h3 style="text-align: center;"> Step 3</h3>
             <button class="btn btn-primary prevBtn btn-lg pull-left" type="button">Previous</button>
-            <button class="btn btn-success btn-lg pull-right" type="submit" ng-click="submit()">Submit</button>
+            <button class="btn submitBtn btn-lg pull-right" type="submit" ng-click="submit()">Submit</button>
           </div>
         </div>
       </div>
-    </form>
 
-  </div>
-</div>
+ </form>
+      </div>
+   </div>
+ 
 
 

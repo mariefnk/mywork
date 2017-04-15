@@ -16,7 +16,7 @@ function showContactsList(contactsList){
 		var action = "divSelected('" + i + "contact')";
 		mediaDiv.setAttribute("onClick", action);
 
-		var mediaHeading = document.createElement('h4');
+		var mediaHeading = document.createElement('h5');
 		mediaHeading.className = 'media-heading';
 		var node = document.createTextNode(contactsList[i].fullName());
 		mediaHeading.appendChild(node);
