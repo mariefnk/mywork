@@ -2,6 +2,10 @@
 /* CSS Document */
 body, html {height: 95%}
 
+#messagesPage {
+	height: 95%;
+}
+
 .contact-second {
 	color: dimgrey;
 }
@@ -25,7 +29,7 @@ body, html {height: 95%}
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
-	height: 100%;
+	height: 95%;
 	
 }
 
@@ -45,7 +49,7 @@ body, html {height: 95%}
 }
 
 #top-panel {
-	flex: 0 1 auto;
+	flex: 0 0 auto;
 	margin-bottom: 10px;
 	border-radius: 10px;
 	background-color:rgba(0,0,0,0.05);
@@ -67,7 +71,7 @@ body, html {height: 95%}
 }
 
 #send-panel{
-	flex: 0 1 auto;
+	flex: 0 0 auto;
 	height: 35px;
 	display: flex;
 	flex-direction:row;
@@ -158,4 +162,16 @@ body, html {height: 95%}
 	padding: 10px 30px 10px 20px;
 	color: crimson;
 	font-size: 120%;
+}
+
+#searchTF {
+	height: 38px;
+}
+#search-contacts .input-group-addon{
+	height: 38px;
+}
+
+#left-panel h3 {
+	padding-top:10px;
+	text-align: center; 
 }
