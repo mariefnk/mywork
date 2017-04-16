@@ -19,11 +19,15 @@
 #securityheader{margin:0;}
 
 .settingsPart{margin-top:5%;}
+   #enable{float:right;
+   background-color: red;}
     </style>
-    
+ 
 <script>
 $(document).ready(function () {
    
+    $("#myForm :input").prop("disabled", true);
+
     $("#Securitymenu").click(function(){
         event.preventDefault();
         $("#Account").hide();
@@ -56,7 +60,20 @@ $(document).ready(function () {
      $("#enterPhone").show();
     });
 
+
 });
+
+function disablenot(){
+   $("#myForm :input").prop("disabled", false);
+    
+
+}
+
+function disableYes(){
+    $("#myForm :input").prop("disabled", true); 
+}
+
+
 
     </script>
 
@@ -79,17 +96,19 @@ $(document).ready(function () {
  
   
            <div  class="settingsPart" id="Account">
+               
            <h3>
                Account
            </h3>
            <small class="form-text text-muted"> Change your basic account and language settings.</small>
            <hr>
          
-
-            <form>
-
+              <button id="enable"  onclick="disablenot();" type="button" value="Enable">Enable </button>
+            <form id="myForm">
+          
            
             <div class="form-group col-xs-12 pull-left">
+                
             <div class="col-xs-4">
 			    <label class="control-label">Email</label>
             </div>
@@ -306,7 +325,7 @@ $(document).ready(function () {
            </div>
        </div>
         </div>
-        </form>
+       
         </div>
            <!--Address-->
 
@@ -316,11 +335,11 @@ $(document).ready(function () {
                                    </br>  
 <hr>
                         <div class="col-xs-2">
-                 <button  class=" btn payment"  type="submit" style="background-color:crimson;margin-top:10%;">Save changes</button> 
+                 <input type="button"  class=" btn payment" onclick="disableYes();"  type="submit" style="background-color:crimson;margin-top:10%;" value="Save changes"></button> 
                         </div>
                     </div>
     </div>   
 
-
+ </form>
 
 
