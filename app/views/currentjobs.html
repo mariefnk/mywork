@@ -272,19 +272,19 @@ $('#my-works-table').DataTable( {
  		<div class="modal-content">
         	<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
-          		<h4 class="modal-title">Modal Header</h4>
+          		<h4 class="modal-title">Actions</h4>
 			</div>
 			 <div class="modal-body">
       	
 			 <button class="btn btn-info btn-sm " onclick="myFunction()" > Finish</button>
 		   
-		 		<button class="btn btn-info btn-sm " id="showContract">Create a new contract</button>
+		 		<button class="btn btn-info btn-sm " onclick="createContract()" id="showContract">Create a new contract</button>
 				  <div id="newContract" style="display: none;">
 					  	 <hr>
-					<div class="form-group">
+					<div class="form-group" >
 						<label for="time">Time: </label>
 						<div class='input-group date' id='datetimepicker'>
-						<input name="time" type='text' class="form-control" ng-model="time" id="time" required ng-pattern="/\d{2}/\d{2}/\d{4} \d{2}:\d{2}/" ng-blur="updateTime()"/>
+						<input name="time" type='text'  id="startdate"  class="form-control" ng-model="time" id="time" required ng-pattern="/\d{2}/\d{2}/\d{4} \d{2}:\d{2}/" ng-blur="updateTime()"/>
 							<span class="input-group-addon">
 							<span class="glyphicon glyphicon-calendar"></span>
 					       </span>
@@ -293,13 +293,13 @@ $('#my-works-table').DataTable( {
 					<div class="form-group">
 						<label for="time">Time: </label>
 						<div class='input-group date' id='datetimepicker1'>
-						<input name="time" type='text' class="form-control" ng-model="time" id="time1" required ng-pattern="/\d{2}/\d{2}/\d{4} \d{2}:\d{2}/" ng-blur="updateTime()"/>
+						<input name="time" type='text' ng-model="inputEnd" class="form-control" ng-model="time" id="time1" required ng-pattern="/\d{2}/\d{2}/\d{4} \d{2}:\d{2}/" ng-blur="updateTime()"/>
 						<span class="input-group-addon">
 						<span class="glyphicon glyphicon-calendar"></span>
 						</span>
 					</div>							
 					</div>
-
+<button class="btn btn-info btn-sm " class="close" <button type="button" id="myBtn{{currentSelected}}" ng-click="addItem(currentSelected)" class="close" data-dismiss="modal"> Finish</button>
 		        </div>
 
 			 </div>
@@ -334,10 +334,17 @@ $('#my-works-table').DataTable( {
 	 
 <script>
 
+
   function myFunction() {
     document.getElementById("Divrating").style.display = "block";
-
+    document.getElementById("newContract").style.display = "none";
 }
+
+function createContract(){
+    document.getElementById("Divrating").style.display = "none";
+    document.getElementById("newContract").style.display = "block";
+}
+
 // Get the modal
 var modal = document.getElementById('myModal');
 

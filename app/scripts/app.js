@@ -1,4 +1,4 @@
-'use strict';
+
 
 
 var myApp=angular.module('myApp',[
@@ -391,37 +391,46 @@ for(var i = 0; i<$rootScope.appointments.length; i++)
      $rootScope.appointments[i].status = 3;
    }
 }
-      
-       
-      }
+ }
 
 
- $scope.showAlert = function(ev) {
- 
-    // Appending dialog to document.body to cover sidenav in docs app
-    // Modal dialogs should fully cover application
-    // to prevent interaction outside of dialog
-    $mdDialog.show({
-    
-    targetEvent: event,
-    template: '<md-dialog aria-label="List dialog">' +
-      '  <md-dialog-content>' +
-      '    <md-list>' +
-      '      <md-list-item ng-repeat="item in items">' +
-      '       <p>Number {{item}}</p>' +
-      '      ' +
-      '    </md-list-item></md-list>' +
-      '  </md-dialog-content>' +
-      '  <md-dialog-actions>' +
-      '    <button id="myBtn{{a.status}}" ng-click="testClick(a.status)"> ' +
-      '      Close Dialog' +
-      '    </button>' +
-      '  </md-dialog-actions>' +
-      '</md-dialog>'
-    }
-    );
-  };
+
+$scope.addItem = function(cId){
+
+  var x=angular.element(document.getElementById("startdate").val());      
   
+
+  for(var i = 0; i<$rootScope.appointments.length; i++)
+{
+   if($rootScope.appointments[i].contract_id == cId){
+     
+     var first_name=$rootScope.appointments[i].first_name;
+     var last_name=$rootScope.appointments[i].last_name;
+     var title=$rootScope.appointments[i].title;
+     var status=2;
+     
+     var contract_id=Math.floor(Math.random() * ((2000-1000)+1) + 1000);
+     var start_date=x.val();
+     var end_date=$rootScope.appointments[i].end_date;
+     var phone=$rootScope.appointments[i].phone;
+     var wage=$rootScope.appointments[i].wage;
+     var Email=$rootScope.appointments[i].Email;
+     var paid=$rootScope.appointments[i].paid;
+     var location=$rootScope.appointments[i].location;
+   
+     $rootScope.appointments.push({"contract_id":contract_id,"title":title,"first_name":first_name,"last_name":last_name,"start_date":start_date,"end_date":end_date,"location":location,"phone":phone,"wage":wage,"Email":Email,"paid":paid ,"status":status})
+   }
+}
+}
+
+
+ /*$scope.addItem = function(item) {
+        $scope.items.push(item);
+        $scope.item = {};
+    };
+*/
+
+ 
 
 ///////////////////////////////////////////////////////////////////Modal
 
