@@ -1,0 +1,237 @@
+
+
+<style>
+  h3{
+    margin-top:5%;
+  }
+#exTab2{
+   border-bottom: 50px solid #428bca;
+}
+   input[type="text"]:valid {
+    color: green;
+}
+
+input[type="text"]:valid ~ .input-validation::before {
+    content: "✓";
+    color: green;
+}
+
+input[type="text"]:invalid {
+    color: red;
+}
+  input[type="text"]:valid {
+    background: url(thumb-up.png) no-repeat top right;
+    display:inline;
+    
+}
+
+select{
+  height: 30px;
+  width:40%;
+  border: 1px solid black;
+}
+  </style>
+
+<script>
+
+function getCreditcard()
+{
+   var input =  $("#textbox_id").val();
+   var code= $("#credit_card_postal_code").val();
+   var cvv=$("#cvv").val();
+   var post=new RegExp("[0-9]{4,6}");
+   
+    var re = new RegExp( "[0-9]{13,16}");
+    var cvvre=new RegExp("[0-9]{3}")
+    if (re.test(input) && post.test(code)&& cvvre.test(cvv)){
+    var lastFive = input.substr(input.length - 4);
+  document.getElementById("lastFour").innerHTML = lastFive;
+  $('input[type="text"], textarea').val('');
+    }
+
+
+}
+
+
+  $(document).ready(function () {
+
+
+
+
+$("input").on("change", function(){
+   if($('input[name=payment_method]:checked').val() == "paypal"){
+       $(".creditCard").css("display","none");
+       $(".PayPal").css("display","block");
+   }
+   else{
+       $(".creditCard").css("display","block");
+        $(".PayPal").css("display","none");
+   }
+});
+
+
+
+});
+
+
+</script>
+
+
+						<div class="col-md-8 col-xs-offset-2">
+<div id="exTab2">	
+<ul class="nav nav-tabs">
+			<li >
+         <a ui-sref="app.paymentHistory" data-toggle="tab">Invoice History</a>
+			</li>
+			<li class="active"><a ui-sref="app.payment" data-toggle="tab">Account Information</a>
+			</li>
+			
+		</ul>
+
+  </div>
+						
+             
+<form type="post">
+<h3>
+   Account/ Paypal Information
+</h3>
+       
+<br>
+
+<fieldset class="row">
+            <div class="col-sm-4">
+              <label id="paymentType" >Account Type</label>
+            </div>
+
+             <div class="col-sm-6 paymentCol">
+              <ul class="paymentOption">
+                <li>
+                  <label for="payment_method_credit_card">
+                    <input type="radio" name="payment_method" id="payment_method_credit_card" value="credit_card" class="input-radio input-radio placeholder-processed" checked="checked">
+                    Bank Account
+                    </label>              
+                     </li>
+                      <li>
+                  <label for="payment_method_paypal">
+                    <input type="radio"  onclick="ClearFields()" name="payment_method" id="payment_method_paypal" value="paypal" class="input-radio input-radio placeholder-processed">
+                    PayPal Account
+                  </label>  
+                  </li>
+              </ul>
+            </div>
+</fieldset>
+
+          <hr>
+          </br>
+          <div class="creditCard">
+           <fieldset class="row">
+            <div class="col-sm-4">
+              <label>Name on Account</label>
+            </div>
+             <div class="col-sm-6 paymentCol">
+            <div class="form-item">
+                <label class="form-input-label">
+          <div>
+           <input  type="text" id="textbox_id" name="credit_card_number"   required style="float:left; width: 200px">
+         <div class="input-validation" style="float:right"></div>
+       </div>
+
+
+            
+             
+               </label >
+            </div>  
+          </div>
+       </fieldset>
+   <hr>
+        </br>
+    
+ <fieldset class="row">
+            <div class="col-sm-4">
+              <label>Bank Routing Number</label>
+            </div>
+             <div class="col-sm-6 paymentCol">
+            <div class="form-item">
+                <label class="form-input-label">
+          <div>
+           <input  type="text" id="textbox_id" name="credit_card_number"  pattern="[0-9]{9}" required style="float:left; width: 200px">
+         <div class="input-validation" style="float:right"></div>
+       </div>
+
+               </label >
+            </div>  
+          </div>
+       </fieldset>
+
+   <hr>
+        </br>
+    
+ <fieldset class="row">
+            <div class="col-sm-4">
+              <label>Account Number</label>
+            </div>
+             <div class="col-sm-6 paymentCol">
+            <div class="form-item">
+                <label class="form-input-label">
+          <div>
+           <input  type="text" id="textbox_id" name="credit_card_number"  pattern="[0-9]{17}" required style="float:left; width: 200px">
+         <div class="input-validation" style="float:right"></div>
+       </div>
+
+
+            
+             
+               </label >
+            </div>  
+          </div>
+       </fieldset>
+
+  
+          <hr>
+          </br>
+
+ <fieldset class="row">
+            <div class="col-sm-4">
+              <label>Re-enter Account Number</label>
+            </div>
+             <div class="col-sm-6 paymentCol">
+            <div class="form-item">
+                <label class="form-input-label">
+          <div>
+           <input  type="text" id="textbox_id" name="credit_card_number"  pattern="[0-9]{17}" required style="float:left; width: 200px">
+         <div class="input-validation" style="float:right"></div>
+       </div>
+
+
+            
+             
+               </label >
+            </div>  
+          </div>
+       </fieldset>
+
+
+
+
+       
+
+          <hr>
+          </br>
+     
+    
+             <div class="form-footer">
+               <button id="payButton" type="submit" class=" btn  btn-info payment" onclick="getCreditcard(); return false;" style="">Save changes</button>
+
+          </div>
+          </div>
+          
+
+         
+          <div class="PayPal" style="display:none">
+    <div class="form-footer">
+           <a href="https://www.paypal.com/signin?returnUri=http%3A%2F%2Furi.paypal.com%2FWeb%2FWeb%2Fcgi-bin%2Fwebscr%3Fvia%3Dul&state=%3fcmd%3d_account" target="_blank"> <button type="button" class="btn btn-info"  type="submit">Continue with PayPal</button></a>
+          </div>
+            </div>
+     
+    </form>
+  </div>
