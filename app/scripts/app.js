@@ -1,4 +1,4 @@
-'use strict';
+
 
 
 var myApp=angular.module('myApp',[
@@ -8,28 +8,32 @@ var myApp=angular.module('myApp',[
   'ngResource',
   'ngSanitize',
   'ngTouch',
+  'ui.bootstrap',
+  'ngMaterial', 
+  'ngMessages',
   'ui.router'
   ]);
 
 myApp.run(function($rootScope) {
-    $rootScope.appointments = [{"contract_id":"4551","first_name":"Larry","last_name":"Ullman","start_date":"2017-04-02","end_date":"2017-04-02","location":"Boston", "status":"1"},
-    {"contract_id":"2232","first_name":"John","last_name":"Lennon","start_date":"2017-04-02","end_date":"2017-04-02","location":"Boston","status":"2"},
-    {"contract_id":"3323","first_name":"John","last_name":"Brown","start_date":"2017-04-02","end_date":"2017-04-02","location":"Boston","status":"1"},
-    {"contract_id":"4323","first_name":"Tom","last_name":"Smith","start_date":"2017-04-02","end_date":"2017-04-02","location":"London","status":"3"},
+    $rootScope.appointments = [{"contract_id":"4551","title":"Waiter","first_name":"Larry","last_name":"Ullman","start_date":"2017-04-02","end_date":"2017-04-02","location":"Boston","phone":"123-435-6576","wage":"$15","Email":"h@gmail.com","paid":"$50", "status":"1"},
+    {"contract_id":"2232","title":"Waiter","first_name":"John","last_name":"Lennon","start_date":"2017-04-02","end_date":"2017-04-02","location":"Boston","phone":"123-435-6476","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"2"},
+    {"contract_id":"3323","title":"Waiter","first_name":"John","last_name":"Brown","start_date":"2017-04-02","end_date":"2017-04-02","location":"Boston","phone":"123-434-33-76","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"1"},
+    {"contract_id":"4323","title":"Waiter","first_name":"Tom","last_name":"Smith","start_date":"2017-04-02","end_date":"2017-04-02","location":"London","phone":"123-433-6576","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"3"},
 
-     {"contract_id":"3232","first_name":"Peter","last_name":"Lennon","start_date":"2017-04-02","end_date":"2017-04-02","location":"London","status":"2"},
-    {"contract_id":"5453","first_name":"Ava","last_name":"Brown","start_date":"2017-04-02","end_date":"2017-04-02","location":"Boston","status":"1"},
+     {"contract_id":"3232","title":"Waiter","first_name":"Peter","last_name":"Lennon","start_date":"2017-04-02","end_date":"2017-04-02","location":"London","phone":"123-435-6576","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"2"},
+    {"contract_id":"5453","title":"Waiter","first_name":"Ava","last_name":"Brown","start_date":"2017-04-02","end_date":"2017-04-02","location":"Boston","phone":"123-435-6576","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"1"},
 
-         {"contract_id":"552","first_name":"Dean","last_name":"Lennon","start_date":"2017-04-02","end_date":"2017-04-02","location":"London","status":"2"},
-    {"contract_id":"3545","first_name":"Anna","last_name":"Brown","start_date":"2017-04-02","end_date":"2017-04-02","location":"Boston","status":"1"},
+         {"contract_id":"552","title":"Waiter","first_name":"Dean","last_name":"Lennon","start_date":"2017-04-02","end_date":"2017-04-02","location":"London","phone":"123-435-6576","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"2"},
+    {"contract_id":"3545","title":"Waiter","first_name":"Anna","last_name":"Brown","start_date":"2017-04-02","end_date":"2017-04-02","location":"Boston","phone":"123-435-6596","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"1"},
 
-         {"contract_id":"21234","first_name":"Sam","last_name":"Lennon","start_date":"2017-04-02","end_date":"2017-04-02","location":"London","status":"3"},
-    {"contract_id":"43543","first_name":"Asayl","last_name":"Brown","start_date":"2017-04-02","end_date":"2017-04-02","location":"Boston","status":"3"},
+         {"contract_id":"21234","title":"Waiter","first_name":"Sam","last_name":"Lennon","start_date":"2017-04-02","end_date":"2017-04-02","location":"London","phone":"123-435-6576","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"3"},
+    {"contract_id":"43543","title":"Waiter","first_name":"Asayl","last_name":"Brown","start_date":"2017-04-02","end_date":"2017-04-02","location":"Boston","phone":"123-435-6576","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"3"},
 
-    {"contract_id":"5455","first_name":"Sebastian","last_name":"Pier","start_date":"2017-04-02","end_date":"2017-04-02","location":"Paris","status":"2"}];
+    {"contract_id":"5455","title":"Waiter","first_name":"Sebastian","last_name":"Pier","start_date":"2017-04-02","end_date":"2017-04-02","location":"Paris","phone":"123-435-6576","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"2"}];
 
     
 });
+
 
 
 
@@ -406,20 +410,67 @@ myApp.controller('paymentController',['$scope', '$log', '$state',  function($sco
 
 }]);
 
+myApp.directive('innerHtmlBind', function() {
+  return {
+    restrict: 'A',
+    scope: {
+      inner_html: '=innerHtml'
+    },
+    link: function(scope, element, attrs) {
+      scope.inner_html = element.html();
+    }
+  }
+});
 ////FOR CURRENT TABLE
-myApp.controller('currentjobsController', function($http,$scope,$timeout,$log,$rootScope){
+myApp.controller('currentjobsController', function($http,$scope,$timeout,$log,$rootScope, $mdDialog){
 
-  $scope.testClick =function(cId){
+    $scope.testClick =function(cId){
 for(var i = 0; i<$rootScope.appointments.length; i++)
 {
    if($rootScope.appointments[i].contract_id == cId){
      $rootScope.appointments[i].status = 3;
    }
 }
-       
+ }
+
+
+
+$scope.addItem = function(cId){
+
+  var x=angular.element(document.getElementById("startdate").val());      
+  
+
+  for(var i = 0; i<$rootScope.appointments.length; i++)
+{
+   if($rootScope.appointments[i].contract_id == cId){
+     
+     var first_name=$rootScope.appointments[i].first_name;
+     var last_name=$rootScope.appointments[i].last_name;
+     var title=$rootScope.appointments[i].title;
+     var status=2;
+     
+     var contract_id=Math.floor(Math.random() * ((2000-1000)+1) + 1000);
+     var start_date=x.val();
+     var end_date=$rootScope.appointments[i].end_date;
+     var phone=$rootScope.appointments[i].phone;
+     var wage=$rootScope.appointments[i].wage;
+     var Email=$rootScope.appointments[i].Email;
+     var paid=$rootScope.appointments[i].paid;
+     var location=$rootScope.appointments[i].location;
+   
+     $rootScope.appointments.push({"contract_id":contract_id,"title":title,"first_name":first_name,"last_name":last_name,"start_date":start_date,"end_date":end_date,"location":location,"phone":phone,"wage":wage,"Email":Email,"paid":paid ,"status":status})
+   }
 }
-  
-  
+}
+
+
+ /*$scope.addItem = function(item) {
+        $scope.items.push(item);
+        $scope.item = {};
+    };
+*/
+
+ 
 
 ///////////////////////////////////////////////////////////////////Modal
 
@@ -437,7 +488,7 @@ $scope.modalDisp = function(clickedInst){
 });
 
 //////// FOR PENDING TABLE
-myApp.controller('pendingController',['$scope','$log', function($scope,$log){
+myApp.controller('pendingController',['$scope','$log', function($scope,$log,$rootScope){
     $scope.testClick =function(cId){
 for(var i = 0; i<$rootScope.appointments.length; i++)
 {
@@ -454,10 +505,8 @@ for(var i = 0; i<$rootScope.appointments.length; i++)
 }]);
 //// FOR HISTORY TABLE
 
-myApp.controller('historyJobsController',['$scope','$log', function($scope,$log){
+myApp.controller('historyJobsController',['$scope','$log', function($scope,$log,$rootScope){
  
-
-
  $scope.testClick =function(cId){
 for(var i = 0; i<$rootScope.appointments.length; i++)
 {

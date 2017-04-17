@@ -9,7 +9,7 @@
 }
 
 input[type="text"]:valid ~ .input-validation::before {
-    content: "âœ“";
+    content: "✓";
     color: green;
 }
 
@@ -48,9 +48,9 @@ $("input").on("change", function(){
 <div id="exTab2">	
 <ul class="nav nav-tabs">
 			<li >
-        <a href="#/paymentHistory" data-toggle="tab">Payment History</a>
+         <a ui-sref="app.paymentHistory" data-toggle="tab">Payment History</a>
 			</li>
-			<li class="active"><a href="#/payment" data-toggle="tab">Payment Method</a>
+			<li class="active"><a ui-sref="app.payment" data-toggle="tab">Payment Method</a>
 			</li>
 			
 		</ul>
@@ -67,11 +67,11 @@ $("input").on("change", function(){
 <br>
 
 <fieldset class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-4">
               <label id="paymentType" >Payment Type</label>
             </div>
 
-             <div class="col-sm-5 paymentCol">
+             <div class="col-sm-6 paymentCol">
               <ul class="paymentOption">
                 <li>
                   <label for="payment_method_credit_card">
@@ -93,12 +93,12 @@ $("input").on("change", function(){
           </br>
           <div class="creditCard">
         <fieldset class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-4">
               <label>Card Number</label>
             </div>
-             <div class="col-sm-5 paymentCol">
+             <div class="col-sm-6 paymentCol">
             <div class="form-item">
-                <label class="form-input-label"><i class="fa fa-fw fa-credit-card" aria-hidden="true" style="color:crimson;"></i>
+                <label class="form-input-label">
               <input type="text" id="textbox_id" name="credit_card_number" style="width: 300px" pattern="[0-9]{13,16}" required/> 
               <div class="input-validation"></div>
                </label >
@@ -108,11 +108,11 @@ $("input").on("change", function(){
           <hr>
         </br>
         <fieldset class="row" style="display: block;">
-           <div class="col-sm-3">
+           <div class="col-sm-4">
               
               <label>Security Code (CVV)</label>
             </div>
-           <div class="col-sm-5 paymentCol">
+           <div class="col-sm-6 paymentCol">
             <div class="form-item form-item-short">
           
             <input type="text" name="credit_card_cvv" id="cvv"  style="width: 100px" pattern="[0-9]{3}"  required>
@@ -124,10 +124,10 @@ $("input").on("change", function(){
           <hr>
           </br>
           <fieldset class="row" style="display: block;">
-            <div class="col-sm-3">
+            <div class="col-sm-4">
               <label>Expiration Date</label>
             </div>
-              <div class="col-sm-5 paymentCol">
+              <div class="col-sm-6 paymentCol">
               <div>
               <div class="form-element"  style= "display:inline;">
                   <select name="credit_card_month">
@@ -179,13 +179,13 @@ $("input").on("change", function(){
           <hr>
           </br>
       <fieldset class="row" style="display: block;"> 
-                <div class="col-sm-3">
+                <div class="col-sm-4">
               <label>Billing Postal Code</label>  
             </div>
-                <div class="col-sm-5 paymentCol">
+                <div class="col-sm-6 paymentCol">
               <div class="form-item">
               <label class="form-input-label">
-             <i class="fa fa-home" aria-hidden="true" style="color:crimson;" ></i> 
+             
               <input class="form-text-input input-text numerical input-text placeholder-processed" type="text" name="credit_card[postal_code]" 
               id="credit_card_postal_code" pattern="[0-9]{4,6}"  required>
                 <div class="input-validation"></div>
