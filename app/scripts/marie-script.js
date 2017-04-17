@@ -173,19 +173,19 @@ function openOfferPopup() {
 
 function saveWorker() {
 
-    var theForm = document.theForm;
+    var myForm = document.myForm;
     window.worker = {};
 
     // Account section
     var hasErrors = false;
-    if (isValid('email', theForm.email.value)) {
-        worker['email'] = theForm.email.value;
+    if (isValid('email', myForm.email.value)) {
+        worker['email'] = myForm.email.value;
     } else {
         hasErrors = true;
     }
 
-    if (isValid('password', theForm.password.value)) {
-        worker['password'] = theForm.password.value;
+    if (isValid('password', myForm.password.value)) {
+        worker['password'] = myForm.password.value;
     } else {
         hasErrors = true;
     }
@@ -198,55 +198,55 @@ function saveWorker() {
     }
 
     // Profile section
-    if (isValid('firstName', theForm.firstName.value)) {
-        worker['firstName'] = theForm.firstName.value;
+    if (isValid('firstName', myForm.firstName.value)) {
+        worker['firstName'] = myForm.firstName.value;
     } else {
         hasErrors = true;
     }
 
-    if (isValid('lastName', theForm.lastName.value)) {
-        worker['lastName'] = theForm.lastName.value;
+    if (isValid('lastName', myForm.lastName.value)) {
+        worker['lastName'] = myForm.lastName.value;
     } else {
         hasErrors = true;
     }
 
-    if (isValid('address', theForm.address.value)) {
-        worker['address'] = theForm.address.value;
+    if (isValid('address', myForm.address.value)) {
+        worker['address'] = myForm.address.value;
     } else {
         hasErrors = true;
     }
 
-    if (isValid('city', theForm.city.value)) {
-        worker['city'] = theForm.city.value;
+    if (isValid('city', myForm.city.value)) {
+        worker['city'] = myForm.city.value;
     } else {
         hasErrors = true;
     }
 
-    if (isValid('zip', theForm.zip.value)) {
-        worker['zip'] = theForm.zip.value;
+    if (isValid('zip', myForm.zip.value)) {
+        worker['zip'] = myForm.zip.value;
     } else {
         hasErrors = true;
     }
 
-    if (isValid('state', theForm.state.value)) {
-        worker['state'] = theForm.state.value;
+    if (isValid('state', myForm.state.value)) {
+        worker['state'] = myForm.state.value;
     } else {
         hasErrors = true;
     }
 
-    if (isValid('phone', theForm.phone.value)) {
-        worker['phone'] = theForm.phone.value;
+    if (isValid('phone', myForm.phone.value)) {
+        worker['phone'] = myForm.phone.value;
     } else {
         hasErrors = true;
     }
 
-    if (theForm.gender.value == 'M' || theForm.gender.value=='F') {
-        worker['gender'] = theForm.gender.value;
+    if (myForm.gender.value == 'M' || myForm.gender.value=='F') {
+        worker['gender'] = myForm.gender.value;
     } else {
         hasErrors = true;
     }
 
-    if (theForm.profilePic.files[0]) {
+    if (myForm.profilePic.files[0]) {
         worker['profilePic'] = $('.profile-pic-image')[0].src;
     } else {
         hasErrors = true;
@@ -259,32 +259,32 @@ function saveWorker() {
     }
 
     // Experience section
-    if (isValid('category', theForm.category.value)) {
-        worker['category'] = theForm.category.value;
+    if (isValid('category', myForm.category.value)) {
+        worker['category'] = myForm.category.value;
     } else {
         hasErrors = true;
     }
 
-    if (isValid('yoe', theForm.yoe.value)) {
-        worker['yoe'] = theForm.yoe.value;
+    if (isValid('yoe', myForm.yoe.value)) {
+        worker['yoe'] = myForm.yoe.value;
     } else {
         hasErrors = true;
     }
 
-    worker['degree'] = theForm.degree.value;
+    worker['degree'] = myForm.degree.value;
 
-    worker['graduation'] = theForm.graduation.value;
+    worker['graduation'] = myForm.graduation.value;
 
-    if (isValid('salary', theForm.expectedSalary.value)) {
-        worker['expectedSalary'] = theForm.expectedSalary.value;
+    if (isValid('salary', myForm.expectedSalary.value)) {
+        worker['expectedSalary'] = myForm.expectedSalary.value;
     } else {
         hasErrors = true;
     }
 
     worker['avgSalary'] = $('#expectedSalary').html();
 
-    if (isValid('whyHire', theForm.whyHire.value) && theForm.whyHire.value.split(' ').length >= 100) {
-        worker['whyHire'] = theForm.whyHire.value;
+    if (isValid('whyHire', myForm.whyHire.value) && myForm.whyHire.value.split(' ').length >= 100) {
+        worker['whyHire'] = myForm.whyHire.value;
     } else {
         hasErrors = true;
     }
@@ -317,20 +317,20 @@ function saveWorker() {
     }
 
     // Payment section
-    if (isValid('ccNumber', theForm.ccNumber.value)) {
-        worker['ccNumber'] = theForm.ccNumber.value;
+    if (isValid('ccNumber', myForm.ccNumber.value)) {
+        worker['ccNumber'] = myForm.ccNumber.value;
     } else {
         hasErrors = true;
     }
 
-    if (isValid('expDate', theForm.expDate.value)) {
-        worker['expDate'] = theForm.expDate.value;
+    if (isValid('expDate', myForm.expDate.value)) {
+        worker['expDate'] = myForm.expDate.value;
     } else {
         hasErrors = true;
     }
 
-    if (isValid('cvv', theForm.cvv.value)) {
-        worker['cvv'] = theForm.cvv.value;
+    if (isValid('cvv', myForm.cvv.value)) {
+        worker['cvv'] = myForm.cvv.value;
     } else {
         hasErrors = true;
     }
@@ -701,11 +701,11 @@ function previewFile() {
 
 function experienceLevelChanged(el) {
     if (el.value != '') {
-        $('#rel-position').html(document.theForm.category.value);
+        $('#rel-position').html(document.myForm.category.value);
         var degreeHolder = $('.degree-input');
         var degree = degreeHolder.find('select[name=degree]');
         var content = '';
-        switch (document.theForm.category.value) {
+        switch (document.myForm.category.value) {
             case 'Bartender':
                 content += '<option value="">-Select-</option>';
                 content += '<option>Paul Bocuse</option>';
@@ -740,6 +740,7 @@ function experienceLevelChanged(el) {
 }
 
 function degreeChanged(el) {
+    console.log("DEGRE", el)
     if (el.value != '') {
         if (el.value != 'None') {
             $('.graduated-in-input').show();
@@ -751,9 +752,9 @@ function degreeChanged(el) {
 }
 
 function calculateExpectedSalary() {
-    var category = document.theForm.category.value;
-    var yoe = document.theForm.yoe.value;
-    var degree = document.theForm.degree.value;
+    var category = document.myForm.category.value;
+    var yoe = document.myForm.yoe.value;
+    var degree = document.myForm.degree.value;
     var salaryExpected = 6;
 
     if (category == 'Waitress' || category == 'Bartender') {
@@ -779,7 +780,7 @@ function calculateExpectedSalary() {
 }
 
 function checkSalaryLimits() {
-    var value = document.theForm.expectedSalary.value;
+    var value = document.myForm.expectedSalary.value;
     if (isNaN(value) || value == 0) {
         $('input[name=expectedSalary]').removeClass('green red');
         return;

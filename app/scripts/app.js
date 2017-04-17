@@ -210,42 +210,66 @@ myApp.controller('AppPageController', [function () {
 
 myApp.controller('registerController', ['$scope','$state', function($scope,$state) {
 
-  $scope.type = 'worker'
+  $scope.user_role = 'worker'
   $scope.select_type = function(el){
-    $scope.type = el
+    $scope.user_role = el
   }
-  $scope.submit = function(){
-    console.log($scope.type)
-    console.log($scope.first_name)
+  $scope.submit = function(isValid){
+    if(isValid){
+      if($scope.user_role == 'worker'){
+        // navigate to worker page
+      }else{
+        // navigate to employer section
+        $state.go('app.homepageemployer')
+      }
+    }
+  }
+  $scope.currentSection = 1
+  $scope.navigateToNextSection = function(next){
+    // check that the form is valid so far
+  
 
-    //
-    $state.go('app.homepageemployer')
+
+    //if valid show next section
+    if(next){
+      if($scope.user_role == 'worker' && $scope.currentSection <5)
+        $scope.currentSection++;
+      if($scope.user_role == 'employer' && $scope.currentSection < 3)
+        $scope.currentSection++;
+    }
+   
+    // if section is last section show submit button
+
 
   }
+   $scope.navigateToPreviousSection = function(){
+   $scope.currentSection--;
+   }
 
-  $scope.step1 = function(event, form){
-    var curStep = $(event.target).closest(".setup-content");
-   var     curStepBtn = curStep.attr("id");
-   console.log("Button ID: ", curStepBtn);
-   var Selector='div.setup-panel div a[href="#' + curStepBtn + '"]';
-   console.log(Selector);
-    var    nextStepWizard = $(Selector).parent().next().children("a"),
-        curInputs = curStep.find("input[type='text'],input[type='url']"),
-        isValid = true;
-        console.log('Form is valid? ', form.$invalid);
-      console.log(form)
-      form.$setSubmitted()
-    //  if (!form.$invalid){
-        console.log("Valid Form");
-        console.log(nextStepWizard);
-        nextStepWizard.removeAttr('disabled');
-        nextStepWizard.trigger('click');
+//   $scope.step1 = function(event, form){
 
-   //   }
-     // else{
-   //     console.log("invalid from");
-//}
-  }
+//   var curStep = $(event.target).closest(".setup-content");
+//   var curStepBtn = curStep.attr("id");
+//    console.log("Button ID: ", curStepBtn);
+//    var Selector='div.setup-panel div a[href="#' + curStepBtn + '"]';
+//    console.log(Selector);
+//     var    nextStepWizard = $(Selector).parent().next().children("a"),
+//         curInputs = curStep.find("input[type='text'],input[type='url']"),
+//         isValid = true;
+//         console.log('Form is valid? ', form.$invalid);
+//       console.log(form)
+//       form.$setSubmitted()
+//      if (!form.$invalid){
+//         console.log("Valid Form");
+//         console.log(nextStepWizard);
+//         nextStepWizard.removeAttr('disabled');
+//         nextStepWizard.trigger('click');
+
+//      }
+//      else{
+//        console.log("invalid from");
+// }
+//   }
 
   $scope.step2 = function(event, form){
     var curStep = $(event.target).closest(".setup-content"),
@@ -253,67 +277,72 @@ myApp.controller('registerController', ['$scope','$state', function($scope,$stat
         nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
         curInputs = curStep.find("input[type='text'],input[type='url']"),
         isValid = true;
-        // if (smth==false){
-        //   alert('hey, fix smth')
-        // } else {
-        //   nextStepWizard.removeAttr('disabled').trigger('click');
-        // }
+          if (!form.$invalid){
+        console.log("Valid Form");
+        console.log(nextStepWizard);
+        nextStepWizard.removeAttr('disabled');
+        nextStepWizard.trigger('click');
+
+     }
+     else{
+       console.log("invalid from");
+}
         
       
   }
 
-  $(document).ready(function () {
-var navListItems = $('div.setup-panel div a'),
-        allWells = $('.setup-content'),
-        allNextBtn = $('.nextBtn'),
-      allPrevBtn = $('.prevBtn');
+  // $(document).ready(function () {
+// var navListItems = $('div.setup-panel div a'),
+//         allWells = $('.setup-content'),
+//         allNextBtn = $('.nextBtn'),
+//       allPrevBtn = $('.prevBtn');
 
-allWells.hide();
+// allWells.hide();
 
-navListItems.click(function (e) {
-    e.preventDefault();
-    var $target = $($(this).attr('href')),
-            $item = $(this);
+// navListItems.click(function (e) {
+//     e.preventDefault();
+//     var $target = $($(this).attr('href')),
+//             $item = $(this);
 
-    if (!$item.hasClass('disabled')) {
-        navListItems.removeClass('btn-primary').addClass('btn-default');
-        $item.addClass('btn-primary');
-        allWells.hide();
-        $target.show();
-        $target.find('input:eq(0)').focus();
-    }
-});
+//     if (!$item.hasClass('disabled')) {
+//         navListItems.removeClass('btn-primary').addClass('btn-default');
+//         $item.addClass('btn-primary');
+//         allWells.hide();
+//         $target.show();
+//         $target.find('input:eq(0)').focus();
+//     }
+// });
 
-allPrevBtn.click(function(){
-    var curStep = $(this).closest(".setup-content"),
-        curStepBtn = curStep.attr("id"),
-        prevStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().prev().children("a");
+// allPrevBtn.click(function(){
+//     var curStep = $(this).closest(".setup-content"),
+//         curStepBtn = curStep.attr("id"),
+//         prevStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().prev().children("a");
 
-        prevStepWizard.removeAttr('disabled').trigger('click');
-});
+//         prevStepWizard.removeAttr('disabled').trigger('click');
+// });
 
-allNextBtn.click(function(){
-    var curStep = $(this).closest(".setup-content"),
-        curStepBtn = curStep.attr("id"),
-        nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
-        curInputs = curStep.find("input[type='text'],input[type='url']"),
-        isValid = true;
+// allNextBtn.click(function(){
+//     var curStep = $(this).closest(".setup-content"),
+//         curStepBtn = curStep.attr("id"),
+//         nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+//         curInputs = curStep.find("input[type='text'],input[type='url']"),
+//         isValid = true;
 
-    $(".form-group").removeClass("has-error");
-    for(var i=0; i<curInputs.length; i++){
-        if (!curInputs[i].validity.valid){
-            isValid = false;
-            $(curInputs[i]).closest(".form-group").addClass("has-error");
-        }
-    }
+//     $(".form-group").removeClass("has-error");
+//     for(var i=0; i<curInputs.length; i++){
+//         if (!curInputs[i].validity.valid){
+//             isValid = false;
+//             $(curInputs[i]).closest(".form-group").addClass("has-error");
+//         }
+//     }
 
-    if (isValid)
-        nextStepWizard.removeAttr('disabled').trigger('click');
-});
+//     if (isValid)
+//         nextStepWizard.removeAttr('disabled').trigger('click');
+// });
 
-$('div.setup-panel div a.btn-primary').trigger('click');
-});
-  }
+// $('div.setup-panel div a.btn-primary').trigger('click');
+// });
+}
 ]);
 
 
