@@ -11,46 +11,48 @@
         </ul>
     </div>
 </nav>
+<form name="myForm" ng-submit="myForm.$valid && step1($event, myForm)" novalidate>
 <div class="main-register-content">
   <div class="container2">
+
 
   <div class="stepwizard col-md-offset-1">
       <div class="stepwizard-row setup-panel">
         <div class="stepwizard-step">
-          <a href="#step-1" class="btn btn-primary btn-circle">1</a>
+          <a href="#step-1" class="btn btn-primary btn-circle" ng-class="{'disabled': currentSection <= 1, 'btn-primary': currentSection ==1, 'btn-default': currentSection !=1 }">1</a>
           <p>Account</p>
         </div>
         <div class="stepwizard-step">
-          <a href="#step-2" class="btn btn-default btn-circle" disabled="disabled">2</a>
+          <a href="#step-2" class="btn btn-default btn-circle" ng-class="{'disabled': currentSection <= 2, 'btn-primary': currentSection ==2, 'btn-default': currentSection !=2}">2</a>
           <p>Profile</p>
         </div>
-        <div class="stepwizard-step">
-          <a href="#step-3"  class="btn btn-default btn-circle" disabled="disabled">3</a>
+        <div class="stepwizard-step" ng-show="user_role=='worker'">
+          <a href="#step-3"  class="btn btn-default btn-circle" ng-class="{'disabled': currentSection <= 3, 'btn-primary': currentSection ==3, 'btn-default': currentSection !=3 }">3</a>
           <p>Experience</p>
         </div>
-         <div class="stepwizard-step">
-          <a href="#step-4"  class="btn btn-default btn-circle" disabled="disabled">4</a>
+         <div class="stepwizard-step" ng-show="user_role=='worker'">
+          <a href="#step-4"  class="btn btn-default btn-circle" ng-class="{'disabled': currentSection <= 4, 'btn-primary': currentSection ==4, 'btn-default': currentSection !=4 }">4</a>
           <p>Schedule</p>
         </div>
-         <div class="stepwizard-step">
-          <a href="#step-5"  class="btn btn-default btn-circle" disabled="disabled">5</a>
+       <div ng-switch on="user_role" class="stepwizard-step">
+          <a ng-switch-default href="#step-5"  class="btn btn-default btn-circle" ng-class="{'disabled': currentSection <= 5, 'btn-primary': currentSection ==5, 'btn-default': currentSection !=5 }">5</a>
+          <a ng-switch-when="employer" href="#step-5"  class="btn btn-default btn-circle" ng-class="{'disabled': currentSection <= 3 , 'btn-primary': currentSection ==3, 'btn-default': currentSection !=3 }">3</a>
           <p>Payment</p>
         </div>
       </div>
     </div>
    
 
-    <form  name="myForm" ng-submit="submitForm(userForm.$valid)" novalidate>
-      <div class="row setup-content" id="step-1" style="margin-bottom:20px;">
+   <div ng-show="currentSection==1" class="row setup-content">
          
           <div class="col-md-12 text-center">
-<div style="color:white; padding-bottom:25px;">Please start by choosing your account type:</div>
- <div class="container text-xs-center"  style="padding-left:0px; padding-right:0px;">
+            <div style="color:white; padding-bottom:25px;">Please start by choosing your account type:</div>
+              <div class="container text-xs-center"  style="padding-left:0px; padding-right:0px;">
           <!--<div class="row">-->
           <!--<div class="col-md-12">-->
              <!--<div class="row signup-option-center">-->
 
-          <div class="col-md-6 "><a>
+          <div class="col-md-6 " ng-click="select_type('worker')"><a>
               <div class="signup-option-box">
                 <div style="text-align:center;"> <i class="fa fa-user-circle-o fa-2x" aria-hidden="true" style="margin-top:25px;  padding-right:0px; padding-bottom:0px;"></i></div>
               <h6 class="role-signup-title">Worker</h6>
@@ -59,79 +61,95 @@
                
           </div>
           
-          <div class="col-md-6 ">
+           <div class="container text-xs-center"  style="padding-left:0px; padding-right:0px;">
+          <div class="col-md-6 " ng-click="select_type('employer')">
                 <div class="signup-option-box">
                  <div style="text-align:center;"> <i class="fa fa-building-o fa-2x" aria-hidden="true" style="margin-top:25px;  padding-right:0px; padding-bottom:0px;"></i></div>
                  <div> <h6 class="role-signup-title">Employer</h6></div>
                <p class="complete-signup-title">Complete your profile and get connected with many job seekers</p>
                  </div>
               </div>
+          </div>
           <!--</div>-->
           <!--</div>-->
           <!--</div>-->
-          </div>
 
 
-                <div class="col-xs-12" style="margin-left:65px;">
-            <div class="form-group"  ng-Class="{'has-error':(myForm.userEmail.$error.minlength || myForm.userEmail.$error.required || myForm.userEmail.$error.email )  && myForm.$submitted }">
-              <input maxlength="100" name="userEmail" ng-minlength="5" type="email" ng-model="userEmail" required="required" class="form-control login-signup-form-field" placeholder="Email">
-               <div class="submit-messages" ng-if="myForm.$submitted && (myForm.userEmail.$error.minlength || myForm.userEmail.$error.required || myForm.userEmail.$error.email)" ng-messages="myForm.userEmail.$error"  role="alert">
-            
-                <div ng-if="myForm.userEmail.$error.required">Enter your email</div>
-                <div ng-if="myForm.userEmail.$error.email">Make sure your email address is correct</div>
-              </div>
-            </div>
-             <div class="form-group" ng-Class="{'has-error':((myForm.password.$error.minlength || myForm.password.$error.required)  && myForm.$submitted) }">
-              <input maxlength="100" name="password" ng-minlength="5" type="password" ng-model=password required="required" class="form-control login-signup-form-field" placeholder="Passord">
-               <div class="submit-messages" ng-if="((myForm.password.$error.minlength || myForm.password.$error.required)  && myForm.$submitted)" ng-messages="myForm.password.$error"  role="alert">
-                <div ng-if="myForm.password.$error.minlength">Too short</div>
-                <div ng-if="myForm.password.$error.required">Enter a password</div>
-              </div>
-            </div>
-           
-            <div class="form-group" ng-Class="{'has-error':((myForm.confirmpassword.$error.minlength || myForm.confirmpassword.$error.required)  && myForm.$submitted)" >
-              <input maxlength="100" name="confirmpassword" ng-minlength="5" type="password" ng-model="confirmpassword" required="required" class="form-control login-signup-form-field" placeholder="Confirm password">
-               <div class="submit-messages" ng-if="((myForm.confirmpassword.$error.minlength || myForm.confirmpassword.$error.required)  && myForm.$submitted)" ng-messages="myForm.confirmpassword.$error" role="alert">
-                <div ng-if="myForm.confirmpassword.$error.minlength">Too short</div>
-                <div ng-if="myForm.confirmpassword.$error.required">Confirm your password</div>
-              </div>
-            </div>
-          </div>
-            <button class="btn btn-primary nextBtn btn-lg pull-center" type="button" ng-click="step1($event, myForm)">Next</button>
-          </div>
-   
+ 
+   <div class="col-md-12" style="margin-left:65px;">
 
 
+  <div ng-show="user_role=='employer'" class="form-group" ng-class="{'has-error':((myForm.companyName.$error.minlength || myForm.companyName.$error.required)  && !myForm.companyName.$pristine) }">
+         <input maxlength="100" name="companyName"  type="text" ng-model="companyName" required="required" class="form-control login-signup-form-field" placeholder="Company Name">
+         <div class="submit-messages" ng-if="((myForm.companyName.$error.minlength || myForm.companyName.$error.required)  && !myForm.companyName.$pristine)" ng-messages="myForm.companyName.$error"  role="alert">
+             <div ng-if="myForm.companyName.$error.required">Enter your company name</div>
+         </div>
+      </div>
 
-      <div class="row setup-content" id="step-2">
+  <div ng-show="user_role=='employer'" class="form-group" ng-class="{'has-error':((myForm.siretNumber.$error.minlength || myForm.siretNumber.$error.required) && !myForm.siretNumber.$pristine) }">
+         <input maxlength="100" name="siretNumber" ng-minlength="5" type="text" ng-model="siretNumber" required="required" class="form-control login-signup-form-field" placeholder="Siret Number">
+         <div class="submit-messages" ng-if="((myForm.siretNumber.$error.minlength || myForm.siretNumber.$error.required) && !myForm.siretNumber.$pristine)" ng-messages="myForm.siretNumber.$error"  role="alert">
+             <div ng-if="myForm.siretNumber.$error.required">Enter your company siret number</div>
+         </div>
+      </div>
 
- <!--<div class="col-xs-10 col-md-offset-1">-->
-          <div class="col-md-12 text-center">
-            <br />
-            <!--<div class="col-md-12  text-left">-->
+      <div class="form-group"  ng-class="{'has-error':(myForm.userEmail.$error.minlength || myForm.userEmail.$error.required || myForm.userEmail.$error.myForm ) && !myForm.userEmail.$pristine }" ng-pattern='/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/'>
+         <input maxlength="100" name="userEmail" ng-minlength="6" type="email" ng-model="userEmail" required="required" class="form-control login-signup-form-field" placeholder="Email">
+         <div class="submit-messages" ng-if="(myForm.userEmail.$error.minlength || myForm.userEmail.$error.required || myForm.userEmail.$error.email) && !myForm.userEmail.$pristine" ng-messages="myForm.userEmail.$error"  role="alert">
+            <div ng-if="myForm.userEmail.$error.required">Enter your email</div>
+            <div ng-if="myForm.userEmail.$error.email">Make sure your email address is correct</div>
+         </div>
+    </div>
+      <div class="form-group" ng-class="{'has-error':(myForm.password.$error.minlength || myForm.password.$error.required) && !myForm.password.$pristine }">
+         <input maxlength="100" name="password" ng-minlength="5" type="password" ng-model="password" required="required" class="form-control login-signup-form-field" placeholder="Passord">
+         <div class="submit-messages" ng-if="(myForm.password.$error.minlength || myForm.password.$error.required) && !myForm.password.$pristine" ng-messages="myForm.password.$error"  role="alert">
+            <div ng-show="myForm.password.$error.minlength">Too short</div>
+            <div ng-if="myForm.userEmail.$error.minlength">Password must contains at least 6 characters</div>            
+            <div ng-if="myForm.password.$error.required">Enter a password</div>
+         </div>
+      </div>
+      <div class="form-group" ng-class="{'has-error':((myForm.confirmpassword.$error.minlength || myForm.confirmpassword.$error.required) && !myForm.confirmpassword.$pristine)}">
+         <input maxlength="100" name="confirmpassword" ng-minlength="5" type="password" ng-model="confirmpassword" required="required" class="form-control login-signup-form-field" placeholder="Confirm password" compare-to="password">
+         <div class="submit-messages" ng-if="((myForm.confirmpassword.$error.minlength || myForm.confirmpassword.$error.required) && !myForm.confirmpassword.$pristine)" ng-messages="myForm.confirmpassword.$error" role="alert">
+            <!--<div ng-if="myForm.confirmpassword.$error.minlength">Too short</div>-->
+            <div ng-if="myForm.confirmpassword.$error.required">Confirm your password</div>
+         </div>
+      </div>
+   </div>
+   <button class="btn btn-primary nextBtn btn-lg pull-center" type="button" ng-click="navigateToNextSection(!(myForm.confirmpassword.$error.minlength || myForm.confirmpassword.$error.required || myForm.userEmail.$error.minlength || myForm.userEmail.$error.required || myForm.userEmail.$error.email))"
+            ng-class="{'disabled': (myForm.confirmpassword.$error.minlength || myForm.confirmpassword.$error.required || myForm.userEmail.$error.minlength || myForm.userEmail.$error.required || myForm.userEmail.$error.email)} ">Next</button>
+</div>
+</div>
+</div>
 
-            <div class="form-group" ng-Class="{'has-error':((myForm.firstName.$error.minlength || myForm.firstName.$error.required)  && myForm.$submitted) }">
+    
+
+  <div ng-show="currentSection==2" class="row setup-content">
+
+         <div class="col-md-12" style="margin-left:75px;">
+
+            <div class="form-group" ng-class="{'has-error':((myForm.firstName.$error.minlength || myForm.firstName.$error.required)  && myForm.$submitted) }">
               <input maxlength="100" name="firstName" ng-minlength="5" type="text" ng-model="firstName" required="required" class="form-control login-signup-form-field" placeholder="First Name">
                <div class="submit-messages" ng-if="((myForm.firstName.$error.minlength || myForm.firstName.$error.required)  && myForm.$submitted)" ng-messages="myForm.firstName.$error" role="alert">
                 <div ng-if="myForm.firstName.$error.minlength">Too short</div>
                 <div ng-if="myForm.firstName.$error.required">Enter your first name</div>
               </div>
             </div>
-<!--myForm.userEmail.$error.minlength || myForm.userEmail.$error.email || myForm.userEmail.$error.required-->
-            <div class="form-group" ng-Class="{'has-error':(myForm.lastName.$error.minlength || myForm.lastName.$error.required || myForm.lastName.$error.email )  && myForm.$submitted }">
+
+            <div class="form-group" ng-class="{'has-error':(myForm.lastName.$error.minlength || myForm.lastName.$error.required || myForm.lastName.$error.email )  && myForm.$submitted }">
               <input maxlength="100" name="lastName" ng-minlength="5" type="text" ng-model="lastName" required="required" class="form-control login-signup-form-field" placeholder="Last Name">
                <div class="submit-messages" ng-if="myForm.$submitted && (myForm.lastName.$error.minlength || myForm.lastName.$error.required)" ng-messages="myForm.lastName.$error" role="alert">       
                 <div ng-if="myForm.lastName.$error.required">Enter your last name</div>
               </div>
             </div>
            
-           <div class="form-group" ng-Class="{'has-error':(myForm.address.$error.minlength || myForm.address.$error.required)  && myForm.$submitted }">
+           <div class="form-group" ng-class="{'has-error':(myForm.address.$error.minlength || myForm.address.$error.required)  && myForm.$submitted }">
               <input maxlength="100" name="address" ng-minlength="5" type="text" ng-model="address" required="required" class="form-control login-signup-form-field" placeholder="Address">
                <div class="submit-messages" ng-if="myForm.$submitted && (myForm.address.$error.minlength || myForm.address.$error.required)" ng-messages="myForm.address.$error"  role="alert">       
                 <div ng-if="myForm.address.$error.required">Enter your address</div>
               </div>
             </div>
-            <div class="form-group" ng-Class="{'has-error':(myForm.city.$error.minlength || myForm.city.$error.required)  && myForm.$submitted }">
+            <div class="form-group" ng-class="{'has-error':(myForm.city.$error.minlength || myForm.city.$error.required)  && myForm.$submitted }">
               <input maxlength="100" name="city" ng-minlength="5" type="text" ng-model="city" required="required" class="form-control login-signup-form-field" placeholder="City">
                <div class="submit-messages" ng-if="myForm.$submitted && (myForm.city.$error.minlength || myForm.city.$error.required)" ng-messages="myForm.city.$error" role="alert">       
                 <div ng-if="myForm.city.$error.required">Enter your city</div>
@@ -140,51 +158,475 @@
             
             <!--<div class="container">-->
 
-               <div class="col-md-6">
+               <div class="col-md-6 ">
  <div class="form-group" ng-Class="{'has-error':(myForm.state.$error.minlength || myForm.state.$error.required)  && myForm.$submitted }">
-              <input maxlength="100" name="state" ng-minlength="5" type="text" ng-model="state" required="required" class="form-control" placeholder="State">
+              <input maxlength="100" name="state" ng-minlength="5" type="text" ng-model="state" required="required" class="form-control login-signup-form-field" style="width:200px; margin-left:0px;"; placeholder="State">
                <div class="submit-messages" ng-if="myForm.$submitted && (myForm.state.$error.minlength || myForm.state.$error.required)" ng-messages="myForm.state.$error"  role="alert">       
-                <div ng-if="myForm.state.$error.required">Enter your city</div>
+                <div ng-if="myForm.state.$error.required">Select your state</div>
               </div>
             </div>
-               </div>
+        </div>
 
-                 <div class="col-md-6">
- <div class="form-group" ng-Class="{'has-error':(myForm.zipcode.$error.minlength || myForm.zipcode.$error.required)  && myForm.$submitted }">
-              <input maxlength="100" name="zipcode" ng-minlength="5" type="text" ng-model="zipcode" required="required" class="form-control" placeholder="Zip code">
-               <div class="submit-messages" ng-if="myForm.$submitted && (myForm.zipcode.$error.minlength || myForm.zipcode.$error.required)" ng-messages="myForm.zipcode.$error"  role="alert">       
-                <div ng-if="myForm.zipcode.$error.required">Enter your city</div>
-              </div>
+        <div class="col-md-6">
+          <div class="form-group" ng-Class="{'has-error':(myForm.zipcode.$error.minlength || myForm.zipcode.$error.required)  && myForm.$submitted }">
+            <input maxlength="100" name="zipcode" ng-minlength="5" type="text" ng-model="zipcode" required="required" class="form-control login-signup-form-field" style="width:200px;" placeholder="Zip code">
+            <div class="submit-messages" ng-if="myForm.$submitted && (myForm.zipcode.$error.minlength || myForm.zipcode.$error.required)" ng-messages="myForm.zipcode.$error"  role="alert">       
+              <div ng-if="myForm.zipcode.$error.required">Enter your zip code</div>
             </div>
-               </div>
-
-            <!--</div>-->
-            <!--</div>-->
-
-             <button class="btn btn-primary prevBtn btn-lg pull-left" type="button">Previous</button>
-            <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" ng-click="step1($event, myForm)">Next</button>
+          </div>
+        </div>
 
           </div>
+             <button class="btn btn-primary prevBtn btn-lg pull-left" type="button" ng-click="navigateToPreviousSection()">Previous</button>
+      <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" ng-click="navigateToNextSection()">Next</button>
+    </div>
 
-          <!--</div>-->
-        </div>
-       
+      <div ng-show="user_role=='worker' && currentSection==3" class="row setup-content">
+
+         <div class="col-md-12" style="margin-left:75px;">
+
+             <div class="signup-form">
+                                <label class="form-input-label category-input">
+                                    <i class="fa fa-fw fa-graduation-cap" aria-hidden="true"></i>
+                                    <span>Category<span style="color: red;">*</span>: </span>
+                                    <select required data-errmsg="Please select a category" name="category"
+                                            onchange="if (this.value != '') $('.yoe-input').show();">
+                                        <option value="">-Select-</option>
+                                        <option>Bartender</option>
+                                        <option>Waitress</option>
+                                        <option>DJ</option>
+                                        <option>Security Agent</option>
+                                    </select>
+                                </label>
+                                <label class="form-input-label yoe-input">
+                                    <i class="fa fa-fw fa-graduation-cap" aria-hidden="true"></i>
+                                    <span>Level of Experience<span style="color: red;">*</span>: </span>
+                                    <select required data-errmsg="Please enter years of experience" name="yoe"
+                                            onchange="experienceLevelChanged(this);">
+                                        <option value="">-Select-</option>
+                                        <option>No experience</option>
+                                        <option>Less than 2 years</option>
+                                        <option>More than 2 years</option>
+                                    </select>
+                                </label>
+                                <label class="form-input-label degree-input">
+                                    <i class="fa fa-fw fa-graduation-cap" aria-hidden="true"></i>
+                                    <span>Degree/Certificate related to <span
+                                            id="rel-position"></span> position: </span>
+                                    <select name="degree" required data-errmsg="Please specify your degree (if any)" style="margin-left: 26px;"
+                                            onchange="degreeChanged(this);">
+                                        <option value="">-Select-</option>
+                                    </select>
+                                </label>
+                                <label class="form-input-label graduated-in-input">
+                                    <i class="fa fa-fw fa-graduation-cap" aria-hidden="true"></i>
+                                    <span>Graduation Year:</span>
+                                    <select name="graduation">
+                                    </select>
+                                </label>
+                                <label class="form-input-label salary-exp-input">
+                                    <i class="fa fa-fw fa-graduation-cap" aria-hidden="true"></i>
+                                    <input placeholder="Expected Salary*" required data-errmsg="Enter expected salary in $/hour" name="expectedSalary" size="3" required type="number" min="1" max="100"
+                                           onchange="checkSalaryLimits()">
+                                    <span>$/hour</span>
+                                </label>
+                                <label class="form-input-label avg-salary-info">
+                                    <span>Based on your degree and level of experience, <br>average salary expectation is $<span
+                                            id="expectedSalary"></span>/hour</span>
+                                </label>
+                                <!--<label class="form-input-label">
+                                    <textarea required data-errmsg="Minimum 100 words are required" type="textarea" cols="60" rows="6"
+                                              onchange="var t = $(this); t.val().split(' ').length<100 ? t.addClass('why-hire-invalid'): t.removeClass('why-hire-invalid');"
+                                              name="whyHire"
+                                              placeholder="Tell us why you should be hired (min 100 words)*"></textarea>
+                                </label>-->
+                            </div>
+            
+          
+
+      <button class="btn btn-primary prevBtn btn-lg pull-left" type="button" ng-click="navigateToPreviousSection()">Previous</button>
+      <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" ng-click="navigateToNextSection()">Next</button>
+
+          </div>
+    </div>
+
+      <div ng-show="currentSection==4" class="row setup-content">
+
+           <div class="col-md-12" style="margin-left:75px;">
+
+             <div class="availability-day">
+
+                                    <div class="checkbox">
+                                        <label><input name="av-mon" type="checkbox" value="Monday">Monday</label>
+                                        <div class="av-mon time-of-day">
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-a" checked>All day</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-m">Morning</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-n">Afternoon</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-e">Evening</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="checkbox">
+                                        <label><input name="av-tue" type="checkbox" value="Tuesday">Tuesday</label>
+                                        <div class="av-tue time-of-day">
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-a" checked>All day</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-m">Morning</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-n">Afternoon</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-e">Evening</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input name="av-wed" type="checkbox" value="Wednesday">Wednesday</label>
+                                        <div class="av-wed time-of-day">
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-a" checked>All day</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-m">Morning</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-n">Afternoon</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-e">Evening</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input name="av-thu" type="checkbox" value="Thursday">Thursday</label>
+                                        <div class="av-thu time-of-day">
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-a" checked>All day</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-m">Morning</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-n">Afternoon</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-e">Evening</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input name="av-fri" type="checkbox" value="Friday">Friday</label>
+                                        <div class="av-fri time-of-day">
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-a" checked>All day</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-m">Morning</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-n">Afternoon</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-e">Evening</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input name="av-sat" type="checkbox" value="Saturday">Saturday</label>
+                                        <div class="av-sat time-of-day">
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-a" checked>All day</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-m">Morning</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-n">Afternoon</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-e">Evening</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input name="av-sun" type="checkbox" value="Sunday">Sunday</label>
+                                        <div class="av-sun time-of-day">
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-a" checked>All day</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-m">Morning</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-n">Afternoon</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-e">Evening</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+      <button class="btn btn-primary prevBtn btn-lg pull-left" type="button" ng-click="navigateToPreviousSection()">Previous</button>
+      <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" ng-click="navigateToNextSection()">Next</button>
+
+          </div>
+    </div>
+      
    
 
 
+<div ng-show="(user_role=='worker' && currentSection==5) || (user_role=='employer' && currentSection==3) " class="row setup-content">
+      <!--<div class="row setup-content" id="step-5">-->
+          <div ng-show="user_role=='employer'" class="col-md-12" style="margin-left:75px;">
+             <div class="form-group" ng-class="{'has-error':((myForm.cardnumber.$error.minlength || myForm.cardnumber.$error.required)  && myForm.$submitted) }">
+              <input maxlength="100" name="cardnumber" ng-minlength="13" type="text" ng-model="cardnumber" required="required" class="form-control login-signup-form-field" placeholder="Card number">
+               <div class="submit-messages" ng-if="((myForm.cardnumber.$error.minlength || myForm.cardnumber.$error.required)  && myForm.$submitted)" ng-messages="myForm.cardnumber.$error" role="alert">
+                <div ng-if="myForm.cardnumber.$error.minlength">Enter a valid card number</div>
+                <div ng-if="myForm.cardnumber.$error.required">Enter your card number</div>
+              </div>
+            </div>
+</div>
+            <div ng-show="user_role=='worker'" class="form-group" ng-class="{'has-error':((myForm.accountnumber.$error.minlength || myForm.accountnumber.$error.required)  && myForm.$submitted) }">
+              <input maxlength="100" name="accountnumber" ng-minlength="13" type="text" ng-model="accountnumber" required="required" class="form-control login-signup-form-field" placeholder="Account Number">
+               <div class="submit-messages" ng-if="((myForm.accountnumber.$error.minlength || myForm.accountnumber.$error.required)  && myForm.$submitted)" ng-messages="myForm.accountnumber.$error" role="alert">
+                <div ng-if="myForm.accountnumber.$error.minlength">Enter a valid account number</div>
+                <div ng-if="myForm.accountnumber.$error.required">Enter your account number</div>
+              </div>
+            </div>
 
-      <div class="row setup-content" id="step-5">
-        <div class="col-xs-10 col-md-offset-1">
+
+
+            <div  ng-show="user_role=='employer'" class="form-group" ng-class="{'has-error':(myForm.expirationDate.$error.minlength || myForm.expirationDate.$error.required || myForm.expirationDate.$error.email )  && myForm.$submitted }">
+              <input maxlength="100" name="expirationDate" ng-minlength="5" type="text" ng-model="expirationDate" required="required" class="form-control login-signup-form-field" placeholder="MM/YY">
+               <div class="submit-messages" ng-if="myForm.$submitted && (myForm.expirationDate.$error.minlength || myForm.expirationDate.$error.required)" ng-messages="myForm.expirationDate.$error" role="alert">       
+                <div ng-if="myForm.expirationDate.$error.required">Enter your card expiration date</div>
+              </div>
+            </div>
+           
+           <div ng-show="user_role=='employer'" class="form-group" ng-class="{'has-error':(myForm.cvvNumber.$error.minlength || myForm.cvvNumber.$error.required)  && myForm.$submitted }">
+              <input maxlength="3" name="cvvNumber" ng-minlength="3" type="text" ng-model="cvvNumber" required="required" class="form-control login-signup-form-field" placeholder="CVV">
+               <div class="submit-messages" ng-if="myForm.$submitted && (myForm.address.$error.minlength || myForm.cvvNumber.$error.required)" ng-messages="myForm.cvvNumber.$error"  role="alert">       
+                <div ng-if="myForm.cvvNumber.$error.required">Enter your cvv number</div>
+              </div>
+            </div>
           <div class="col-md-12">
-            <button class="btn btn-primary prevBtn btn-lg pull-left" type="button">Previous</button>
+            <button class="btn btn-primary prevBtn btn-lg pull-left" type="button" ng-click="navigateToPreviousSection()">Previous</button>
             <button class="btn submitBtn btn-lg pull-right" type="submit" ng-click="submit()">Submit</button>
           </div>
-        </div>
+        
       </div>
+      </div>
+      </div>
+</form>
 
- </form>
-      </div>
-   </div>
  
 
 
+
+ <!--EXPERIENCE SECTION -->
+
+       <!--<div id="experience" class="my-section collapse">
+                            <div class="signup-form">
+                                <label class="form-input-label category-input">
+                                    <i class="fa fa-fw fa-graduation-cap" aria-hidden="true"></i>
+                                    <span>Category<span style="color: red;">*</span>: </span>
+                                    <select required data-errmsg="Please select a category" name="category"
+                                            onchange="if (this.value != '') $('.yoe-input').show();">
+                                        <option value="">-Select-</option>
+                                        <option>Bartender</option>
+                                        <option>Waitress</option>
+                                        <option>DJ</option>
+                                        <option>Security Agent</option>
+                                    </select>
+                                </label>
+                                <label class="form-input-label yoe-input">
+                                    <i class="fa fa-fw fa-graduation-cap" aria-hidden="true"></i>
+                                    <span>Level of Experience<span style="color: red;">*</span>: </span>
+                                    <select required data-errmsg="Please enter years of experience" name="yoe"
+                                            onchange="experienceLevelChanged(this);">
+                                        <option value="">-Select-</option>
+                                        <option>No experience</option>
+                                        <option>Less than 2 years</option>
+                                        <option>More than 2 years</option>
+                                    </select>
+                                </label>
+                                <label class="form-input-label degree-input">
+                                    <i class="fa fa-fw fa-graduation-cap" aria-hidden="true"></i>
+                                    <span>Degree/Certificate related to <span
+                                            id="rel-position"></span> position: </span>
+                                    <select name="degree" required data-errmsg="Please specify your degree (if any)" style="margin-left: 26px;"
+                                            onchange="degreeChanged(this);">
+                                        <option value="">-Select-</option>
+                                    </select>
+                                </label>
+                                <label class="form-input-label graduated-in-input">
+                                    <i class="fa fa-fw fa-graduation-cap" aria-hidden="true"></i>
+                                    <span>Graduation Year:</span>
+                                    <select name="graduation">
+                                    </select>
+                                </label>
+                                <label class="form-input-label salary-exp-input">
+                                    <i class="fa fa-fw fa-graduation-cap" aria-hidden="true"></i>
+                                    <input placeholder="Expected Salary*" required data-errmsg="Enter expected salary in $/hour" name="expectedSalary" size="3" required type="number" min="1" max="100"
+                                           onchange="checkSalaryLimits()">
+                                    <span>$/hour</span>
+                                </label>
+                                <label class="form-input-label avg-salary-info">
+                                    <span>Based on your degree and level of experience, <br>average salary expectation is $<span
+                                            id="expectedSalary"></span>/hour</span>
+                                </label>
+                                <label class="form-input-label">
+                                    <textarea required data-errmsg="Minimum 100 words are required" type="textarea" cols="60" rows="6"
+                                              onchange="var t = $(this); t.val().split(' ').length<100 ? t.addClass('why-hire-invalid'): t.removeClass('why-hire-invalid');"
+                                              name="whyHire"
+                                              placeholder="Tell us why you should be hired (min 100 words)*"></textarea>
+                                </label>
+                            </div>
+                        </div>-->
+
+
+
+<!--SCHEDULE SECTION-->
+
+          <!--<div id="schedule" class="my-section collapse">
+                            <div class="signup-form">
+                                <label class="form-input-label">
+                                    <p class="availability-title">I am available<span style="color: red;">*</span></p>
+                                </label>
+                                <div class="availability-day">
+
+                                    <div class="checkbox">
+                                        <label><input name="av-mon" type="checkbox" value="Monday">Monday</label>
+                                        <div class="av-mon time-of-day">
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-a" checked>All day</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-m">Morning</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-n">Afternoon</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-e">Evening</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="checkbox">
+                                        <label><input name="av-tue" type="checkbox" value="Tuesday">Tuesday</label>
+                                        <div class="av-tue time-of-day">
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-a" checked>All day</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-m">Morning</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-n">Afternoon</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-e">Evening</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input name="av-wed" type="checkbox" value="Wednesday">Wednesday</label>
+                                        <div class="av-wed time-of-day">
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-a" checked>All day</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-m">Morning</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-n">Afternoon</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-e">Evening</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input name="av-thu" type="checkbox" value="Thursday">Thursday</label>
+                                        <div class="av-thu time-of-day">
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-a" checked>All day</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-m">Morning</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-n">Afternoon</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-e">Evening</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input name="av-fri" type="checkbox" value="Friday">Friday</label>
+                                        <div class="av-fri time-of-day">
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-a" checked>All day</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-m">Morning</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-n">Afternoon</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-e">Evening</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input name="av-sat" type="checkbox" value="Saturday">Saturday</label>
+                                        <div class="av-sat time-of-day">
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-a" checked>All day</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-m">Morning</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-n">Afternoon</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-e">Evening</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input name="av-sun" type="checkbox" value="Sunday">Sunday</label>
+                                        <div class="av-sun time-of-day">
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-a" checked>All day</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-m">Morning</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-n">Afternoon</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" name="tod-e">Evening</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>-->

@@ -493,11 +493,15 @@ width: 100%;
 
 .screenshot-how-to-get-started-step img {
     max-height: 350px;
-    max-width: 414px;
+    max-width: 350px;
     height: 100%;
     width: 100%;
+   
 }
 
+.screenshot-how-to-get-started-step {
+ text-align:center;
+}
 
 
 /*ABOUT US*/
@@ -2517,11 +2521,11 @@ body {
 }
 .stepwizard {
     display: table;
-    width: 50%;
     position: relative;
      color:white;
      font-family: 'proxima-nova', 'Helvetica Neue', Helvetica, Arial, sans-serif;
      margin-bottom: 20px;
+     width: 80%
 }
 .stepwizard-step button[disabled] {
     opacity: 1 !important;
