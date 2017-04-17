@@ -1,6 +1,9 @@
 <script src="scripts/JavaScript.js"></script>
 
 <style>
+  h3{
+    margin-top:5%;
+  }
 #exTab2{
    border-bottom: 50px solid #428bca;
 }
@@ -19,10 +22,37 @@ input[type="text"]:invalid {
   input[type="text"]:valid {
     background: url(thumb-up.png) no-repeat top right;
     display:inline;
+    
+}
+
+select{
+  height: 30px;
+  width:40%;
+  border: 1px solid black;
 }
   </style>
 
 <script>
+
+function getCreditcard()
+{
+   var input =  $("#textbox_id").val();
+   var code= $("#credit_card_postal_code").val();
+   var cvv=$("#cvv").val();
+   var post=new RegExp("[0-9]{4,6}");
+   
+    var re = new RegExp( "[0-9]{13,16}");
+    var cvvre=new RegExp("[0-9]{3}")
+    if (re.test(input) && post.test(code)&& cvvre.test(cvv)){
+    var lastFive = input.substr(input.length - 4);
+  document.getElementById("lastFour").innerHTML = lastFive;
+  $('input[type="text"], textarea').val('');
+    }
+
+
+}
+
+
   $(document).ready(function () {
 
 
@@ -39,7 +69,10 @@ $("input").on("change", function(){
    }
 });
 
+
+
 });
+
 
 </script>
 
@@ -62,7 +95,7 @@ $("input").on("change", function(){
 <h3>
     Payment Method
 </h3>
-<p>Your current payment method is <strong>Credit Card ending with <snap id="lastFour"> 0000 </snap></strong>
+<p>Your current payment method is Credit Card ending with <strong><snap id="lastFour"> 0000 </snap></strong> 
           </p>
 <br>
 
@@ -99,8 +132,14 @@ $("input").on("change", function(){
              <div class="col-sm-6 paymentCol">
             <div class="form-item">
                 <label class="form-input-label">
-              <input type="text" id="textbox_id" name="credit_card_number" style="width: 300px" pattern="[0-9]{13,16}" required/> 
-              <div class="input-validation"></div>
+          <div>
+           <input  type="text" id="textbox_id" name="credit_card_number"  pattern="[0-9]{13,16}" required style="float:left; width: 200px">
+         <div class="input-validation" style="float:right"></div>
+       </div>
+
+
+            
+             
                </label >
             </div>  
           </div>
@@ -114,9 +153,16 @@ $("input").on("change", function(){
             </div>
            <div class="col-sm-6 paymentCol">
             <div class="form-item form-item-short">
-          
-            <input type="text" name="credit_card_cvv" id="cvv"  style="width: 100px" pattern="[0-9]{3}"  required>
-              <div class="input-validation"></div>
+          <div>
+             
+         <input type="text" name="credit_card_cvv" id="cvv"  style="width: 100px" pattern="[0-9]{3}" required style="float:left">
+         <div class="input-validation" style="float:right"></div>
+       </div>
+
+
+
+            
+                 
           </div> 
            </div>
         </fieldset>
@@ -130,7 +176,7 @@ $("input").on("change", function(){
               <div class="col-sm-6 paymentCol">
               <div>
               <div class="form-element"  style= "display:inline;">
-                  <select name="credit_card_month">
+                 <select class="selectpicker">
                 <option value="1">1 - January</option>
                 <option value="2">2 - February</option>
                 <option value="3">3 - March</option>
@@ -145,8 +191,9 @@ $("input").on("change", function(){
                 <option value="12">12 - December</option>
                 </select>
                 </div>
+                
               <div class="form-element" style="display:inline;">
-            <select name="credit_card_year" id="credit_card_year" >
+              <select class="selectpicker" data-style="btn-info">
                 <option value="2017">2017</option>
                 <option value="2018">2018</option>
                 <option value="2019">2019</option>
@@ -186,9 +233,11 @@ $("input").on("change", function(){
               <div class="form-item">
               <label class="form-input-label">
              
-              <input class="form-text-input input-text numerical input-text placeholder-processed" type="text" name="credit_card[postal_code]" 
-              id="credit_card_postal_code" pattern="[0-9]{4,6}"  required>
-                <div class="input-validation"></div>
+                <div>
+           <input class="form-text-input input-text numerical input-text placeholder-processed" type="text" name="credit_card[postal_code]" 
+              id="credit_card_postal_code" pattern="[0-9]{4,6}"  required style="float:left">
+         <div class="input-validation" style="float:right"></div>
+       </div>
               </label>
             </div>   
               </div>
@@ -196,7 +245,7 @@ $("input").on("change", function(){
           <hr>
           </br>
              <div class="form-footer">
-               <button id="payButton" class=" btn payment" onclick="getCreditcard(); return false;" style="background-color:crimson;">Save changes</button>
+               <button id="payButton" type="submit" class=" btn  btn-info payment" onclick="getCreditcard(); return false;" style="">Save changes</button>
 
           </div>
           </div>
@@ -205,7 +254,7 @@ $("input").on("change", function(){
          
           <div class="PayPal" style="display:none">
     <div class="form-footer">
-           <a href="https://www.paypal.com/signin?returnUri=http%3A%2F%2Furi.paypal.com%2FWeb%2FWeb%2Fcgi-bin%2Fwebscr%3Fvia%3Dul&state=%3fcmd%3d_account" target="_blank"> <button type="button" class="btn" style="background-color:crimson;" type="submit">Continue with PayPal</button></a>
+           <a href="https://www.paypal.com/signin?returnUri=http%3A%2F%2Furi.paypal.com%2FWeb%2FWeb%2Fcgi-bin%2Fwebscr%3Fvia%3Dul&state=%3fcmd%3d_account" target="_blank"> <button type="button" class="btn btn-info"  type="submit">Continue with PayPal</button></a>
           </div>
             </div>
      
