@@ -6,6 +6,37 @@
     color:crimson
 }
 
+.middle {
+	text-align: center;
+
+	
+}
+
+.col-md-8.col-xs-offset-2{
+padding:0;
+}
+.fa{
+    padding-bottom: 0;
+}
+.inactive2{
+    color:black;
+}
+.active2 {
+	color: green;
+}	
+
+.second {
+	text-align: center;
+	
+	
+}
+.inactive1{
+    color:black;
+}
+.active1 {
+	color: green;
+}	
+
 .col-xs-2{
     padding:0;
     text-align: left;
@@ -21,12 +52,48 @@
 .settingsPart{margin-top:5%;}
    #enable{float:right;
    background-color: red;}
+
+
+
+
+
+
     </style>
  
 <script>
 $(document).ready(function () {
    
-    $("#myForm :input").prop("disabled", true);
+$('.sendButton').attr('disabled',true);
+    $('#message').keyup(function(){
+        if($(this).val().length !=0){
+            $('.sendButton').attr('disabled', false);
+        }
+        else
+        {
+            $('.sendButton').attr('disabled', true);        
+        }
+    })
+
+   $('.sendButton').click(function()
+   {
+        $("#enterPhone1").hide();
+   }
+   
+   )
+
+   
+
+	$('.middle').click(function() {
+		$('.inactive2, .active2').toggle();
+         $("#email1").toggle();
+  });
+
+
+$('.second').click(function() {
+		$('.inactive1, .active1').toggle();
+          $("#enterPhone1").toggle();
+  });
+
 
     $("#Securitymenu").click(function(){
         event.preventDefault();
@@ -50,17 +117,28 @@ $(document).ready(function () {
         $("#Account").hide(); 
          $("#Notification").show();
     })
+   
+   $("#addPhone").click(function(event){
+    event.preventDefault();
+    if ($("#enterPhone").is(':visible')){
+     $("#enterPhone").hide();
+    }
+    else{ $("#enterPhone").show();}
+    })
 
     $("#turnOnOff").click(function(event){
     event.preventDefault();
-     $("#phoneVerify").show();
+    if ($("#phoneVerify").is(':visible')){
+    $("#phoneVerify").hide();
+    }
+     else{
+         $("#phoneVerify").show();
+     }
     });
 
-     $("#addPhone").click(function(){
-     $("#enterPhone").show();
-    });
+    
 
-
+ $("#myForm :input").prop("disabled", true);
 });
 
 function disablenot(){
@@ -104,6 +182,7 @@ function disableYes(){
            <hr>
          
               <button id="enable"  onclick="disablenot();" type="button" value="Enable">Enable </button>
+           
             <form id="myForm">
           
            
@@ -268,78 +347,100 @@ function disableYes(){
           <h4>Activate this feature for enchanced account security</h4>
           </div>
            <div class="col-xs-1">
-          <p >Off</p>
+
           </div>
            <div id="phoneVerify" style="display: none" class="form-group col-xs-10">
           <p>You'll to add a phone number to activate two-step verification</p>
-          <p id="addPhone">Add a phone number</p>
+          <a href="" id="addPhone">Add a phone number</a>
           <div style="display: none;" id="enterPhone">
-          <input  type="number" name "phone" class="form-control input-md pull-left">
-          <button> Send code</button>
+              
+          <input type="text" required data-errmsg="Enter 10 digit phone number" name "phone"  class="form-control input-md pull-left">
+          <button type="button"  class=" btn payment" type="submit" style="background-color:crimson;margin-top:10%;"> Send code</button>
            </div>
            </div>
        </div>
         </div>
+
+                        
         </form>
-        </div>
+
+           
+                                
+          
+                        
+                
+                   
+    </div>   
+        
 
 
 
 
 
-        <div class="col-md-8 col-xs-offset-2">
-
-        <div class="settingsPart" id="Notification" style="display: none">
+        <div class="col-md-8 col-xs-offset-2 well">
+        
+        <div class="settingsPart " id="Notification" style="display: none">
            <h3>
                Notifications
            </h3>
            <small class="form-text text-muted">  Change your notification preferences.</small>
            
            <hr>
-           
-
             <form>
 
-           <div class="form-group col-xs-10">
-                <div class="col-xs-9">
-          <h3 id="securityheader">Two-step verification</h3> 
+           <div class="form-group col-xs-12">
+                <div class="col-xs-12">
+         
+          <p style="float:left;"> Send notifications by email </p>
+        
+             
+        <div class="middle" style="float:right">
+		<i class="fa fa-toggle-on fa-2x active2" id="on" style="display:none;"></i>
+		<i class="fa fa-toggle-on fa-2x fa-rotate-180 inactive2" id="off" ></i>
+	    </div> 
           </div>
-           <div class="col-xs-1">
-          <a href="#" id="turnOnOff">Change</a>
-          </div>
-          </div>
-           <div class="form-group col-xs-10">
-                <div class="col-xs-9">
-          <h4>Activate this feature for enchanced account security</h4>
-          </div>
-           <div class="col-xs-1">
-          <p >Off</p>
-          </div>
-           <div id="phoneVerify" style="display: none" class="form-group col-xs-10">
-          <p>You'll to add a phone number to activate two-step verification</p>
-          <p id="addPhone">Add a phone number</p>
-          <div style="display: none;" id="enterPhone">
-          <input  type="number" name "phone" class="form-control input-md pull-left">
-          <button> Send code</button>
-           </div>
-           </div>
-       </div>
+     </div>
+      <div class="form-group col-xs-12" id="email1" style="display:none;">
+                <div class="col-xs-12">
+       <div>
+       <input type="text" required data-errmsg="Enter 10 digit phone number"  required name="phone"/><br><br>
+      <input type"button" class="btn btn-info" value="Save">
+      </div>
         </div>
-       
+        </div>
+
+           <div class="form-group col-xs-12">
+                <div class="col-xs-12">
+                    <DIV>
+          <p style="float:left;">Send notifications by phone</P>
+          
+           <div class="second" style="float:right">
+		<i class="fa fa-toggle-on fa-2x active1" id="on" style="display:none;"></i>
+		<i class="fa fa-toggle-on fa-2x fa-rotate-180 inactive1" id="off" ></i>
+	   </div> 
+
+      </DIV>
+
+       </div>
+           
+       </div>
+<div class="form-group col-xs-12" id="enterPhone1" style="display:none;">
+                <div class="col-xs-12">
+       <div>
+       <input type="text" required data-errmsg="Enter 10 digit phone number"   id="message" required name="phone"/><br><br>
+      <input type"button" class="btn btn-info sendButton" value="Save">
+      </div>
+        </div>
+</div>
+</div>
+    
+        </div>
         </div>
            <!--Address-->
 
 <!-- End of Address-->
 
-           	<div class="col-md-8 col-xs-offset-2">
-                                   </br>  
-<hr>
-                        <div class="col-xs-2">
-                 <input type="button"  class=" btn payment" onclick="disableYes();"  type="submit" style="background-color:crimson;margin-top:10%;" value="Save changes"></button> 
-                        </div>
-                    </div>
-    </div>   
 
- </form>
+
 
 

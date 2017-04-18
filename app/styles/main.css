@@ -2011,7 +2011,9 @@ label.avg-salary-info{
 .schedule table tbody tr td {
     padding-left: 20px;
 }
-
+    body.md-default-theme, body, html.md-default-theme, html {
+        background-color: rgb(250,250,250);
+    }
 .detail {
     margin-left: auto;
     margin-right: auto;
