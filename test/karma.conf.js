@@ -37,6 +37,7 @@ module.exports = function(config) {
       'bower_components/moment/moment.js',
       'bower_components/bootstrap3-datetimepicker/build/js/bootstrap-datetimepicker.min.js',
       'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+      'bower_components/bootstrap-toggle/js/bootstrap-toggle.min.js',
       'bower_components/angular-ui-router/release/angular-ui-router.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
