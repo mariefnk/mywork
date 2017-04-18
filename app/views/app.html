@@ -7,28 +7,28 @@
     <script src="scripts/DataModelJS.js"></script>
     <script src="scripts/MessengerJS.js"></script>
  <script>
-     function toggleNav() {
-    var state =$('#hamburger').css('visibility')
-    if (state == 'visible'){
-        $('.employer-navbar').toggleClass('nav-collapsed');
-        $('#hamburger').css('visibility','hidden');
-      $('.wrapper').css('margin-left','160px');
-    } else {
-        $('#hamburger').css('visibility','visible');
-        $('.employer-navbar').toggleClass('nav-collapsed');
-        $('.wrapper').css('margin-left','0px');
-     $('.main-content').css('margin-left','65px');
+       function toggleNav() {
+        var state =$('#hamburger').css('visibility')
+        if (state == 'visible'){
+            $('.employer-navbar').toggleClass('nav-collapsed');
+            $('#hamburger').css('visibility','hidden');
+        $('.wrapper').css('margin-left','160px');
+        } else {
+            $('#hamburger').css('visibility','visible');
+            $('.employer-navbar').toggleClass('nav-collapsed');
+            $('.wrapper').css('margin-left','0px');
+        $('.main-content').css('margin-left','65px');
+        }
+        
+        $('.wrapper').css('transition','all 0.5s');
     }
-    
-      $('.wrapper').css('transition','all 0.5s');
-}
 
-function closeNav() {
-    $('.employer-navbar').addClass('nav-collapsed');
-    $('#hamburger').css('visibility','visible');
-     $('.wrapper').css('margin-left','0px');
-     $('.main-content').css('margin-left','65px');
-}
+    function closeNav() {
+        $('.employer-navbar').addClass('nav-collapsed');
+        $('#hamburger').css('visibility','visible');
+        $('.wrapper').css('margin-left','0px');
+        $('.main-content').css('margin-left','65px');
+    }
  </script> 
 
 <div class="app-container">

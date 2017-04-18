@@ -1,5 +1,5 @@
 <style>
- @import url('//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css');
+ 
  .content {
     overflow: hidden;
 }
@@ -110,7 +110,7 @@ p {
                                  <div id="filter-myworks-months"  class="collapse">
                                      <ul class="list-filter-month" ng-repeat = "month in monthsGroup">
                                         <li class ="filter-month"> <label>
-                                            <input type="checkbox"  ng-model="useMonth[month]"/ >
+                                            <input type="checkbox"  ng-model="useMonths[month]"/ >
                                                 {{month}}
                                             </label></li>
                                     </ul>
@@ -136,7 +136,18 @@ p {
 <!--                                     <div class="apply-months-filter">Filter</div>
                                  </div -->
                                                    <div data-toggle="collapse" data-target="#filter-category" class="subtitle filter-categories" href="#filter-category">Category </div>
-                                        <div class="collapse filter-category" id="filter-category">
+                                        
+                                        
+                                    <div id="filter-category"  class="collapse filter-category">
+                                     <ul class="list-filter-category" ng-repeat = "category in categoryGroup">
+                                        <li class ="filter-cat"> <label>
+                                            <input type="checkbox"  ng-model="useCategory[category]"/ >
+                                                {{category}}
+                                            </label></li>
+                                    </ul>
+                                 </div>
+
+                                        <!-- div class="collapse filter-category" id="filter-category">
                                             <ul class="list-filter-category">
                                             <li class ="filter-cat"> <label>
                                                 <input type="checkbox" name="filterCat-bartender">
@@ -156,9 +167,21 @@ p {
                                                 </label></li>
                                             </ul>
                                            
+                                        </div -->
+                                        <div data-toggle="collapse" data-target="#filter-location" class="subtitle filter-categories" href="#filter-location">Location</div>
+                                        <div id="filter-location"  class="collapse filter-location">
+                                            <ul class="list-filter-category" ng-repeat = "location in locationGroup">
+                                                <li class ="filter-cat"> <label>
+                                                    <input type="checkbox"  ng-model="useLocation[location]"/ >
+                                                        {{location}}
+                                                         <span>({{(filteredAppointments | filter:location).length}})
+                                                    </label>
+                                                </li>
+                                            </ul>
                                         </div>
-                                            <div data-toggle="collapse" data-target="#filter-location" class="subtitle filter-categories" href="#filter-location">Location</div>
-                                        <div class="collapse filter-location" id="filter-location">
+                                        
+                                        
+                                        <!-- div class="collapse filter-location" id="filter-location">
                                             <ul class="list-filter-category" ng-model = "selectedLocation">
                                             <li class ="filter-cat"> <label>
                                                 <input type="checkbox" name="filterCat-bartender">
@@ -179,7 +202,7 @@ p {
                                                 
                                             </ul>
                                            <input type="hidden" ng-model = "selectedLocation" >
-                                        </div>
+                                        </div -->
 
                                 </div>
 								</div>
@@ -213,7 +236,7 @@ p {
                                  </tr>
                              </thead>
 							<tbody>
-							<tr ng-repeat-start="a in filteredAppointments |  filter:{status:'1'} ">
+							<tr ng-repeat-start="a in filteredAppointments">
                                 
 						
                         <td>
