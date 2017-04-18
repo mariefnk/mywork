@@ -88,9 +88,9 @@ p {
 
 </style>
 <script>
-$('#my-works-table').DataTable( {
+/*$('#my-works-table').DataTable( {
     responsive: true
-} );
+} ); */
 
     </script>
  
@@ -108,26 +108,33 @@ $('#my-works-table').DataTable( {
                                  <div id="filter-myworks-years" data-toggle="collapse" data-target="#filter-myworks-months" class="collapse filter-years"><div class ="filter-year" btn btn-default>2017</div>
                             </div>
                                  <div id="filter-myworks-months"  class="collapse">
-                                     <ul class="list-filter-month">
+                                     <ul class="list-filter-month" ng-repeat = "month in monthsGroup">
+                                        <li class ="filter-month"> <label>
+                                            <input type="checkbox"  ng-model="useMonth[month]"/ >
+                                                {{month}}
+                                            </label></li>
+                                    </ul>
+                                 </div>
+                                        <!-- ul class="list-filter-month" ng-model = "selectedMonth">
                                      <li class ="filter-month"> <label>
-                                                <input type="checkbox" onclick="getFiltersCount()">
+                                                <input type="checkbox" ng-click="getFiltersCount(this,'04')">
                                                 April
                                             </label></li>
                                      <li class ="filter-month"> <label>
-                                                <input type="checkbox">
+                                                <input type="checkbox" ng-click="getFiltersCount('03')">
                                                 March
                                             </label></li>
                                      <li class ="filter-month"> <label>
-                                                <input type="checkbox">
-                                                February
+                                                <input type="checkbox" ng-click="getFiltersCount('05')">
+                                                May
                                             </label></li>
                                      <li class ="filter-month"> <label>
-                                                <input type="checkbox">
-                                                January
+                                                <input type="checkbox" ng-click="getFiltersCount('06')">
+                                                June
                                             </label></li>
                                      </ul>
-<!--                                     <div class="apply-months-filter">Filter</div>-->
-                                 </div>
+<!--                                     <div class="apply-months-filter">Filter</div>
+                                 </div -->
                                                    <div data-toggle="collapse" data-target="#filter-category" class="subtitle filter-categories" href="#filter-category">Category </div>
                                         <div class="collapse filter-category" id="filter-category">
                                             <ul class="list-filter-category">
@@ -152,7 +159,7 @@ $('#my-works-table').DataTable( {
                                         </div>
                                             <div data-toggle="collapse" data-target="#filter-location" class="subtitle filter-categories" href="#filter-location">Location</div>
                                         <div class="collapse filter-location" id="filter-location">
-                                            <ul class="list-filter-category">
+                                            <ul class="list-filter-category" ng-model = "selectedLocation">
                                             <li class ="filter-cat"> <label>
                                                 <input type="checkbox" name="filterCat-bartender">
                                                 New York
@@ -169,8 +176,9 @@ $('#my-works-table').DataTable( {
                                                 <input type="checkbox" name="filterCat-security" class="filter-category">
                                                Boston
                                                 </label></li>
+                                                
                                             </ul>
-                                           
+                                           <input type="hidden" ng-model = "selectedLocation" >
                                         </div>
 
                                 </div>
@@ -205,7 +213,7 @@ $('#my-works-table').DataTable( {
                                  </tr>
                              </thead>
 							<tbody>
-							<tr ng-repeat-start="a in appointments |  filter:{status:'1'}">
+							<tr ng-repeat-start="a in filteredAppointments |  filter:{status:'1'} ">
                                 
 						
                         <td>
@@ -219,8 +227,8 @@ $('#my-works-table').DataTable( {
 			            <td>{{a.start_date}}</td>
                         <td>{{a.end_date}}</td>
 						<td>{{a.location}}</td>
-						
-						<!--<td style="display:none;">{{a.month}}</td>-->
+						<td style="display:none;">{{a.month}}</td>
+	
 						</tr>
 
 						 <tr  class="nohover" ng-if="a.expanded" ng-repeat-end="">
@@ -284,22 +292,22 @@ $('#my-works-table').DataTable( {
 					<div class="form-group" >
 						<label for="time">Time: </label>
 						<div class='input-group date' id='datetimepicker'>
-						<input name="time" type='text'  id="startdate"  class="form-control" ng-model="time" id="time" required ng-pattern="/\d{2}/\d{2}/\d{4} \d{2}:\d{2}/" ng-blur="updateTime()"/>
+						<input name="startTime" class="form-control" ng-model="startTime" id="startTime" required ng-pattern="/\d{2}/\d{2}/\d{4} \d{2}:\d{2}/" ng-blur="updateTime()"/>
 							<span class="input-group-addon">
-							<span class="glyphicon glyphicon-calendar"></span>
+							    <span class="glyphicon glyphicon-calendar"></span>
 					       </span>
 						</div>							
 					</div>
 					<div class="form-group">
 						<label for="time">Time: </label>
 						<div class='input-group date' id='datetimepicker1'>
-						<input name="time" type='text' ng-model="inputEnd" class="form-control" ng-model="time" id="time1" required ng-pattern="/\d{2}/\d{2}/\d{4} \d{2}:\d{2}/" ng-blur="updateTime()"/>
+						<input name="endTime" class="form-control" ng-model="endTime" id="endTime" required ng-pattern="/\d{2}/\d{2}/\d{4} \d{2}:\d{2}/" ng-blur="updateTime()"/>
 						<span class="input-group-addon">
 						<span class="glyphicon glyphicon-calendar"></span>
 						</span>
 					</div>							
 					</div>
-<button class="btn btn-info btn-sm " class="close" <button type="button" id="myBtn{{currentSelected}}" ng-click="addItem(currentSelected)" class="close" data-dismiss="modal"> Finish</button>
+<button class="btn btn-info btn-sm " class="close" <button type="button" id="myBtn{{currentSelected}}" ng-disabled="startTime=='' || endTime =='' || startTime==undefined || endTime ==undefined" ng-click="addItem(currentSelected)" class="close" data-dismiss="modal"> Finish</button>
 		        </div>
 
 			 </div>
@@ -320,7 +328,7 @@ $('#my-works-table').DataTable( {
     <label class="star star-1" for="star-1"></label>
   </form>
 </div>
-		 		 <button class="btn btn-info btn-sm " class="close" <button type="button" id="myBtn{{currentSelected}}" ng-click="testClick(currentSelected)" class="close" data-dismiss="modal"> Finish</button>
+	<button type="button" id="myBtn{{currentSelected}}" ng-click="testClick(currentSelected)" > Finish</button>
 
 			</div>
   		</div>
@@ -361,10 +369,10 @@ var span = document.getElementsByClassName("close")[0];
 
 $(document).ready(function(){
 		$('#datetimepicker').datetimepicker({
-			format: 'MM/DD/YYYY',
+			format: 'YYYY-MM-DD',
 		});
 		$('#datetimepicker1').datetimepicker({
-			format: 'MM/DD/YYYY',
+			format: 'YYYY-MM-DD',
 		});
 	});
 
