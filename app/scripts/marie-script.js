@@ -19,7 +19,7 @@ function closeJobMajorsList(){
     document.getElementById("majors-list").style.height = "0%";
 }
 
-function toggleNav() {
+/*function toggleNav() {
     var state =$('#hamburger').css('visibility')
     if (state == 'visible'){
         $('.employer-navbar').toggleClass('nav-collapsed');
@@ -40,7 +40,7 @@ function closeNav() {
     $('#hamburger').css('visibility','visible');
      $('.wrapper').css('margin-left','0px');
      $('.main-content').css('margin-left','65px');
-}
+}*/
 
 function updateSectionCheck(target) {
     var holder = $(target).closest('.my-section');
@@ -701,13 +701,13 @@ function previewFile() {
 
 function experienceLevelChanged(el) {
     if (el.value != '') {
-        $('#rel-position').html(document.myForm.category.value);
+        var categoryPicked = $('#rel-position').html(document.myForm.category.value);
         var degreeHolder = $('.degree-input');
         var degree = degreeHolder.find('select[name=degree]');
         var content = '';
         switch (document.myForm.category.value) {
             case 'Bartender':
-                content += '<option value="">-Select-</option>';
+                content += '<option value="">Formation related to position ' + categoryPicked'</option>';
                 content += '<option>Paul Bocuse</option>';
                 content += '<option>Ecole Du Bar</option>';
                 content += '<option>Bartender School</option>';
@@ -728,7 +728,7 @@ function experienceLevelChanged(el) {
                 content += '<option>None</option>';
                 break;
             case 'Security Agent':
-                content += '<option value="">-Select-</option>';
+                content += '<option value="">Formation related to position <span>id="rel-position"></span></option>';
                 content += '<option>Security Agent School</option>';
                 content += '<option>Security Network</option>';
                 content += '<option>None</option>';

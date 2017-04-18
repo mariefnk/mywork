@@ -149,13 +149,13 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider){
     }
   })
 
-  $stateProvider.state('app.myreviews',{
-    url: '/myreviews',
-    abstract: false,
-    views: {
-      app: {templateUrl: "views/myreviews.html", controller: 'myreviewsController'}
-    }
-  })
+  // $stateProvider.state('app.myreviews',{
+  //   url: '/myreviews',
+  //   abstract: false,
+  //   views: {
+  //     app: {templateUrl: "views/myreviews.html", controller: 'myreviewsController'}
+  //   }
+  // })
   $stateProvider.state('app.homepageemployer',{
     url: '/home-page-employer',
     abstract: false,

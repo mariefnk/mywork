@@ -125,7 +125,7 @@
 
          <div class="col-md-12" style="margin-left:75px;">           
 
-            <div class="form-group" ng-class="{'has-error':myForm.firstName.$error.required && !myForm.firstName.$pristine) }">
+            <div class="form-group" ng-class="{'has-error':myForm.firstName.$error.required && !myForm.firstName.$pristine }">
               <input  name="firstName" type="text" ng-model="firstName" required="required" class="form-control login-signup-form-field" placeholder="First Name">
                <div class="submit-messages" ng-if="((myForm.firstName.$error.minlength || myForm.firstName.$error.required)  && !myForm.firstName.$pristine)" ng-messages="myForm.firstName.$error" role="alert">
                 <div ng-if="myForm.firstName.$error.required">Enter your first name</div>
@@ -139,41 +139,45 @@
               </div>
             </div>
 
-             <div class="form-group" ng-class="{'has-error':myForm.phoneNumber.$error.required && !myForm.phoneNumber.$pristine}">
-              <input  name="phoneNumber" type="text" ng-model="phoneNumber" required="required" class="form-control login-signup-form-field" placeholder="Phone number"  ng-pattern="/^\d{10}$/">
-               <div class="submit-messages" ng-maxlength="10" ng-minlength="10" ng-if="!myForm.phoneNumber.$pristine && (myForm.phoneNumber.$error.minlength || myForm.phoneNumber.$error.required)" ng-messages="myForm.phoneNumber.$error" role="alert">       
+             <div class="form-group" ng-class="{'has-error':(myForm.phoneNumber.$error.required || myform.phoneNumber.$error.pattern ) && !myForm.phoneNumber.$pristine}">
+              <input  name="phoneNumber" type="text" ng-model="phoneNumber" required="required" class="form-control login-signup-form-field" placeholder="Phone number"  ng-pattern="/^[0-9]{10,10}$/">
+               <div class="submit-messages" ng-maxlength="10" ng-minlength="10" ng-if="!myForm.phoneNumber.$pristine && (myForm.phoneNumber.$error.minlength || myForm.phoneNumber.$error.required || myform.phoneNumber.$error.pattern)" ng-messages="myForm.phoneNumber.$error" role="alert">       
                 <div ng-if="myForm.phoneNumber.$error.required">Enter your phone number</div>
-                <div ng-if="myform.phoneNumber.$error.pattern"> Enter a valid phone number </div>
+                <div ng-if="myform.phoneNumber.$error.$invalid"> Enter a valid phone number </div>
               </div>
             </div>
 
             <div ng-show="user_role=='worker'" class="input-group date" data-provide="datepicker">
-                <input  name="birthDate" type="text" ng-model="birthDate" required="required" class="form-control login-signup-form-field">
-              <md-datepicker ng-model="ctrl.myDate" md-current-view="year" md-placeholder="Birth date"></md-datepicker>
+                <div class="login-signup-form-field"><md-datepicker ng-model="birthday" md-current-view="year" md-hide-icons="calendar" style="font-size:white;" md-placeholder="Birth date"></md-datepicker></div>
+              
                  <!--<label class="form-input-label">
                     <input class="dob-input" type="text" name="dob"
                                                placeholder="Birth date"/>
                  </label>-->
             </div>
 
-            <div ng-show="user_role=='worker'" class="gender-group">
-             <div class ="select-gender">Select your gender</div>
-             <div  class="radio-inline" style="text-align:center; padding-bottom: 10px;"> 
+<div ng-show="user_role=='worker'" class="gender-group" ng-class="{'has-error':myForm.gender.$error.required && !myForm.gender.$pristine}">
+     <div class ="select-gender" style="padding-top:10px;">Select your gender</div>
+            <div  class="radio-inline" style="text-align:center; padding-bottom: 10px;"> 
                                     <label class="radio-inline form-input-label-gender" style="padding-left:0;">
-                                        <input type="radio" required checked="checked" name="gender" class="gender"
+                                        <input type="radio" required checked="checked" ng-model="gender" name="gender" class="gender"
                                                value="female"> Female
                                     </label>
                                     <label class="radio-inline form-input-label-gender"> 
-                                        <input type="radio" required name="gender" class="gender" value="male"> Male
+                                        <input type="radio" required ng-model="gender" name="gender" class="gender" value="male"> Male
                                     </label>
                                     <label class="radio-inline form-input-label-gender"> 
-                                        <input type="radio" required name="gender" class="gender" value="transgender"> Transgender
+                                        <input type="radio" required ng-model="gender" name="gender" class="gender" value="transgender"> Transgender
                                     </label>
                                      <label class="radio-inline form-input-label-gender"> 
-                                        <input type="radio" required name="gender" class="gender" value="other"> Other
+                                        <input type="radio" required ng-model="gender" name="gender" class="gender" value="other"> Other
                                     </label>
-                                </div>
-          </div>
+           </div>
+    <div class="submit-messages" ng-if="!myForm.gender.$pristine && myForm.gender.$error.required" ng-messages="myForm.gender.$error" role="alert">       
+    <div ng-if="myForm.gender.$error.required">Select your gender</div>
+</div>
+</div>
+
           <div ng-show="user_role=='worker'" class="profilePicture">
               <div class="uploadpicture">Upload a picture profile</div>
           <div class="form-group">
@@ -201,15 +205,15 @@
                
  <div class="form-group state-zipcode" ng-Class="{'has-error': myForm.state.$error.required  && !myForm.state.$pristine }">
               <input  name="state" type="text" ng-model="state" required="required" class="form-control login-signup-form-field" style="width:190px; margin-left:0px;"; placeholder="State">
-               <div class="submit-messages" ng-if="!myForm.state.$pristine && (myForm.state.$error.minlength || myForm.state.$error.required)" ng-messages="myForm.state.$error"  role="alert">       
-                <div ng-if="myForm.state.$error.required">Select your state</div>
+               <div class="submit-messages" style="width:190px;" ng-if="!myForm.state.$pristine && (myForm.state.$error.minlength || myForm.state.$error.required)" ng-messages="myForm.state.$error"  role="alert">       
+                <div ng-show="myForm.state.$error.required">Select your state</div>
               </div>
             </div>
           <div class="form-group state-zipcode" ng-Class="{'has-error':(myForm.zipcode.$error.minlength || myForm.zipcode.$error.required)  && !myForm.zipcode.$pristine }">
             <input maxlength="5" name="zipcode" ng-minlength="5" type="text" ng-model="zipcode" required="required" class="form-control login-signup-form-field" style="width:205px;" placeholder="Zip code">
-            <div class="submit-messages" ng-if="!myForm.zipcode.$pristine && (myForm.zipcode.$error.minlength || myForm.zipcode.$error.required)" ng-messages="myForm.zipcode.$error"  role="alert">       
-              <div ng-if="myForm.zipcode.$error.required">Enter your zip code</div>
-              <div ng-if="myForm.zipcode.$error.minlength">Enter a valid zip code</div>
+            <div class="submit-messages" style="width:205px;" ng-if="!myForm.zipcode.$pristine && (myForm.zipcode.$error.minlength || myForm.zipcode.$error.required)" ng-messages="myForm.zipcode.$error"  role="alert">       
+              <div ng-show="myForm.zipcode.$error.required">Enter your zip code</div>
+              <div ng-show="myForm.zipcode.$error.minlength">Enter a valid zip code</div>
             </div>
         </div>
           </div>
@@ -229,53 +233,55 @@
 
          <div class="col-md-12" style="margin-left:75px;">
 
-             <div class="signup-form">
+             <div class="experience-section">
+                 <div class=" form-group login-signup-form-field">
                                 <label class="form-input-label category-input">
-                                    <i class="fa fa-fw fa-graduation-cap" aria-hidden="true"></i>
-                                    <span>Category<span style="color: red;">*</span>: </span>
                                     <select required data-errmsg="Please select a category" name="category"
                                             onchange="if (this.value != '') $('.yoe-input').show();">
-                                        <option value="">-Select-</option>
+                                        <option value="">Category</option>
                                         <option>Bartender</option>
                                         <option>Waitress</option>
                                         <option>DJ</option>
                                         <option>Security Agent</option>
                                     </select>
                                 </label>
-                                <label class="form-input-label yoe-input">
-                                    <i class="fa fa-fw fa-graduation-cap" aria-hidden="true"></i>
-                                    <span>Level of Experience<span style="color: red;">*</span>: </span>
+                                </div>
+                    <div class="form-group login-signup-form-field yoe-input">
+                                <label class="form-input-label ">
                                     <select required data-errmsg="Please enter years of experience" name="yoe"
                                             onchange="experienceLevelChanged(this);">
-                                        <option value="">-Select-</option>
+                                        <option value="">Years of experience</option>
                                         <option>No experience</option>
                                         <option>Less than 2 years</option>
                                         <option>More than 2 years</option>
                                     </select>
                                 </label>
-                                <label class="form-input-label degree-input">
-                                    <i class="fa fa-fw fa-graduation-cap" aria-hidden="true"></i>
-                                    <span>Degree/Certificate related to <span
-                                            id="rel-position"></span> position: </span>
+                                </div>
+                     <div class="form-group login-signup-form-field degree-input">
+                                <label class="form-input-label ">
+                                    <!--<span>Degree/Certificate related to <span
+                                            id="rel-position"></span> position: </span>-->
                                     <select name="degree" required data-errmsg="Please specify your degree (if any)" style="margin-left: 26px;"
                                             onchange="degreeChanged(this);">
-                                        <option value="">-Select-</option>
                                     </select>
                                 </label>
-                                <label class="form-input-label graduated-in-input">
-                                    <i class="fa fa-fw fa-graduation-cap" aria-hidden="true"></i>
-                                    <span>Graduation Year:</span>
+                                </div>
+                     <div class="form-group ogin-signup-form-field graduated-in-input">
+                                <label class="form-input-label ">
                                     <select name="graduation">
+                                          <option value="">Graduation Year</option>
                                     </select>
                                 </label>
+                                </div>
+                     <div class="form-group login-signup-form-field">
                                 <label class="form-input-label salary-exp-input">
-                                    <i class="fa fa-fw fa-graduation-cap" aria-hidden="true"></i>
                                     <input placeholder="Expected Salary*" required data-errmsg="Enter expected salary in $/hour" name="expectedSalary" size="3" required type="number" min="1" max="100"
                                            onchange="checkSalaryLimits()">
                                     <span>$/hour</span>
                                 </label>
+                                </div>
                                 <label class="form-input-label avg-salary-info">
-                                    <span>Based on your degree and level of experience, <br>average salary expectation is $<span
+                                    <span>Based on your degree and years of experience, <br>average salary expectation is $<span
                                             id="expectedSalary"></span>/hour</span>
                                 </label>
                                 <!--<label class="form-input-label">
@@ -286,12 +292,18 @@
                                 </label>-->
                             </div>
             
-          
-
-      <button class="btn btn-primary prevBtn btn-lg pull-left" type="button" ng-click="navigateToPreviousSection()">Previous</button>
-      <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" ng-click="navigateToNextSection()">Next</button>
-
+           </div>
+          <div class="row">
+                <div class="col-md-6"  style="padding-left:90px;"> 
+                   <button class="btn btn-primary prevBtn btn-lg pull-left" type="button" ng-click="navigateToPreviousSection()">Previous</button>
+                </div> 
+                <div class="col-md-6" style="padding-right:110px;">   
+                   <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" ng-click="navigateToNextSection(!(myForm.firstName.$error.required || myForm.lastName.$error.required  || myForm.address.$error.required || myForm.zipcode.$error.required || myForm.zipcode.$error.minlength  || myForm.state.$error.required || myForm.city.$error.required || myForm.phoneNumber.$error.required || myForm.phoneNumber.$error.minlength ))"
+            ng-class="{'disabled': (myForm.firstName.$error.required || myForm.lastName.$error.required  || myForm.address.$error.required || myForm.zipcode.$error.required || myForm.zipcode.$error.minlength  || myForm.state.$error.required || myForm.city.$error.required || myForm.phoneNumber.$error.required || myForm.phoneNumber.$error.minlength  )}">Next</button>
+                </div>
           </div>
+
+         
     </div>
 
       <div ng-show="currentSection==4" class="row setup-content">
@@ -422,9 +434,15 @@
                                     </div>
                                 </div>
 
-      <button class="btn btn-primary prevBtn btn-lg pull-left" type="button" ng-click="navigateToPreviousSection()">Previous</button>
-      <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" ng-click="navigateToNextSection()">Next</button>
-
+     <div class="row">
+                <div class="col-md-6"  style="padding-left:90px;"> 
+                   <button class="btn btn-primary prevBtn btn-lg pull-left" type="button" ng-click="navigateToPreviousSection()">Previous</button>
+                </div> 
+                <div class="col-md-6" style="padding-right:110px;">   
+                   <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" ng-click="navigateToNextSection(!(myForm.firstName.$error.required || myForm.lastName.$error.required  || myForm.address.$error.required || myForm.zipcode.$error.required || myForm.zipcode.$error.minlength  || myForm.state.$error.required || myForm.city.$error.required || myForm.phoneNumber.$error.required || myForm.phoneNumber.$error.minlength ))"
+            ng-class="{'disabled': (myForm.firstName.$error.required || myForm.lastName.$error.required  || myForm.address.$error.required || myForm.zipcode.$error.required || myForm.zipcode.$error.minlength  || myForm.state.$error.required || myForm.city.$error.required || myForm.phoneNumber.$error.required || myForm.phoneNumber.$error.minlength  )}">Next</button>
+                </div>
+          </div>
           </div>
     </div>
       
@@ -469,6 +487,16 @@
             <button class="btn btn-primary prevBtn btn-lg pull-left" type="button" ng-click="navigateToPreviousSection()">Previous</button>
             <button class="btn submitBtn btn-lg pull-right" type="submit" ng-click="submit()">Submit</button>
           </div>
+
+          <!--<div class="row">
+                <div class="col-md-6"  style="padding-left:90px;"> 
+                   <button class="btn btn-primary prevBtn btn-lg pull-left" type="button" ng-click="navigateToPreviousSection()">Previous</button>
+                </div> 
+                <div class="col-md-6" style="padding-right:110px;">   
+                   <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" ng-click="navigateToNextSection(!(myForm.firstName.$error.required || myForm.lastName.$error.required  || myForm.address.$error.required || myForm.zipcode.$error.required || myForm.zipcode.$error.minlength  || myForm.state.$error.required || myForm.city.$error.required || myForm.phoneNumber.$error.required || myForm.phoneNumber.$error.minlength ))"
+            ng-class="{'disabled': (myForm.firstName.$error.required || myForm.lastName.$error.required  || myForm.address.$error.required || myForm.zipcode.$error.required || myForm.zipcode.$error.minlength  || myForm.state.$error.required || myForm.city.$error.required || myForm.phoneNumber.$error.required || myForm.phoneNumber.$error.minlength  )}">Next</button>
+                </div>
+          </div>-->
         
       </div>
       </div>
