@@ -49,37 +49,30 @@ padding:0;
 }
 #securityheader{margin:0;}
 
-.settingsPart{margin-top:5%;}
-   #enable{float:right;
+
+   #enable{
    background-color: red;}
 
+.col-xs-9{
+    margin-left:5%;
+}
 
+.menusmall h6:hover {
+  
+    background-color:#428bca;
+   
+}
 
-
-
+.mybutton1{
+    margin-bottom:10%;
+}
 
     </style>
  
 <script>
 $(document).ready(function () {
    
-$('.sendButton').attr('disabled',true);
-    $('#message').keyup(function(){
-        if($(this).val().length !=0){
-            $('.sendButton').attr('disabled', false);
-        }
-        else
-        {
-            $('.sendButton').attr('disabled', true);        
-        }
-    })
 
-   $('.sendButton').click(function()
-   {
-        $("#enterPhone1").hide();
-   }
-   
-   )
 
    
 
@@ -93,6 +86,9 @@ $('.second').click(function() {
 		$('.inactive1, .active1').toggle();
           $("#enterPhone1").toggle();
   });
+
+
+  
 
 
     $("#Securitymenu").click(function(){
@@ -116,7 +112,7 @@ $('.second').click(function() {
          $("#Security").hide();
         $("#Account").hide(); 
          $("#Notification").show();
-    })
+    });
    
    $("#addPhone").click(function(event){
     event.preventDefault();
@@ -136,22 +132,58 @@ $('.second').click(function() {
      }
     });
 
-    
-
- $("#myForm :input").prop("disabled", true);
 });
 
-function disablenot(){
-   $("#myForm :input").prop("disabled", false);
-    
+function showPassword()
+{
+        event.preventDefault();
+        $("#emailChange").hide();
+          $("#PhoneChange").hide();
+           $("#AddressChange").hide();
+           $("#PasswordChange").show();
 
 }
 
-function disableYes(){
-    $("#myForm :input").prop("disabled", true); 
+function showEmail()
+{
+        event.preventDefault();
+          $("#PhoneChange").hide();
+           $("#AddressChange").hide();
+           $("#PasswordChange").hide();
+            $("#emailChange").show();
 }
 
 
+function showPhone()
+{
+        event.preventDefault();
+           $("#AddressChange").hide();
+           $("#PasswordChange").hide();
+            $("#emailChange").hide();
+             $("#PhoneChange").show();
+}
+
+function showAddress()
+{
+        event.preventDefault();
+           $("#PasswordChange").hide();
+            $("#emailChange").hide();
+             $("#PhoneChange").hide();
+              $("#AddressChange").show();
+}
+
+function validateEmail(){
+     var input =  $("#newEmail").val();
+     var second=$("#confirmEmail").val();
+     if(input==second){
+     document.getElementById("writeEmail").innerHTML = input;
+         $('input[type="text"], textarea').val('');
+         $(".input-validation").hide();
+     }
+     else{
+        $(".input-validation").show();
+     }
+}
 
     </script>
 
@@ -174,80 +206,107 @@ function disableYes(){
  
   
            <div  class="settingsPart" id="Account">
-               
+             <div class="col-md-12 well">  
            <h3>
                Account
            </h3>
-           <small class="form-text text-muted"> Change your basic account and language settings.</small>
+           <small class="form-text text-muted"> Change your basic account information and language settings.</small>
            <hr>
          
-              <button id="enable"  onclick="disablenot();" type="button" value="Enable">Enable </button>
+              <!--<button id="enable"  onclick="disablenot();" type="button" value="Enable">Enable </button>-->
            
-            <form id="myForm">
+
           
            
-            <div class="form-group col-xs-12 pull-left">
-                
-            <div class="col-xs-4">
-			    <label class="control-label">Email</label>
-            </div>
-             <div class="col-xs-7">
-			   <label class="form-input-label">
-               <input type="text" data-errmsg="Enter a valid email address" name="email" /></label>
-            </div>
-           
+            <form id="myForm">
+            <div class="col-xs-2 " >   
+                <a href=""  class="menusmall " onclick=" showEmail()" id="email" ><h6>Email</h6> </a>
+                <br>
 
-            </div>
+               <a href="" class="menusmall" onclick=" showPassword()" id="password" ><h6> Password</h6> </a>
+                  <br>
+               <a href="" class="menusmall" onclick="showPhone()"id="phone" > <h6>Phone Number</h6> </a>
+                   <br>
+                <a href=""  class="menusmall" onclick="showAddress()" id="address" ><h6>Address</h6></a>
+                    <br>
+                </div> 
+            <div class="col-xs-9 " >
 
+                <div id="emailChange" style="margin-left:20%;">
+          <div>                
+           <h5>
+               Change the email address
+           </h5>
+           <div class="input-validation" style="display:none; color:red">Email does not match. Please enter again</div>
+         <p>   Current email : <strong> <snap id="writeEmail"><snap></p> </strong>
             
-             <div class="form-group col-xs-12 pull-left">
-            <div class="col-xs-4">
-			    <label class="control-label">Phone Number</label>
-            </div>
-            <div class="col-xs-7">
-			   <label class="form-input-label">
-                <input type="text" required data-errmsg="Enter 10 digit phone number" name="phone"/></label>
-                </div>
-             
-		    </div>
+          </div>
+           
+           <strong><p>New Email</p></strong>
+                    <input type="email" data-errmsg="Enter a valid email address" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="newEmail" name="email" /></label><br>  <br>
+                      <strong><p>Confirm Email</p></strong>
+                      <input type="email" data-errmsg="Enter a valid email address" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="confirmEmail" name="email" /></label>  </br></br>
+                    
+                    <input type="submit" class="btn btn-info mybutton1" onclick="validateEmail()" value="Enable">
+                 </div>
+
+                      
 
 
-             <div class="form-group col-xs-12 pull-left">
-            <div class="col-xs-4">
-			    <label class="control-label">Password</label>
-            </div>
-            <div class="col-xs-7">
-			   <label class="form-input-label">
-                   
-                   <input type="password" data-errmsg="At least 8 characters with a digit and letter" name="password" /></label>
-                </div>
-             
-		    </div>
+                          <div id="PasswordChange" style="margin-left:20%; display:none">
+          <div>                
+           <h5>
+               Change Password
+           </h5>
+         
+            
+            
+          </div>
+           
+           <strong><p>New Password</p></strong>
+                    <input type="password" data-errmsg="Enter a valid email address" name="email" /></label><br>  <br>
+                      <strong><p>Confirm Password</p></strong>
+                      <input type="password" data-errmsg="Enter a valid email address" name="email" /></label>  </br></br>
+                    
+                    <button id="enable"  onclick="disablenot();" type="button" value="Enable">Enable </button>
+                 </div>
 
-             <div class="form-group col-xs-12 pull-left" style="display: none">
-            <div class="col-xs-4">
-			    <label class="control-label" style="color:crimson;">New Password</label>
-            </div>
-            <div class="col-xs-7">
-			    <input type="password"  class=" form-control input-md pull-left">
-                </div>
-              
-		    </div>
+           <!-- -->
+
+                <div id="PhoneChange" style="margin-left:20%; display:none">
+          <div>                
+           <h5>
+               Change Phone Number
+           </h5>
+         
+            <small class="form-text text-muted"> Current Phone :</small>
+            
+          </div>
+           
+           <strong><p>New Phone Number</p></strong>
+                    <input type="text" data-errmsg="Enter a valid email address" name="email" /></label><br>  <br>
+                     
+                    <button id="enable"  onclick="disablenot();" type="button" value="Enable">Enable </button>
+                 </div>
+                <!-- -->
 
 
-
-
-
-            	<div class="form-group col-xs-12">
-            <div class="col-xs-4">
+         <div id="AddressChange" style="margin-left:20%; display:none">
+          <div>                
+           <h5>
+               Change your Address
+           </h5>
+        
+          </div>
+           <div class="col-xs-4">
                 <label class=" control-label">Street</label>
             </div>
             <div class="col-xs-3">            
                 <label class="form-input-label">
-                                    <input type="text" required data-errmsg="Please enter address line" name="address" /></label>
+             <input type="text" required data-errmsg="Please enter address line" name="address" /></label>
             </div>
             
-		    </div>
+		    
 
 
                   	<div class="form-group col-xs-12">
@@ -310,21 +369,27 @@ function disableYes(){
              <option>Spainish</option>
             </select>
                 </div>
-              
-		    </div>
-
-           </form>
+                    <button id="enable"  onclick="disablenot();" type="button" value="Enable">Enable </button>
+                 </div>
 
 
+             </div>   
+          </form>
+           
 
-       </div>
+
+
+         
+</div>
+
+</div>
 
 </div>
 
 
-<div class="col-md-8 col-xs-offset-2">
 
-        <div class="settingsPart" id="Security" style="display: none">
+        <div class="settingsPart " id="Security" style="display: none">
+             <div class="col-md-12 well">  
            <h3>
                Security
            </h3>
@@ -359,27 +424,19 @@ function disableYes(){
            </div>
            </div>
        </div>
-        </div>
-
                         
-        </form>
-
-           
-                                
-          
-                        
-                
-                   
+        </form>     
     </div>   
+     </div>   
+
+
+
+
+
+       
         
-
-
-
-
-
-        <div class="col-md-8 col-xs-offset-2 well">
-        
-        <div class="settingsPart " id="Notification" style="display: none">
+        <div class="settingsPart  " id="Notification" style="display: none">
+          <div class="col-md-12 well">  
            <h3>
                Notifications
            </h3>
@@ -400,14 +457,7 @@ function disableYes(){
 	    </div> 
           </div>
      </div>
-      <div class="form-group col-xs-12" id="email1" style="display:none;">
-                <div class="col-xs-12">
-       <div>
-       <input type="text" required data-errmsg="Enter 10 digit phone number"  required name="phone"/><br><br>
-      <input type"button" class="btn btn-info" value="Save">
-      </div>
-        </div>
-        </div>
+      
 
            <div class="form-group col-xs-12">
                 <div class="col-xs-12">
@@ -424,18 +474,11 @@ function disableYes(){
        </div>
            
        </div>
-<div class="form-group col-xs-12" id="enterPhone1" style="display:none;">
-                <div class="col-xs-12">
-       <div>
-       <input type="text" required data-errmsg="Enter 10 digit phone number"   id="message" required name="phone"/><br><br>
-      <input type"button" class="btn btn-info sendButton" value="Save">
-      </div>
-        </div>
+
 </div>
-</div>
-    
+   </div> 
         </div>
-        </div>
+        
            <!--Address-->
 
 <!-- End of Address-->

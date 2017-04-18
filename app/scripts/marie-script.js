@@ -19,7 +19,7 @@ function closeJobMajorsList(){
     document.getElementById("majors-list").style.height = "0%";
 }
 
-function toggleNav() {
+/*function toggleNav() {
     var state =$('#hamburger').css('visibility')
     if (state == 'visible'){
         $('.employer-navbar').toggleClass('nav-collapsed');
@@ -40,7 +40,7 @@ function closeNav() {
     $('#hamburger').css('visibility','visible');
      $('.wrapper').css('margin-left','0px');
      $('.main-content').css('margin-left','65px');
-}
+}*/
 
 function updateSectionCheck(target) {
     var holder = $(target).closest('.my-section');
