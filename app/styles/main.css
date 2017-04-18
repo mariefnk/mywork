@@ -32,7 +32,11 @@
 /* HOME PAGE */
 a:hover{
     text-decoration:none;
+      color: inherit; 
 }
+a { 
+    color: inherit; 
+} 
 
 .navbar {
     background-color: transparent;
@@ -131,11 +135,11 @@ a:hover{
     /*width: 250px;*/
 }
 
-.signup-option-box:focus{
+/*.signup-option-box:focus{
      border: 2px solid #0275d8;
      background-color:black;
      color:color;
-}
+}*/
 
 .signup-option-box:hover{
     cursor: pointer;
@@ -157,6 +161,10 @@ a:hover{
     font-weight: 400;
     font-size: 14px;
     font-family: 'proxima-nova', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.state-zipcode{
+    display:inline-block;
 }
 
 /*.loginnow-btn:hover{
@@ -645,7 +653,7 @@ body #aboutus {
 }
 
 .employer-navbar, .employer-navbar-icons {
-    background: #292929;
+    background: #102331;
     width: 65px;
 }
 
@@ -946,7 +954,6 @@ ol, ul {
 /*    font-size: 1em;*/
     color: #FFFFFF;
     text-align: center;
-    padding-right: 15px;
     padding-bottom: 20px;
 
 }
@@ -1116,19 +1123,20 @@ li.navbar-subitems {
     margin-left: 5px;
 }
 
-.search .search-job {
+/*.search .search-job {
     margin-top: 10px;
     border-radius: 30px 30px 30px 30px;
-
+  
     height: 30px;
-}
+}*/
 
-/*.search {
+
+.search {
      width: 100%;
      margin-top: 10px;
      border-radius: 15px;
      border: 1px solid #eaeaea;
-}*/
+}
 
 .search input {
     text-indent: 35px;
@@ -1155,15 +1163,16 @@ li.navbar-subitems {
 }
 
 .fa-plus-circle, .fa-bell, .fa-users{
-    color: black;
+    color: #102331;
     padding: 0px;
 }
 
-/*
+
 .search-bar #search-bar-container{
-    margin-left:-1px;
+    margin-right:0px;
+    border-bottom: 1px solid #e6e6e6;
 }
-*/
+
 
 .navbar-nav .fa-bell, .navbar-nav .fa-users{
 /*
@@ -1359,14 +1368,7 @@ hr{
 }
 
 .main-content {
-/*    overflow-y: scroll;*/
-    margin-left: 25px;
-/*    margin-right: auto;*/
-    /*    max-width: 1024px;*/
-    height: 530px;
-    padding: 0px 20px 0px 20px;
-/*    background-color: #292929;*/
-    /*    vertical-align: middle;*/
+    padding: 0px 20px 0px 0px;
 }
 
 .sub-content {
@@ -1385,9 +1387,12 @@ hr{
 }
 
 .block-title {
+    padding: 10px 0px 10px 10px;
     border-radius: 4px;
-    font-size: 2em;
+    font-size: 1.2em;
     font-weight: normal;
+    background-color: #102331;
+    color: white;
 }
 
 .radio {
@@ -1427,10 +1432,11 @@ hr{
 /*    background-color: white;*/
 }
 
-.worker-name{
-    font-size:16px;
-    color:black;
+#worker-name{
+    font-size: 18px;
     font-weight: bold;
+    color: #3e90ca;
+    line-height: 23px;
 }
 
 .workers-search .availability-status {
@@ -1451,7 +1457,7 @@ hr{
 */
 
 .workers-list {
-    margin-top: 30px;
+    margin-top: 15px;
     border-radius: 5px;
     border: 1px solid #e3e3e3;
 }
@@ -1476,13 +1482,27 @@ hr{
     height: 100px;
     width: 100px;
     border: 2px solid #f0f0f0;
-    background: url('./ladyNew.png');
+    background: url('../images/12080057_10206075733424857_1178354056710554146_o.jpg');
     background-size: contain;
 }
 
 .worker-detail {
     height: 100px;
-    padding: 0 15px;
+    padding: 25px 0px 0px 5px;
+}
+
+#worker-description{
+    color:#787878;
+}
+
+#worker-name{
+    font-family: 'proxima-nova', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+#worker-header{
+    color:#666;
+    font-size: 13px;
+    font-weight: bold;
 }
 
 .worker-detail .worker-rating {
@@ -1597,20 +1617,6 @@ hr{
         margin-right: 0px;
         padding: 0px;
     }
-
-    /*
-        .main-content-wrapper{
-            margin-right:0px;
-             margin-left:0px;
-        }
-    */
-    /*
-        .workers-search{
-       overflow: hidden;
-        z-index: -99;
-    }
-    */
-
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -1693,7 +1699,8 @@ hr{
 }
 
 .profile-wrapper {
-    width: 665px;
+    background:  url('../images/12080057_10206075733424857_1178354056710554146_o.jpg');
+    width: 900px;
     border-radius: 5px;
     height: 500px;
     background: #ccc;
@@ -1743,7 +1750,7 @@ hr{
     width: 130px;
     height: 130px;
     border: 5px solid #00C4FF;
-    background: url('./ladyNew.png') no-repeat;
+    background: url('../images/12080057_10206075733424857_1178354056710554146_o.jpg') no-repeat;
     background-position:center;
     background-size: contain;
     margin: 0 auto;
@@ -1885,6 +1892,7 @@ label.avg-salary-info{
     width: 80%;
     margin-right: auto;
     margin-left: auto;
+    margin-top: -30px;
 }
 
 .profile-feedback {
@@ -1919,7 +1927,7 @@ label.avg-salary-info{
 }
 
 .profile-pitch {
-    margin-top: 30px;
+    margin-top: 20px;
     text-align: center;
 }
 
@@ -1982,7 +1990,9 @@ label.avg-salary-info{
 .schedule table tbody tr td {
     padding-left: 20px;
 }
-
+    body.md-default-theme, body, html.md-default-theme, html {
+        background-color: rgb(250,250,250);
+    }
 .detail {
     margin-left: auto;
     margin-right: auto;
@@ -2857,3 +2867,31 @@ width:50%;
     outline: none; 
     outline-style: none; 
     }
+
+.form-input-label-gender{
+    color:white;
+    font-size: 16px;
+}
+
+.select-gender, .uploadpicture{
+    color:hsla(0,0%,100%,.2);
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: .25pt;
+    line-height: normal;
+    margin-bottom:10px;
+}
+
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid hsla(0,0%,100%,.2);
+    background: transparent;
+    border-radius: 3px;
+    box-shadow: 0 2px 0 rgba(0,0,0,.08);
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    
+}

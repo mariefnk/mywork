@@ -28,7 +28,10 @@ input[type="text"]:invalid {
 select{
   height: 30px;
   width:40%;
-  border: 1px solid black;
+ 
+  border: 1px solid lightgrey;
+  border-radius: 4px;
+
 }
   </style>
 
@@ -175,8 +178,8 @@ $("input").on("change", function(){
             </div>
               <div class="col-sm-6 paymentCol">
               <div>
-              <div class="form-element"  style= "display:inline;">
-                 <select class="selectpicker">
+              <div  style= "display:inline;">
+                 <select class="btn-group bootstrap-select">
                 <option value="1">1 - January</option>
                 <option value="2">2 - February</option>
                 <option value="3">3 - March</option>
@@ -192,7 +195,7 @@ $("input").on("change", function(){
                 </select>
                 </div>
                 
-              <div class="form-element" style="display:inline;">
+              <div  style="display:inline;">
               <select class="selectpicker" data-style="btn-info">
                 <option value="2017">2017</option>
                 <option value="2018">2018</option>

@@ -1,8 +1,3 @@
-       <div class="row">
-            <div class="col-md-12 style='padding-right:0px; padding-left:0px;'">
-              <div class="main-content ">
-                <div ui-view="app" class="container" id="wrapperContainer" >
-
                   <div class="row page-locator">
                     <div class="col-md-3">
                       <div class="filter">
@@ -95,44 +90,53 @@
                       </div>
                     </div>
                     <div class="col-md-9">
-                      <div class="filter">
-                        <div class="block-title">Workers<h6>Showing 21 results</h6></div>
+                      <!--<div class="filter">-->
+                        <div class="block-title">Workers<h6><i>Showing 6 results<i></h6></div>
                         <div class="search-scroll workers-list">
                           <div ng-repeat="worker in workers">
-                            <a a ui-sref="app.selectedWorker">
+                            <a ui-sref="app.selectedWorker">
                               <div class="worker-profile">
-                                <div class="worker-image"></div>
-                                <div class="worker-detail">
-                                  <h4>Jane Doe</h4>
-                                  <p>Looking for a position as a sales representative</p>
-                                  <span class="worker-rating">Rating</span>
-                                  <span class="worker-stars">
+                                <div class="container">
+                                <div class = "row">
+                                    <div class="col-md-2">
+                                        <div class="worker-image"> </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                       <div class="worker-detail">
+                                       <h6 id="worker-name"> {{worker.firstName}} {{worker.lastName}}</h6>
+                                       <p id="worker-header">Looking for a position as a {{worker.category}}</p>
+                                    </div>
+                                        </div>
+                                        <div class="col-md-2 text-right"><strong>${{worker.salary}}</strong>/hour</div>
+                                </div>
+                                </div>
+                              <div class = "row">
+                                    <div class="col-md-12">
+                                       <div id="worker-description" style="padding-bottom:15px;">{{worker.description}}</div>
+                                    </div>
+                              </div>
+                                     <div class = "row">
+                                         <div class="col-md-12">
+                                    <div class="col-md-2">
+                                  <div class="worker-rating"><p style="padding-right: 75px;"><strong>Rating</strong><p></div>
+                                    </div>
+                                    <div class="col-md-10 text-left">
+                                      <span class="worker-stars">
                                     <i class="fa fa-star" aria-hidden="true"></i>
                                     <i class="fa fa-star" aria-hidden="true"></i>
                                     <i class="fa fa-star" aria-hidden="true"></i>
+                                     <i class="fa fa-star" aria-hidden="true"></i>
                                     <i class="fa fa-star-o" aria-hidden="true"></i>
                                   </span>
                                   
+                                     </div>
+                                    </div>
+                                     </div>
+                              </div>
+                                </a>
                                 </div>
                               </div>
-                            </a>
-                            <a>
-                              <div class="worker-profile">
-                                <div class="worker-image"></div>
-                                <div class="worker-detail">
-                                  <h4>Jane Doe</h4>
-                                  <p>Looking for a position as a sales representative</p>
-                                  <span class="worker-rating">Rating</span>
-                                  <span class="worker-stars">
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                                  </span>
-                                  
-                                </div>
-                              </div>
-                            </a>
+                          
                             <!--<a ui-sref="app.selectedWorker">
                               <div class="col-md-2">
                                 <div class="profile-picture-worker-search">
@@ -161,7 +165,7 @@
                             </a>-->
                           </div>
                         </div>
-                      </div>
+                      <!--</div>-->
                       <div class="row paginator">
                         <nav>
                           <ul class="pagination">
@@ -183,9 +187,4 @@
                           </ul>
                         </nav>
                       </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+                    

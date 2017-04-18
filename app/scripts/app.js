@@ -14,6 +14,7 @@ var myApp=angular.module('myApp',[
   'ui.router'
   ]);
 
+// <<<<<<< HEAD
   var uniqueItems = function (data, key) {
     var result = [];
     
@@ -27,6 +28,12 @@ var myApp=angular.module('myApp',[
     }
     return result;
 };
+/*=======
+  angular.module('datepickerBasicUsage', ['ngMaterial', 'ngMessages']).controller('AppCtrl', function() {
+  this.myDate = new Date();
+  this.isOpen = false;
+});
+>>>>>>> efa72678a7f9c96803081d0dee111118024f649e*/
 
 myApp.run(function($rootScope) {
     $rootScope.appointments = [{"contract_id":"4551","title":"Waiter","first_name":"Larry","last_name":"Ullman","start_date":"2017-04-02","end_date":"2017-04-02","month":new Date("2017-04-02").getMonth(),"location":"Boston","phone":"123-435-6576","wage":"$15","Email":"h@gmail.com","paid":"$50", "status":"1"},
@@ -197,12 +204,12 @@ myApp.controller('MessagesControllers', [
 myApp.controller('HomePageController', ['$scope',function ($scope) {
     // employerPageSetup();
     $scope.workers = [
-      {firstName: 'Joe', lastName: 'Laton', category: 'Waitress', profilePicture: 'images/12080057_10206075733424857_1178354056710554146_o.jpg'},
-      {firstName: 'Marie', lastName: 'Staren', category: 'Waitress', profilePicture: 'images/12080057_10206075733424857_1178354056710554146_o.jpg'},
-      {firstName: 'Don', lastName: 'Teston', category: 'Bartender', profilePicture: 'images/12080057_10206075733424857_1178354056710554146_o.jpg'},
-      {firstName: 'Clark',lastName: 'Olivier', category: 'Security Agent', profilePicture: 'images/12080057_10206075733424857_1178354056710554146_o.jpg'},
-      {firstName: 'Clara', lastName: 'Bruni', category: 'DJ', profilePicture: 'images/12080057_10206075733424857_1178354056710554146_o.jpg'},
-      {firstName: 'Max',lastName: 'Fray' , category: 'Waitress', profilePicture: 'images/12080057_10206075733424857_1178354056710554146_o.jpg'}
+      {firstName: 'Joe', lastName: 'Laton', category: 'Waitress', salary: '14' ,profilePicture: 'images/12080057_10206075733424857_1178354056710554146_o.jpg', description: "Well, I’m currently an account executive at Smith, where I handle our top performing client. Before that, I worked at an agency where I was on three different major national healthcare brands. And while I really enjoyed the work that I did, I’d love the chance to dig in much deeper with one specific healthcare company, which is why I’m so excited about this opportunity with Metro Health Center."},
+      {firstName: 'Marie', lastName: 'Staren', category: 'Waitress', salary: '11', profilePicture: 'images/12080057_10206075733424857_1178354056710554146_o.jpg', description: "I have spent the last six years developing my skills as a customer service manager for Megacompany Inc., where I have won several performance awards and been promoted twice. I love managing teams and solving customer problems."},
+      {firstName: 'Don', lastName: 'Teston', category: 'Bartender', salary: '20',  profilePicture: 'images/12080057_10206075733424857_1178354056710554146_o.jpg', description: "My first job was as an administrative assistant for Macy’s in Fort Lauderdale, Florida. I learned a great deal in that role that served me well over the next 12 years. At the time, I wasn’t sure about my career path, so I next took a position selling real estate. It only lasted for six months, but I sure enjoyed it."},
+      {firstName: 'Clark',lastName: 'Olivier', category: 'Security Agent', salary: '12',  profilePicture: 'images/12080057_10206075733424857_1178354056710554146_o.jpg', description: "Although I love my current role, I feel I’m now ready for a more challenging assignment and this position really excites me."},
+      {firstName: 'Clara', lastName: 'Bruni', category: 'DJ', salary: '17',  profilePicture: 'images/12080057_10206075733424857_1178354056710554146_o.jpg', description: "Because of the company’s financial problems and my boss’s issues, I’m worried about my job’s stability and decided to start looking for new opportunities."},
+      {firstName: 'Max',lastName: 'Fray' , category: 'Waitress', salary: '15',  profilePicture: 'images/12080057_10206075733424857_1178354056710554146_o.jpg'}
     ]
     console.log($scope.workers)
   }
@@ -226,7 +233,24 @@ myApp.controller('AppPageController', [function () {
   }
 ]);
 
+angular.module('myApp.directives', [])
+  .directive('pwCheck', [function () {
+    return {
+      require: 'ngModel',
+      link: function (scope, elem, attrs, ctrl) {
+        var firstPassword = '#' + attrs.pwCheck;
+        elem.add(firstPassword).on('keyup', function () {
+          scope.$apply(function () {
+            var v = elem.val()===$(firstPassword).val();
+            ctrl.$setValidity('pwmatch', v);
+          });
+        });
+      }
+    }
+  }]);
+
 myApp.controller('registerController', ['$scope','$state', function($scope,$state) {
+
 
   $scope.user_role = 'worker'
   $scope.select_type = function(el){
@@ -435,6 +459,8 @@ myApp.directive('innerHtmlBind', function() {
     }
   }
 });
+
+
 ////FOR CURRENT TABLE
 myApp.controller('currentjobsController', function($http,$scope,$timeout,$log,$rootScope, $mdDialog){
 
