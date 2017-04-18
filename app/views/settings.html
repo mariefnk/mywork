@@ -6,6 +6,37 @@
     color:crimson
 }
 
+.middle {
+	text-align: center;
+
+	
+}
+
+.col-md-8.col-xs-offset-2{
+padding:0;
+}
+.fa{
+    padding-bottom: 0;
+}
+.inactive2{
+    color:black;
+}
+.active2 {
+	color: green;
+}	
+
+.second {
+	text-align: center;
+	
+	
+}
+.inactive1{
+    color:black;
+}
+.active1 {
+	color: green;
+}	
+
 .col-xs-2{
     padding:0;
     text-align: left;
@@ -22,50 +53,7 @@
    #enable{float:right;
    background-color: red;}
 
-.material-switch > input[type="checkbox"] {
-    display: none;   
-}
 
-.material-switch > label {
-    cursor: pointer;
-    height: 0px;
-    position: relative; 
-    width: 40px;  
-}
-
-.material-switch > label::before {
-    background: rgb(0, 0, 0);
-    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
-    border-radius: 8px;
-    content: '';
-    height: 16px;
-    margin-top: -8px;
-    position:absolute;
-    opacity: 0.3;
-    transition: all 0.4s ease-in-out;
-    width: 40px;
-}
-.material-switch > label::after {
-    background: rgb(255, 255, 255);
-    border-radius: 16px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
-    content: '';
-    height: 24px;
-    left: -4px;
-    margin-top: -8px;
-    position: absolute;
-    top: -4px;
-    transition: all 0.3s ease-in-out;
-    width: 24px;
-}
-.material-switch > input[type="checkbox"]:checked + label::before {
-    background: inherit;
-    opacity: 0.5;
-}
-.material-switch > input[type="checkbox"]:checked + label::after {
-    background: inherit;
-    left: 20px;
-}
 
 
 
@@ -75,7 +63,37 @@
 <script>
 $(document).ready(function () {
    
+$('.sendButton').attr('disabled',true);
+    $('#message').keyup(function(){
+        if($(this).val().length !=0){
+            $('.sendButton').attr('disabled', false);
+        }
+        else
+        {
+            $('.sendButton').attr('disabled', true);        
+        }
+    })
+
+   $('.sendButton').click(function()
+   {
+        $("#enterPhone1").hide();
+   }
    
+   )
+
+   
+
+	$('.middle').click(function() {
+		$('.inactive2, .active2').toggle();
+         $("#email1").toggle();
+  });
+
+
+$('.second').click(function() {
+		$('.inactive1, .active1').toggle();
+          $("#enterPhone1").toggle();
+  });
+
 
     $("#Securitymenu").click(function(){
         event.preventDefault();
@@ -336,21 +354,21 @@ function disableYes(){
           <a href="" id="addPhone">Add a phone number</a>
           <div style="display: none;" id="enterPhone">
               
-          <input type="text" required data-errmsg="Enter 10 digit phone number" name "phone" class="form-control input-md pull-left">
+          <input type="text" required data-errmsg="Enter 10 digit phone number" name "phone"  class="form-control input-md pull-left">
           <button type="button"  class=" btn payment" type="submit" style="background-color:crimson;margin-top:10%;"> Send code</button>
            </div>
            </div>
        </div>
         </div>
-       
+
+                        
         </form>
 
            
                                 
           
                         
-                 <input type="button"  class=" btn payment" onclick="disableYes();"  type="submit" style="background-color:crimson;margin-top:10%;" value="Save changes"></button> 
-                        
+                
                    
     </div>   
         
@@ -359,9 +377,9 @@ function disableYes(){
 
 
 
-        <div class="col-md-8 col-xs-offset-2">
-
-        <div class="settingsPart" id="Notification" style="display: none">
+        <div class="col-md-8 col-xs-offset-2 well">
+        
+        <div class="settingsPart " id="Notification" style="display: none">
            <h3>
                Notifications
            </h3>
@@ -370,39 +388,52 @@ function disableYes(){
            <hr>
             <form>
 
-           <div class="form-group col-xs-10">
-                <div class="col-xs-10">
+           <div class="form-group col-xs-12">
+                <div class="col-xs-12">
          
-          <p> Send notifications by email </p>
+          <p style="float:left;"> Send notifications by email </p>
+        
+             
+        <div class="middle" style="float:right">
+		<i class="fa fa-toggle-on fa-2x active2" id="on" style="display:none;"></i>
+		<i class="fa fa-toggle-on fa-2x fa-rotate-180 inactive2" id="off" ></i>
+	    </div> 
           </div>
-              <div class="col-xs-1">
-
-        <div class="material-switch pull-right">
-                            <input id="someSwitchOptionPrimary" name="someSwitchOption001" type="checkbox"/>
-                            <label for="someSwitchOptionPrimary" class="label-primary"></label>
-                        </div>
-          </div>
-          </div>
-           <div class="form-group col-xs-10">
-                <div class="col-xs-9">
-          <p>Send notifications by phone</p>
-
-          </div>
-           <div class="material-switch pull-right">
-                            <input id="someSwitchOptionPrimary" name="someSwitchOption001" type="checkbox"/>
-                            <label for="someSwitchOptionPrimary" class="label-primary"></label>
-                        </div>
-           <div id="phoneVerify" style="display: none" class="form-group col-xs-10">
-          <p>You'll to add a phone number to activate two-step verification</p>
-          <p id="addPhone">Add a phone number</p>
-          <div style="display: none;" id="enterPhone">
-          <input  type="number" name "phone" class="form-control input-md pull-left">
-          <button> Send code</button>
-           </div>
-           </div>
-       </div>
+     </div>
+      <div class="form-group col-xs-12" id="email1" style="display:none;">
+                <div class="col-xs-12">
+       <div>
+       <input type="text" required data-errmsg="Enter 10 digit phone number"  required name="phone"/><br><br>
+      <input type"button" class="btn btn-info" value="Save">
+      </div>
         </div>
-       
+        </div>
+
+           <div class="form-group col-xs-12">
+                <div class="col-xs-12">
+                    <DIV>
+          <p style="float:left;">Send notifications by phone</P>
+          
+           <div class="second" style="float:right">
+		<i class="fa fa-toggle-on fa-2x active1" id="on" style="display:none;"></i>
+		<i class="fa fa-toggle-on fa-2x fa-rotate-180 inactive1" id="off" ></i>
+	   </div> 
+
+      </DIV>
+
+       </div>
+           
+       </div>
+<div class="form-group col-xs-12" id="enterPhone1" style="display:none;">
+                <div class="col-xs-12">
+       <div>
+       <input type="text" required data-errmsg="Enter 10 digit phone number"   id="message" required name="phone"/><br><br>
+      <input type"button" class="btn btn-info sendButton" value="Save">
+      </div>
+        </div>
+</div>
+</div>
+    
         </div>
         </div>
            <!--Address-->
