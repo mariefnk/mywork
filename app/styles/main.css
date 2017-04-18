@@ -37,6 +37,9 @@ a:hover{
 a { 
     color: inherit; 
 } 
+button:focus {
+    outline:0;
+    }
 
 .navbar {
     background-color: transparent;
@@ -134,6 +137,21 @@ a {
     height: 200px;
     /*width: 250px;*/
 }
+.md-datepicker-input-container {
+  width: 100%;
+  margin-top: 15px;
+}
+.md-datepicker-input __web-inspector-hide-shortcut__{
+    background-color:white;
+}
+
+
+/*md-datepicker{
+    border: 1px solid hsla(0,0%,100%,.2);
+    padding: 0px 25px 5px 25px;
+    margin-bottom: 25px;
+    height: 200px;
+}*/
 
 /*.signup-option-box:focus{
      border: 2px solid #0275d8;
@@ -647,6 +665,7 @@ body #aboutus {
 }
 
 .navbar-fixed-left {
+    z-index: 99;
     position: fixed;
     border-radius: 0;
     height: 100%;
@@ -659,6 +678,7 @@ body #aboutus {
 
 .employer-navbar-icons {
     z-index: 100;
+    border-right:none;
 }
 
 .employer-navbar {
@@ -807,11 +827,11 @@ body #aboutus {
     font-size: 14px;
 }
 
-.signup-form {
+/*.signup-form {
     display: inline-block;
     text-align: left;
     width: 100%;
-}
+}*/
 
 /*form input:not([type=radio]):not([type=checkbox]):not([type=file]),
 #job-offer-popup input {
@@ -1002,7 +1022,7 @@ li.navbar-subitems {
 }
 
 .employer-navbar > ul > li {
-    padding-bottom: 42px;
+    padding-bottom: 45px;
 /*    padding-top: 19px;*/
     text-decoration: none;
 }
@@ -1028,7 +1048,7 @@ li.navbar-subitems {
 }
 
 .icon-navbar-nav-text {
-    margin-top: 170px;
+    margin-top: 180px;
 }
 
 .nav li a {
@@ -1893,6 +1913,7 @@ label.avg-salary-info{
     margin-right: auto;
     margin-left: auto;
     margin-top: -30px;
+    padding-left: 100px;
 }
 
 .profile-feedback {
@@ -1902,8 +1923,8 @@ label.avg-salary-info{
     border-radius: 50%;
     width: 120px;
     margin: 0 5px;
-    border: 1px solid #00C4FF;
-    color: #00C4FF;
+    border: 1px solid white;
+    color:  #102331;
     padding-top: 20px;
 }
 
@@ -1963,7 +1984,7 @@ label.avg-salary-info{
 }
 
 .work {
-    margin-top: 75px;
+    margin-top: 25px;
     z-index: 999;
 }
 
@@ -1972,7 +1993,7 @@ label.avg-salary-info{
 }
 
 .schedule {
-    margin-top: 45px;
+    margin-top: 25px;
 }
 
 .schedule .title {
@@ -2326,6 +2347,11 @@ select {
     padding: 15px;
 
 }
+
+.detail-table-header{
+   background-color: #0064B8;
+}
+
 
 .table tbody .header:hover  {
     background-color: rgba(0, 153, 204, 0.1);
@@ -2842,8 +2868,7 @@ width:50%;
 }
 
 .submit-messages{
-    /*width: 100%;*/
-    width:74%;
+    width:400px;
     background-color: rgba(255,245,245,1);
     border-right: 1px solid #a94442;
     border-left: 1px solid #a94442;
