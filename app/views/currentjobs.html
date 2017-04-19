@@ -1,5 +1,5 @@
 <style>
- @import url('//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css');
+ 
  .content {
     overflow: hidden;
 }
@@ -66,7 +66,7 @@ td{
     float: left;
 }
 .table thead tr th, .table tbody tr td {
-    font-size: 12px;
+    font-size: 14px;
 }
 
 p {
@@ -84,7 +84,7 @@ p {
       a{
         cursor:pointer; 
       }
-   
+  
 
 </style>
 <script>
@@ -94,8 +94,8 @@ p {
 
     </script>
  
-     <div class="row">
- <div class="col-md-2">
+     <div class="row" style="margin-bottom:20%;">
+ <div class="col-md-3">
 
     <div class="filter">
 <!--                                    <div class="block-title">-->
@@ -110,7 +110,7 @@ p {
                                  <div id="filter-myworks-months"  class="collapse">
                                      <ul class="list-filter-month" ng-repeat = "month in monthsGroup">
                                         <li class ="filter-month"> <label>
-                                            <input type="checkbox"  ng-model="useMonth[month]"/ >
+                                            <input type="checkbox"  ng-model="useMonths[month]"/ >
                                                 {{month}}
                                             </label></li>
                                     </ul>
@@ -135,8 +135,18 @@ p {
                                      </ul>
 <!--                                     <div class="apply-months-filter">Filter</div>
                                  </div -->
-                                                   <div data-toggle="collapse" data-target="#filter-category" class="subtitle filter-categories" href="#filter-category">Category </div>
-                                        <div class="collapse filter-category" id="filter-category">
+                                      <div data-toggle="collapse" data-target="#filter-category" class="subtitle filter-categories" href="#filter-category">Category </div>
+                                        
+                                    <div id="filter-category"  class="collapse filter-category">
+                                     <ul class="list-filter-category" ng-repeat = "category in categoryGroup">
+                                        <li class ="filter-cat"> <label>
+                                            <input type="checkbox"  ng-model="useCategory[category]"/ >
+                                                {{category}}
+                                            </label></li>
+                                    </ul>
+                                 </div>
+
+                                        <!-- div class="collapse filter-category" id="filter-category">
                                             <ul class="list-filter-category">
                                             <li class ="filter-cat"> <label>
                                                 <input type="checkbox" name="filterCat-bartender">
@@ -156,9 +166,20 @@ p {
                                                 </label></li>
                                             </ul>
                                            
+                                        </div -->
+                                        <div data-toggle="collapse" data-target="#filter-location" class="subtitle filter-categories" href="#filter-location">Location</div>
+                                        <div id="filter-location"  class="collapse filter-location" style="padding:0 15px;">
+                                            <ul class="list-filter-category" ng-repeat = "location in locationGroup">
+                                                <li class ="filter-cat"> <label>
+                                                    <input type="checkbox"  ng-model="useLocation[location]"/ >
+                                                        {{location}}
+                                                    </label>
+                                                </li>
+                                            </ul>
                                         </div>
-                                            <div data-toggle="collapse" data-target="#filter-location" class="subtitle filter-categories" href="#filter-location">Location</div>
-                                        <div class="collapse filter-location" id="filter-location">
+                                        
+                                        
+                                        <!-- div class="collapse filter-location" id="filter-location">
                                             <ul class="list-filter-category" ng-model = "selectedLocation">
                                             <li class ="filter-cat"> <label>
                                                 <input type="checkbox" name="filterCat-bartender">
@@ -179,13 +200,13 @@ p {
                                                 
                                             </ul>
                                            <input type="hidden" ng-model = "selectedLocation" >
-                                        </div>
+                                        </div -->
 
                                 </div>
 								</div>
                                 </div>
                         
-      <div class="col-md-10">
+      <div class="col-md-8">
 <div id="exTab2">	
 <ul class="nav nav-tabs">
 			<li class="active">
@@ -213,7 +234,7 @@ p {
                                  </tr>
                              </thead>
 							<tbody>
-							<tr ng-repeat-start="a in filteredAppointments |  filter:{status:'1'} ">
+							<tr ng-repeat-start="a in filteredAppointments">
                                 
 						
                         <td>
@@ -250,9 +271,9 @@ p {
                         </td>
                         <td style="vertical-align: middle;">
                       
-                      <button id="myBtn(a.status)" class="btn btn-info btn-sm btn-block" ng-click="modalDisp(a.contract_id)" data-toggle="modal" data-target="#myModal">Actions</button>
+                      <button id="myBtn(a.status)" class="btn btn-sm btn-block"  ng-click="modalDisp(a.contract_id)" data-toggle="modal"  style="background-color:#0064b8;color:white;" data-target="#myModal">Actions</button>
                        <br>
-                      <a ui-sref="app.messagesPage" ><button class="btn btn-info btn-sm btn-block"><i class="glyphicon glyphicon-envelope"></i> Send</button></a>
+                      <a ui-sref="app.messagesPage" ><button class="btn  btn-sm btn-block" style="background-color:#0064b8;color:white;"><i class="glyphicon glyphicon-envelope"></i> Send</button></a>
                         </td>
                         
                            

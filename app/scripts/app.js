@@ -28,6 +28,8 @@ var myApp=angular.module('myApp',[
     }
     return result;
 };
+
+
 /*=======
   angular.module('datepickerBasicUsage', ['ngMaterial', 'ngMessages']).controller('AppCtrl', function() {
   this.myDate = new Date();
@@ -36,21 +38,36 @@ var myApp=angular.module('myApp',[
 >>>>>>> efa72678a7f9c96803081d0dee111118024f649e*/
 
 myApp.run(function($rootScope) {
-    $rootScope.appointments = [{"contract_id":"4551","title":"Waiter","first_name":"Larry","last_name":"Ullman","start_date":"2017-04-02","end_date":"2017-04-02","month":new Date("2017-04-02").getMonth(),"location":"Boston","phone":"123-435-6576","wage":"$15","Email":"h@gmail.com","paid":"$50", "status":"1"},
-    {"contract_id":"2232","title":"Waiter","first_name":"John","last_name":"Lennon","start_date":"2017-03-02","end_date":"2017-03-02","month":new Date("2017-03-02").getMonth(),"location":"Boston","phone":"123-435-6476","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"2"},
-    {"contract_id":"3323","title":"Waiter","first_name":"John","last_name":"Brown","start_date":"2017-05-02","end_date":"2017-05-02","month":new Date("2017-05-02").getMonth(),"location":"Boston","phone":"123-434-33-76","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"1"},
-    {"contract_id":"4323","title":"Waiter","first_name":"Tom","last_name":"Smith","start_date":"2017-06-02","end_date":"2017-04-02","month":new Date("2017-06-02").getMonth(),"location":"London","phone":"123-433-6576","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"3"},
 
-     {"contract_id":"3232","title":"Waiter","first_name":"Peter","last_name":"Lennon","start_date":"2017-04-02","end_date":"2017-04-02","month":new Date("2017-04-02").getMonth(),"location":"London","phone":"123-435-6576","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"2"},
-    {"contract_id":"5453","title":"Waiter","first_name":"Ava","last_name":"Brown","start_date":"2017-04-02","end_date":"2017-04-02","month":new Date("2017-04-02").getMonth(),"location":"Boston","phone":"123-435-6576","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"1"},
+var monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
 
-         {"contract_id":"552","title":"Waiter","first_name":"Dean","last_name":"Lennon","start_date":"2017-03-02","end_date":"2017-03-02","month":new Date("2017-03-02").getMonth(),"location":"London","phone":"123-435-6576","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"2"},
-    {"contract_id":"3545","title":"Waiter","first_name":"Anna","last_name":"Brown","start_date":"2017-05-02","end_date":"2017-05-02","month":new Date("2017-05-02").getMonth(),"location":"Boston","phone":"123-435-6596","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"1"},
 
-         {"contract_id":"21234","title":"Waiter","first_name":"Sam","last_name":"Lennon","start_date":"2017-03-02","end_date":"2017-03-02","month":new Date("2017-03-02").getMonth(),"location":"London","phone":"123-435-6576","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"3"},
-    {"contract_id":"43543","title":"Waiter","first_name":"Asayl","last_name":"Brown","start_date":"2017-05-02","end_date":"2017-05-02","month":new Date("2017-05-02").getMonth(),"location":"Boston","phone":"123-435-6576","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"3"},
+    $rootScope.appointments = [{"contract_id":"4551","title":"DJ","first_name":"Larry","last_name":"Ullman","start_date":"2017-04-02","end_date":"2017-04-02","month":monthNames[(new Date("2017-04-02").getMonth())],"location":"Boston","phone":"123-435-6576","wage":"$15","Email":"h@gmail.com","paid":"$50", "status":"1"},
+    {"contract_id":"2232","title":"Waiter","first_name":"John","last_name":"Lennon","start_date":"2017-03-02","end_date":"2017-03-02","month":monthNames[(new Date("2017-03-02").getMonth())],"location":"Boston","phone":"123-435-6476","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"2"},
+    {"contract_id":"3323","title":"Waiter","first_name":"John","last_name":"Brown","start_date":"2017-05-02","end_date":"2017-05-02","month":monthNames[(new Date("2017-05-02").getMonth())],"location":"Boston","phone":"123-434-33-76","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"1"},
+    {"contract_id":"4323","title":"Waiter","first_name":"Tom","last_name":"Smith","start_date":"2017-06-02","end_date":"2017-04-02","month":monthNames[(new Date("2017-06-02").getMonth())],"location":"London","phone":"123-433-6576","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"3"},
 
-    {"contract_id":"5455","title":"Waiter","first_name":"Sebastian","last_name":"Pier","start_date":"2017-04-02","end_date":"2017-04-02","month":new Date("2017-04-02").getMonth(),"location":"Paris","phone":"123-435-6576","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"2"}];
+     {"contract_id":"2232","title":"Waiter","first_name":"John","last_name":"Leon","start_date":"2017-03-02","end_date":"2017-03-02","month":monthNames[(new Date("2017-03-02").getMonth())],"location":"Boston","phone":"123-435-6476","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"2"},
+    {"contract_id":"3323","title":"Waiter","first_name":"John","last_name":"Chang","start_date":"2017-05-02","end_date":"2017-05-02","month":monthNames[(new Date("2017-05-02").getMonth())],"location":"Boston","phone":"123-434-33-76","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"1"},
+    {"contract_id":"4323","title":"Waiter","first_name":"Tom","last_name":"Wo","start_date":"2017-06-02","end_date":"2017-04-02","month":monthNames[(new Date("2017-06-02").getMonth())],"location":"London","phone":"123-433-6576","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"3"},
+
+     {"contract_id":"2232","title":"Waiter","first_name":"John","last_name":"Ho","start_date":"2017-03-02","end_date":"2017-03-02","month":monthNames[(new Date("2017-03-02").getMonth())],"location":"Boston","phone":"123-435-6476","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"2"},
+    {"contract_id":"3323","title":"Waiter","first_name":"John","last_name":"Doe","start_date":"2017-05-02","end_date":"2017-05-02","month":monthNames[(new Date("2017-05-02").getMonth())],"location":"Boston","phone":"123-434-33-76","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"1"},
+    {"contract_id":"4323","title":"Waiter","first_name":"Tom","last_name":"Peterson","start_date":"2017-06-02","end_date":"2017-04-02","month":monthNames[(new Date("2017-06-02").getMonth())],"location":"London","phone":"123-433-6576","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"3"},
+
+
+     {"contract_id":"3232","title":"Waiter","first_name":"Peter","last_name":"Lennon","start_date":"2017-04-02","end_date":"2017-04-02","month":monthNames[(new Date("2017-04-02").getMonth())],"location":"London","phone":"123-435-6576","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"2"},
+    {"contract_id":"5453","title":"Waiter","first_name":"Ava","last_name":"Brown","start_date":"2017-04-02","end_date":"2017-04-02","month":monthNames[(new Date("2017-04-02").getMonth())],"location":"London","phone":"123-435-6576","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"1"},
+
+         {"contract_id":"552","title":"Waiter","first_name":"Dean","last_name":"Lennon","start_date":"2017-03-02","end_date":"2017-03-02","month":monthNames[(new Date("2017-03-02").getMonth())],"location":"London","phone":"123-435-6576","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"2"},
+    {"contract_id":"3545","title":"Waiter","first_name":"Anna","last_name":"Brown","start_date":"2017-05-02","end_date":"2017-05-02","month":monthNames[(new Date("2017-05-02").getMonth())],"location":"Boston","phone":"123-435-6596","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"1"},
+
+         {"contract_id":"21234","title":"Waiter","first_name":"Sam","last_name":"Lennon","start_date":"2017-03-02","end_date":"2017-03-02","month":monthNames[(new Date("2017-03-02").getMonth())],"location":"London","phone":"123-435-6576","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"3"},
+    {"contract_id":"43543","title":"Waiter","first_name":"Asayl","last_name":"Brown","start_date":"2017-05-02","end_date":"2017-05-02","month":monthNames[(new Date("2017-05-02").getMonth())],"location":"Boston","phone":"123-435-6576","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"3"},
+
+    {"contract_id":"5455","title":"Waiter","first_name":"Sebastian","last_name":"Pier","start_date":"2017-04-02","end_date":"2017-04-02","month":monthNames[(new Date("2017-04-02").getMonth())],"location":"Paris","phone":"123-435-6576","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"2"}];
 
     
 });
@@ -464,34 +481,45 @@ myApp.directive('innerHtmlBind', function() {
 ////FOR CURRENT TABLE
 myApp.controller('currentjobsController', function($http,$scope,$timeout,$log,$rootScope, $mdDialog){
 
-//$scope.selectedMonth = '04';
+  $scope.useMonths = {};
+  $scope.useCategory = {};
+  $scope.useLocation = {};
 
+//$scope.selectedMonth = '04';
+$scope.status1 = [];
+
+/*
 $scope.months = [{ name:'March', val:'03'},
 { name:'April', val:'04'},
 { name:'May', val:'05'},
-{ name:'June', val:'06'}];
-
+{ name:'June', val:'06'}]; */
+ angular.forEach($rootScope.appointments, function (value, key) {
+            if(value.status==1)
+            {
+            $scope.status1.push(value);
+            }
+        });  
 
  // Watch the pants that are selected
     $scope.$watch(function () {
         return {
-            filteredAppointments: $rootScope.appointments,
+            filteredAppointments: $scope.status1,
             useMonths: $scope.useMonths,
-            /*useShirts: $scope.useShirts,
-            useShoes: $scope.useShoes */
+            useCategory: $scope.useCategory,
+            useLocation: $scope.useLocation
         }
     }, function (value) {
         var selected;
-        
-        $scope.monthsGroup = uniqueItems($rootScope.appointments, 'month');
+        console.log(value);
+        $scope.monthsGroup = uniqueItems($scope.status1, 'month');
         var filterAfterMonths = [];        
         selected = false;
-        for (var j in $rootScope.appointments) {
-            var p = $rootScope.appointments[j];
+        for (var j in $scope.status1) {
+            var p = $scope.status1[j];
             for (var i in $scope.useMonths) {
                 if ($scope.useMonths[i]) {
                     selected = true;
-                    if (i == p.months) {
+                    if (i == p.month) {
                         filterAfterMonths.push(p);
                         break;
                     }
@@ -499,55 +527,49 @@ $scope.months = [{ name:'March', val:'03'},
             }        
         }
         if (!selected) {
-            filterAfterMonths = $rootScope.appointments;
+            filterAfterMonths = $scope.status1;
         }
-/*
-        $scope.shirtsGroup = uniqueItems($scope.players, 'shirt');
-        var filterAfterShirts = [];        
+
+        $scope.categoryGroup = uniqueItems(filterAfterMonths, 'title');
+        var filterAfterCategory = [];        
         selected = false;
-        for (var j in filterAfterPants) {
-            var p = filterAfterPants[j];
-            for (var i in $scope.useShirts) {
-                if ($scope.useShirts[i]) {
+        for (var j in filterAfterMonths) {
+            var p = filterAfterMonths[j];
+            for (var i in $scope.useCategory) {
+                if ($scope.useCategory[i]) {
                     selected = true;
-                    if (i == p.shirt) {
-                        filterAfterShirts.push(p);
+                    if (i == p.title) {
+                        filterAfterCategory.push(p);
                         break;
                     }
                 }
             }       
         }
         if (!selected) {
-            filterAfterShirts = filterAfterPants;
+            filterAfterCategory = filterAfterMonths;
         }
 
-        $scope.shoesGroup = uniqueItems($scope.players, 'shoes');
-        var filterAfterShoes = [];        
+        $scope.locationGroup = uniqueItems(filterAfterCategory, 'location');
+        var filterAfterLocation = [];        
         selected = false;
-        for (var j in filterAfterShirts) {
-            var p = filterAfterShirts[j];
-            for (var i in $scope.useShoes) {
-                if ($scope.useShoes[i]) {
+        for (var j in filterAfterCategory) {
+            var p = filterAfterCategory[j];
+            for (var i in $scope.useLocation) {
+                if ($scope.useLocation[i]) {
                     selected = true;
-                    if (i == p.shoes) {
-                        filterAfterShoes.push(p);
+                    if (i == p.location) {
+                        filterAfterLocation.push(p);
                         break;
                     }
                 }
             }    
         }
         if (!selected) {
-            filterAfterShoes = filterAfterShirts;
-        }        */
+            filterAfterLocation = filterAfterCategory;
+        }       
 
-        $scope.filteredAppointments = filterAfterMonths;   
-        alert($scope.filteredAppointments);     
-    }, true);
-
-    $scope.$watch('filtered', function (newValue) {
-        if (angular.isArray(newValue)) {
-            console.log(newValue.length);
-        }
+        $scope.filteredAppointments = filterAfterLocation;   
+       //alert($scope.filteredAppointments);     
     }, true);    
 
 /*
@@ -556,21 +578,19 @@ $scope.getFiltersCount = function(obj, month){
   alert(obj);
 } */
 
-    $scope.testClick =function(cId){
-for(var i = 0; i<$rootScope.appointments.length; i++)
-{
-   if($rootScope.appointments[i].contract_id == cId){
-     $rootScope.appointupdateTimements[i].status = 3;
-   }
+$scope.testClick =function(cId){
+  for(var i = 0; i<$rootScope.appointments.length; i++)
+  {
+    if($rootScope.appointments[i].contract_id == cId){
+      $rootScope.appointupdateTimements[i].status = 3;
+    }
+  }
 }
- }
-
 
 $scope.updateTime = function(){
   $scope.startTime = $('#startTime').val();
   $scope.endTime = $('#endTime').val();
 }
-
 
 $scope.addItem = function(cId){
 
