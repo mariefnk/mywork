@@ -29,27 +29,27 @@
 }
 
 #exTab2 li.active a{ 
-	background-color: #428bca;
+	background-color: #454545;
 	color : white;
-	border: 1px solid #428bca;
+	border: 1px solid #454545;
 }
 
 .tab-content{
-    background-color:#428bca;
+    background-color:#454545;
     color:#fff;
     padding:5px
 }
 .nav-tabs > li.active > a{
-  border: 1px solid #428bca;
+  border: 1px solid #454545;
 }
 .nav-tabs > li > a:hover{
-  background-color: #428bca !important;
+  background-color: #454545 !important;
   color:#fff;
-  border: 1px solid #428bca;
+  border: 1px solid #454545
 }
 
 .nav-tabs > li > a:hover{
-	border-color: #428bca;
+	border-color: #454545;
 }
 
 .nav-tabs > li > a
@@ -81,7 +81,7 @@ thead{
 	/*border-left: 1px solid #ddd;
 	border-top: 1px solid #428bca; */
     color:white;
-	background-color:#428bca;
+	background-color:#454545;
 	text-align: center;
 }
 .table thead tr th, .table tbody tr td {
