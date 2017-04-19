@@ -49,6 +49,15 @@ var monthNames = ["January", "February", "March", "April", "May", "June",
     {"contract_id":"3323","title":"Waiter","first_name":"John","last_name":"Brown","start_date":"2017-05-02","end_date":"2017-05-02","month":monthNames[(new Date("2017-05-02").getMonth())],"location":"Boston","phone":"123-434-33-76","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"1"},
     {"contract_id":"4323","title":"Waiter","first_name":"Tom","last_name":"Smith","start_date":"2017-06-02","end_date":"2017-04-02","month":monthNames[(new Date("2017-06-02").getMonth())],"location":"London","phone":"123-433-6576","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"3"},
 
+     {"contract_id":"2232","title":"Waiter","first_name":"John","last_name":"Leon","start_date":"2017-03-02","end_date":"2017-03-02","month":monthNames[(new Date("2017-03-02").getMonth())],"location":"Boston","phone":"123-435-6476","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"2"},
+    {"contract_id":"3323","title":"Waiter","first_name":"John","last_name":"Chang","start_date":"2017-05-02","end_date":"2017-05-02","month":monthNames[(new Date("2017-05-02").getMonth())],"location":"Boston","phone":"123-434-33-76","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"1"},
+    {"contract_id":"4323","title":"Waiter","first_name":"Tom","last_name":"Wo","start_date":"2017-06-02","end_date":"2017-04-02","month":monthNames[(new Date("2017-06-02").getMonth())],"location":"London","phone":"123-433-6576","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"3"},
+
+     {"contract_id":"2232","title":"Waiter","first_name":"John","last_name":"Ho","start_date":"2017-03-02","end_date":"2017-03-02","month":monthNames[(new Date("2017-03-02").getMonth())],"location":"Boston","phone":"123-435-6476","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"2"},
+    {"contract_id":"3323","title":"Waiter","first_name":"John","last_name":"Doe","start_date":"2017-05-02","end_date":"2017-05-02","month":monthNames[(new Date("2017-05-02").getMonth())],"location":"Boston","phone":"123-434-33-76","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"1"},
+    {"contract_id":"4323","title":"Waiter","first_name":"Tom","last_name":"Peterson","start_date":"2017-06-02","end_date":"2017-04-02","month":monthNames[(new Date("2017-06-02").getMonth())],"location":"London","phone":"123-433-6576","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"3"},
+
+
      {"contract_id":"3232","title":"Waiter","first_name":"Peter","last_name":"Lennon","start_date":"2017-04-02","end_date":"2017-04-02","month":monthNames[(new Date("2017-04-02").getMonth())],"location":"London","phone":"123-435-6576","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"2"},
     {"contract_id":"5453","title":"Waiter","first_name":"Ava","last_name":"Brown","start_date":"2017-04-02","end_date":"2017-04-02","month":monthNames[(new Date("2017-04-02").getMonth())],"location":"London","phone":"123-435-6576","wage":"$15","Email":"h@gmail.com","paid":"$50","status":"1"},
 
