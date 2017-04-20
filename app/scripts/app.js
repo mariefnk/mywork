@@ -180,6 +180,15 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider){
       app: {templateUrl: "views/home-page-employer.html", controller: 'HomePageController'}
     }
   })
+
+ $stateProvider.state('app.profileWorker',{
+    url: '/profile-worker',
+    abstract: false,
+    views: {
+      app: {templateUrl: "views/profile-worker.html", controller: 'ProfileWorkerController'}
+    }
+  })
+
   $stateProvider.state('app.selectedWorker',{
     url: '/selectedWorker',
     abstract: false,
@@ -270,8 +279,14 @@ myApp.controller('registerController', ['$scope','$state', function($scope,$stat
 
 
   $scope.user_role = 'worker'
+  $('.signup-option-box-worker').css('outline','4px solid white');
   $scope.select_type = function(el){
     $scope.user_role = el
+    if($scope.user_role == 'worker'){
+         $('.signup-option-box-worker').css('outline','4px solid white');
+      }else {
+         $('. signup-option-box-employer').css('outline','4px solid white');
+      }
   }
   $scope.submit = function(isValid){
     if(isValid){
