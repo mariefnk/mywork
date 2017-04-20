@@ -620,18 +620,18 @@ function signupPageSetup() {
         e = e || window.event;
         var target = e.target || e.srcElement;
 
-        if (!isValid(target.name, target.value)) {
-            var content = $('#errmsgcontent');
-            content.html("");
-            content.html($(target).data('errmsg'));
-            var errmsg = $('#errmsg');
-            $(target).parent().append(errmsg);
-            errmsg.show();
-            $(target).css('border-bottom','2px solid crimson');
+    //     if (!isValid(target.name, target.value)) {
+    //         var content = $('#errmsgcontent');
+    //         content.html("");
+    //         content.html($(target).data('errmsg'));
+    //         var errmsg = $('#errmsg');
+    //         $(target).parent().append(errmsg);
+    //         errmsg.show();
+    //         $(target).css('border-bottom','2px solid crimson');
          
-        }else{
-            $(target).css('border-bottom','1px solid #6E6E6E');
-        }
+    //     }else{
+    //         $(target).css('border-bottom','1px solid #6E6E6E');
+    //     }
     });
 
     $(document).on('click', function(e) {
@@ -701,34 +701,34 @@ function previewFile() {
 
 function experienceLevelChanged(el) {
     if (el.value != '') {
-        var categoryPicked = $('#rel-position').html(document.myForm.category.value);
+        // var categoryPicked = $('#rel-position').html(document.myForm.category.value);
         var degreeHolder = $('.degree-input');
         var degree = degreeHolder.find('select[name=degree]');
         var content = '';
         switch (document.myForm.category.value) {
             case 'Bartender':
-                content += '<option value="">Formation related to position ' + categoryPicked'</option>';
+                content += '<option value="">Formation related to position</option>';
                 content += '<option>Paul Bocuse</option>';
                 content += '<option>Ecole Du Bar</option>';
                 content += '<option>Bartender School</option>';
                 content += '<option>None</option>';
                 break;
             case 'Waitress':
-                content += '<option value="">-Select-</option>';
+                content += '<option value="">Formation related to position</option>';
                 content += '<option>Paul Bocuse</option>';
                 content += '<option>Vatel</option>';
                 content += '<option>Lausane Institute</option>';
                 content += '<option>None</option>';
                 break;
             case 'DJ':
-                content += '<option value="">-Select-</option>';
+                content += '<option value="">Formation related to position-</option>';
                 content += '<option>DJ School</option>';
                 content += '<option>Ecole Des DJ</option>';
                 content += '<option>DJ Network</option>';
                 content += '<option>None</option>';
                 break;
             case 'Security Agent':
-                content += '<option value="">Formation related to position <span>id="rel-position"></span></option>';
+                content += '<option value="">Formation related to position</option>';
                 content += '<option>Security Agent School</option>';
                 content += '<option>Security Network</option>';
                 content += '<option>None</option>';
@@ -740,7 +740,6 @@ function experienceLevelChanged(el) {
 }
 
 function degreeChanged(el) {
-    console.log("DEGRE", el)
     if (el.value != '') {
         if (el.value != 'None') {
             $('.graduated-in-input').show();
@@ -787,9 +786,9 @@ function checkSalaryLimits() {
     }
 
     if (Number(value) > Number($('#expectedSalary').html())) {
-        $('input[name=expectedSalary]').removeClass('green').addClass('red');
+        $('input[name=expectedSalary]').css('color', '#ff2727');
     } else {
-        $('input[name=expectedSalary]').removeClass('red').addClass('green');
+        $('input[name=expectedSalary]').css('color', '#58a758');
     }
 }
 

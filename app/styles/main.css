@@ -2685,6 +2685,10 @@ body {
     color: white;
 }
 
+.submitBtn:focus{
+    outline:0;
+}
+
 
 
 
@@ -2919,4 +2923,9 @@ input[type="file"] {
     padding: 6px 12px;
     cursor: pointer;
     
+}
+
+.time-of-day .checkbox{
+    padding-left:25px;
+    color: white;
 }

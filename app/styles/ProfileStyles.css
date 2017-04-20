@@ -1,0 +1,122 @@
+@charset "UTF-8";
+/* CSS Document */
+#profilePage .input-group {
+	padding-top: 30px;		
+}
+
+#profilePage .input-section:nth-child(even){
+	background-color: rgba(230,230,230,1.00);
+}
+
+#profilePage .input-section{
+	padding: 50px;
+}
+
+#profilePage label {
+	font-size: 20px;
+	font-weight: 400;
+	margin-bottom: 10px;
+}
+
+#profilePage th {
+	font-size: 16px;
+	font-weight: 400;
+}
+		
+#profilePage input + #profilePage input  {
+	margin-top: 10px;
+	background-color: yellow;
+}
+		
+#profilePage [type=checkbox] {
+	font-size: 200%;
+}
+
+#profilePage [type=radio] {
+	width: 100%;
+}
+
+#profilePage .pageTitle{
+	padding: 10px;
+	text-align: center;
+	background-color: #102331;
+	height: 100px;
+	color: white;
+}
+
+#profilePage .table {
+	margin-top: 20px;
+	width: 100%;
+}
+
+#profilePage .groupTitle{
+	color: rgba(110,110,110,1.00);
+	width: 100%;
+	text-align: center;
+	line-height: 1.1;
+	font-size: 25px;
+	font-weight: 400;
+	text-transform: uppercase;
+}
+
+#profilePage hr {
+	margin-top: 3px;
+	margin-bottom: 10px;
+	width: 50%;
+}
+
+#profilePage .required {
+	color: crimson;
+	font-size: 70%;
+}
+
+#profilePage img {
+	width: 12%;
+	border: solid #102331;
+	display: block;
+	margin-left: auto;
+    margin-right: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#profilePage #profilePicture {
+	margin-top: 20px;
+}
+
+#profilePage #name{
+	margin: 0;
+	text-align: center;
+	font-size: 30px;
+	font-weight: 600;
+	color: #102331;
+}
+
+#profilePage #experience{
+	padding: 0;
+	text-align: center;
+	font-size: 20px;
+	font-weight: 400;
+	color: crimson;
+}
+
+#profilePage .panel-heading {
+	background-color: dimgray;
+	color: white;
+	padding: 10px;
+}
+
+#profilePage h3{
+	margin: 10px;
+}
+		
+#profilePage .editBtn {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	width: 200px;
+}
+#profilePage {
+	margin-bottom: 50px;
+}

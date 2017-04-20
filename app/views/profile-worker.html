@@ -1,0 +1,157 @@
+<main id="profilePage" ng-app="profileApp" ng-controller="profileController">
+		<link rel="stylesheet" href="../styles/ProfileStyles.css" />
+		<script src = "../scripts/ProfileController.js"></script>
+		<div class="pageTitle"><h1>Profile</h1></div>
+		<img src="{{account.picture}}" class="img-circle">
+		<p id="name">{{fullName()}}</p>
+		<p id="experience">{{account.experience}}</p><br>
+		<button type="button" class="btn btn-basic btn-sm editBtn" data-toggle="modal" data-target="#myModal" ng-click="cancel()">Edit</button>
+		<div class="row">
+			<div class="col-sm-4"><div class="panel"><div class="panel-heading"><h3>Profile</h3></div><div class="panel-body">
+				<div ng-show="account.address || account.city || account.zipCode || account.state">
+					<h4>Address</h4>
+					<p>{{account.address}}</p>
+					<p>{{account.city + ' ' + account.zipCode + ', ' + account.state}}</p><hr>
+				</div>
+				<div ng-show="account.phone">
+					<h4>Phone </h4>
+					<p>{{account.phone}}</p><hr>
+				</div>
+				<div ng-show="account.dateOfBirth">
+					<h4>Date of Birth </h4>
+					<p>{{account.dateOfBirth}}</p><hr>
+				</div>
+				<div ng-show="account.gender">	
+					<h4>Gender </h4>
+					<p>{{account.gender}}</p>
+				</div>
+			</div></div></div>
+			
+			<div class="col-sm-4"><div class="panel"><div class="panel-heading"><h3>Work Experience</h3></div><div class="panel-body">
+				<div ng-show="account.experience">
+					<h4>Experience</h4>
+					<p>{{account.experience}}</p>
+				</div>
+				<div ng-show="account.experienceLevel">
+					<h4>Level of Experience </h4>
+					<p>{{account.experienceLevel}}</p><hr>
+				</div>
+				<div ng-show="account.degreeCertificate">
+					<h4>Degree / Certificate related to position </h4>
+					<p>{{account.degreeCertificate}}</p><hr>
+				</div>
+				<div ng-show="account.graduationYear">
+					<h4>Graduation Year </h4>
+					<p>{{account.graduationYear}}</p>
+				</div>
+			</div></div></div>
+			
+			
+			<div class="col-sm-4"><div class="panel"><div class="panel-heading"><h3>Schedual</h3></div><div class="panel-body">
+				<p ng-repeat="day in account.schedule" ng-show="day.allDay || day.morning || day.afternoon || day.evening"><b>{{day.day}}</b>
+				<span ng-show="day.allDay"> All Day</span>
+				<span ng-show="day.morning && !day.allDay"> Morning</span>
+				<span ng-show="day.evening && !day.allDay"> Afternoon</span>
+				<span ng-show="day.evening && !day.allDay"> Evening</span>
+				</p>
+			</div></div></div>
+		</div>
+		<button type="button" class="btn btn-basic btn-sm editBtn" data-toggle="modal" data-target="#myModal" ng-click="cancel()">Edit</button>
+		
+		
+		
+		<div id="myModal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title" style="text-align: center">Edite Profile</h4>
+					</div>
+					<div class="modal-body" style="padding: 0">
+						<form id="profile" name="profileForm">
+							<div class="input-section">
+								<div class="groupTitle">Contact Information</div><hr>
+								<div class="input-group">
+									<label for="firstNameTF">First Name <span class="glyphicon glyphicon-asterisk required"/></label>
+									<input type="text" class="form-control input-lg" name="firstNameTF" placeholder="Enter your first name" ng-model="tempAccount.firstName" required>
+								</div>
+								<span class="required" ng-show="profileForm.firstNameTF.$invalid">First name is required</span>
+								
+								<div class="input-group">
+									<label for="lastNameTF">Last Name <span class="glyphicon glyphicon-asterisk required"/></label>
+									<input type="text" class="form-control input-lg" name="lastNameTF" placeholder="Enter your last name" ng-model="tempAccount.lastName" required>
+								</div>
+								<span class="required" ng-show="profileForm.lastNameTF.$invalid">Last name is required</span>
+								
+								<div class="input-group">
+									<label>Address</label>
+									<input type="text" class="form-control input-lg" name="addressTF" placeholder="Street address" ng-model="tempAccount.address" style="margin-bottom: 10px">
+										<div class="col-lg-6" style="padding: 0"><input type="text" class="form-control input-lg" name="cityTF" placeholder="City" ng-model="tempAccount.city"></div>
+										<div class="col-lg-3"><input type="text" class="form-control input-lg" name="stateTF" placeholder="State" ng-model="tempAccount.state"></div>
+										<div class="col-lg-3" style="padding: 0"><input type="text" class="form-control input-lg" name="zipTF" placeholder="ZIP Code" ng-model="tempAccount.zipCode"></div>
+								</div>
+								
+								<div class="input-group">
+									<label for="phoneTF">Phone Number</label>
+									<input type="text" class="form-control input-lg" name="phoneTF" placeholder="Enter your phone number" ng-model="tempAccount.phone">
+								</div>
+								
+								<div class="input-group">
+									<label for="dateOfBirthTF">Date of Birth</label>
+									<input type="text" class="form-control input-lg" name="dateOfBirthTF" placeholder="Enter your date of birth" ng-model="tempAccount.dateOfBirth">
+								</div>
+								
+								<div class="input-group">
+									<label for="genderRB">Gender</label><br>
+									<label class="radio-inline" ng-repeat="gender in gender"><input type="radio" name="genderRB" ng-model="tempAccount.gender" value="{{gender}}"> {{gender}}</label>
+								</div>
+							</div>
+
+							<div class="input-section container-fluid">
+								<div class="groupTitle">Work Experience</div><hr>
+								<div class="input-group">
+									<label for="experienceTF">Work Experience <span class="glyphicon glyphicon-asterisk required"/></label>
+<!--									<select class="form-control" ng-model="account.experience" ng-options="option for option in experience" style="display:inline"></select>-->
+									<input class="form-control input-lg" list="experiences" name="experienceTF" ng-model="tempAccount.experience" required>
+									<datalist id="experiences"><option ng-repeat="option in experience" value="{{option}}" /></datalist>
+<!--									<input type="text" class="form-control input-lg" name="workExpreienceTF" placeholder="What is your work experience" ng-show="account.experience == 'Other'" ng-model="account.experience">-->
+								</div>
+								<span class="required" ng-show="profileForm.experienceTF.$invalid">Experience is required</span>
+								
+								<div class="input-group">
+									<label for="levelOfExpreienceOption">Level of Experience <span class="glyphicon glyphicon-asterisk required"/></label>
+									<select class="form-control" name="levelOfExpreienceOption" ng-model="tempAccount.experienceLevel" ng-options="option for option in experienceLevel" required></select>
+								</div>
+								<span class="required" ng-show="profileForm.levelOfExpreienceOption.$invalid">Level of experience is required</span>
+								
+								<div class="input-group">
+									<label for="degreeCertificateOption">Degree / Certificate related to position</label>
+									<select class="form-control" name="degreeCertificateOption" ng-model="tempAccount.degreeCertificate" ng-options="option for option in degreeCertificate"></select>
+								</div>
+								
+								<div class="input-group">
+									<label for="graduationYearOption">Graduation Year</label>
+									<select class="form-control" name="graduationYearOption" ng-model="tempAccount.graduationYear" ng-options="option for option in graduationYear"></select>
+								</div>
+							</div>
+							<div class="input-section">
+								<div class="groupTitle">Schedule</div><hr>
+								<div class="input-group" style="width: 100%">
+									<label>Availability</label>
+									<div>
+									<table class="table">
+										<tr><th>Week Day</th><th>All Day</th><th>Morning</th><th>Afternoon</th><th>Evening</th></tr>
+										<tr ng-repeat = "day in tempAccount.schedule"><th>{{day.day}}</th><td><input type="checkbox" ng-model="day.allDay"></td><td><input type="checkbox" ng-model="day.morning" ng-hide="day.allDay"></td><td><input type="checkbox" ng-model="day.afternoon" ng-hide="day.allDay"></td><td><input type="checkbox" ng-model="day.evening" ng-hide="day.allDay"></td></tr>
+									</table>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+        				<button type="button" class="btn btn-primary btn-lg" data-dismiss="modal" ng-click="save()" style="" ng-disabled="canSave()">Save Changes</button>
+        				<button type="button" class="btn btn-warning btn-lg" data-dismiss="modal" ng-click="cancel()" style="margin: 0">Cancel Changes</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
